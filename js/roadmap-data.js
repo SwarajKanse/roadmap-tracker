@@ -9469,7 +9469,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face LLM Course** (`huggingface.co/learn/llm-course`) — Ch.1: what Transformers can do, the `pipeline()` API",
-            "html": "<strong>Hugging Face LLM Course</strong> (<code>huggingface.co/learn/llm-course</code>) — Ch.1: what Transformers can do, the <code>pipeline()</code> API",
+            "html": "<strong>Hugging Face LLM Course</strong> (<code><a href=\"https://huggingface.co/learn/llm-course</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/llm-course<code></a>) — Ch.1: what Transformers can do, the </code>pipeline()` API",
             "is_rest": false
           },
           {
@@ -9779,7 +9779,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "HF PEFT / LoRA quicktour (`huggingface.co/docs/peft`) — read the concept: freeze the base model, train a small rank-decomposition adapter",
-            "html": "HF PEFT / LoRA quicktour (<code>huggingface.co/docs/peft</code>) — read the concept: freeze the base model, train a small rank-decomposition adapter",
+            "html": "HF PEFT / LoRA quicktour (<code><a href=\"https://huggingface.co/docs/peft</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/docs/peft`</a>) — read the concept: freeze the base model, train a small rank-decomposition adapter",
             "is_rest": false
           },
           {
@@ -10173,7 +10173,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**RAGAS** (`docs.ragas.io`) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
-            "html": "<strong>RAGAS</strong> (<code>docs.ragas.io</code>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
+            "html": "<strong>RAGAS</strong> (<code><a href=\"https://docs.ragas.io</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.ragas.io`</a>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
             "is_rest": false
           },
           {
@@ -10399,7 +10399,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face Agents Course** (`huggingface.co/learn/agents-course`) — Unit 1: what an agent is, the ReAct-style loop",
-            "html": "<strong>Hugging Face Agents Course</strong> (<code>huggingface.co/learn/agents-course</code>) — Unit 1: what an agent is, the ReAct-style loop",
+            "html": "<strong>Hugging Face Agents Course</strong> (<code><a href=\"https://huggingface.co/learn/agents-course</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/agents-course`</a>) — Unit 1: what an agent is, the ReAct-style loop",
             "is_rest": false
           },
           {
@@ -12281,7 +12281,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Confluent Developer — \"Kafka 101\"** (`developer.confluent.io`) — free, official: topics, partitions, producers/consumers, offsets",
-            "html": "<strong>Confluent Developer — \"Kafka 101\"</strong> (<code>developer.confluent.io</code>) — free, official: topics, partitions, producers/consumers, offsets",
+            "html": "<strong>Confluent Developer — \"Kafka 101\"</strong> (<code><a href=\"https://developer.confluent.io</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">developer.confluent.io`</a>) — free, official: topics, partitions, producers/consumers, offsets",
             "is_rest": false
           },
           {
@@ -14159,5 +14159,1615 @@ window.ROADMAP_DATA = [
     "notes": [
       "Next: <strong>Phase 10 — Weeks 46–50</strong> (<code>10_Phase10_Weeks_46-50.md</code>)"
     ]
+  },
+  {
+    "week_num": 46,
+    "title": "Full-Stack Self-Test & the Interview Question Bank",
+    "phase_num": 10,
+    "phase_title": "Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)",
+    "days": [
+      {
+        "day_code": "Mon",
+        "day_name": "Monday",
+        "tasks": [
+          {
+            "id": "w46_mon_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Mixed timed contest #1 (90 min) — Trees, BST, Heaps, Graphs, DP, drawn at random",
+            "html": "Mixed timed contest #1 (90 min) — Trees, BST, Heaps, Graphs, DP, drawn at random",
+            "is_rest": false
+          },
+          {
+            "id": "w46_mon_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Mock-explain, solo and out loud: gradient descent → backpropagation",
+            "html": "Mock-explain, solo and out loud: gradient descent → backpropagation",
+            "is_rest": false
+          },
+          {
+            "id": "w46_mon_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Design a Web Crawler — requirements + capacity estimation",
+            "html": "Design a Web Crawler — requirements + capacity estimation",
+            "is_rest": false
+          },
+          {
+            "id": "w46_mon_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: Core Java & Collections — write your own answers, don't just read someone else's",
+            "html": "Interview Q&amp;A bank: Core Java &amp; Collections — write your own answers, don't just read someone else's",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Tue",
+        "day_name": "Tuesday",
+        "tasks": [
+          {
+            "id": "w46_tue_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Review and redo every problem you missed in Monday's contest",
+            "html": "Review and redo every problem you missed in Monday's contest",
+            "is_rest": false
+          },
+          {
+            "id": "w46_tue_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Mock-explain: CNN architectures → the transformer → GPT",
+            "html": "Mock-explain: CNN architectures → the transformer → GPT",
+            "is_rest": false
+          },
+          {
+            "id": "w46_tue_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Web Crawler — architecture: URL frontier, deduplication, politeness/rate-limiting",
+            "html": "Web Crawler — architecture: URL frontier, deduplication, politeness/rate-limiting",
+            "is_rest": false
+          },
+          {
+            "id": "w46_tue_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: Concurrency & the JVM",
+            "html": "Interview Q&amp;A bank: Concurrency &amp; the JVM",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Wed",
+        "day_name": "Wednesday",
+        "tasks": [
+          {
+            "id": "w46_wed_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Mixed timed contest #2 (90 min) — Arrays, Hashing, Binary Search, Linked List, drawn at random",
+            "html": "Mixed timed contest #2 (90 min) — Arrays, Hashing, Binary Search, Linked List, drawn at random",
+            "is_rest": false
+          },
+          {
+            "id": "w46_wed_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Mock-explain: RAG → agentic tool-calling → your Spring AI capstone",
+            "html": "Mock-explain: RAG → agentic tool-calling → your Spring AI capstone",
+            "is_rest": false
+          },
+          {
+            "id": "w46_wed_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Web Crawler — storage & scaling: how you'd distribute the crawl",
+            "html": "Web Crawler — storage &amp; scaling: how you'd distribute the crawl",
+            "is_rest": false
+          },
+          {
+            "id": "w46_wed_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: Spring Core & Spring Boot fundamentals",
+            "html": "Interview Q&amp;A bank: Spring Core &amp; Spring Boot fundamentals",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Thu",
+        "day_name": "Thursday",
+        "tasks": [
+          {
+            "id": "w46_thu_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Review and redo every problem you missed in Wednesday's contest",
+            "html": "Review and redo every problem you missed in Wednesday's contest",
+            "is_rest": false
+          },
+          {
+            "id": "w46_thu_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Revision: stitch Monday–Wednesday into one coherent narrative, start to finish",
+            "html": "Revision: stitch Monday–Wednesday into one coherent narrative, start to finish",
+            "is_rest": false
+          },
+          {
+            "id": "w46_thu_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Web Crawler — failure modes; write up the design doc",
+            "html": "Web Crawler — failure modes; write up the design doc",
+            "is_rest": false
+          },
+          {
+            "id": "w46_thu_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: JPA/Hibernate",
+            "html": "Interview Q&amp;A bank: JPA/Hibernate",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Fri",
+        "day_name": "Friday",
+        "tasks": [
+          {
+            "id": "w46_fri_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Light mixed practice, any topic",
+            "html": "Light mixed practice, any topic",
+            "is_rest": false
+          },
+          {
+            "id": "w46_fri_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "**Teach it:** write the full pipeline narrative down as if for a blog post",
+            "html": "<strong>Teach it:</strong> write the full pipeline narrative down as if for a blog post",
+            "is_rest": false
+          },
+          {
+            "id": "w46_fri_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Finalize the Web Crawler design doc",
+            "html": "Finalize the Web Crawler design doc",
+            "is_rest": false
+          },
+          {
+            "id": "w46_fri_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: Spring Security",
+            "html": "Interview Q&amp;A bank: Spring Security",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sat",
+        "day_name": "Saturday",
+        "tasks": [
+          {
+            "id": "w46_sat_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Contest",
+            "html": "Contest",
+            "is_rest": false
+          },
+          {
+            "id": "w46_sat_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w46_sat_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Revision: present the Web Crawler design out loud, no notes",
+            "html": "Revision: present the Web Crawler design out loud, no notes",
+            "is_rest": false
+          },
+          {
+            "id": "w46_sat_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Interview Q&A bank: Microservices & Messaging (Kafka)",
+            "html": "Interview Q&amp;A bank: Microservices &amp; Messaging (Kafka)",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sun",
+        "day_name": "Sunday",
+        "tasks": [
+          {
+            "id": "w46_sun_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          },
+          {
+            "id": "w46_sun_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w46_sun_corecs",
+            "track_original": "Core CS (fresh design practice)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Revision",
+            "html": "Revision",
+            "is_rest": false
+          },
+          {
+            "id": "w46_sun_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Compile the full week's Q&A bank into one reference document; push to GitHub",
+            "html": "Compile the full week's Q&amp;A bank into one reference document; push to GitHub",
+            "is_rest": false
+          }
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "w46_deliv_1",
+        "raw_text": "**Deliverable:** cross-topic DSA speed sharpened under contest conditions. A fresh, never-practiced HLD problem (Web Crawler) designed solo. A written, in-your-own-words Java/Spring Boot interview question bank covering the whole stack you built in Phases 7–8.",
+        "html": "<strong>Deliverable:</strong> cross-topic DSA speed sharpened under contest conditions. A fresh, never-practiced HLD problem (Web Crawler) designed solo. A written, in-your-own-words Java/Spring Boot interview question bank covering the whole stack you built in Phases 7–8."
+      }
+    ],
+    "notes": []
+  },
+  {
+    "week_num": 47,
+    "title": "Mock Interview Round 1",
+    "phase_num": 10,
+    "phase_title": "Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)",
+    "days": [
+      {
+        "day_code": "Mon",
+        "day_name": "Monday",
+        "tasks": [
+          {
+            "id": "w47_mon_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Review your weakest 2–3 DSA topics one more time before Tuesday",
+            "html": "Review your weakest 2–3 DSA topics one more time before Tuesday",
+            "is_rest": false
+          },
+          {
+            "id": "w47_mon_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Re-read your Phase 9 capstone code with fresh eyes — you'll be defending it tomorrow-through-Wednesday",
+            "html": "Re-read your Phase 9 capstone code with fresh eyes — you'll be defending it tomorrow-through-Wednesday",
+            "is_rest": false
+          },
+          {
+            "id": "w47_mon_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Review your SOLID/design-pattern checklist; research eviction policies and consistent hashing ahead of Thursday's Distributed Cache design",
+            "html": "Review your SOLID/design-pattern checklist; research eviction policies and consistent hashing ahead of Thursday's Distributed Cache design",
+            "is_rest": false
+          },
+          {
+            "id": "w47_mon_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Review common \"gotcha\" backend interview questions (N+1 queries, JWT expiry handling, connection-pool exhaustion)",
+            "html": "Review common \"gotcha\" backend interview questions (N+1 queries, JWT expiry handling, connection-pool exhaustion)",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Tue",
+        "day_name": "Tuesday",
+        "tasks": [
+          {
+            "id": "w47_tue_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Mock interview #1** — DSA grilling by a friend or senior, thinking out loud",
+            "html": "<strong>Mock interview #1</strong> — DSA grilling by a friend or senior, thinking out loud",
+            "is_rest": false
+          },
+          {
+            "id": "w47_tue_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day — process what today's DSA interview exposed)*",
+            "html": "<em>(support day — process what today's DSA interview exposed)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w47_tue_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w47_tue_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Wed",
+        "day_name": "Wednesday",
+        "tasks": [
+          {
+            "id": "w47_wed_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo whichever problem stumped you Tuesday, cold",
+            "html": "Redo whichever problem stumped you Tuesday, cold",
+            "is_rest": false
+          },
+          {
+            "id": "w47_wed_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "**Mock interview #1** — explain the AI+Java capstone end-to-end, defend every architectural choice",
+            "html": "<strong>Mock interview #1</strong> — explain the AI+Java capstone end-to-end, defend every architectural choice",
+            "is_rest": false
+          },
+          {
+            "id": "w47_wed_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Fresh LLD problem, from scratch: **Design Splitwise** (an expense-sharing app) — not on any TUF+ list, a genuinely good stretch test",
+            "html": "Fresh LLD problem, from scratch: <strong>Design Splitwise</strong> (an expense-sharing app) — not on any TUF+ list, a genuinely good stretch test",
+            "is_rest": false
+          },
+          {
+            "id": "w47_wed_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Thu",
+        "day_name": "Thursday",
+        "tasks": [
+          {
+            "id": "w47_thu_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Light mixed practice",
+            "html": "Light mixed practice",
+            "is_rest": false
+          },
+          {
+            "id": "w47_thu_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day — process what today's capstone interview exposed)*",
+            "html": "<em>(support day — process what today's capstone interview exposed)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w47_thu_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "**Mock interview #1** — present and defend the Splitwise design; then begin **Design a Distributed Cache** (like Memcached)",
+            "html": "<strong>Mock interview #1</strong> — present and defend the Splitwise design; then begin <strong>Design a Distributed Cache</strong> (like Memcached)",
+            "is_rest": false
+          },
+          {
+            "id": "w47_thu_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Fri",
+        "day_name": "Friday",
+        "tasks": [
+          {
+            "id": "w47_fri_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Light mixed practice",
+            "html": "Light mixed practice",
+            "is_rest": false
+          },
+          {
+            "id": "w47_fri_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Revision",
+            "html": "Revision",
+            "is_rest": false
+          },
+          {
+            "id": "w47_fri_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Finish the Distributed Cache design doc",
+            "html": "Finish the Distributed Cache design doc",
+            "is_rest": false
+          },
+          {
+            "id": "w47_fri_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "**Mock interview #1** — Spring Boot/backend grilling: scaling, JWT-expiry handling, why you chose the indexes you chose",
+            "html": "<strong>Mock interview #1</strong> — Spring Boot/backend grilling: scaling, JWT-expiry handling, why you chose the indexes you chose",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sat",
+        "day_name": "Saturday",
+        "tasks": [
+          {
+            "id": "w47_sat_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Contest",
+            "html": "Contest",
+            "is_rest": false
+          },
+          {
+            "id": "w47_sat_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w47_sat_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Revision: present the Distributed Cache design out loud",
+            "html": "Revision: present the Distributed Cache design out loud",
+            "is_rest": false
+          },
+          {
+            "id": "w47_sat_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          }
+        ]
+      },
+      {
+        "day_code": "Sun",
+        "day_name": "Sunday",
+        "tasks": [
+          {
+            "id": "w47_sun_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          },
+          {
+            "id": "w47_sun_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          },
+          {
+            "id": "w47_sun_corecs",
+            "track_original": "Core CS (mock interviews)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "**Write down every gap all four mock interviews exposed this week** — this list is Week 48's agenda",
+            "html": "<strong>Write down every gap all four mock interviews exposed this week</strong> — this list is Week 48's agenda",
+            "is_rest": false
+          },
+          {
+            "id": "w47_sun_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          }
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "w47_deliv_1",
+        "raw_text": "**Deliverable:** four mock interviews down, across DSA, the AI+Java capstone, two fresh design problems (Splitwise, Distributed Cache), and Spring Boot fundamentals. A concrete, prioritized list of gaps to close.",
+        "html": "<strong>Deliverable:</strong> four mock interviews down, across DSA, the AI+Java capstone, two fresh design problems (Splitwise, Distributed Cache), and Spring Boot fundamentals. A concrete, prioritized list of gaps to close."
+      }
+    ],
+    "notes": []
+  },
+  {
+    "week_num": 48,
+    "title": "Close the Gaps, Second Full Self-Test",
+    "phase_num": 10,
+    "phase_title": "Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)",
+    "days": [
+      {
+        "day_code": "Mon",
+        "day_name": "Monday",
+        "tasks": [
+          {
+            "id": "w48_mon_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo the hardest problem per topic, cold, timed — Arrays, Hashing, Binary Search",
+            "html": "Redo the hardest problem per topic, cold, timed — Arrays, Hashing, Binary Search",
+            "is_rest": false
+          },
+          {
+            "id": "w48_mon_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Pick and start one more paper relevant to your specialization — e.g. the original **\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\"** paper if you haven't read it yet, or something current in the Agents/MCP space",
+            "html": "Pick and start one more paper relevant to your specialization — e.g. the original <strong>\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\"</strong> paper if you haven't read it yet, or something current in the Agents/MCP space",
+            "is_rest": false
+          },
+          {
+            "id": "w48_mon_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Full LLD self-test: 5 rapid-fire questions, no notes",
+            "html": "Full LLD self-test: 5 rapid-fire questions, no notes",
+            "is_rest": false
+          },
+          {
+            "id": "w48_mon_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Fix the gaps Friday's backend mock interview exposed",
+            "html": "Fix the gaps Friday's backend mock interview exposed",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Tue",
+        "day_name": "Tuesday",
+        "tasks": [
+          {
+            "id": "w48_tue_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo the hardest problem per topic — Linked List, Recursion, Bit Manipulation",
+            "html": "Redo the hardest problem per topic — Linked List, Recursion, Bit Manipulation",
+            "is_rest": false
+          },
+          {
+            "id": "w48_tue_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Continue the paper; connect it explicitly to your own capstone's retrieval design",
+            "html": "Continue the paper; connect it explicitly to your own capstone's retrieval design",
+            "is_rest": false
+          },
+          {
+            "id": "w48_tue_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Full HLD self-test: 5 rapid-fire questions, no notes",
+            "html": "Full HLD self-test: 5 rapid-fire questions, no notes",
+            "is_rest": false
+          },
+          {
+            "id": "w48_tue_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Continue fixing backend gaps",
+            "html": "Continue fixing backend gaps",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Wed",
+        "day_name": "Wednesday",
+        "tasks": [
+          {
+            "id": "w48_wed_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo the hardest problem per topic — Greedy, Sliding Window, Stack/Queue",
+            "html": "Redo the hardest problem per topic — Greedy, Sliding Window, Stack/Queue",
+            "is_rest": false
+          },
+          {
+            "id": "w48_wed_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Finish the paper; write a short summary in your own words",
+            "html": "Finish the paper; write a short summary in your own words",
+            "is_rest": false
+          },
+          {
+            "id": "w48_wed_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Re-run 5 SQL Situational Questions at random, cold",
+            "html": "Re-run 5 SQL Situational Questions at random, cold",
+            "is_rest": false
+          },
+          {
+            "id": "w48_wed_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Refactor/polish the Phase 7 project (the tested, secured Todo API) for consistency",
+            "html": "Refactor/polish the Phase 7 project (the tested, secured Todo API) for consistency",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Thu",
+        "day_name": "Thursday",
+        "tasks": [
+          {
+            "id": "w48_thu_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo the hardest problem per topic — Binary Trees, BST, Heaps",
+            "html": "Redo the hardest problem per topic — Binary Trees, BST, Heaps",
+            "is_rest": false
+          },
+          {
+            "id": "w48_thu_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Revision: could this paper's idea improve your capstone? Decide, and act on it if yes",
+            "html": "Revision: could this paper's idea improve your capstone? Decide, and act on it if yes",
+            "is_rest": false
+          },
+          {
+            "id": "w48_thu_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Rapid-fire self-test: 5 questions each from OOPs and DBMS",
+            "html": "Rapid-fire self-test: 5 questions each from OOPs and DBMS",
+            "is_rest": false
+          },
+          {
+            "id": "w48_thu_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Refactor/polish the Phase 8 project (the microservices/Kafka setup)",
+            "html": "Refactor/polish the Phase 8 project (the microservices/Kafka setup)",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Fri",
+        "day_name": "Friday",
+        "tasks": [
+          {
+            "id": "w48_fri_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo the hardest problem per topic — Graphs, DP",
+            "html": "Redo the hardest problem per topic — Graphs, DP",
+            "is_rest": false
+          },
+          {
+            "id": "w48_fri_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Apply Wednesday's decision to the capstone if applicable",
+            "html": "Apply Wednesday's decision to the capstone if applicable",
+            "is_rest": false
+          },
+          {
+            "id": "w48_fri_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Rapid-fire self-test: 5 questions each from OS and CN",
+            "html": "Rapid-fire self-test: 5 questions each from OS and CN",
+            "is_rest": false
+          },
+          {
+            "id": "w48_fri_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Refactor/polish the Phase 9 project (the Spring AI capstone) — final consistency pass",
+            "html": "Refactor/polish the Phase 9 project (the Spring AI capstone) — final consistency pass",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sat",
+        "day_name": "Saturday",
+        "tasks": [
+          {
+            "id": "w48_sat_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Full mixed timed contest — every topic, drawn at random",
+            "html": "Full mixed timed contest — every topic, drawn at random",
+            "is_rest": false
+          },
+          {
+            "id": "w48_sat_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w48_sat_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Revision",
+            "html": "Revision",
+            "is_rest": false
+          },
+          {
+            "id": "w48_sat_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(open — catch up or rest)*",
+            "html": "<em>(Open — catch up or rest)</em>",
+            "is_rest": true
+          }
+        ]
+      },
+      {
+        "day_code": "Sun",
+        "day_name": "Sunday",
+        "tasks": [
+          {
+            "id": "w48_sun_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Full self-test:** 5 random problems, cold, across every phase",
+            "html": "<strong>Full self-test:</strong> 5 random problems, cold, across every phase",
+            "is_rest": false
+          },
+          {
+            "id": "w48_sun_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "**Full self-test:** explain the paper you just read plus the entire pipeline, back to back",
+            "html": "<strong>Full self-test:</strong> explain the paper you just read plus the entire pipeline, back to back",
+            "is_rest": false
+          },
+          {
+            "id": "w48_sun_corecs",
+            "track_original": "Core CS (rapid-fire self-tests)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "**Full self-test:** rapid-fire across every Core CS subject",
+            "html": "<strong>Full self-test:</strong> rapid-fire across every Core CS subject",
+            "is_rest": false
+          },
+          {
+            "id": "w48_sun_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "**Full self-test:** explain the architecture of all 3 backend projects, cold, from memory",
+            "html": "<strong>Full self-test:</strong> explain the architecture of all 3 backend projects, cold, from memory",
+            "is_rest": false
+          }
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "w48_deliv_1",
+        "raw_text": "**Deliverable:** every gap from Week 47's mocks addressed. All three Spring Boot projects refactored to a consistent, portfolio-ready standard. A second closed loop on paper-reading.",
+        "html": "<strong>Deliverable:</strong> every gap from Week 47's mocks addressed. All three Spring Boot projects refactored to a consistent, portfolio-ready standard. A second closed loop on paper-reading."
+      }
+    ],
+    "notes": []
+  },
+  {
+    "week_num": 49,
+    "title": "Mock Interview Round 2",
+    "phase_num": 10,
+    "phase_title": "Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)",
+    "days": [
+      {
+        "day_code": "Mon",
+        "day_name": "Monday",
+        "tasks": [
+          {
+            "id": "w49_mon_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Fresh review across all your weak areas, one more pass",
+            "html": "Fresh review across all your weak areas, one more pass",
+            "is_rest": false
+          },
+          {
+            "id": "w49_mon_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Fresh review — re-read your notes on bias-variance, regularization, and why transformers replaced RNNs (Phase 3–5 material — interviewers often start here before GenAI)",
+            "html": "Fresh review — re-read your notes on bias-variance, regularization, and why transformers replaced RNNs (Phase 3–5 material — interviewers often start here before GenAI)",
+            "is_rest": false
+          },
+          {
+            "id": "w49_mon_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Review a fresh design-problem checklist (requirements → capacity → API → data model → scaling → failure modes)",
+            "html": "Review a fresh design-problem checklist (requirements → capacity → API → data model → scaling → failure modes)",
+            "is_rest": false
+          },
+          {
+            "id": "w49_mon_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Fresh review of DB schema/API-design fundamentals",
+            "html": "Fresh review of DB schema/API-design fundamentals",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Tue",
+        "day_name": "Tuesday",
+        "tasks": [
+          {
+            "id": "w49_tue_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Mock interview #2** — a different problem set, and a different interviewer if you can find one",
+            "html": "<strong>Mock interview #2</strong> — a different problem set, and a different interviewer if you can find one",
+            "is_rest": false
+          },
+          {
+            "id": "w49_tue_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_tue_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_tue_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Wed",
+        "day_name": "Wednesday",
+        "tasks": [
+          {
+            "id": "w49_wed_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Redo whatever stumped you Tuesday",
+            "html": "Redo whatever stumped you Tuesday",
+            "is_rest": false
+          },
+          {
+            "id": "w49_wed_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "**Mock interview #2** — grilled specifically on classical ML/DL fundamentals, not GenAI: bias-variance tradeoff, regularization, backprop math, why attention beats recurrence",
+            "html": "<strong>Mock interview #2</strong> — grilled specifically on classical ML/DL fundamentals, not GenAI: bias-variance tradeoff, regularization, backprop math, why attention beats recurrence",
+            "is_rest": false
+          },
+          {
+            "id": "w49_wed_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_wed_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Thu",
+        "day_name": "Thursday",
+        "tasks": [
+          {
+            "id": "w49_thu_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Light mixed practice",
+            "html": "Light mixed practice",
+            "is_rest": false
+          },
+          {
+            "id": "w49_thu_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_thu_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "**Mock interview #2** — a fresh design problem: **Design Twitter's News Feed** (or a Notification System)",
+            "html": "<strong>Mock interview #2</strong> — a fresh design problem: <strong>Design Twitter's News Feed</strong> (or a Notification System)",
+            "is_rest": false
+          },
+          {
+            "id": "w49_thu_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Fri",
+        "day_name": "Friday",
+        "tasks": [
+          {
+            "id": "w49_fri_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Light mixed practice",
+            "html": "Light mixed practice",
+            "is_rest": false
+          },
+          {
+            "id": "w49_fri_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Revision",
+            "html": "Revision",
+            "is_rest": false
+          },
+          {
+            "id": "w49_fri_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Revision",
+            "html": "Revision",
+            "is_rest": false
+          },
+          {
+            "id": "w49_fri_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "**Mock interview #2** — a live scenario: design the DB schema and API for a feature given on the spot",
+            "html": "<strong>Mock interview #2</strong> — a live scenario: design the DB schema and API for a feature given on the spot",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sat",
+        "day_name": "Saturday",
+        "tasks": [
+          {
+            "id": "w49_sat_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Contest + review this week's mock feedback",
+            "html": "Contest + review this week's mock feedback",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sat_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(open)*",
+            "html": "<em>(open)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sat_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(open)*",
+            "html": "<em>(open)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sat_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(open)*",
+            "html": "<em>(open)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Sun",
+        "day_name": "Sunday",
+        "tasks": [
+          {
+            "id": "w49_sun_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sun_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sun_corecs",
+            "track_original": "Core CS (a different angle)",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "**Consolidate all feedback from both mock rounds into one document.** Fix anything still open",
+            "html": "<strong>Consolidate all feedback from both mock rounds into one document.</strong> Fix anything still open",
+            "is_rest": false
+          },
+          {
+            "id": "w49_sun_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Full weekly revision",
+            "html": "Full weekly revision",
+            "is_rest": false
+          }
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "w49_deliv_1",
+        "raw_text": "**Deliverable:** a second full round of mock interviews — this time deliberately testing fundamentals and live, unrehearsed scenarios rather than prepared material. Every piece of feedback from two full rounds, consolidated.",
+        "html": "<strong>Deliverable:</strong> a second full round of mock interviews — this time deliberately testing fundamentals and live, unrehearsed scenarios rather than prepared material. Every piece of feedback from two full rounds, consolidated."
+      }
+    ],
+    "notes": []
+  },
+  {
+    "week_num": 50,
+    "title": "Final Polish & the Real Placement-Ready Checkpoint",
+    "phase_num": 10,
+    "phase_title": "Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)",
+    "days": [
+      {
+        "day_code": "Mon",
+        "day_name": "Monday",
+        "tasks": [
+          {
+            "id": "w50_mon_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Full self-test:** 5 random problems, cold, across all 10 phases",
+            "html": "<strong>Full self-test:</strong> 5 random problems, cold, across all 10 phases",
+            "is_rest": false
+          },
+          {
+            "id": "w50_mon_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day — prep for tomorrow's self-test)*",
+            "html": "<em>(support day — prep for tomorrow's self-test)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_mon_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_mon_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Tue",
+        "day_name": "Tuesday",
+        "tasks": [
+          {
+            "id": "w50_tue_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_tue_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "**Full self-test:** explain the entire pipeline, back to back, no notes — linear regression → decision trees → CNN → transformer → GPT → RAG → agents → Spring AI production integration",
+            "html": "<strong>Full self-test:</strong> explain the entire pipeline, back to back, no notes — linear regression → decision trees → CNN → transformer → GPT → RAG → agents → Spring AI production integration",
+            "is_rest": false
+          },
+          {
+            "id": "w50_tue_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_tue_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Wed",
+        "day_name": "Wednesday",
+        "tasks": [
+          {
+            "id": "w50_wed_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_wed_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_wed_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Polish every GitHub repo: consistent READMEs across CS50P work, `ml-from-scratch`, the EDA project, both capstones, and every LLD/HLD writeup; pin the strongest 6 on your profile",
+            "html": "Polish every GitHub repo: consistent READMEs across CS50P work, <code>ml-from-scratch</code>, the EDA project, both capstones, and every LLD/HLD writeup; pin the strongest 6 on your profile",
+            "is_rest": false
+          },
+          {
+            "id": "w50_wed_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Thu",
+        "day_name": "Thursday",
+        "tasks": [
+          {
+            "id": "w50_thu_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_thu_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_thu_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "*(support day)*",
+            "html": "<em>(support day)</em>",
+            "is_rest": false
+          },
+          {
+            "id": "w50_thu_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Final resume/portfolio pass — the Spring AI capstone leads; rehearse whiteboarding its full architecture from memory, unaided",
+            "html": "Final resume/portfolio pass — the Spring AI capstone leads; rehearse whiteboarding its full architecture from memory, unaided",
+            "is_rest": false
+          }
+        ]
+      },
+      {
+        "day_code": "Fri",
+        "day_name": "Friday",
+        "tasks": [
+          {
+            "id": "w50_fri_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Full simulated interview loop:** a friend or senior runs one DSA problem, one LLD-or-HLD design, one backend question, and \"walk me through your best project,\" back to back, like a real interview day",
+            "html": "<strong>Full simulated interview loop:</strong> a friend or senior runs one DSA problem, one LLD-or-HLD design, one backend question, and \"walk me through your best project,\" back to back, like a real interview day",
+            "is_rest": false
+          },
+          {
+            "id": "w50_fri_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_fri_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_fri_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          }
+        ]
+      },
+      {
+        "day_code": "Sat",
+        "day_name": "Saturday",
+        "tasks": [
+          {
+            "id": "w50_sat_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "Debrief Friday's full loop; fix anything it exposed",
+            "html": "Debrief Friday's full loop; fix anything it exposed",
+            "is_rest": false
+          },
+          {
+            "id": "w50_sat_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_sat_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_sat_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          }
+        ]
+      },
+      {
+        "day_code": "Sun",
+        "day_name": "Sunday",
+        "tasks": [
+          {
+            "id": "w50_sun_dsa",
+            "track_original": "DSA (Java)",
+            "track_id": "dsa",
+            "track_name": "DSA & Java",
+            "raw_text": "**Placement-ready checkpoint.** Rest, or lightly review — you've earned it.",
+            "html": "<strong>Placement-ready checkpoint.</strong> Rest, or lightly review — you've earned it.",
+            "is_rest": false
+          },
+          {
+            "id": "w50_sun_aiml",
+            "track_original": "AI/ML Track",
+            "track_id": "aiml",
+            "track_name": "AI / ML",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_sun_corecs",
+            "track_original": "Core CS",
+            "track_id": "corecs",
+            "track_name": "Core CS",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          },
+          {
+            "id": "w50_sun_backend",
+            "track_original": "Java Backend (Spring Boot)",
+            "track_id": "backend",
+            "track_name": "Java Backend",
+            "raw_text": "Rest / Catch up",
+            "html": "<em>Rest / Catch up</em>",
+            "is_rest": true
+          }
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "w50_deliv_1",
+        "raw_text": "**Deliverable — end of Phase 10 checkpoint, the real one this time:**",
+        "html": "<strong>Deliverable — end of Phase 10 checkpoint, the real one this time:</strong>"
+      },
+      {
+        "id": "w50_deliv_2",
+        "raw_text": "**DSA:** the entire Striver A2Z sheet, sharp under contest conditions, not just \"completed once.\"",
+        "html": "<strong>DSA:</strong> the entire Striver A2Z sheet, sharp under contest conditions, not just \"completed once.\""
+      },
+      {
+        "id": "w50_deliv_3",
+        "raw_text": "**Core CS:** all of OOPs, DBMS, SQL, OS, CN, LLD, HLD — 100% done since Phase 8 — plus 5 fresh, never-listed system-design problems (Web Crawler, Splitwise, Distributed Cache, Twitter News Feed, a live on-the-spot schema/API design) designed and defended from scratch.",
+        "html": "<strong>Core CS:</strong> all of OOPs, DBMS, SQL, OS, CN, LLD, HLD — 100% done since Phase 8 — plus 5 fresh, never-listed system-design problems (Web Crawler, Splitwise, Distributed Cache, Twitter News Feed, a live on-the-spot schema/API design) designed and defended from scratch."
+      },
+      {
+        "id": "w50_deliv_4",
+        "raw_text": "**AI/ML:** classical ML → Deep Learning → GenAI/LLM fundamentals built from the ground up, an NLP/LLM specialization with fine-tuning, advanced RAG, agents, and evaluation, MLOps fundamentals, 2 closed-out Kaggle competitions, and 2 shipped capstones.",
+        "html": "<strong>AI/ML:</strong> classical ML → Deep Learning → GenAI/LLM fundamentals built from the ground up, an NLP/LLM specialization with fine-tuning, advanced RAG, agents, and evaluation, MLOps fundamentals, 2 closed-out Kaggle competitions, and 2 shipped capstones."
+      },
+      {
+        "id": "w50_deliv_5",
+        "raw_text": "**Java Backend:** a production-grade Spring Boot skillset — REST, JPA/Hibernate, Security, Testing, caching/async/scheduling, microservices, Kafka — plus modern Java (8 through 21), concurrency, JVM internals, and a real Spring AI + MCP integration.",
+        "html": "<strong>Java Backend:</strong> a production-grade Spring Boot skillset — REST, JPA/Hibernate, Security, Testing, caching/async/scheduling, microservices, Kafka — plus modern Java (8 through 21), concurrency, JVM internals, and a real Spring AI + MCP integration."
+      },
+      {
+        "id": "w50_deliv_6",
+        "raw_text": "**Portfolio:** 8–10 GitHub repositories that tell one coherent story — from CS50P basics through a production AI-powered Java backend — that no interviewer can mistake for \"just did the core CS sheet.\" This was the whole point.",
+        "html": "<strong>Portfolio:</strong> 8–10 GitHub repositories that tell one coherent story — from CS50P basics through a production AI-powered Java backend — that no interviewer can mistake for \"just did the core CS sheet.\" This was the whole point."
+      },
+      {
+        "id": "w50_deliv_7",
+        "raw_text": "**Total mock interviews across the full roadmap:** 6 in Phase 6, 2 project-defense interviews in Phase 9, and 8 more here — 16 in all, across every subject you'll actually be tested on.",
+        "html": "<strong>Total mock interviews across the full roadmap:</strong> 6 in Phase 6, 2 project-defense interviews in Phase 9, and 8 more here — 16 in all, across every subject you'll actually be tested on."
+      },
+      {
+        "id": "w50_deliv_8",
+        "raw_text": "**Don't let 40+ weeks of DSA atrophy over a 3-month interview season.** Keep the weekly-contest habit from Phase 9 going for as long as placements run.",
+        "html": "<strong>Don't let 40+ weeks of DSA atrophy over a 3-month interview season.</strong> Keep the weekly-contest habit from Phase 9 going for as long as placements run."
+      },
+      {
+        "id": "w50_deliv_9",
+        "raw_text": "**Keep reading papers weekly** — Two Minute Papers and Yannic Kilcher for what's worth reading — and watch the Agents/MCP space specifically; it's moving faster than almost anything else in the field right now, and you're already positioned to understand it deeply.",
+        "html": "<strong>Keep reading papers weekly</strong> — Two Minute Papers and Yannic Kilcher for what's worth reading — and watch the Agents/MCP space specifically; it's moving faster than almost anything else in the field right now, and you're already positioned to understand it deeply."
+      },
+      {
+        "id": "w50_deliv_10",
+        "raw_text": "**Contribute to an open-source repo.** Given your Spring AI work is now real, not theoretical, consider a small contribution to Spring AI or LangChain4j itself, or a well-known RAG/agents tooling project — this is a much stronger signal than another solo project.",
+        "html": "<strong>Contribute to an open-source repo.</strong> Given your Spring AI work is now real, not theoretical, consider a small contribution to Spring AI or LangChain4j itself, or a well-known RAG/agents tooling project — this is a much stronger signal than another solo project."
+      },
+      {
+        "id": "w50_deliv_11",
+        "raw_text": "**Keep writing publicly.** You already have two strong stories (the from-scratch GPT/RAG capstone, and the Spring AI production system) — don't let them sit only on GitHub.",
+        "html": "<strong>Keep writing publicly.</strong> You already have two strong stories (the from-scratch GPT/RAG capstone, and the Spring AI production system) — don't let them sit only on GitHub."
+      },
+      {
+        "id": "w50_deliv_12",
+        "raw_text": "**Give *Designing Data-Intensive Applications*'s hardest chapters (distributed transactions, consensus) a second read.** It's a book that rewards re-reading once you have more real system-building experience behind you, which you now do.",
+        "html": "**Give <em>Designing Data-Intensive Applications</em>'s hardest chapters (distributed transactions, consensus) a second read.** It's a book that rewards re-reading once you have more real system-building experience behind you, which you now do."
+      },
+      {
+        "id": "w50_deliv_13",
+        "raw_text": "**As placements actually get underway, refresh your aptitude** with a handful of TUF+ mocks — a few months will have passed since Week 30 — and **tailor which capstone you lead with per company**: if a role leans research/ML, lead with the Phases 3–6 work; if it leans backend/platform, lead with the Phases 7–9 Spring AI system. You now have both, which was the entire point of this extension.",
+        "html": "<strong>As placements actually get underway, refresh your aptitude</strong> with a handful of TUF+ mocks — a few months will have passed since Week 30 — and <strong>tailor which capstone you lead with per company</strong>: if a role leans research/ML, lead with the Phases 3–6 work; if it leans backend/platform, lead with the Phases 7–9 Spring AI system. You now have both, which was the entire point of this extension."
+      }
+    ],
+    "notes": []
   }
 ];

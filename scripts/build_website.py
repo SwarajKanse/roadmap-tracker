@@ -32,7 +32,7 @@ def format_cell_html(text):
             url = url[:-1]
         return f'<a href="{full_url}" target="_blank" rel="noopener noreferrer" class="task-link">{url}</a>{trailing}'
 
-    bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev)[^\s<>]*)'
+    bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com)[^\s<>]*)'
     text = re.sub(bare_url_regex, raw_url_repl, text)
     
     # 4. Bold: **text**
@@ -61,11 +61,11 @@ def categorize_track(col_name):
     return 'other', col_name
 
 def parse_roadmap():
-    roadmap_pattern = 'Roadmap/0[1-9]*.md'
+    roadmap_pattern = 'Roadmap/*Phase*.md'
     if not glob.glob(roadmap_pattern):
-        roadmap_pattern = '../Roadmap/0[1-9]*.md'
+        roadmap_pattern = '../Roadmap/*Phase*.md'
     if not glob.glob(roadmap_pattern):
-        roadmap_pattern = os.path.join(os.path.dirname(__file__), '../../Roadmap/0[1-9]*.md')
+        roadmap_pattern = os.path.join(os.path.dirname(__file__), '../../Roadmap/*Phase*.md')
     files = sorted(glob.glob(roadmap_pattern))
     roadmap = []
     
@@ -339,9 +339,9 @@ def generate_week_page(week, total_weeks, all_weeks):
       </div>
 
       <div class="nav-right">
-        <div class="sync-badge saving" title="Physical file progress.json on disk status">
+        <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
-          <span class="sync-text">Checking disk...</span>
+          <span class="sync-text">Connecting to cloud...</span>
         </div>
         <button class="icon-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           🌓
@@ -476,7 +476,7 @@ def generate_dashboard(roadmap):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI + Java Roadmap Checklist &bull; 45-Week Placement Hub</title>
+  <title>AI + Java Roadmap Checklist &bull; 50-Week Placement Hub</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -486,15 +486,15 @@ def generate_dashboard(roadmap):
     <div class="top-nav-inner">
       <div class="nav-left">
         <a href="index.html" class="brand-link">
-          <span class="brand-badge">45 WEEKS</span>
+          <span class="brand-badge">50 WEEKS</span>
           <span>Placement Roadmap Hub</span>
         </a>
       </div>
 
       <div class="nav-right">
-        <div class="sync-badge saving" title="Physical file progress.json on disk status">
+        <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
-          <span class="sync-text">Checking disk...</span>
+          <span class="sync-text">Connecting to cloud...</span>
         </div>
         <button class="nav-btn" id="btn-export-data" title="Export progress to JSON">Backup</button>
         <label class="nav-btn" style="cursor:pointer;" title="Import progress from JSON">
@@ -512,9 +512,9 @@ def generate_dashboard(roadmap):
   <!-- Container -->
   <main class="container">
     <section class="dashboard-hero">
-      <h1 class="dashboard-title">45-Week Placement Checklist</h1>
+      <h1 class="dashboard-title">50-Week Placement Checklist</h1>
       <p class="dashboard-desc">
-        A minimalist daily tracker for your AI + Java placement roadmap. Every week has its own dedicated page with checkable tasks across DSA, AI/ML, Core CS, and Backend tracks.
+        A minimalist daily tracker for your complete AI + Java placement roadmap. All 10 phases and 50 weeks with dedicated daily tasks across DSA, AI/ML, Core CS, and Backend tracks.
       </p>
       
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
@@ -527,7 +527,7 @@ def generate_dashboard(roadmap):
     <!-- Global Progress Bar -->
     <section class="progress-card" style="margin-bottom: 2rem;">
       <div class="progress-header">
-        <span class="progress-label">Overall 45-Week Completion</span>
+        <span class="progress-label">Overall 50-Week Completion</span>
         <span class="progress-stats" id="stat-pct-done">0%</span>
       </div>
       <div class="progress-bar-bg" style="height: 10px;">
@@ -546,7 +546,7 @@ def generate_dashboard(roadmap):
         <div class="stat-label">Weeks Finished</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">9</div>
+        <div class="stat-val">{len(phases_dict)}</div>
         <div class="stat-label">Total Phases</div>
       </div>
       <div class="stat-card">
