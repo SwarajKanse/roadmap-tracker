@@ -1279,6 +1279,24 @@ body.auth-locked .container {
   box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
+.auth-password-input {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.95rem;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.auth-password-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
 .btn-auth-send {
   width: 100%;
   padding: 0.7rem 1rem;

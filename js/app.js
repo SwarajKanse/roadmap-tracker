@@ -20,19 +20,25 @@ const CLOUD_CONFIG = {
 
 const AUTH_CONFIG = {
   sessionKey: 'study_roadmap_auth_session',
-  sessionDurationDays: 30, // 1 month device persistence
-  otpEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/otp',
-  verifyEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/verify'
+  sessionDurationDays: 30 // 1 month device persistence
 };
 
 // Cryptographic one-way verification (Zero plain-text credentials in client code)
 const _SEC = {
   eH: '772c6f69a74a0530a2cc1c4a5dec881288e1bdbf8b3e2f6b89b5934529cacefd',
-  pH: 'ad8c042447f4cc4b99e9ed112a0897e8b35d5b7840539578d0685e6d18ae602f',
+  pH: 'c8145ecf06526ca12acb7bd2c7cc03e1d633fc4df39358042a9e1b63c4de5ffb',
   salt: 'swaraj_placement_roadmap_secure_salt_2026'
 };
 
-async function _hashVal(val) {
+async function _hashPassword(val) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode((val || '').trim() + _SEC.salt);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function _hashEmail(val) {
   const encoder = new TextEncoder();
   const data = encoder.encode((val || '').trim().toLowerCase() + _SEC.salt);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
@@ -41,11 +47,10 @@ async function _hashVal(val) {
 }
 
 // ==========================================================================
-// Authentication Manager (Dynamic Rotating Email OTP / PIN Gatekeeper)
+// Authentication Manager (Cryptographic Master Password Gatekeeper)
 // ==========================================================================
 const AuthManager = {
   session: null,
-  verifiedEmail: null,
 
   init() {
     if (window.location.search.includes('lock=true')) {
@@ -83,7 +88,7 @@ const AuthManager = {
     return !!(this.session && this.session.authenticated && this.session.expiresAt && Date.now() < this.session.expiresAt);
   },
 
-  saveSession(authType = 'otp') {
+  saveSession(authType = 'master_password') {
     const expiresAt = Date.now() + (AUTH_CONFIG.sessionDurationDays * 24 * 60 * 60 * 1000);
     this.session = {
       authenticated: true,
@@ -101,167 +106,63 @@ const AuthManager = {
 
   logout() {
     this.session = null;
-    this.verifiedEmail = null;
     try {
       localStorage.removeItem(AUTH_CONFIG.sessionKey);
     } catch (e) {}
     this.updateUIState();
-    showToast('Device locked. PIN required to enter.');
+    showToast('Device locked. Password required to enter.');
   },
 
-  async sendEmailOtp() {
-    const emailInput = document.getElementById('auth-email-input');
-    const statusEl = document.getElementById('auth-status-msg');
-    const sendBtn = document.getElementById('btn-send-otp');
-    
-    const enteredEmail = (emailInput ? emailInput.value : '').trim().toLowerCase();
-
-    if (!enteredEmail) {
-      if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Please enter your authorized email first.';
-      }
-      if (emailInput) emailInput.focus();
-      return;
-    }
-
-    // Cryptographic hash validation (prevents email disclosure & spamming)
-    const emailHash = await _hashVal(enteredEmail);
-    if (emailHash !== _SEC.eH) {
-      if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Access Denied: Unrecognized email address.';
-      }
-      return;
-    }
-
-    this.verifiedEmail = enteredEmail;
-
-    if (sendBtn) sendBtn.disabled = true;
-    if (statusEl) {
-      statusEl.className = 'auth-status-msg info';
-      statusEl.textContent = 'Sending dynamic rotating PIN to your email...';
-    }
-
-    try {
-      const res = await fetch(AUTH_CONFIG.otpEndpoint, {
-        method: 'POST',
-        headers: {
-          'apikey': CLOUD_CONFIG.apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: enteredEmail,
-          create_user: true
-        })
-      });
-
-      if (res.ok) {
-        if (statusEl) {
-          statusEl.className = 'auth-status-msg success';
-          statusEl.textContent = '✓ Dynamic PIN sent! Please check your Gmail inbox.';
-        }
-        showToast('Dynamic PIN sent to Gmail!');
-        const pinInput = document.getElementById('auth-pin-input');
-        if (pinInput) pinInput.focus();
-      } else {
-        const err = await res.json().catch(() => ({}));
-        if (err.error_code === 'over_email_send_rate_limit' || res.status === 429) {
-          if (statusEl) {
-            statusEl.className = 'auth-status-msg warning';
-            statusEl.textContent = 'Email limit reached. Please enter your master PIN to unlock immediately.';
-          }
-        } else {
-          if (statusEl) {
-            statusEl.className = 'auth-status-msg error';
-            statusEl.textContent = err.msg || 'Could not send OTP email. Please use master PIN.';
-          }
-        }
-      }
-    } catch (e) {
-      if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Network error. You can use your master PIN to unlock.';
-      }
-    } finally {
-      if (sendBtn) sendBtn.disabled = false;
-    }
-  },
-
-  async verifyPin(pin) {
-    const cleanPin = (pin || '').trim();
+  async verifyCredentials(email, password) {
+    const cleanPass = (password || '').trim();
+    const cleanEmail = (email || '').trim().toLowerCase();
     const statusEl = document.getElementById('auth-status-msg');
     const unlockBtn = document.getElementById('btn-unlock-auth');
-    
-    if (!cleanPin) {
+
+    if (!cleanPass) {
       if (statusEl) {
         statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Please enter your PIN.';
+        statusEl.textContent = 'Please enter your Master Password.';
       }
+      const passInput = document.getElementById('auth-password-input');
+      if (passInput) passInput.focus();
       return false;
     }
 
     if (unlockBtn) unlockBtn.disabled = true;
     if (statusEl) {
       statusEl.className = 'auth-status-msg info';
-      statusEl.textContent = 'Verifying credentials...';
+      statusEl.textContent = 'Verifying cryptographic credentials...';
     }
 
-    // 1. Direct check against Master PIN via cryptographic salted SHA-256
-    const pinHash = await _hashVal(cleanPin);
-    if (pinHash === _SEC.pH) {
-      this.saveSession('master_pin');
-      this.onAuthenticated('Master PIN Verified');
+    // 1. If email is provided, verify against authorized email hash
+    if (cleanEmail) {
+      const emailHash = await _hashEmail(cleanEmail);
+      if (emailHash !== _SEC.eH) {
+        if (statusEl) {
+          statusEl.className = 'auth-status-msg error';
+          statusEl.textContent = 'Access Denied: Unrecognized email address.';
+        }
+        if (unlockBtn) unlockBtn.disabled = false;
+        return false;
+      }
+    }
+
+    // 2. Cryptographic password verification (Salted SHA-256)
+    const passHash = await _hashPassword(cleanPass);
+    if (passHash === _SEC.pH) {
+      this.saveSession('master_password');
+      this.onAuthenticated('Master Password Verified');
       if (unlockBtn) unlockBtn.disabled = false;
       return true;
-    }
-
-    // 2. Check against Supabase OTP endpoint
-    const emailToVerify = this.verifiedEmail || (document.getElementById('auth-email-input') ? document.getElementById('auth-email-input').value.trim() : '');
-    if (!emailToVerify) {
+    } else {
       if (statusEl) {
         statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Please enter your email above to verify OTP.';
+        statusEl.textContent = 'Invalid Master Password. Access Denied.';
       }
       if (unlockBtn) unlockBtn.disabled = false;
       return false;
     }
-
-    try {
-      const res = await fetch(AUTH_CONFIG.verifyEndpoint, {
-        method: 'POST',
-        headers: {
-          'apikey': CLOUD_CONFIG.apiKey,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          type: 'email',
-          email: emailToVerify,
-          token: cleanPin
-        })
-      });
-
-      if (res.ok) {
-        this.saveSession('email_otp');
-        this.onAuthenticated('Dynamic PIN Verified');
-        if (unlockBtn) unlockBtn.disabled = false;
-        return true;
-      } else {
-        const err = await res.json().catch(() => ({}));
-        if (statusEl) {
-          statusEl.className = 'auth-status-msg error';
-          statusEl.textContent = err.msg || 'Invalid or expired PIN. Please try again.';
-        }
-      }
-    } catch (e) {
-      if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Verification connection error. Please try again.';
-      }
-    } finally {
-      if (unlockBtn) unlockBtn.disabled = false;
-    }
-    return false;
   },
 
   onAuthenticated(reason) {
@@ -285,9 +186,9 @@ const AuthManager = {
       authBadges.forEach(b => {
         b.className = 'auth-badge unlocked';
         b.innerHTML = `<span class="auth-dot"></span><span>Authorized (${daysLeft}d)</span>`;
-        b.title = `Device authorized as ${AUTH_CONFIG.email}. Valid for ${daysLeft} more days. Click to lock.`;
+        b.title = `Device authorized. Valid for ${daysLeft} more days. Click to lock.`;
         b.onclick = () => {
-          if (confirm('Lock this device now? You will need your PIN to re-enter.')) {
+          if (confirm('Lock this device now? You will need your password to re-enter.')) {
             AuthManager.logout();
           }
         };
@@ -299,7 +200,7 @@ const AuthManager = {
       authBadges.forEach(b => {
         b.className = 'auth-badge locked';
         b.innerHTML = `<span class="auth-dot"></span><span>Locked</span>`;
-        b.title = 'Workspace locked. Click to enter PIN.';
+        b.title = 'Workspace locked. Click to enter password.';
         b.onclick = () => {
           if (overlay) overlay.classList.add('active');
         };
@@ -322,25 +223,18 @@ const AuthManager = {
         <p class="auth-subtitle">Swaraj Kanse &bull; 50-Week Placement Roadmap</p>
         
         <p class="auth-desc">
-          Authorized access only. Enter your authorized email to receive a dynamic rotating PIN, or enter your Master PIN directly.
+          Authorized access only. Enter your Master Password to unlock your roadmap and sync your progress.
         </p>
 
-        <form id="auth-email-form" onsubmit="event.preventDefault(); AuthManager.sendEmailOtp();" style="margin-bottom: 0.5rem;">
+        <form id="auth-login-form" onsubmit="event.preventDefault(); AuthManager.verifyCredentials(document.getElementById('auth-email-input').value, document.getElementById('auth-password-input').value);">
           <div class="auth-email-group">
             <label class="auth-input-label" for="auth-email-input">Authorized Email</label>
-            <input type="email" id="auth-email-input" class="auth-email-input" placeholder="Enter your email to request PIN" autocomplete="email" />
+            <input type="email" id="auth-email-input" class="auth-email-input" placeholder="Enter authorized email" autocomplete="username" />
           </div>
 
-          <button type="submit" class="btn-auth-send" id="btn-send-otp">
-            📩 Send Dynamic PIN to Email
-          </button>
-        </form>
-
-        <div class="auth-divider"><span>OR ENTER PIN DIRECTLY</span></div>
-
-        <form id="auth-pin-form" onsubmit="event.preventDefault(); AuthManager.verifyPin(document.getElementById('auth-pin-input').value);">
-          <div class="auth-input-wrap">
-            <input type="password" id="auth-pin-input" class="auth-pin-input" placeholder="Enter PIN" maxlength="10" autocomplete="one-time-code" />
+          <div class="auth-email-group">
+            <label class="auth-input-label" for="auth-password-input">Master Password</label>
+            <input type="password" id="auth-password-input" class="auth-password-input" placeholder="Enter Master Password" autocomplete="current-password" autofocus />
           </div>
 
           <div id="auth-status-msg" class="auth-status-msg"></div>
@@ -352,7 +246,7 @@ const AuthManager = {
 
         <div class="auth-footer-notes">
           <span>🛡️ Remembers this device for 1 month (30 days)</span>
-          <span>🔒 PIN is only dispatched after verifying authorized email</span>
+          <span>🔒 Cryptographic SHA-256 verification &bull; Zero rate limits</span>
         </div>
       </div>
     `;
