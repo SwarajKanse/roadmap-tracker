@@ -21,7 +21,7 @@ const CLOUD_CONFIG = {
 const AUTH_CONFIG = {
   sessionKey: 'study_roadmap_auth_session',
   email: 'swarajkanse2@gmail.com',
-  masterPin: '2609', // Emergency master PIN fallback
+  masterPin: '8364', // Emergency master PIN fallback
   sessionDurationDays: 30, // 1 month device persistence
   otpEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/otp',
   verifyEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/verify'
@@ -34,7 +34,14 @@ const AuthManager = {
   session: null,
 
   init() {
-    this.loadSession();
+    if (window.location.search.includes('lock=true')) {
+      this.logout();
+      try {
+        history.replaceState(null, '', window.location.pathname);
+      } catch (e) {}
+    } else {
+      this.loadSession();
+    }
     this.injectAuthUI();
     this.updateUIState();
   },
@@ -89,12 +96,35 @@ const AuthManager = {
   },
 
   async sendEmailOtp() {
+    const emailInput = document.getElementById('auth-email-input');
     const statusEl = document.getElementById('auth-status-msg');
     const sendBtn = document.getElementById('btn-send-otp');
+    
+    const enteredEmail = (emailInput ? emailInput.value : '').trim().toLowerCase();
+
+    if (!enteredEmail) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Please enter your authorized email first.';
+      }
+      if (emailInput) emailInput.focus();
+      return;
+    }
+
+    // Security protection: Only proceed if entered email matches authorized email!
+    // Prevents unauthorized visitors from triggering OTP emails or spamming your inbox.
+    if (enteredEmail !== AUTH_CONFIG.email.toLowerCase()) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Access Denied: Unrecognized email address.';
+      }
+      return;
+    }
+
     if (sendBtn) sendBtn.disabled = true;
     if (statusEl) {
       statusEl.className = 'auth-status-msg info';
-      statusEl.textContent = 'Generating dynamic PIN and sending to ' + AUTH_CONFIG.email + '...';
+      statusEl.textContent = 'Sending dynamic rotating PIN to your email...';
     }
 
     try {
@@ -113,9 +143,11 @@ const AuthManager = {
       if (res.ok) {
         if (statusEl) {
           statusEl.className = 'auth-status-msg success';
-          statusEl.textContent = '✓ Dynamic PIN sent! Please check your Gmail (' + AUTH_CONFIG.email + ').';
+          statusEl.textContent = '✓ Dynamic PIN sent! Please check your Gmail inbox.';
         }
         showToast('Dynamic PIN sent to Gmail!');
+        const pinInput = document.getElementById('auth-pin-input');
+        if (pinInput) pinInput.focus();
       } else {
         const err = await res.json().catch(() => ({}));
         if (err.error_code === 'over_email_send_rate_limit' || res.status === 429) {
@@ -133,7 +165,7 @@ const AuthManager = {
     } catch (e) {
       if (statusEl) {
         statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Network error sending PIN. You can use your master PIN.';
+        statusEl.textContent = 'Network error. You can use your master PIN to unlock.';
       }
     } finally {
       if (sendBtn) sendBtn.disabled = false;
@@ -263,23 +295,25 @@ const AuthManager = {
         <p class="auth-subtitle">Swaraj Kanse &bull; 50-Week Placement Roadmap</p>
         
         <p class="auth-desc">
-          Authorized access only. Dynamic rotating PIN verification ensures no one else can view or alter your study progress.
+          Authorized access only. Enter your authorized email to receive a dynamic rotating PIN, or enter your Master PIN directly.
         </p>
 
-        <div class="auth-email-box">
-          <div class="auth-email-label">Authorized Account</div>
-          <div class="auth-email-val">swarajkanse2@gmail.com</div>
-        </div>
+        <form id="auth-email-form" onsubmit="event.preventDefault(); AuthManager.sendEmailOtp();" style="margin-bottom: 0.5rem;">
+          <div class="auth-email-group">
+            <label class="auth-input-label" for="auth-email-input">Authorized Email</label>
+            <input type="email" id="auth-email-input" class="auth-email-input" placeholder="Enter your email to request PIN" autocomplete="email" />
+          </div>
 
-        <button type="button" class="btn-auth-send" id="btn-send-otp" onclick="AuthManager.sendEmailOtp()">
-          📩 Send Rotating PIN to Gmail
-        </button>
+          <button type="submit" class="btn-auth-send" id="btn-send-otp">
+            📩 Send Dynamic PIN to Email
+          </button>
+        </form>
 
         <div class="auth-divider"><span>OR ENTER PIN DIRECTLY</span></div>
 
         <form id="auth-pin-form" onsubmit="event.preventDefault(); AuthManager.verifyPin(document.getElementById('auth-pin-input').value);">
           <div class="auth-input-wrap">
-            <input type="password" id="auth-pin-input" class="auth-pin-input" placeholder="Enter 6-digit PIN" maxlength="10" autocomplete="one-time-code" />
+            <input type="password" id="auth-pin-input" class="auth-pin-input" placeholder="Enter PIN" maxlength="10" autocomplete="one-time-code" />
           </div>
 
           <div id="auth-status-msg" class="auth-status-msg"></div>
@@ -291,7 +325,7 @@ const AuthManager = {
 
         <div class="auth-footer-notes">
           <span>🛡️ Remembers this device for 1 month (30 days)</span>
-          <span>🔄 Rotating dynamic PIN sent exclusively to your email</span>
+          <span>🔒 PIN is only dispatched after verifying authorized email</span>
         </div>
       </div>
     `;

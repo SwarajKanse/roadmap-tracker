@@ -1246,30 +1246,37 @@ body.auth-locked .container {
   margin-bottom: 1.25rem;
 }
 
-.auth-email-box {
-  background: var(--bg-canvas);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
+.auth-email-group {
+  margin-bottom: 0.75rem;
   text-align: left;
 }
 
-.auth-email-label {
+.auth-input-label {
+  display: block;
   font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.35rem;
 }
 
-.auth-email-val {
+.auth-email-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
   font-size: 0.88rem;
-  font-weight: 600;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   color: var(--text-primary);
-  font-family: var(--font-mono);
-  word-break: break-all;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.auth-email-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .btn-auth-send {
