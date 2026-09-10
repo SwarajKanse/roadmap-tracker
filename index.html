@@ -19,16 +19,14 @@
       </div>
 
       <div class="nav-right">
+        <div id="nav-auth-badge" class="auth-badge unlocked" title="Authentication Status">
+          <span class="auth-dot"></span>
+          <span>Authorized</span>
+        </div>
         <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
           <span class="sync-text">Connecting to cloud...</span>
         </div>
-        <button class="nav-btn" id="btn-export-data" title="Export progress to JSON">Backup</button>
-        <label class="nav-btn" style="cursor:pointer;" title="Import progress from JSON">
-          Restore
-          <input type="file" id="file-import-data" accept=".json" style="display:none;">
-        </label>
-        <button class="nav-btn" id="btn-reset-all" title="Reset all checklist progress">Reset All</button>
         <button class="icon-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           🌓
         </button>

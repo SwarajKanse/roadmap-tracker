@@ -76,6 +76,10 @@
       </div>
 
       <div class="nav-right">
+        <div id="nav-auth-badge" class="auth-badge unlocked" title="Authentication Status">
+          <span class="auth-dot"></span>
+          <span>Authorized</span>
+        </div>
         <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
           <span class="sync-text">Connecting to cloud...</span>
@@ -108,17 +112,6 @@
 
     <!-- Controls Bar -->
     <div class="controls-bar">
-      <div class="filter-group" aria-label="Filter by day">
-        <button class="filter-pill day-filter-pill active" data-day="all">All Days</button>
-        <button class="filter-pill day-filter-pill" data-day="Mon">Mon</button>
-        <button class="filter-pill day-filter-pill" data-day="Tue">Tue</button>
-        <button class="filter-pill day-filter-pill" data-day="Wed">Wed</button>
-        <button class="filter-pill day-filter-pill" data-day="Thu">Thu</button>
-        <button class="filter-pill day-filter-pill" data-day="Fri">Fri</button>
-        <button class="filter-pill day-filter-pill" data-day="Sat">Sat</button>
-        <button class="filter-pill day-filter-pill" data-day="Sun">Sun</button>
-      </div>
-
       <div class="filter-group" aria-label="Filter by track">
         <button class="filter-pill track-filter-pill active" data-track="all">All Tracks</button>
         <button class="filter-pill track-filter-pill" data-track="dsa">DSA</button>
@@ -128,8 +121,6 @@
       </div>
 
       <div class="action-group">
-        <button class="btn-subtle" id="btn-mark-all" title="Mark all items completed">✓ Mark All</button>
-        <button class="btn-subtle" id="btn-clear-all" title="Reset all checkboxes">✕ Reset</button>
         <button class="btn-subtle" id="btn-copy-summary" title="Copy progress to clipboard">📋 Copy Summary</button>
       </div>
     </div>
@@ -170,7 +161,7 @@
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
                 </div>
-                <div class="task-text"><strong>Confluent Developer — "Kafka 101"</strong> (<code><a href="https://developer.confluent.io</code>" target="_blank" rel="noopener noreferrer" class="task-link">developer.confluent.io`</a>) — free, official: topics, partitions, producers/consumers, offsets</div>
+                <div class="task-text"><strong>Confluent Developer — "Kafka 101"</strong> (<code><a href="https://developer.confluent.io" target="_blank" rel="noopener noreferrer" class="task-link">developer.confluent.io</a></code>) — free, official: topics, partitions, producers/consumers, offsets</div>
               </div>
             </div>
 
@@ -657,7 +648,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text">**Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.**</div>
+              <div class="deliverable-text"><strong>Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.</strong></div>
             </div>
 
             <div class="deliverable-item" data-task-id="w40_deliv_4">

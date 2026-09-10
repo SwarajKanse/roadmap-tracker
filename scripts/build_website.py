@@ -26,20 +26,20 @@ def format_cell_html(text):
         url = m.group(0)
         full_url = url if url.startswith('http') else 'https://' + url
         trailing = ""
-        while full_url and full_url[-1] in '.,;:)\"\'':
+        while full_url and full_url[-1] in '.,;:)\"`\'':
             trailing = full_url[-1] + trailing
             full_url = full_url[:-1]
             url = url[:-1]
         return f'<a href="{full_url}" target="_blank" rel="noopener noreferrer" class="task-link">{url}</a>{trailing}'
 
-    bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com)[^\s<>]*)'
+    bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>`"\)]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com)[^\s<>`"\)]*)'
     text = re.sub(bare_url_regex, raw_url_repl, text)
     
-    # 4. Bold: **text**
-    text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
+    # 4. Bold: **text** (non-greedy, matches even if containing nested italics or code)
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     
-    # 5. Italic: *text*
-    text = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', text)
+    # 5. Italic: *text* (avoiding matching double asterisks)
+    text = re.sub(r'(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)', r'<em>\1</em>', text)
     
     # 6. Inline code: `code`
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
@@ -339,6 +339,10 @@ def generate_week_page(week, total_weeks, all_weeks):
       </div>
 
       <div class="nav-right">
+        <div id="nav-auth-badge" class="auth-badge unlocked" title="Authentication Status">
+          <span class="auth-dot"></span>
+          <span>Authorized</span>
+        </div>
         <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
           <span class="sync-text">Connecting to cloud...</span>
@@ -371,17 +375,6 @@ def generate_week_page(week, total_weeks, all_weeks):
 
     <!-- Controls Bar -->
     <div class="controls-bar">
-      <div class="filter-group" aria-label="Filter by day">
-        <button class="filter-pill day-filter-pill active" data-day="all">All Days</button>
-        <button class="filter-pill day-filter-pill" data-day="Mon">Mon</button>
-        <button class="filter-pill day-filter-pill" data-day="Tue">Tue</button>
-        <button class="filter-pill day-filter-pill" data-day="Wed">Wed</button>
-        <button class="filter-pill day-filter-pill" data-day="Thu">Thu</button>
-        <button class="filter-pill day-filter-pill" data-day="Fri">Fri</button>
-        <button class="filter-pill day-filter-pill" data-day="Sat">Sat</button>
-        <button class="filter-pill day-filter-pill" data-day="Sun">Sun</button>
-      </div>
-
       <div class="filter-group" aria-label="Filter by track">
         <button class="filter-pill track-filter-pill active" data-track="all">All Tracks</button>
         <button class="filter-pill track-filter-pill" data-track="dsa">DSA</button>
@@ -391,8 +384,6 @@ def generate_week_page(week, total_weeks, all_weeks):
       </div>
 
       <div class="action-group">
-        <button class="btn-subtle" id="btn-mark-all" title="Mark all items completed">✓ Mark All</button>
-        <button class="btn-subtle" id="btn-clear-all" title="Reset all checkboxes">✕ Reset</button>
         <button class="btn-subtle" id="btn-copy-summary" title="Copy progress to clipboard">📋 Copy Summary</button>
       </div>
     </div>
@@ -492,16 +483,14 @@ def generate_dashboard(roadmap):
       </div>
 
       <div class="nav-right">
+        <div id="nav-auth-badge" class="auth-badge unlocked" title="Authentication Status">
+          <span class="auth-dot"></span>
+          <span>Authorized</span>
+        </div>
         <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
           <span class="sync-text">Connecting to cloud...</span>
         </div>
-        <button class="nav-btn" id="btn-export-data" title="Export progress to JSON">Backup</button>
-        <label class="nav-btn" style="cursor:pointer;" title="Import progress from JSON">
-          Restore
-          <input type="file" id="file-import-data" accept=".json" style="display:none;">
-        </label>
-        <button class="nav-btn" id="btn-reset-all" title="Reset all checklist progress">Reset All</button>
         <button class="icon-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           🌓
         </button>

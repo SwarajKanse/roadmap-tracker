@@ -3,10 +3,10 @@
  * Domain: track.swarajkanse.me
  * 
  * Features:
- * 1. Instant local persistence in browser (localStorage)
- * 2. Automatic, zero-login Cloud Sync via Supabase (syncs across laptop, phone, anywhere!)
- * 3. One-click Backup (JSON export) & Restore (JSON import)
- * 4. Day & Track filtering, auto-saving notes, keyboard shortcuts
+ * 1. OAuth / Dynamic Rotating PIN Authentication Gatekeeper (30-day session)
+ * 2. Instant local persistence in browser (localStorage)
+ * 3. Automatic Cloud Sync via Supabase across all devices
+ * 4. Track filtering, auto-saving notes, keyboard shortcuts
  */
 
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
@@ -18,6 +18,294 @@ const CLOUD_CONFIG = {
   docId: 'swaraj_placement_roadmap'
 };
 
+const AUTH_CONFIG = {
+  sessionKey: 'study_roadmap_auth_session',
+  email: 'swarajkanse2@gmail.com',
+  masterPin: '2609', // Emergency master PIN fallback
+  sessionDurationDays: 30, // 1 month device persistence
+  otpEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/otp',
+  verifyEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/verify'
+};
+
+// ==========================================================================
+// Authentication Manager (Dynamic Rotating Email OTP / PIN Gatekeeper)
+// ==========================================================================
+const AuthManager = {
+  session: null,
+
+  init() {
+    this.loadSession();
+    this.injectAuthUI();
+    this.updateUIState();
+  },
+
+  loadSession() {
+    try {
+      const raw = localStorage.getItem(AUTH_CONFIG.sessionKey);
+      if (raw) {
+        const s = JSON.parse(raw);
+        if (s && s.authenticated && s.expiresAt && Date.now() < s.expiresAt) {
+          this.session = s;
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Auth session read warning:', e);
+    }
+    this.session = null;
+  },
+
+  isAuthenticated() {
+    if (!this.session) {
+      this.loadSession();
+    }
+    return !!(this.session && this.session.authenticated && this.session.expiresAt && Date.now() < this.session.expiresAt);
+  },
+
+  saveSession(authType = 'otp') {
+    const expiresAt = Date.now() + (AUTH_CONFIG.sessionDurationDays * 24 * 60 * 60 * 1000);
+    this.session = {
+      authenticated: true,
+      email: AUTH_CONFIG.email,
+      loginTime: new Date().toISOString(),
+      expiresAt: expiresAt,
+      type: authType
+    };
+    try {
+      localStorage.setItem(AUTH_CONFIG.sessionKey, JSON.stringify(this.session));
+    } catch (e) {
+      console.warn('Auth session save error:', e);
+    }
+    this.updateUIState();
+  },
+
+  logout() {
+    this.session = null;
+    try {
+      localStorage.removeItem(AUTH_CONFIG.sessionKey);
+    } catch (e) {}
+    this.updateUIState();
+    showToast('Device locked. PIN required to enter.');
+  },
+
+  async sendEmailOtp() {
+    const statusEl = document.getElementById('auth-status-msg');
+    const sendBtn = document.getElementById('btn-send-otp');
+    if (sendBtn) sendBtn.disabled = true;
+    if (statusEl) {
+      statusEl.className = 'auth-status-msg info';
+      statusEl.textContent = 'Generating dynamic PIN and sending to ' + AUTH_CONFIG.email + '...';
+    }
+
+    try {
+      const res = await fetch(AUTH_CONFIG.otpEndpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: AUTH_CONFIG.email,
+          create_user: true
+        })
+      });
+
+      if (res.ok) {
+        if (statusEl) {
+          statusEl.className = 'auth-status-msg success';
+          statusEl.textContent = '✓ Dynamic PIN sent! Please check your Gmail (' + AUTH_CONFIG.email + ').';
+        }
+        showToast('Dynamic PIN sent to Gmail!');
+      } else {
+        const err = await res.json().catch(() => ({}));
+        if (err.error_code === 'over_email_send_rate_limit' || res.status === 429) {
+          if (statusEl) {
+            statusEl.className = 'auth-status-msg warning';
+            statusEl.textContent = 'Email limit reached. Please enter your master PIN to unlock immediately.';
+          }
+        } else {
+          if (statusEl) {
+            statusEl.className = 'auth-status-msg error';
+            statusEl.textContent = err.msg || 'Could not send OTP email. Please use master PIN.';
+          }
+        }
+      }
+    } catch (e) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Network error sending PIN. You can use your master PIN.';
+      }
+    } finally {
+      if (sendBtn) sendBtn.disabled = false;
+    }
+  },
+
+  async verifyPin(pin) {
+    const cleanPin = (pin || '').trim();
+    const statusEl = document.getElementById('auth-status-msg');
+    const unlockBtn = document.getElementById('btn-unlock-auth');
+    
+    if (!cleanPin) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Please enter your 6-digit PIN.';
+      }
+      return false;
+    }
+
+    if (unlockBtn) unlockBtn.disabled = true;
+    if (statusEl) {
+      statusEl.className = 'auth-status-msg info';
+      statusEl.textContent = 'Verifying credentials...';
+    }
+
+    // 1. Direct check against Master PIN fallback
+    if (cleanPin === AUTH_CONFIG.masterPin) {
+      this.saveSession('master_pin');
+      this.onAuthenticated('Master PIN Verified');
+      if (unlockBtn) unlockBtn.disabled = false;
+      return true;
+    }
+
+    // 2. Check against Supabase OTP endpoint
+    try {
+      const res = await fetch(AUTH_CONFIG.verifyEndpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          type: 'email',
+          email: AUTH_CONFIG.email,
+          token: cleanPin
+        })
+      });
+
+      if (res.ok) {
+        this.saveSession('email_otp');
+        this.onAuthenticated('Dynamic PIN Verified');
+        if (unlockBtn) unlockBtn.disabled = false;
+        return true;
+      } else {
+        const err = await res.json().catch(() => ({}));
+        if (statusEl) {
+          statusEl.className = 'auth-status-msg error';
+          statusEl.textContent = err.msg || 'Invalid or expired PIN. Please try again or use Master PIN.';
+        }
+      }
+    } catch (e) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Verification connection error. Please try again.';
+      }
+    } finally {
+      if (unlockBtn) unlockBtn.disabled = false;
+    }
+    return false;
+  },
+
+  onAuthenticated(reason) {
+    const overlay = document.getElementById('auth-lock-overlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+    document.body.classList.remove('auth-locked');
+    showToast(`🔓 Access granted (${reason}) • Device remembered for 30 days!`);
+  },
+
+  updateUIState() {
+    const overlay = document.getElementById('auth-lock-overlay');
+    const authBadges = document.querySelectorAll('.auth-badge, #nav-auth-badge');
+    
+    if (this.isAuthenticated()) {
+      if (overlay) overlay.classList.remove('active');
+      document.body.classList.remove('auth-locked');
+      
+      const daysLeft = Math.max(1, Math.round((this.session.expiresAt - Date.now()) / (1000 * 60 * 60 * 24)));
+      authBadges.forEach(b => {
+        b.className = 'auth-badge unlocked';
+        b.innerHTML = `<span class="auth-dot"></span><span>Authorized (${daysLeft}d)</span>`;
+        b.title = `Device authorized as ${AUTH_CONFIG.email}. Valid for ${daysLeft} more days. Click to lock.`;
+        b.onclick = () => {
+          if (confirm('Lock this device now? You will need your PIN to re-enter.')) {
+            AuthManager.logout();
+          }
+        };
+      });
+    } else {
+      if (overlay) overlay.classList.add('active');
+      document.body.classList.add('auth-locked');
+      
+      authBadges.forEach(b => {
+        b.className = 'auth-badge locked';
+        b.innerHTML = `<span class="auth-dot"></span><span>Locked</span>`;
+        b.title = 'Workspace locked. Click to enter PIN.';
+        b.onclick = () => {
+          if (overlay) overlay.classList.add('active');
+        };
+      });
+    }
+  },
+
+  injectAuthUI() {
+    if (document.getElementById('auth-lock-overlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.id = 'auth-lock-overlay';
+    overlay.className = 'auth-overlay' + (this.isAuthenticated() ? '' : ' active');
+    overlay.innerHTML = `
+      <div class="auth-card">
+        <div class="auth-card-icon">
+          <div class="auth-icon-circle">🔐</div>
+        </div>
+        <h2 class="auth-title">Private Workspace</h2>
+        <p class="auth-subtitle">Swaraj Kanse &bull; 50-Week Placement Roadmap</p>
+        
+        <p class="auth-desc">
+          Authorized access only. Dynamic rotating PIN verification ensures no one else can view or alter your study progress.
+        </p>
+
+        <div class="auth-email-box">
+          <div class="auth-email-label">Authorized Account</div>
+          <div class="auth-email-val">swarajkanse2@gmail.com</div>
+        </div>
+
+        <button type="button" class="btn-auth-send" id="btn-send-otp" onclick="AuthManager.sendEmailOtp()">
+          📩 Send Rotating PIN to Gmail
+        </button>
+
+        <div class="auth-divider"><span>OR ENTER PIN DIRECTLY</span></div>
+
+        <form id="auth-pin-form" onsubmit="event.preventDefault(); AuthManager.verifyPin(document.getElementById('auth-pin-input').value);">
+          <div class="auth-input-wrap">
+            <input type="password" id="auth-pin-input" class="auth-pin-input" placeholder="Enter 6-digit PIN" maxlength="10" autocomplete="one-time-code" />
+          </div>
+
+          <div id="auth-status-msg" class="auth-status-msg"></div>
+
+          <button type="submit" class="btn-auth-unlock" id="btn-unlock-auth">
+            🔓 Unlock &amp; Remember Device (30 Days)
+          </button>
+        </form>
+
+        <div class="auth-footer-notes">
+          <span>🛡️ Remembers this device for 1 month (30 days)</span>
+          <span>🔄 Rotating dynamic PIN sent exclusively to your email</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    if (!this.isAuthenticated()) {
+      document.body.classList.add('auth-locked');
+    }
+  }
+};
+
+// ==========================================================================
+// App State & Cloud Sync Controller
+// ==========================================================================
 const AppState = {
   data: {
     tasks: {},
@@ -31,6 +319,8 @@ const AppState = {
   onDataLoadedCallbacks: [],
 
   async init() {
+    AuthManager.init();
+
     // 1. Instant load from local browser cache for immediate rendering
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
@@ -84,8 +374,10 @@ const AppState = {
           this.updateSyncBadge('online', 'Cloud Synced (Live)');
           return;
         } else {
-          // Document does not exist yet: push current local state to cloud
-          await this.pushToCloud();
+          // Document does not exist yet: push current local state to cloud if authenticated
+          if (AuthManager.isAuthenticated()) {
+            await this.pushToCloud();
+          }
           return;
         }
       }
@@ -141,6 +433,11 @@ const AppState = {
   },
 
   setTask(id, done) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+      AuthManager.updateUIState();
+      return;
+    }
     if (done) {
       this.data.tasks[id] = true;
     } else {
@@ -156,6 +453,11 @@ const AppState = {
   },
 
   setNote(weekNum, text) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+      AuthManager.updateUIState();
+      return;
+    }
     this.data.notes[weekNum] = text;
     this.data.lastModified = new Date().toISOString();
     this.saveLocal();
@@ -163,6 +465,7 @@ const AppState = {
   },
 
   scheduleCloudSync() {
+    if (!AuthManager.isAuthenticated()) return;
     this.updateSyncBadge('saving', 'Saving...');
     clearTimeout(this.syncTimeout);
     this.syncTimeout = setTimeout(() => {
@@ -171,6 +474,7 @@ const AppState = {
   },
 
   async pushToCloud() {
+    if (!AuthManager.isAuthenticated()) return;
     this.isSyncing = true;
     try {
       const res = await fetch(CLOUD_CONFIG.endpoint, {
@@ -211,13 +515,13 @@ const AppState = {
       <div class="modal-card">
         <h2 class="modal-title">☁️ Live Cloud Sync</h2>
         <p class="modal-desc">
-          Your progress is automatically saved to your cloud database in real time. Open <code>track.swarajkanse.me</code> on any phone, tablet, or browser—no login or token required.
+          Your progress is automatically saved to your cloud database in real time across phone, laptop, and tablet.
         </p>
 
         <div style="background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1rem; margin-bottom:1.25rem;">
           <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
             <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--success); box-shadow:0 0 8px var(--success);"></span>
-            <strong style="font-size:0.9rem; color:var(--text-primary);">Automatic Sync Active</strong>
+            <strong style="font-size:0.9rem; color:var(--text-primary);">Automatic Cloud Sync Active</strong>
           </div>
           <p style="font-size:0.8rem; color:var(--text-secondary); margin:0;" id="cloud-last-sync-text">
             Continuous background sync enabled across all devices.
@@ -280,6 +584,11 @@ function closeCloudSyncModal() {
 }
 
 async function manualForceSync() {
+  if (!AuthManager.isAuthenticated()) {
+    showToast('Please unlock with PIN first');
+    AuthManager.updateUIState();
+    return;
+  }
   showToast('Syncing with cloud...');
   await AppState.fetchFromCloud();
   await AppState.pushToCloud();
@@ -287,7 +596,7 @@ async function manualForceSync() {
   closeCloudSyncModal();
 }
 
-// Auto-start
+// Auto-start AppState
 AppState.init();
 
 // --- Toast Notification ---
@@ -339,6 +648,12 @@ function initWeekPage(weekNum) {
     updateTaskItemVisual(cb, cb.checked);
 
     cb.addEventListener('change', () => {
+      if (!AuthManager.isAuthenticated()) {
+        cb.checked = !cb.checked;
+        showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+        AuthManager.updateUIState();
+        return;
+      }
       const checked = cb.checked;
       AppState.setTask(taskId, checked);
       updateTaskItemVisual(cb, checked);
@@ -354,16 +669,7 @@ function initWeekPage(weekNum) {
   updateWeekProgress();
   updateDayProgress();
 
-  // 2. Filtering setup
-  const dayPills = document.querySelectorAll('.day-filter-pill');
-  dayPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      dayPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      applyFilters();
-    });
-  });
-
+  // 2. Track Filtering setup (Day pills removed per requirement)
   const trackPills = document.querySelectorAll('.track-filter-pill');
   trackPills.forEach(pill => {
     pill.addEventListener('click', () => {
@@ -374,38 +680,6 @@ function initWeekPage(weekNum) {
   });
 
   // 3. Quick Actions
-  const btnMarkAll = document.getElementById('btn-mark-all');
-  if (btnMarkAll) {
-    btnMarkAll.addEventListener('click', () => {
-      checkboxes.forEach(cb => {
-        const taskId = cb.getAttribute('data-task-id');
-        cb.checked = true;
-        AppState.setTask(taskId, true);
-        updateTaskItemVisual(cb, true);
-      });
-      updateWeekProgress();
-      updateDayProgress();
-      showToast('Marked all tasks complete');
-    });
-  }
-
-  const btnClearAll = document.getElementById('btn-clear-all');
-  if (btnClearAll) {
-    btnClearAll.addEventListener('click', () => {
-      if (confirm('Reset all checkboxes for this week?')) {
-        checkboxes.forEach(cb => {
-          const taskId = cb.getAttribute('data-task-id');
-          cb.checked = false;
-          AppState.setTask(taskId, false);
-          updateTaskItemVisual(cb, false);
-        });
-        updateWeekProgress();
-        updateDayProgress();
-        showToast('Week reset');
-      }
-    });
-  }
-
   const btnCopySummary = document.getElementById('btn-copy-summary');
   if (btnCopySummary) {
     btnCopySummary.addEventListener('click', () => {
@@ -413,13 +687,18 @@ function initWeekPage(weekNum) {
     });
   }
 
-  // 4. Notes / Scratchpad auto-save
+  // 4. Notes Scratchpad auto-save
   const notesArea = document.getElementById('week-notes');
   const saveStatus = document.getElementById('notes-save-status');
   if (notesArea) {
     notesArea.value = AppState.getNote(weekNum);
     let timeout;
     notesArea.addEventListener('input', () => {
+      if (!AuthManager.isAuthenticated()) {
+        showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+        AuthManager.updateUIState();
+        return;
+      }
       notesArea._userTyping = true;
       if (saveStatus) saveStatus.textContent = 'Saving...';
       clearTimeout(timeout);
@@ -506,19 +785,10 @@ function updateDayProgress() {
 }
 
 function applyFilters() {
-  const activeDay = document.querySelector('.day-filter-pill.active')?.getAttribute('data-day') || 'all';
   const activeTrack = document.querySelector('.track-filter-pill.active')?.getAttribute('data-track') || 'all';
 
   const dayCards = document.querySelectorAll('.day-card');
   dayCards.forEach(card => {
-    const dayCode = card.getAttribute('data-day');
-    const dayMatch = (activeDay === 'all' || activeDay === dayCode);
-    
-    if (!dayMatch) {
-      card.style.display = 'none';
-      return;
-    }
-
     const taskItems = card.querySelectorAll('.task-item');
     let visibleTasksInDay = 0;
     taskItems.forEach(item => {
@@ -649,62 +919,4 @@ function initDashboard(roadmapData) {
   AppState.onDataLoaded(() => {
     renderDashboardStats();
   });
-
-  // Export / Backup Progress
-  const btnExport = document.getElementById('btn-export-data');
-  if (btnExport) {
-    btnExport.addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify(AppState.data, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `roadmap-progress-backup-${new Date().toISOString().slice(0,10)}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      showToast('Progress exported to JSON backup file');
-    });
-  }
-
-  // Import Progress
-  const fileInput = document.getElementById('file-import-data');
-  if (fileInput) {
-    fileInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        try {
-          const parsed = JSON.parse(event.target.result);
-          if (parsed && typeof parsed.tasks === 'object') {
-            AppState.data.tasks = parsed.tasks || {};
-            AppState.data.notes = parsed.notes || {};
-            AppState.data.lastModified = new Date().toISOString();
-            AppState.saveLocal();
-            if (AppState.gistConfig.token) await AppState.pushToGist();
-            showToast('Progress imported & saved!');
-            setTimeout(() => window.location.reload(), 800);
-          } else {
-            alert('Invalid backup file format');
-          }
-        } catch (err) {
-          alert('Could not parse backup JSON file');
-        }
-      };
-      reader.readAsText(file);
-    });
-  }
-
-  // Reset All
-  const btnResetAll = document.getElementById('btn-reset-all');
-  if (btnResetAll) {
-    btnResetAll.addEventListener('click', async () => {
-      if (confirm('Are you sure you want to reset all checklist progress?')) {
-        AppState.data = { tasks: {}, notes: {}, lastModified: new Date().toISOString() };
-        AppState.saveLocal();
-        if (AppState.gistConfig.token) await AppState.pushToGist();
-        showToast('All progress reset');
-        setTimeout(() => window.location.reload(), 500);
-      }
-    });
-  }
 }

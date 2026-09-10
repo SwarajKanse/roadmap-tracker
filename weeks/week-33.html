@@ -76,6 +76,10 @@
       </div>
 
       <div class="nav-right">
+        <div id="nav-auth-badge" class="auth-badge unlocked" title="Authentication Status">
+          <span class="auth-dot"></span>
+          <span>Authorized</span>
+        </div>
         <div class="sync-badge saving" title="Cloud Sync Status - Live across all devices">
           <span class="sync-dot"></span>
           <span class="sync-text">Connecting to cloud...</span>
@@ -108,17 +112,6 @@
 
     <!-- Controls Bar -->
     <div class="controls-bar">
-      <div class="filter-group" aria-label="Filter by day">
-        <button class="filter-pill day-filter-pill active" data-day="all">All Days</button>
-        <button class="filter-pill day-filter-pill" data-day="Mon">Mon</button>
-        <button class="filter-pill day-filter-pill" data-day="Tue">Tue</button>
-        <button class="filter-pill day-filter-pill" data-day="Wed">Wed</button>
-        <button class="filter-pill day-filter-pill" data-day="Thu">Thu</button>
-        <button class="filter-pill day-filter-pill" data-day="Fri">Fri</button>
-        <button class="filter-pill day-filter-pill" data-day="Sat">Sat</button>
-        <button class="filter-pill day-filter-pill" data-day="Sun">Sun</button>
-      </div>
-
       <div class="filter-group" aria-label="Filter by track">
         <button class="filter-pill track-filter-pill active" data-track="all">All Tracks</button>
         <button class="filter-pill track-filter-pill" data-track="dsa">DSA</button>
@@ -128,8 +121,6 @@
       </div>
 
       <div class="action-group">
-        <button class="btn-subtle" id="btn-mark-all" title="Mark all items completed">✓ Mark All</button>
-        <button class="btn-subtle" id="btn-clear-all" title="Reset all checkboxes">✕ Reset</button>
         <button class="btn-subtle" id="btn-copy-summary" title="Copy progress to clipboard">📋 Copy Summary</button>
       </div>
     </div>
@@ -308,7 +299,7 @@
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
                 </div>
-                <div class="task-text"><strong>RAGAS</strong> (<code><a href="https://docs.ragas.io</code>" target="_blank" rel="noopener noreferrer" class="task-link">docs.ragas.io`</a>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone</div>
+                <div class="task-text"><strong>RAGAS</strong> (<code><a href="https://docs.ragas.io" target="_blank" rel="noopener noreferrer" class="task-link">docs.ragas.io</a></code>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone</div>
               </div>
             </div>
 

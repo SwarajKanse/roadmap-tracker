@@ -9469,7 +9469,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face LLM Course** (`huggingface.co/learn/llm-course`) — Ch.1: what Transformers can do, the `pipeline()` API",
-            "html": "<strong>Hugging Face LLM Course</strong> (<code><a href=\"https://huggingface.co/learn/llm-course</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/llm-course<code></a>) — Ch.1: what Transformers can do, the </code>pipeline()` API",
+            "html": "<strong>Hugging Face LLM Course</strong> (<code><a href=\"https://huggingface.co/learn/llm-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/llm-course</a></code>) — Ch.1: what Transformers can do, the <code>pipeline()</code> API",
             "is_rest": false
           },
           {
@@ -9779,7 +9779,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "HF PEFT / LoRA quicktour (`huggingface.co/docs/peft`) — read the concept: freeze the base model, train a small rank-decomposition adapter",
-            "html": "HF PEFT / LoRA quicktour (<code><a href=\"https://huggingface.co/docs/peft</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/docs/peft`</a>) — read the concept: freeze the base model, train a small rank-decomposition adapter",
+            "html": "HF PEFT / LoRA quicktour (<code><a href=\"https://huggingface.co/docs/peft\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/docs/peft</a></code>) — read the concept: freeze the base model, train a small rank-decomposition adapter",
             "is_rest": false
           },
           {
@@ -10173,7 +10173,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**RAGAS** (`docs.ragas.io`) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
-            "html": "<strong>RAGAS</strong> (<code><a href=\"https://docs.ragas.io</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.ragas.io`</a>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
+            "html": "<strong>RAGAS</strong> (<code><a href=\"https://docs.ragas.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.ragas.io</a></code>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone",
             "is_rest": false
           },
           {
@@ -10399,7 +10399,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face Agents Course** (`huggingface.co/learn/agents-course`) — Unit 1: what an agent is, the ReAct-style loop",
-            "html": "<strong>Hugging Face Agents Course</strong> (<code><a href=\"https://huggingface.co/learn/agents-course</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/agents-course`</a>) — Unit 1: what an agent is, the ReAct-style loop",
+            "html": "<strong>Hugging Face Agents Course</strong> (<code><a href=\"https://huggingface.co/learn/agents-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">huggingface.co/learn/agents-course</a></code>) — Unit 1: what an agent is, the ReAct-style loop",
             "is_rest": false
           },
           {
@@ -12281,7 +12281,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Confluent Developer — \"Kafka 101\"** (`developer.confluent.io`) — free, official: topics, partitions, producers/consumers, offsets",
-            "html": "<strong>Confluent Developer — \"Kafka 101\"</strong> (<code><a href=\"https://developer.confluent.io</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">developer.confluent.io`</a>) — free, official: topics, partitions, producers/consumers, offsets",
+            "html": "<strong>Confluent Developer — \"Kafka 101\"</strong> (<code><a href=\"https://developer.confluent.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">developer.confluent.io</a></code>) — free, official: topics, partitions, producers/consumers, offsets",
             "is_rest": false
           },
           {
@@ -12571,7 +12571,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w40_deliv_3",
         "raw_text": "**Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. *Designing Data-Intensive Applications* read cover to cover.**",
-        "html": "**Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.**"
+        "html": "<strong>Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.</strong>"
       },
       {
         "id": "w40_deliv_4",
@@ -12613,7 +12613,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "Read the Spring AI vs. LangChain4j comparison and both projects' official docs (`docs.spring.io/spring-ai`, `docs.langchain4j.dev`); decide which you're using (Spring AI is recommended — it's Spring-native, not a Python port, and its 2.x line has first-class MCP support)",
-            "html": "Read the Spring AI vs. LangChain4j comparison and both projects' official docs (<code><a href=\"https://docs.spring.io/spring-ai</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.spring.io/spring-ai<code></a>, </code><a href=\"https://docs.langchain4j.dev<code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.langchain4j.dev</code></a>); decide which you're using (Spring AI is recommended — it's Spring-native, not a Python port, and its 2.x line has first-class MCP support)",
+            "html": "Read the Spring AI vs. LangChain4j comparison and both projects' official docs (<code><a href=\"https://docs.spring.io/spring-ai\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.spring.io/spring-ai</a></code>, <code><a href=\"https://docs.langchain4j.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">docs.langchain4j.dev</a></code>); decide which you're using (Spring AI is recommended — it's Spring-native, not a Python port, and its 2.x line has first-class MCP support)",
             "is_rest": false
           },
           {
@@ -13317,7 +13317,7 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "Read the **Model Context Protocol** docs (`modelcontextprotocol.io`) conceptually — what problem MCP actually solves",
-            "html": "Read the <strong>Model Context Protocol</strong> docs (<code><a href=\"https://modelcontextprotocol.io</code>\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">modelcontextprotocol.io`</a>) conceptually — what problem MCP actually solves",
+            "html": "Read the <strong>Model Context Protocol</strong> docs (<code><a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"task-link\">modelcontextprotocol.io</a></code>) conceptually — what problem MCP actually solves",
             "is_rest": false
           },
           {
@@ -15760,7 +15760,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w50_deliv_12",
         "raw_text": "**Give *Designing Data-Intensive Applications*'s hardest chapters (distributed transactions, consensus) a second read.** It's a book that rewards re-reading once you have more real system-building experience behind you, which you now do.",
-        "html": "**Give <em>Designing Data-Intensive Applications</em>'s hardest chapters (distributed transactions, consensus) a second read.** It's a book that rewards re-reading once you have more real system-building experience behind you, which you now do."
+        "html": "<strong>Give <em>Designing Data-Intensive Applications</em>'s hardest chapters (distributed transactions, consensus) a second read.</strong> It's a book that rewards re-reading once you have more real system-building experience behind you, which you now do."
       },
       {
         "id": "w50_deliv_13",

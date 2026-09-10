@@ -1110,4 +1110,284 @@ body {
   margin-top: 1.25rem;
 }
 
+/* ==========================================================================
+   Security & Authentication Gatekeeper (Dynamic Rotating PIN + 30d Session)
+   ========================================================================== */
+
+.auth-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-badge .auth-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  transition: background 0.2s ease;
+}
+
+.auth-badge.unlocked {
+  border-color: var(--success-border);
+  background: var(--success-bg);
+  color: var(--success);
+}
+.auth-badge.unlocked .auth-dot {
+  background: var(--success);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.auth-badge.locked {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+.auth-badge.locked .auth-dot {
+  background: #ef4444;
+}
+
+/* Page lock blur */
+body.auth-locked .top-nav-inner > *:not(.nav-right),
+body.auth-locked .container {
+  filter: blur(8px);
+  pointer-events: none !important;
+  user-select: none !important;
+  transition: filter 0.3s ease;
+}
+
+/* Fullscreen Auth Overlay */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  padding: 1.25rem;
+}
+
+.auth-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.auth-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transform: translateY(12px);
+  transition: transform 0.25s ease;
+}
+
+.auth-overlay.active .auth-card {
+  transform: translateY(0);
+}
+
+.auth-card-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.auth-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  border: 1px solid var(--accent-ring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.auth-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.auth-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.auth-email-box {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.auth-email-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.auth-email-val {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+.btn-auth-send {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-auth-send:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-auth-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.auth-divider span {
+  padding: 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.auth-input-wrap {
+  margin-bottom: 0.75rem;
+}
+
+.auth-pin-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+  letter-spacing: 0.35em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-pin-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.auth-status-msg {
+  min-height: 1.25rem;
+  font-size: 0.78rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+.auth-status-msg.info { color: var(--accent-primary); }
+.auth-status-msg.success { color: var(--success); font-weight: 600; }
+.auth-status-msg.warning { color: var(--warning); font-weight: 500; }
+.auth-status-msg.error { color: #ef4444; font-weight: 600; }
+
+.btn-auth-unlock {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-auth-unlock:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn-auth-unlock:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-footer-notes {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.73rem;
+  color: var(--text-muted);
+}
+
+
 
