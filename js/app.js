@@ -4,14 +4,19 @@
  * 
  * Features:
  * 1. Instant local persistence in browser (localStorage)
- * 2. Permanent Cloud Sync via private GitHub Gist (syncs across laptop, phone, anywhere!)
+ * 2. Automatic, zero-login Cloud Sync via Supabase (syncs across laptop, phone, anywhere!)
  * 3. One-click Backup (JSON export) & Restore (JSON import)
  * 4. Day & Track filtering, auto-saving notes, keyboard shortcuts
  */
 
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
 const THEME_KEY = 'study_roadmap_theme';
-const GIST_KEY = 'study_roadmap_gist_config';
+
+const CLOUD_CONFIG = {
+  endpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/rest/v1/tracker_state',
+  apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqcW12d3ZmbXlvYWFrZ3N4ZGR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNTc1ODAsImV4cCI6MjEwNDYzMzU4MH0.aVUPWDOnirAco45eh0iTLNxupL9etepBWkInje0dZuk',
+  docId: 'swaraj_placement_roadmap'
+};
 
 const AppState = {
   data: {
@@ -19,13 +24,14 @@ const AppState = {
     notes: {},
     lastModified: null
   },
-  gistConnected: false,
-  gistConfig: { token: '', gistId: '' },
+  cloudConnected: false,
   syncTimeout: null,
+  isSyncing: false,
+  lastSyncTime: null,
   onDataLoadedCallbacks: [],
 
   async init() {
-    // 1. Load from browser storage
+    // 1. Instant load from local browser cache for immediate rendering
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -34,10 +40,6 @@ const AppState = {
         this.data.notes = parsed.notes || {};
         this.data.lastModified = parsed.lastModified || null;
       }
-      const savedGist = localStorage.getItem(GIST_KEY);
-      if (savedGist) {
-        this.gistConfig = JSON.parse(savedGist);
-      }
     } catch (e) {
       console.warn('Storage load warning:', e);
     }
@@ -45,61 +47,85 @@ const AppState = {
     this.initTheme();
     this.initCloudSyncModal();
 
-    // 2. Fetch from GitHub Gist Cloud if connected
-    if (this.gistConfig.token) {
-      await this.syncWithGist();
-    } else {
-      this.refreshBadgeStatus();
-    }
+    // 2. Fetch and synchronize with cloud database
+    await this.fetchFromCloud();
+
+    // 3. Auto-sync on window focus (when switching between mobile/desktop/tabs)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        this.fetchFromCloud();
+      }
+    });
+
+    window.addEventListener('online', () => {
+      this.fetchFromCloud();
+    });
   },
 
-  async syncWithGist() {
-    this.updateSyncBadge('saving', 'Syncing with cloud...');
+  async fetchFromCloud() {
+    if (this.isSyncing) return;
+    this.updateSyncBadge('saving', 'Syncing...');
     try {
-      const gistData = await this.fetchFromGist();
-      if (gistData) {
-        this.gistConnected = true;
-        this.reconcileData(gistData);
-        this.saveLocal();
-        this.refreshBadgeStatus();
-        this.notifyDataUpdated();
-        return;
+      const res = await fetch(`${CLOUD_CONFIG.endpoint}?id=eq.${CLOUD_CONFIG.docId}`, {
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`
+        }
+      });
+
+      if (res.ok) {
+        const rows = await res.json();
+        if (rows && rows.length > 0 && rows[0].data) {
+          this.cloudConnected = true;
+          this.lastSyncTime = new Date();
+          this.reconcileData(rows[0].data);
+          this.saveLocal();
+          this.notifyDataUpdated();
+          this.updateSyncBadge('online', 'Cloud Synced (Live)');
+          return;
+        } else {
+          // Document does not exist yet: push current local state to cloud
+          await this.pushToCloud();
+          return;
+        }
       }
     } catch (e) {
-      console.warn('Cloud sync error:', e);
-      this.gistConnected = false;
+      console.warn('Cloud fetch notice:', e);
     }
-    this.refreshBadgeStatus();
+    
+    // Offline or network unreachable
+    if (!this.cloudConnected) {
+      this.updateSyncBadge('offline', 'Saved Locally (Offline)');
+    } else {
+      this.updateSyncBadge('online', 'Cloud Synced (Live)');
+    }
   },
 
   reconcileData(incoming) {
     if (!incoming) return;
-    const incomingTasks = incoming.tasks || {};
-    const incomingNotes = incoming.notes || {};
+    const localTime = this.data.lastModified ? new Date(this.data.lastModified).getTime() : 0;
+    const cloudTime = incoming.lastModified ? new Date(incoming.lastModified).getTime() : 0;
 
-    // Union of completed tasks so nothing is ever lost
-    for (const [id, done] of Object.entries(incomingTasks)) {
-      if (done) this.data.tasks[id] = true;
-    }
-
-    // Merge notes (prefer non-empty)
-    for (const [w, note] of Object.entries(incomingNotes)) {
-      if (note && !this.data.notes[w]) {
-        this.data.notes[w] = note;
-      }
-    }
-
-    if (incoming.lastModified) {
+    if (cloudTime >= localTime) {
+      // Cloud is newer or equal: adopt cloud state
+      this.data.tasks = incoming.tasks || {};
+      this.data.notes = incoming.notes || {};
       this.data.lastModified = incoming.lastModified;
+    } else {
+      // Local has newer changes made offline: push local changes to cloud
+      this.scheduleCloudSync();
     }
   },
 
-  refreshBadgeStatus() {
-    if (this.gistConnected) {
-      this.updateSyncBadge('online', 'Synced to GitHub Cloud');
-    } else {
-      this.updateSyncBadge('offline', 'Saved in Browser (Click to enable Cloud Sync)');
-    }
+  updateSyncBadge(status, text) {
+    const badges = document.querySelectorAll('.sync-badge');
+    badges.forEach(badge => {
+      badge.className = `sync-badge ${status}`;
+      const label = badge.querySelector('.sync-text');
+      if (label) label.textContent = text;
+      badge.onclick = () => openCloudSyncModal();
+      badge.style.cursor = 'pointer';
+    });
   },
 
   saveLocal() {
@@ -137,129 +163,42 @@ const AppState = {
   },
 
   scheduleCloudSync() {
-    if (!this.gistConfig.token) return;
-    this.updateSyncBadge('saving', 'Saving to cloud...');
+    this.updateSyncBadge('saving', 'Saving...');
     clearTimeout(this.syncTimeout);
     this.syncTimeout = setTimeout(() => {
-      this.pushToGist();
-      this.refreshBadgeStatus();
-    }, 500);
+      this.pushToCloud();
+    }, 400);
   },
 
-  // --- GitHub Gist Cloud Sync ---
-  async fetchFromGist() {
-    const { token, gistId } = this.gistConfig;
-    if (!token) return null;
-
-    if (!gistId) {
-      return await this.initGist();
-    }
-
-    const res = await fetch(`https://api.github.com/gists/${gistId}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
-
-    if (res.ok) {
-      const gist = await res.json();
-      const file = gist.files['study_roadmap_progress.json'];
-      if (file && file.content) {
-        return JSON.parse(file.content);
-      }
-    }
-    return null;
-  },
-
-  async initGist() {
-    const { token } = this.gistConfig;
-    if (!token) return null;
-
-    // Check user's gists to see if study_roadmap_progress exists
-    const listRes = await fetch('https://api.github.com/gists', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
-
-    if (listRes.ok) {
-      const gists = await listRes.json();
-      const existing = gists.find(g => g.files && g.files['study_roadmap_progress.json']);
-      if (existing) {
-        this.gistConfig.gistId = existing.id;
-        localStorage.setItem(GIST_KEY, JSON.stringify(this.gistConfig));
-        return JSON.parse(existing.files['study_roadmap_progress.json'].content || '{}');
-      }
-    }
-
-    // Create new private gist
-    const createRes = await fetch('https://api.github.com/gists', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github.v3+json'
-      },
-      body: JSON.stringify({
-        description: 'AI + Java Roadmap Placement Tracker Progress',
-        public: false,
-        files: {
-          'study_roadmap_progress.json': {
-            content: JSON.stringify(this.data, null, 2)
-          }
-        }
-      })
-    });
-
-    if (createRes.ok) {
-      const newGist = await createRes.json();
-      this.gistConfig.gistId = newGist.id;
-      localStorage.setItem(GIST_KEY, JSON.stringify(this.gistConfig));
-      return this.data;
-    }
-    return null;
-  },
-
-  async pushToGist() {
-    const { token, gistId } = this.gistConfig;
-    if (!token || !gistId) return;
-
+  async pushToCloud() {
+    this.isSyncing = true;
     try {
-      const res = await fetch(`https://api.github.com/gists/${gistId}`, {
-        method: 'PATCH',
+      const res = await fetch(CLOUD_CONFIG.endpoint, {
+        method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
           'Content-Type': 'application/json',
-          'Accept': 'application/vnd.github.v3+json'
+          'Prefer': 'resolution=merge-duplicates'
         },
         body: JSON.stringify({
-          files: {
-            'study_roadmap_progress.json': {
-              content: JSON.stringify(this.data, null, 2)
-            }
-          }
+          id: CLOUD_CONFIG.docId,
+          data: this.data,
+          updated_at: new Date().toISOString()
         })
       });
+
       if (res.ok) {
-        this.gistConnected = true;
-        this.refreshBadgeStatus();
+        this.cloudConnected = true;
+        this.lastSyncTime = new Date();
+        this.updateSyncBadge('online', 'Cloud Synced (Live)');
       }
     } catch (e) {
-      console.warn('Failed to push to Gist:', e);
+      console.warn('Push to cloud notice:', e);
+      this.updateSyncBadge('offline', 'Saved Locally (Offline)');
+    } finally {
+      this.isSyncing = false;
     }
-  },
-
-  updateSyncBadge(status, text) {
-    const badges = document.querySelectorAll('.sync-badge');
-    badges.forEach(badge => {
-      badge.className = `sync-badge ${status}`;
-      const label = badge.querySelector('.sync-text');
-      if (label) label.textContent = text;
-      badge.onclick = () => openCloudSyncModal();
-      badge.style.cursor = 'pointer';
-    });
   },
 
   initCloudSyncModal() {
@@ -270,25 +209,24 @@ const AppState = {
     modal.className = 'modal-overlay';
     modal.innerHTML = `
       <div class="modal-card">
-        <h2 class="modal-title">☁️ Cloud Sync Settings</h2>
+        <h2 class="modal-title">☁️ Live Cloud Sync</h2>
         <p class="modal-desc">
-          Keep your progress safely backed up to your private GitHub account so you never lose data when clearing browser cache, and can access it from your phone and laptop at <code>track.swarajkanse.me</code>.
+          Your progress is automatically saved to your cloud database in real time. Open <code>track.swarajkanse.me</code> on any phone, tablet, or browser—no login or token required.
         </p>
 
-        <div class="modal-input-group">
-          <label class="modal-label">GitHub Personal Access Token (classic)</label>
-          <input type="password" id="gist-token-input" class="modal-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-          <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">
-            Generate one on GitHub: <a href="https://github.com/settings/tokens" target="_blank" class="task-link">github.com/settings/tokens</a> with only the <strong>gist</strong> permission.
+        <div style="background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1rem; margin-bottom:1.25rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+            <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--success); box-shadow:0 0 8px var(--success);"></span>
+            <strong style="font-size:0.9rem; color:var(--text-primary);">Automatic Sync Active</strong>
+          </div>
+          <p style="font-size:0.8rem; color:var(--text-secondary); margin:0;" id="cloud-last-sync-text">
+            Continuous background sync enabled across all devices.
           </p>
         </div>
 
-        <div id="cloud-sync-status" style="font-size:0.8rem; margin-bottom:1rem; padding:0.5rem 0.75rem; border-radius:var(--radius-sm); display:none;"></div>
-
-        <div class="modal-actions">
+        <div class="modal-actions" style="justify-content:space-between;">
+          <button class="nav-btn" style="background:var(--accent-primary); color:white; border-color:var(--accent-primary);" onclick="manualForceSync()">Sync Now</button>
           <button class="nav-btn" onclick="closeCloudSyncModal()">Close</button>
-          <button class="nav-btn" id="btn-disconnect-gist" style="color:var(--warning); display:none;" onclick="disconnectGist()">Disconnect</button>
-          <button class="nav-btn" style="background:var(--accent-primary); color:white; border-color:var(--accent-primary);" onclick="saveGistToken()">Connect &amp; Sync</button>
         </div>
       </div>
     `;
@@ -325,25 +263,13 @@ const AppState = {
   }
 };
 
-// Modal handlers
+// Modal helpers
 function openCloudSyncModal() {
   const modal = document.getElementById('cloud-sync-modal');
   if (!modal) return;
-  const tokenInput = document.getElementById('gist-token-input');
-  const disconnectBtn = document.getElementById('btn-disconnect-gist');
-  const statusDiv = document.getElementById('cloud-sync-status');
-
-  if (AppState.gistConfig.token) {
-    tokenInput.value = AppState.gistConfig.token;
-    disconnectBtn.style.display = 'inline-flex';
-    statusDiv.style.display = 'block';
-    statusDiv.style.background = 'var(--success-bg)';
-    statusDiv.style.color = 'var(--success)';
-    statusDiv.innerHTML = `✓ Connected to private GitHub Gist (${AppState.gistConfig.gistId || 'Active'})`;
-  } else {
-    tokenInput.value = '';
-    disconnectBtn.style.display = 'none';
-    statusDiv.style.display = 'none';
+  const syncText = document.getElementById('cloud-last-sync-text');
+  if (syncText && AppState.lastSyncTime) {
+    syncText.textContent = `Last synced with cloud: ${AppState.lastSyncTime.toLocaleTimeString()}`;
   }
   modal.classList.add('open');
 }
@@ -353,29 +279,12 @@ function closeCloudSyncModal() {
   if (modal) modal.classList.remove('open');
 }
 
-async function saveGistToken() {
-  const token = document.getElementById('gist-token-input').value.trim();
-  if (!token) {
-    alert('Please enter a valid GitHub token');
-    return;
-  }
-  AppState.gistConfig.token = token;
-  localStorage.setItem(GIST_KEY, JSON.stringify(AppState.gistConfig));
-  showToast('Connecting to private GitHub Gist...');
-  await AppState.syncWithGist();
+async function manualForceSync() {
+  showToast('Syncing with cloud...');
+  await AppState.fetchFromCloud();
+  await AppState.pushToCloud();
+  showToast('✓ Synced with cloud!');
   closeCloudSyncModal();
-  showToast('✓ Cloud Sync connected successfully!');
-}
-
-function disconnectGist() {
-  if (confirm('Disconnect GitHub Cloud Sync on this browser?')) {
-    AppState.gistConfig = { token: '', gistId: '' };
-    localStorage.removeItem(GIST_KEY);
-    AppState.gistConnected = false;
-    AppState.refreshBadgeStatus();
-    closeCloudSyncModal();
-    showToast('Cloud sync disconnected');
-  }
 }
 
 // Auto-start
