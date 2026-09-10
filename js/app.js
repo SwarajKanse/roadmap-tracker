@@ -20,18 +20,32 @@ const CLOUD_CONFIG = {
 
 const AUTH_CONFIG = {
   sessionKey: 'study_roadmap_auth_session',
-  email: 'swarajkanse2@gmail.com',
-  masterPin: '8364', // Emergency master PIN fallback
   sessionDurationDays: 30, // 1 month device persistence
   otpEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/otp',
   verifyEndpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/auth/v1/verify'
 };
+
+// Cryptographic one-way verification (Zero plain-text credentials in client code)
+const _SEC = {
+  eH: '772c6f69a74a0530a2cc1c4a5dec881288e1bdbf8b3e2f6b89b5934529cacefd',
+  pH: 'ad8c042447f4cc4b99e9ed112a0897e8b35d5b7840539578d0685e6d18ae602f',
+  salt: 'swaraj_placement_roadmap_secure_salt_2026'
+};
+
+async function _hashVal(val) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode((val || '').trim().toLowerCase() + _SEC.salt);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 // ==========================================================================
 // Authentication Manager (Dynamic Rotating Email OTP / PIN Gatekeeper)
 // ==========================================================================
 const AuthManager = {
   session: null,
+  verifiedEmail: null,
 
   init() {
     if (window.location.search.includes('lock=true')) {
@@ -73,7 +87,6 @@ const AuthManager = {
     const expiresAt = Date.now() + (AUTH_CONFIG.sessionDurationDays * 24 * 60 * 60 * 1000);
     this.session = {
       authenticated: true,
-      email: AUTH_CONFIG.email,
       loginTime: new Date().toISOString(),
       expiresAt: expiresAt,
       type: authType
@@ -88,6 +101,7 @@ const AuthManager = {
 
   logout() {
     this.session = null;
+    this.verifiedEmail = null;
     try {
       localStorage.removeItem(AUTH_CONFIG.sessionKey);
     } catch (e) {}
@@ -111,15 +125,17 @@ const AuthManager = {
       return;
     }
 
-    // Security protection: Only proceed if entered email matches authorized email!
-    // Prevents unauthorized visitors from triggering OTP emails or spamming your inbox.
-    if (enteredEmail !== AUTH_CONFIG.email.toLowerCase()) {
+    // Cryptographic hash validation (prevents email disclosure & spamming)
+    const emailHash = await _hashVal(enteredEmail);
+    if (emailHash !== _SEC.eH) {
       if (statusEl) {
         statusEl.className = 'auth-status-msg error';
         statusEl.textContent = 'Access Denied: Unrecognized email address.';
       }
       return;
     }
+
+    this.verifiedEmail = enteredEmail;
 
     if (sendBtn) sendBtn.disabled = true;
     if (statusEl) {
@@ -135,7 +151,7 @@ const AuthManager = {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          email: AUTH_CONFIG.email,
+          email: enteredEmail,
           create_user: true
         })
       });
@@ -180,7 +196,7 @@ const AuthManager = {
     if (!cleanPin) {
       if (statusEl) {
         statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Please enter your 6-digit PIN.';
+        statusEl.textContent = 'Please enter your PIN.';
       }
       return false;
     }
@@ -191,8 +207,9 @@ const AuthManager = {
       statusEl.textContent = 'Verifying credentials...';
     }
 
-    // 1. Direct check against Master PIN fallback
-    if (cleanPin === AUTH_CONFIG.masterPin) {
+    // 1. Direct check against Master PIN via cryptographic salted SHA-256
+    const pinHash = await _hashVal(cleanPin);
+    if (pinHash === _SEC.pH) {
       this.saveSession('master_pin');
       this.onAuthenticated('Master PIN Verified');
       if (unlockBtn) unlockBtn.disabled = false;
@@ -200,6 +217,16 @@ const AuthManager = {
     }
 
     // 2. Check against Supabase OTP endpoint
+    const emailToVerify = this.verifiedEmail || (document.getElementById('auth-email-input') ? document.getElementById('auth-email-input').value.trim() : '');
+    if (!emailToVerify) {
+      if (statusEl) {
+        statusEl.className = 'auth-status-msg error';
+        statusEl.textContent = 'Please enter your email above to verify OTP.';
+      }
+      if (unlockBtn) unlockBtn.disabled = false;
+      return false;
+    }
+
     try {
       const res = await fetch(AUTH_CONFIG.verifyEndpoint, {
         method: 'POST',
@@ -209,7 +236,7 @@ const AuthManager = {
         },
         body: JSON.stringify({
           type: 'email',
-          email: AUTH_CONFIG.email,
+          email: emailToVerify,
           token: cleanPin
         })
       });
@@ -223,7 +250,7 @@ const AuthManager = {
         const err = await res.json().catch(() => ({}));
         if (statusEl) {
           statusEl.className = 'auth-status-msg error';
-          statusEl.textContent = err.msg || 'Invalid or expired PIN. Please try again or use Master PIN.';
+          statusEl.textContent = err.msg || 'Invalid or expired PIN. Please try again.';
         }
       }
     } catch (e) {
