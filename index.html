@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI + Java Roadmap Checklist &bull; 45-Week Placement Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Bar -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="brand-link">
+          <span class="brand-badge">45 WEEKS</span>
+          <span>Placement Roadmap Hub</span>
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <div class="sync-badge saving" title="Physical file progress.json on disk status">
+          <span class="sync-dot"></span>
+          <span class="sync-text">Checking disk...</span>
+        </div>
+        <button class="nav-btn" id="btn-export-data" title="Export progress to JSON">Backup</button>
+        <label class="nav-btn" style="cursor:pointer;" title="Import progress from JSON">
+          Restore
+          <input type="file" id="file-import-data" accept=".json" style="display:none;">
+        </label>
+        <button class="nav-btn" id="btn-reset-all" title="Reset all checklist progress">Reset All</button>
+        <button class="icon-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          🌓
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Container -->
+  <main class="container">
+    <section class="dashboard-hero">
+      <h1 class="dashboard-title">45-Week Placement Checklist</h1>
+      <p class="dashboard-desc">
+        A minimalist daily tracker for your AI + Java placement roadmap. Every week has its own dedicated page with checkable tasks across DSA, AI/ML, Core CS, and Backend tracks.
+      </p>
+      
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="weeks/week-01.html" class="nav-btn" id="btn-resume-week" style="background: var(--accent-primary); color: white; border-color: var(--accent-primary); font-weight: 600; padding: 0.5rem 1.1rem;">
+          Continue Week 1 &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- Global Progress Bar -->
+    <section class="progress-card" style="margin-bottom: 2rem;">
+      <div class="progress-header">
+        <span class="progress-label">Overall 45-Week Completion</span>
+        <span class="progress-stats" id="stat-pct-done">0%</span>
+      </div>
+      <div class="progress-bar-bg" style="height: 10px;">
+        <div class="progress-bar-fill" id="global-progress-bar"></div>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <div class="global-stats-grid">
+      <div class="stat-card">
+        <div class="stat-val accent" id="stat-tasks-done">0 / 0</div>
+        <div class="stat-label">Tasks Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val" id="stat-weeks-done">0 / 45</div>
+        <div class="stat-label">Weeks Finished</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">9</div>
+        <div class="stat-label">Total Phases</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">July 2027</div>
+        <div class="stat-label">Target Placement Drive</div>
+      </div>
+    </div>
+
+    <!-- Phases Grid -->
+    <section class="phases-container">
+      
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 1: Foundations (Weeks 1–5)</h2>
+            <span class="phase-progress-pill">Weeks 1–5</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-01.html" class="week-tile" id="dash-week-1">
+              <div class="week-tile-num">WEEK 01</div>
+              <div class="week-tile-name">Java refresh, OOPs begins, CS50P Weeks 0–5</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-02.html" class="week-tile" id="dash-week-2">
+              <div class="week-tile-num">WEEK 02</div>
+              <div class="week-tile-name">DSA concept basics, CS50P finishes + Corey Schafer OOP, OOPs core principles</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-03.html" class="week-tile" id="dash-week-3">
+              <div class="week-tile-num">WEEK 03</div>
+              <div class="week-tile-name">Recursion + Sorting, first from-scratch Python projects, OOPs finishes, Linear Algebra begins</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-04.html" class="week-tile" id="dash-week-4">
+              <div class="week-tile-num">WEEK 04</div>
+              <div class="week-tile-name">Arrays (Java), Linear Algebra continues, DBMS begins</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-05.html" class="week-tile" id="dash-week-5">
+              <div class="week-tile-num">WEEK 05</div>
+              <div class="week-tile-name">Arrays FAQs (Medium), Calculus + Statistics/Probability, DBMS continues</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 2: Tooling → ML Begins (Weeks 6–10)</h2>
+            <span class="phase-progress-pill">Weeks 6–10</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-06.html" class="week-tile" id="dash-week-6">
+              <div class="week-tile-num">WEEK 06</div>
+              <div class="week-tile-name">SQL foundations, Arrays FAQs finish, The Data Toolkit</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-07.html" class="week-tile" id="dash-week-7">
+              <div class="week-tile-num">WEEK 07</div>
+              <div class="week-tile-name">Hashing, SQL aggregation/functions, ML begins: Feature Engineering</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-08.html" class="week-tile" id="dash-week-8">
+              <div class="week-tile-num">WEEK 08</div>
+              <div class="week-tile-name">Binary Search begins, SQL Joins, Linear Regression + Gradient Descent + Regularization</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-09.html" class="week-tile" id="dash-week-9">
+              <div class="week-tile-num">WEEK 09</div>
+              <div class="week-tile-name">Binary Search "On Answers", SQL Subqueries, Logistic Regression</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-10.html" class="week-tile" id="dash-week-10">
+              <div class="week-tile-num">WEEK 10</div>
+              <div class="week-tile-name">Binary Search 2D, SQL CTEs/Dates, Decision Trees</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 3: Classical ML, In Depth (Weeks 11–15)</h2>
+            <span class="phase-progress-pill">Weeks 11–15</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-11.html" class="week-tile" id="dash-week-11">
+              <div class="week-tile-num">WEEK 11</div>
+              <div class="week-tile-name">Recursion (Implementation), OS begins, Ensembles: Bagging & Random Forest</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-12.html" class="week-tile" id="dash-week-12">
+              <div class="week-tile-num">WEEK 12</div>
+              <div class="week-tile-name">Recursion (Hard), OS scheduling, Ensembles: Boosting & XGBoost</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-13.html" class="week-tile" id="dash-week-13">
+              <div class="week-tile-num">WEEK 13</div>
+              <div class="week-tile-name">Linked List begins, OS threads/sync, KNN, Naive Bayes, SVM — Kaggle begins</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-14.html" class="week-tile" id="dash-week-14">
+              <div class="week-tile-num">WEEK 14</div>
+              <div class="week-tile-name">Linked List (Logic + FAQs), OS deadlock, Unsupervised Learning — Kaggle in progress</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-15.html" class="week-tile" id="dash-week-15">
+              <div class="week-tile-num">WEEK 15</div>
+              <div class="week-tile-name">Linked List finishes + Bit Manipulation, OS finishes, Evaluation, CV, Hyperparameter Tuning — Kaggle wraps up</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 4: Deep Learning (Weeks 16–20)</h2>
+            <span class="phase-progress-pill">Weeks 16–20</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-16.html" class="week-tile" id="dash-week-16">
+              <div class="week-tile-num">WEEK 16</div>
+              <div class="week-tile-name">Greedy, CN begins, What a neural network actually is</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-17.html" class="week-tile" id="dash-week-17">
+              <div class="week-tile-num">WEEK 17</div>
+              <div class="week-tile-name">Sliding Window/2 Pointer, CN continues, Karpathy's micrograd — build your own autograd engine</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-18.html" class="week-tile" id="dash-week-18">
+              <div class="week-tile-num">WEEK 18</div>
+              <div class="week-tile-name">Stack/Queue (Implementation + Monotonic), CN continues, Deep Neural Networks & Regularization</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-19.html" class="week-tile" id="dash-week-19">
+              <div class="week-tile-num">WEEK 19</div>
+              <div class="week-tile-name">Stack/Queue FAQs, CN continues, Convolutional Neural Networks</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-20.html" class="week-tile" id="dash-week-20">
+              <div class="week-tile-num">WEEK 20</div>
+              <div class="week-tile-name">Binary Trees begin, CN finishes, ResNet — your first paper</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 5: Transformers, LLMs & GenAI (Weeks 21–25)</h2>
+            <span class="phase-progress-pill">Weeks 21–25</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-21.html" class="week-tile" id="dash-week-21">
+              <div class="week-tile-num">WEEK 21</div>
+              <div class="week-tile-name">Binary Trees finish, LLD begins (Intro + SOLID + UML), 3Blue1Brown's GPT chapters + Karpathy's makemore series</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-22.html" class="week-tile" id="dash-week-22">
+              <div class="week-tile-num">WEEK 22</div>
+              <div class="week-tile-name">Binary Search Trees, LLD Creational Patterns, Karpathy: "Let's build GPT" + the GPT Tokenizer</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-23.html" class="week-tile" id="dash-week-23">
+              <div class="week-tile-num">WEEK 23</div>
+              <div class="week-tile-name">Heaps, LLD Structural Patterns, Reproducing GPT-2 + reading "Attention Is All You Need"</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-24.html" class="week-tile" id="dash-week-24">
+              <div class="week-tile-num">WEEK 24</div>
+              <div class="week-tile-name">Graphs begin (Traversal), LLD Behavioural Patterns, RAG pipeline + Agents — capstone begins</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-25.html" class="week-tile" id="dash-week-25">
+              <div class="week-tile-num">WEEK 25</div>
+              <div class="week-tile-name">Graphs continue (Cycles), LLD Multithreading/DI, Capstone with evaluation — Phase checkpoint</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 6: Capstone, Deployment & Interview Sprint (Weeks 26–30)</h2>
+            <span class="phase-progress-pill">Weeks 26–30</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-26.html" class="week-tile" id="dash-week-26">
+              <div class="week-tile-num">WEEK 26</div>
+              <div class="week-tile-name">Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-27.html" class="week-tile" id="dash-week-27">
+              <div class="week-tile-num">WEEK 27</div>
+              <div class="week-tile-name">Graphs finish (MST + Hard Problems II), DP begins, LLD Interview Problems continue, Capstone: error analysis & polish</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-28.html" class="week-tile" id="dash-week-28">
+              <div class="week-tile-num">WEEK 28</div>
+              <div class="week-tile-name">DP (2D, Grids, Stocks), LLD Interview Problems finish, HLD begins, Deployment: Flask/FastAPI + Docker</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-29.html" class="week-tile" id="dash-week-29">
+              <div class="week-tile-num">WEEK 29</div>
+              <div class="week-tile-name">DP (Subsequences + LIS begins), HLD continues, Interview-question review + mock interviews begin</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-30.html" class="week-tile" id="dash-week-30">
+              <div class="week-tile-num">WEEK 30</div>
+              <div class="week-tile-name">DP finishes (LIS), full revision, HLD wraps up, final mock interviews — placement-ready checkpoint</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 7: Closing Out TUF+ & Spring Boot Begins (Weeks 31–35)</h2>
+            <span class="phase-progress-pill">Weeks 31–35</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-31.html" class="week-tile" id="dash-week-31">
+              <div class="week-tile-num">WEEK 31</div>
+              <div class="week-tile-name">Tries + Maths (DSA), LLD Part 3 begins (Core CS), NLP specialization begins (AI/ML), Spring Core + first REST API (Java Backend)</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-32.html" class="week-tile" id="dash-week-32">
+              <div class="week-tile-num">WEEK 32</div>
+              <div class="week-tile-name">Advanced String Algorithms (DSA), LLD finishes + SQL Access Control & Window Functions begin (Core CS), LoRA fine-tuning (AI/ML), REST API depth (Java Backend)</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-33.html" class="week-tile" id="dash-week-33">
+              <div class="week-tile-num">WEEK 33</div>
+              <div class="week-tile-name">DP on Strings + MCM DP (DSA), SQL: JSON/DB Design/Performance (Core CS), advanced RAG (AI/ML), Data Persistence (Java Backend)</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-34.html" class="week-tile" id="dash-week-34">
+              <div class="week-tile-num">WEEK 34</div>
+              <div class="week-tile-name">Graph Additional Algorithms (DSA), SQL finishes + HLD begins (Core CS), Hugging Face Agents Course (AI/ML), Spring Security (Java Backend)</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-35.html" class="week-tile" id="dash-week-35">
+              <div class="week-tile-num">WEEK 35</div>
+              <div class="week-tile-name">HLD Practice Problems continue (Core CS), specialization checkpoint (AI/ML), Testing (Java Backend)</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 8: HLD Finishes, Modern Java, and Production-Grade Spring Boot (Weeks 36–40)</h2>
+            <span class="phase-progress-pill">Weeks 36–40</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-36.html" class="week-tile" id="dash-week-36">
+              <div class="week-tile-num">WEEK 36</div>
+              <div class="week-tile-name">Java Streams & Functional Style, HLD problems continue, second Kaggle competition begins, Caching/Async/Scheduling</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-37.html" class="week-tile" id="dash-week-37">
+              <div class="week-tile-num">WEEK 37</div>
+              <div class="week-tile-name">Modern Java Language Features, DDIA begins, Kaggle wraps up, Logging & Observability</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-38.html" class="week-tile" id="dash-week-38">
+              <div class="week-tile-num">WEEK 38</div>
+              <div class="week-tile-name">Java Concurrency Fundamentals, DDIA continues, MLOps begins, Microservices Fundamentals</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-39.html" class="week-tile" id="dash-week-39">
+              <div class="week-tile-num">WEEK 39</div>
+              <div class="week-tile-name">Advanced Concurrency, DDIA Consistency chapter, MLOps: serving & cost, API Gateway + Resilience</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-40.html" class="week-tile" id="dash-week-40">
+              <div class="week-tile-num">WEEK 40</div>
+              <div class="week-tile-name">JVM Internals, DDIA Part 3 begins, MLOps wrap-up, Messaging with Kafka</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <h2 class="phase-card-title">Phase 9: The AI + Java Capstone (Weeks 41–45)</h2>
+            <span class="phase-progress-pill">Weeks 41–45</span>
+          </div>
+          <div class="weeks-grid">
+            
+            <a href="weeks/week-41.html" class="week-tile" id="dash-week-41">
+              <div class="week-tile-num">WEEK 41</div>
+              <div class="week-tile-name">Choosing the stack, InterviewReady deep-dive, Spring AI setup</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-42.html" class="week-tile" id="dash-week-42">
+              <div class="week-tile-num">WEEK 42</div>
+              <div class="week-tile-name">Retrieval-Augmented Generation in Spring AI, Design a URL Shortener</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-43.html" class="week-tile" id="dash-week-43">
+              <div class="week-tile-num">WEEK 43</div>
+              <div class="week-tile-name">Tool-Calling & MCP in Spring AI, Design a Rate Limiter</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-44.html" class="week-tile" id="dash-week-44">
+              <div class="week-tile-num">WEEK 44</div>
+              <div class="week-tile-name">Bringing It All Together, Documenting Your Own System Design</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+
+            <a href="weeks/week-45.html" class="week-tile" id="dash-week-45">
+              <div class="week-tile-num">WEEK 45</div>
+              <div class="week-tile-name">Evaluate, Polish, Ship</div>
+              <div class="week-tile-progress">
+                <span>0 tasks</span>
+                <span>0%</span>
+              </div>
+            </a>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <script src="js/roadmap-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.ROADMAP_DATA) {
+        initDashboard(window.ROADMAP_DATA);
+      }
+    });
+  </script>
+</body>
+</html>

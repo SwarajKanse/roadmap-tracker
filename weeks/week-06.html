@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 06 Checklist &bull; SQL foundations, Arrays FAQs finish, The Data Toolkit</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-left">
+        <a href="../index.html" class="brand-link">
+          <span>&larr;</span>
+          <span>Roadmap Hub</span>
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <a href="week-05.html" class="nav-btn" id="nav-prev">&larr; Week 5</a>
+        <select id="week-select-dropdown" class="week-select" aria-label="Jump to week">
+          <option value="week-01.html" >Week 1: Java refresh, OOPs begins, CS50P We</option>
+<option value="week-02.html" >Week 2: DSA concept basics, CS50P finishes </option>
+<option value="week-03.html" >Week 3: Recursion + Sorting, first from-scr</option>
+<option value="week-04.html" >Week 4: Arrays (Java), Linear Algebra conti</option>
+<option value="week-05.html" >Week 5: Arrays FAQs (Medium), Calculus + St</option>
+<option value="week-06.html" selected>Week 6: SQL foundations, Arrays FAQs finish</option>
+<option value="week-07.html" >Week 7: Hashing, SQL aggregation/functions,</option>
+<option value="week-08.html" >Week 8: Binary Search begins, SQL Joins, Li</option>
+<option value="week-09.html" >Week 9: Binary Search "On Answers", SQL Sub</option>
+<option value="week-10.html" >Week 10: Binary Search 2D, SQL CTEs/Dates, D</option>
+<option value="week-11.html" >Week 11: Recursion (Implementation), OS begi</option>
+<option value="week-12.html" >Week 12: Recursion (Hard), OS scheduling, En</option>
+<option value="week-13.html" >Week 13: Linked List begins, OS threads/sync</option>
+<option value="week-14.html" >Week 14: Linked List (Logic + FAQs), OS dead</option>
+<option value="week-15.html" >Week 15: Linked List finishes + Bit Manipula</option>
+<option value="week-16.html" >Week 16: Greedy, CN begins, What a neural ne</option>
+<option value="week-17.html" >Week 17: Sliding Window/2 Pointer, CN contin</option>
+<option value="week-18.html" >Week 18: Stack/Queue (Implementation + Monot</option>
+<option value="week-19.html" >Week 19: Stack/Queue FAQs, CN continues, Con</option>
+<option value="week-20.html" >Week 20: Binary Trees begin, CN finishes, Re</option>
+<option value="week-21.html" >Week 21: Binary Trees finish, LLD begins (In</option>
+<option value="week-22.html" >Week 22: Binary Search Trees, LLD Creational</option>
+<option value="week-23.html" >Week 23: Heaps, LLD Structural Patterns, Rep</option>
+<option value="week-24.html" >Week 24: Graphs begin (Traversal), LLD Behav</option>
+<option value="week-25.html" >Week 25: Graphs continue (Cycles), LLD Multi</option>
+<option value="week-26.html" >Week 26: Graphs (Hard Problems + Shortest Pa</option>
+<option value="week-27.html" >Week 27: Graphs finish (MST + Hard Problems </option>
+<option value="week-28.html" >Week 28: DP (2D, Grids, Stocks), LLD Intervi</option>
+<option value="week-29.html" >Week 29: DP (Subsequences + LIS begins), HLD</option>
+<option value="week-30.html" >Week 30: DP finishes (LIS), full revision, H</option>
+<option value="week-31.html" >Week 31: Tries + Maths (DSA), LLD Part 3 beg</option>
+<option value="week-32.html" >Week 32: Advanced String Algorithms (DSA), L</option>
+<option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
+<option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
+<option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
+<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
+<option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
+<option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
+<option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
+<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
+<option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
+<option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
+<option value="week-45.html" >Week 45: Evaluate, Polish, Ship</option>
+        </select>
+        <a href="week-07.html" class="nav-btn" id="nav-next">Week 7 &rarr;</a>
+      </div>
+
+      <div class="nav-right">
+        <div class="sync-badge saving" title="Physical file progress.json on disk status">
+          <span class="sync-dot"></span>
+          <span class="sync-text">Checking disk...</span>
+        </div>
+        <button class="icon-btn" onclick="AppState.toggleTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          🌓
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <header class="week-header">
+      <div class="phase-pill">Phase 2: Tooling → ML Begins (Weeks 6–10)</div>
+      <h1 class="week-title">Week 06 &mdash; SQL foundations, Arrays FAQs finish, The Data Toolkit</h1>
+      <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
+    </header>
+
+    <!-- Progress Card -->
+    <section class="progress-card" aria-label="Week Progress">
+      <div class="progress-header">
+        <span class="progress-label">Week Completion</span>
+        <span class="progress-stats" id="week-progress-stats">0 of 0 completed (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="week-progress-fill"></div>
+      </div>
+    </section>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="filter-group" aria-label="Filter by day">
+        <button class="filter-pill day-filter-pill active" data-day="all">All Days</button>
+        <button class="filter-pill day-filter-pill" data-day="Mon">Mon</button>
+        <button class="filter-pill day-filter-pill" data-day="Tue">Tue</button>
+        <button class="filter-pill day-filter-pill" data-day="Wed">Wed</button>
+        <button class="filter-pill day-filter-pill" data-day="Thu">Thu</button>
+        <button class="filter-pill day-filter-pill" data-day="Fri">Fri</button>
+        <button class="filter-pill day-filter-pill" data-day="Sat">Sat</button>
+        <button class="filter-pill day-filter-pill" data-day="Sun">Sun</button>
+      </div>
+
+      <div class="filter-group" aria-label="Filter by track">
+        <button class="filter-pill track-filter-pill active" data-track="all">All Tracks</button>
+        <button class="filter-pill track-filter-pill" data-track="dsa">DSA</button>
+        <button class="filter-pill track-filter-pill" data-track="aiml">AI / ML</button>
+        <button class="filter-pill track-filter-pill" data-track="corecs">Core CS</button>
+        <button class="filter-pill track-filter-pill" data-track="backend">Backend / Aptitude</button>
+      </div>
+
+      <div class="action-group">
+        <button class="btn-subtle" id="btn-mark-all" title="Mark all items completed">✓ Mark All</button>
+        <button class="btn-subtle" id="btn-clear-all" title="Reset all checkboxes">✕ Reset</button>
+        <button class="btn-subtle" id="btn-copy-summary" title="Copy progress to clipboard">📋 Copy Summary</button>
+      </div>
+    </div>
+
+    <!-- Daily Task Cards -->
+    <div class="days-container" id="days-container">
+      
+        <div class="day-card" data-day="Mon">
+          <div class="day-card-header">
+            <span class="day-title">Monday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_mon_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_mon_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Sort an array of 0s, 1s and 2s; Kadane's Algorithm</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_mon_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_mon_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text"><strong>NumPy</strong> — Keith Galli's NumPy tutorial (YouTube): arrays, indexing, broadcasting</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_mon_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_mon_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">SQL+DE Foundations: Intro to SQL, Why SQL Exists, How Databases Work + DBMS: Database Languages, SQL Operators</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_mon_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_mon_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Quant M6 Trains, Boats and Streams – Basic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Tue">
+          <div class="day-card-header">
+            <span class="day-title">Tuesday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_tue_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_tue_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Next Permutation</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_tue_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_tue_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text"><strong>Pandas</strong> — Keith Galli's Pandas tutorial: Series, DataFrame, reading CSVs</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_tue_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_tue_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">Database &amp; Table Basics, SQL Basics/Commands, Data Types, Creating &amp; Managing Tables</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_tue_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_tue_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Quant M6 – Advance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Wed">
+          <div class="day-card-header">
+            <span class="day-title">Wednesday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_wed_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_wed_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Majority Element-II</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_wed_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_wed_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text">Pandas (cont.) — <code>groupby</code>, <code>merge</code>, filtering rows</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_wed_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_wed_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">Primary Key, Foreign Key, Constraints, NULL vs 0 vs Empty String, DDL vs DML, Query Lifecycle, Indexing in SQL</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_wed_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_wed_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Logical: Syllogism – Basic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Thu">
+          <div class="day-card-header">
+            <span class="day-title">Thursday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_thu_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_thu_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Find the repeating and missing number</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_thu_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_thu_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text"><strong>Matplotlib/Seaborn</strong> — a freeCodeCamp visualization crash course (YouTube)</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_thu_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_thu_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">Query Fundamentals (SELECT/FROM, WHERE, operators, ORDER BY/LIMIT, DISTINCT/AS) + Quiz + solve: Large Nations, Profitable Customers in 2021, Odd Non-Boring Movies</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_thu_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_thu_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Logical: Syllogism – Advance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Fri">
+          <div class="day-card-header">
+            <span class="day-title">Friday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_fri_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_fri_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Count Inversions; Reverse Pairs</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_fri_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_fri_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text">Create your <strong>Kaggle</strong> account; browse (don't compete yet) a "Getting Started" competition — get comfortable with the platform and notebooks</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_fri_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_fri_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + Quiz + solve: Filter Records Excluding Pattern, Find Records Excluding Given Set, Find Salaries Outside Range, Non-Referred Customers</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_fri_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_fri_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Verbal: Idioms and Phrases – Basic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Sat">
+          <div class="day-card-header">
+            <span class="day-title">Saturday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_sat_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sat_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text">Maximum Product Subarray; Merge two sorted arrays without extra space</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sat_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sat_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text">Full <strong>EDA</strong> on a Kaggle dataset (e.g. Titanic) using everything from this week</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sat_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sat_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">DBMS: Aggregates in SQL, SQL Clauses + start Data Summarization (GROUP BY, MIN/MAX/SUM/AVG, COUNT, HAVING) + Quiz</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sat_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sat_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Verbal: Idioms and Phrases – Advance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card" data-day="Sun">
+          <div class="day-card-header">
+            <span class="day-title">Sunday</span>
+            <span class="day-progress">0/4 done</span>
+          </div>
+          <div class="tasks-list">
+            
+            <div class="task-item " data-task-id="w6_sun_dsa" data-track="dsa">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sun_dsa">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag dsa">DSA & Java</span>
+                </div>
+                <div class="task-text"><strong>Revision + Contest:</strong> redo 3 array problems cold</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sun_aiml" data-track="aiml">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sun_aiml">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aiml">AI / ML</span>
+                </div>
+                <div class="task-text"><strong>Checkpoint:</strong> push the EDA notebook to GitHub with a proper README</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sun_corecs" data-track="corecs">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sun_corecs">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag corecs">Core CS</span>
+                </div>
+                <div class="task-text">Revision + solve: First Login Analysis, Employee Work Time Summary</div>
+              </div>
+            </div>
+
+            <div class="task-item " data-task-id="w6_sun_aptitude" data-track="aptitude">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_sun_aptitude">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="task-content">
+                <div class="task-meta">
+                  <span class="track-tag aptitude">Aptitude</span>
+                </div>
+                <div class="task-text">Mixed revision: Quant M6, Logical L5, Verbal V6</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Deliverables Section -->
+    
+        <div class="deliverables-section">
+          <div class="deliverables-header">
+            <span class="deliverables-icon">🎯</span>
+            <span>Weekly Deliverables &amp; Checkpoints</span>
+          </div>
+          <div class="deliverables-list">
+            
+            <div class="deliverable-item" data-task-id="w6_deliv_1">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="task-checkbox" data-task-id="w6_deliv_1">
+                <div class="checkbox-visual">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </label>
+              <div class="deliverable-text"><strong>Deliverable:</strong> Arrays fully done. The Data Toolkit (NumPy/Pandas/Matplotlib/Seaborn) done; Kaggle account live; second GitHub project (EDA) shipped.</div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Notes Scratchpad -->
+    
+    <div class="notes-section">
+      <div class="notes-header">
+        <span class="notes-title">📝 Week 6 Notes &amp; Reflections</span>
+        <span class="save-indicator" id="notes-save-status">Auto-saved to browser</span>
+      </div>
+      <textarea id="week-notes" class="notes-textarea" placeholder="Record key takeaways, tricky problems, or reminders for this week..."></textarea>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="week-05.html" class="nav-btn" id="nav-prev">&larr; Week 5</a>
+      <a href="../index.html" class="nav-btn">&uarr; Back to Dashboard</a>
+      <a href="week-07.html" class="nav-btn" id="nav-next">Week 7 &rarr;</a>
+    </nav>
+  </main>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initWeekPage(6);
+    });
+  </script>
+</body>
+</html>
