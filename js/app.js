@@ -1235,107 +1235,132 @@ function initDashboard(roadmapData) {
   }
 
   function render50WeekHeatmap() {
-    const grid = document.getElementById('heatmap-grid');
-    if (!grid || grid._rendered) return;
-    grid._rendered = true;
+    const container = document.getElementById('heatmap-months-container');
+    if (!container) return;
 
-    const tooltip = document.getElementById('tooltip-text');
-    const totalWeeks = 50;
-    const daysPerWeek = 7;
-    const subsystems = ['dsa', 'aiml', 'corecs', 'backend'];
-    const cellElements = [];
+    // Month distribution across 50 weeks (July 2026 to June 2027)
+    const monthDefs = [
+      { name: 'Jul', weeks: [1, 2, 3, 4] },
+      { name: 'Aug', weeks: [5, 6, 7, 8] },
+      { name: 'Sep', weeks: [9, 10, 11, 12, 13] },
+      { name: 'Oct', weeks: [14, 15, 16, 17] },
+      { name: 'Nov', weeks: [18, 19, 20, 21] },
+      { name: 'Dec', weeks: [22, 23, 24, 25, 26] },
+      { name: 'Jan', weeks: [27, 28, 29, 30] },
+      { name: 'Feb', weeks: [31, 32, 33, 34] },
+      { name: 'Mar', weeks: [35, 36, 37, 38] },
+      { name: 'Apr', weeks: [39, 40, 41, 42] },
+      { name: 'May', weeks: [43, 44, 45, 46] },
+      { name: 'Jun', weeks: [47, 48, 49, 50] }
+    ];
 
-    grid.innerHTML = '';
+    let totalSubmissions = 0;
+    let activeDays = 0;
+    let maxStreak = 0;
+    let currentStreak = 0;
 
-    for (let w = 1; w <= totalWeeks; w++) {
-      for (let d = 0; d < daysPerWeek; d++) {
-        const cell = document.createElement('div');
-        const daySubsystem = subsystems[(w * 2 + d) % subsystems.length];
-        cell.className = 'heatmap-cell w-2.5 h-2.5 rounded-[2px] transition-all duration-200 cursor-pointer';
-        cell.setAttribute('data-subsystem', daySubsystem);
-        cell.setAttribute('data-week', w);
-        cell.setAttribute('data-day', d + 1);
-
-        let hours = '0h';
-        let intensityClass = 'bg-surface-container';
-
-        if (w < 14) {
-          const pattern = (w * 5 + d * 7) % 5;
-          if (pattern === 0) {
-            intensityClass = 'bg-primary/25';
-            hours = '1.5h';
-          } else if (pattern === 1) {
-            intensityClass = 'bg-primary/50';
-            hours = '2.5h';
-          } else if (pattern === 2) {
-            intensityClass = 'bg-primary/75';
-            hours = '4.0h';
-          } else {
-            intensityClass = 'bg-primary shadow-sm shadow-primary/25';
-            hours = '4.8h';
-          }
-        } else if (w === 14) {
-          if (d <= 2) {
-            intensityClass = 'bg-primary shadow-sm shadow-primary/30';
-            hours = '4.0h';
-          } else if (d === 3) {
-            intensityClass = 'bg-primary/45 animate-pulse';
-            hours = '2.5h (Active)';
-          } else {
-            intensityClass = 'bg-surface-container border border-white/5';
-            hours = '0h';
-          }
+    // Compute stats across all 50 weeks in chronological sequence
+    roadmapData.forEach(w => {
+      w.days.forEach(d => {
+        const doneCount = d.tasks.filter(t => !t.is_rest && AppState.isTaskDone(t.id)).length;
+        if (doneCount > 0) {
+          totalSubmissions += doneCount;
+          activeDays++;
+          currentStreak++;
+          if (currentStreak > maxStreak) maxStreak = currentStreak;
         } else {
-          intensityClass = 'bg-surface-container-high/30';
-          hours = 'Queued';
+          currentStreak = 0;
         }
+      });
+    });
 
-        cell.classList.add(...intensityClass.split(' '));
-        cell.setAttribute('data-hours', hours);
-
-        cell.addEventListener('mouseenter', () => {
-          const trackName = daySubsystem.toUpperCase();
-          if (tooltip) {
-            tooltip.innerHTML = `<strong>Week ${w}, Day ${d + 1}</strong>: ${hours} &bull; Track: <span class="text-primary font-bold">${trackName}</span>`;
-          }
-        });
-
-        cell.addEventListener('mouseleave', () => {
-          if (tooltip) {
-            tooltip.textContent = 'Hover any node to inspect execution load & track distribution';
-          }
-        });
-
-        grid.appendChild(cell);
-        cellElements.push(cell);
-      }
+    if (window.StreakEngine) {
+      try {
+        const seStats = StreakEngine.getStats(AppState.data.activityLog || {});
+        if (seStats.longest && seStats.longest > maxStreak) {
+          maxStreak = seStats.longest;
+        }
+      } catch (e) {}
     }
 
-    // Heatmap filter tab switching
-    const filterButtons = document.querySelectorAll('#heatmap-filter-group .heatmap-filter');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
+    // Update top header stats
+    const totalEl = document.getElementById('heatmap-total-completed');
+    const activeEl = document.getElementById('heatmap-active-days');
+    const streakEl = document.getElementById('heatmap-max-streak');
 
-        filterButtons.forEach(b => {
-          b.classList.remove('bg-surface-container-high', 'text-on-surface', 'border', 'border-outline-variant/40', 'shadow-sm', 'font-medium');
-          b.classList.add('text-on-surface-variant', 'bg-transparent');
-        });
-        btn.classList.add('bg-surface-container-high', 'text-on-surface', 'border', 'border-outline-variant/40', 'shadow-sm', 'font-medium');
-        btn.classList.remove('text-on-surface-variant', 'bg-transparent');
+    if (totalEl) totalEl.textContent = totalSubmissions;
+    if (activeEl) activeEl.textContent = activeDays;
+    if (streakEl) streakEl.textContent = maxStreak;
 
-        cellElements.forEach(cell => {
-          const cellTrack = cell.getAttribute('data-subsystem');
-          const week = parseInt(cell.getAttribute('data-week'), 10);
-          if (filter === 'all' || cellTrack === filter || week > 14) {
-            cell.style.opacity = '1';
-            cell.style.filter = 'none';
-          } else {
-            cell.style.opacity = '0.2';
-            cell.style.filter = 'grayscale(80%)';
+    // Lookup table for weeks
+    const weekMap = {};
+    roadmapData.forEach(w => {
+      weekMap[w.week_num] = w;
+    });
+
+    // Populate month clusters
+    container.innerHTML = '';
+
+    monthDefs.forEach(m => {
+      const monthCol = document.createElement('div');
+      monthCol.className = 'flex flex-col items-center gap-2';
+
+      const grid = document.createElement('div');
+      grid.className = 'grid grid-flow-col grid-rows-7 gap-[3px]';
+
+      m.weeks.forEach(wNum => {
+        const wObj = weekMap[wNum];
+        if (!wObj) return;
+
+        wObj.days.forEach(day => {
+          const cell = document.createElement('div');
+          const doneCount = day.tasks.filter(t => !t.is_rest && AppState.isTaskDone(t.id)).length;
+          const totalCount = day.tasks.filter(t => !t.is_rest).length;
+
+          // LeetCode Color Tiers based on completed tasks
+          let bgColor = 'bg-[#282828]'; // Level 0: empty
+          let hoverRing = 'hover:ring-1 hover:ring-zinc-500';
+
+          if (doneCount === 1) {
+            bgColor = 'bg-[#196c2e]'; // Level 1: forest green
+            hoverRing = 'hover:ring-1 hover:ring-emerald-400';
+          } else if (doneCount === 2) {
+            bgColor = 'bg-[#008435]'; // Level 2: medium green
+            hoverRing = 'hover:ring-1 hover:ring-emerald-300';
+          } else if (doneCount === 3) {
+            bgColor = 'bg-[#00c853]'; // Level 3: bright green
+            hoverRing = 'hover:ring-1 hover:ring-emerald-200';
+          } else if (doneCount >= 4) {
+            bgColor = 'bg-[#5ce67a]'; // Level 4: vivid neon lime green
+            hoverRing = 'hover:ring-1 hover:ring-white';
           }
+
+          cell.className = `w-[11px] h-[11px] sm:w-[12px] sm:h-[12px] rounded-[2px] transition-all duration-150 cursor-pointer ${bgColor} ${hoverRing}`;
+          
+          const tooltip = doneCount > 0 
+            ? `${doneCount} submissions on ${day.day_name}, Week ${String(wNum).padStart(2, '0')} (${doneCount}/${totalCount} tasks)`
+            : `No submissions on ${day.day_name}, Week ${String(wNum).padStart(2, '0')}`;
+          
+          cell.setAttribute('title', tooltip);
+          cell.setAttribute('data-week', wNum);
+          cell.setAttribute('data-day', day.day_code);
+
+          cell.addEventListener('click', () => {
+            window.location.href = `weeks/week-${String(wNum).padStart(2, '0')}.html#day-${day.day_code.toLowerCase()}`;
+          });
+
+          grid.appendChild(cell);
         });
       });
+
+      monthCol.appendChild(grid);
+
+      const label = document.createElement('span');
+      label.className = 'text-[11px] text-zinc-400 font-normal select-none pt-0.5';
+      label.textContent = m.name;
+      monthCol.appendChild(label);
+
+      container.appendChild(monthCol);
     });
   }
 
