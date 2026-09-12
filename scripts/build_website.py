@@ -922,8 +922,8 @@ def generate_dashboard(roadmap):
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 select-none">
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-white text-lg sm:text-xl tracking-tight" id="heatmap-total-completed">0</span>
-              <span class="text-xs sm:text-sm text-zinc-400 font-normal">submissions in the past one year</span>
-              <span class="text-xs text-zinc-500 hover:text-zinc-300 cursor-help transition-colors" title="Total tasks completed across all weeks in the roadmap">ⓘ</span>
+              <span class="text-xs sm:text-sm text-zinc-400 font-normal">tasks completion in past one year</span>
+              <span class="text-xs text-zinc-500 hover:text-zinc-300 cursor-help transition-colors" title="Tasks completion in the past one year">ⓘ</span>
             </div>
             <div class="flex items-center gap-4 text-xs text-zinc-400 font-normal">
               <div>Total active days: <span class="text-white font-medium ml-1" id="heatmap-active-days">0</span></div>

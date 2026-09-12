@@ -1252,9 +1252,9 @@ function initDashboard(roadmapData) {
       AppState.data.activityLog[todayStr] = (AppState.data.activityLog[todayStr] || 0) + (tasksDoneCount - totalInLog);
     }
 
-    // 364 days ago (giving exactly 365 days ending today)
-    const start = new Date(today);
-    start.setDate(today.getDate() - 364);
+    // Exactly 12 months ago, starting strictly from the 1st of that month
+    // Each month starts and ends on its authentic calendar weekdays
+    const start = new Date(today.getFullYear() - 1, today.getMonth(), 1);
     start.setHours(0, 0, 0, 0);
 
     // Group days from start to today by Year-Month
@@ -1291,8 +1291,8 @@ function initDashboard(roadmapData) {
       cur.setDate(cur.getDate() + 1);
     }
 
-    // Calculate submission statistics across the 365 days
-    let totalSubmissions = 0;
+    // Calculate task completion statistics across the past one year
+    let totalTasksCompleted = 0;
     let activeDays = 0;
     let maxStreak = 0;
     let currentStreak = 0;
@@ -1301,7 +1301,7 @@ function initDashboard(roadmapData) {
       m.days.forEach(d => {
         const count = AppState.data.activityLog[d.dateStr] || 0;
         if (count > 0) {
-          totalSubmissions += count;
+          totalTasksCompleted += count;
           activeDays++;
           currentStreak++;
           if (currentStreak > maxStreak) maxStreak = currentStreak;
@@ -1325,7 +1325,7 @@ function initDashboard(roadmapData) {
     const activeEl = document.getElementById('heatmap-active-days');
     const streakEl = document.getElementById('heatmap-max-streak');
 
-    if (totalEl) totalEl.textContent = totalSubmissions;
+    if (totalEl) totalEl.textContent = totalTasksCompleted;
     if (activeEl) activeEl.textContent = activeDays;
     if (streakEl) streakEl.textContent = maxStreak;
 
@@ -1337,17 +1337,18 @@ function initDashboard(roadmapData) {
       monthCol.className = 'flex flex-col items-center gap-2 shrink-0';
 
       const grid = document.createElement('div');
-      grid.className = 'grid grid-flow-col grid-rows-7 gap-[2.5px]';
+      grid.className = 'leetcode-month-grid';
 
       // 1. Invisible placeholders before the first day of this month
+      // Row 0 = Sunday, Row 1 = Monday, ..., Row 6 = Saturday
       const startDow = m.days[0].dayOfWeek; // 0..6 (Sun..Sat)
       for (let i = 0; i < startDow; i++) {
         const placeholder = document.createElement('div');
-        placeholder.className = 'w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] opacity-0 pointer-events-none';
+        placeholder.className = 'leetcode-cell-placeholder';
         grid.appendChild(placeholder);
       }
 
-      // 2. Real days in this month
+      // 2. Real calendar days in this month
       m.days.forEach(d => {
         const cell = document.createElement('div');
         const count = AppState.data.activityLog[d.dateStr] || 0;
@@ -1374,8 +1375,8 @@ function initDashboard(roadmapData) {
 
         const dateLabel = `${m.name} ${d.dayNum}, ${m.year}`;
         const tooltip = count > 0 
-          ? `${count} ${count === 1 ? 'submission' : 'submissions'} on ${dateLabel}${d.isToday ? ' (Today)' : ''}`
-          : `No submissions on ${dateLabel}${d.isToday ? ' (Today)' : ''}`;
+          ? `${count} ${count === 1 ? 'task completed' : 'tasks completed'} on ${dateLabel}${d.isToday ? ' (Today)' : ''}`
+          : `No tasks completed on ${dateLabel}${d.isToday ? ' (Today)' : ''}`;
 
         cell.setAttribute('title', tooltip);
         cell.setAttribute('data-date', d.dateStr);
@@ -1395,7 +1396,7 @@ function initDashboard(roadmapData) {
         const fillSlots = 7 - remainder;
         for (let i = 0; i < fillSlots; i++) {
           const placeholder = document.createElement('div');
-          placeholder.className = 'w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] opacity-0 pointer-events-none';
+          placeholder.className = 'leetcode-cell-placeholder';
           grid.appendChild(placeholder);
         }
       }
