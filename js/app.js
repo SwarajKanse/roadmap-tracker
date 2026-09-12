@@ -394,6 +394,11 @@ const AppState = {
           this.data.activityLog = parsed.activityLog || {};
           this.data.deferredTasks = parsed.deferredTasks || {};
           this.data.lastModified = parsed.lastModified || null;
+
+          const doneCount = Object.keys(this.data.tasks || {}).filter(k => this.data.tasks[k]).length;
+          if (doneCount === 0) {
+            this.data.activityLog = {};
+          }
         }
       }
     } catch (e) {
@@ -506,11 +511,16 @@ const AppState = {
     this.data.notesMeta = mergedNotesMeta;
 
     // 3. ActivityLog reconciliation: cumulative max per day so tasks completed are preserved
-    const mergedActivity = { ...(this.data.activityLog || {}) };
-    Object.entries(cloudData.activityLog || {}).forEach(([date, count]) => {
-      mergedActivity[date] = Math.max(mergedActivity[date] || 0, Number(count) || 0);
-    });
-    this.data.activityLog = mergedActivity;
+    const activeTasksCount = Object.keys(mergedTasks).filter(k => mergedTasks[k]).length;
+    if (activeTasksCount === 0) {
+      this.data.activityLog = {};
+    } else {
+      const mergedActivity = { ...(this.data.activityLog || {}) };
+      Object.entries(cloudData.activityLog || {}).forEach(([date, count]) => {
+        mergedActivity[date] = Math.max(mergedActivity[date] || 0, Number(count) || 0);
+      });
+      this.data.activityLog = mergedActivity;
+    }
 
     // 4. Deferred tasks reconciliation
     this.data.deferredTasks = { ...(cloudData.deferredTasks || {}), ...(this.data.deferredTasks || {}) };
@@ -560,6 +570,11 @@ const AppState = {
       delete this.data.tasks[id];
       if (this.data.activityLog[todayStr]) {
         this.data.activityLog[todayStr] = Math.max(0, this.data.activityLog[todayStr] - 1);
+        if (this.data.activityLog[todayStr] === 0) delete this.data.activityLog[todayStr];
+      }
+      const remainingTasks = Object.keys(this.data.tasks || {}).filter(k => this.data.tasks[k]).length;
+      if (remainingTasks === 0) {
+        this.data.activityLog = {};
       }
     }
 
@@ -765,13 +780,13 @@ const AppState = {
 // ==========================================================================
 const StreakEngine = {
   getStats(activityLog = {}) {
+    const completedCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k]).length;
+    if (completedCount === 0) {
+      return { current: 0, longest: 0, totalDays: 0, todayDone: false };
+    }
+
     const dates = Object.keys(activityLog).filter(d => (activityLog[d] || 0) > 0).sort();
     if (dates.length === 0) {
-      // Seed streak if tasks are already done
-      const completedCount = Object.keys(AppState.data.tasks || {}).length;
-      if (completedCount > 0) {
-        return { current: 1, longest: 1, totalDays: 1, todayDone: false };
-      }
       return { current: 0, longest: 0, totalDays: 0, todayDone: false };
     }
 
@@ -846,31 +861,6 @@ function initWeekPage(weekNum) {
   if (!AppState._initialized) {
     AppState.init();
     AppState._initialized = true;
-  }
-
-  // Inject sleek % completed telemetry into the sticky header if missing
-  const header = document.querySelector('header');
-  if (header) {
-    const centerCol = header.querySelector('.flex-col.items-center');
-    if (centerCol && !document.getElementById('week-header-pct')) {
-      const sub = centerCol.querySelector('span');
-      if (sub) {
-        sub.classList.add('inline-flex', 'items-center', 'justify-center', 'gap-2');
-        const pctBadge = document.createElement('span');
-        pctBadge.id = 'week-header-pct';
-        pctBadge.className = 'font-mono text-[11px] font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20 shadow-sm transition-all duration-200';
-        pctBadge.textContent = '0% (0/16)';
-        sub.appendChild(pctBadge);
-      }
-    }
-    if (!document.getElementById('week-header-progress-bar')) {
-      header.classList.add('relative');
-      const bar = document.createElement('div');
-      bar.id = 'week-header-progress-bar';
-      bar.className = 'absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-primary-container transition-all duration-300 shadow-[0_0_8px_rgba(192,193,255,0.6)]';
-      bar.style.width = '0%';
-      header.appendChild(bar);
-    }
   }
 
   const notesArea = document.getElementById('week-notes');
@@ -1176,7 +1166,7 @@ function renderWeekendDeferredQueue(weekNum) {
             </button>
             <div class="flex flex-col gap-0.5 min-w-0 flex-1">
               <div class="flex flex-wrap items-center gap-1.5 min-w-0">
-                <span class="px-1.5 py-0.2 rounded bg-amber-400/15 text-amber-300 font-mono text-[10px] border border-amber-400/25 font-semibold">From ${t.dayName}</span>
+                <span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-mono text-[10px] border border-outline-variant/20 font-semibold">From ${t.dayName}</span>
                 <span class="task-tag shrink-0 px-1.5 py-0.2 rounded bg-surface-container-highest font-mono text-[10px] text-on-surface-variant font-semibold uppercase">${t.trackTag}</span>
                 <span class="deferred-backlog-text font-semibold ${isDone ? 'line-through text-on-surface-variant/60' : 'text-on-surface'} truncate">${t.title}</span>
               </div>
@@ -1192,13 +1182,13 @@ function renderWeekendDeferredQueue(weekNum) {
     });
 
     container.innerHTML = `
-      <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/90 border border-amber-400/30 p-3 mb-3 flex flex-col gap-2 shadow-lg">
+      <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/90 border border-outline-variant/20 p-3 mb-3 flex flex-col gap-2 shadow-lg">
         <div class="flex items-center justify-between pb-1.5 border-b border-white/[0.06]">
-          <span class="font-mono text-[11px] font-semibold text-amber-300 flex items-center gap-1.5">
+          <span class="font-mono text-[11px] font-semibold text-primary flex items-center gap-1.5">
             <span>⏳</span>
             <span>Spillover Queue (${tasks.length} tasks &bull; +${totalSpillHours.toFixed(1)}h)</span>
           </span>
-          <span class="font-mono text-[10px] text-slate-400">Allocated to ${dayName} (load balanced)</span>
+          <span class="font-mono text-[10px] text-on-surface-variant/60">Allocated to ${dayName} (load balanced)</span>
         </div>
         <div class="flex flex-col gap-1.5">
           ${rowsHtml}
@@ -1297,22 +1287,6 @@ function updateWeekProgress() {
 
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
 
-  // Header Telemetry Badge & Bar
-  const headerPct = document.getElementById('week-header-pct');
-  if (headerPct) {
-    headerPct.textContent = `${pct}% (${done}/${total})`;
-    if (pct === 100) {
-      headerPct.className = 'font-mono text-[11px] font-bold text-emerald-400 px-1.5 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/30 shadow-sm transition-all duration-200';
-    } else if (pct > 0) {
-      headerPct.className = 'font-mono text-[11px] font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20 shadow-sm transition-all duration-200';
-    } else {
-      headerPct.className = 'font-mono text-[11px] font-medium text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/20 transition-all duration-200';
-    }
-  }
-  const headerBar = document.getElementById('week-header-progress-bar');
-  if (headerBar) {
-    headerBar.style.width = `${pct}%`;
-  }
 
   const fill = document.getElementById('progress-bar-fill') || document.getElementById('week-progress-fill');
   const completedCountEl = document.getElementById('completed-count');
@@ -1538,7 +1512,7 @@ function initDashboard(roadmapData) {
       ` : '';
 
       const deferredBadge = (isDeferred && !isDone) ? `
-        <span class="text-[10px] text-amber-400 font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend">⏳</span>
+        <span class="text-[10px] text-primary font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend">⏳</span>
       ` : '';
 
       tasksHtml += `
@@ -1625,15 +1599,13 @@ function initDashboard(roadmapData) {
       progressBar.style.width = `${pct}%`;
     }
 
+    const backlogSection = document.getElementById('backlog-section');
     if (backlogTasks.length === 0 || incompleteTasks.length === 0) {
-      listContainer.innerHTML = `
-        <div class="px-5 py-6 text-center text-xs text-on-surface-variant flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined text-[18px] text-emerald-400">check_circle</span>
-          <span class="text-on-surface font-medium">All caught up! Zero backlog from past days.</span>
-        </div>
-      `;
+      if (backlogSection) backlogSection.style.display = 'none';
+      listContainer.innerHTML = '';
       return;
     }
+    if (backlogSection) backlogSection.style.display = 'block';
 
     // Sequence: Incomplete tasks first (farthest past to recent past), followed by completed past tasks
     const orderedTasks = [...incompleteTasks, ...backlogTasks.filter(t => AppState.isTaskDone(t.id))];
@@ -1664,12 +1636,12 @@ function initDashboard(roadmapData) {
       html += `
         <div class="task-row group flex items-start justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.backlog-task-checkbox-btn') && !event.target.closest('a')) { const cb = this.querySelector('.backlog-task-checkbox-btn'); if(cb) cb.click(); }">
           <div class="flex items-start gap-3.5 min-w-0 flex-1">
-            <button type="button" aria-label="Toggle backlog task status" class="backlog-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-amber-400 border-amber-400' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderBacklogQueue(); renderTodayCommandCenter(); renderDashboardStats();">
-              <span class="material-symbols-outlined text-[13px] text-black font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
+            <button type="button" aria-label="Toggle backlog task status" class="backlog-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderBacklogQueue(); renderTodayCommandCenter(); renderDashboardStats();">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
             </button>
             <div class="flex flex-col gap-1 min-w-0 flex-1">
               <div class="flex flex-wrap items-center gap-2 min-w-0">
-                <span class="px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20 font-mono text-[10px] text-amber-300 font-semibold uppercase">W${String(t.weekNum).padStart(2, '0')} ${t.dayCode}</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant font-semibold uppercase">W${String(t.weekNum).padStart(2, '0')} ${t.dayCode}</span>
                 <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
                 <span class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'text-on-surface-variant/60 line-through' : 'text-on-surface'} font-semibold leading-snug break-words transition-all duration-150">${titleHtml}</span>
               </div>
@@ -1698,10 +1670,14 @@ function initDashboard(roadmapData) {
     // Synchronize tasks completed in AppState.data.tasks to activityLog for today if needed
     if (!AppState.data.activityLog) AppState.data.activityLog = {};
     const tasksDoneCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k]).length;
-    let totalInLog = 0;
-    Object.values(AppState.data.activityLog).forEach(v => totalInLog += (Number(v) || 0));
-    if (tasksDoneCount > totalInLog) {
-      AppState.data.activityLog[todayStr] = (AppState.data.activityLog[todayStr] || 0) + (tasksDoneCount - totalInLog);
+    if (tasksDoneCount === 0) {
+      AppState.data.activityLog = {};
+    } else {
+      let totalInLog = 0;
+      Object.values(AppState.data.activityLog).forEach(v => totalInLog += (Number(v) || 0));
+      if (tasksDoneCount > totalInLog) {
+        AppState.data.activityLog[todayStr] = (AppState.data.activityLog[todayStr] || 0) + (tasksDoneCount - totalInLog);
+      }
     }
 
     // Exactly 12 months ago, starting strictly from the 1st of that month
@@ -1749,27 +1725,29 @@ function initDashboard(roadmapData) {
     let maxStreak = 0;
     let currentStreak = 0;
 
-    months.forEach(m => {
-      m.days.forEach(d => {
-        const count = AppState.data.activityLog[d.dateStr] || 0;
-        if (count > 0) {
-          totalTasksCompleted += count;
-          activeDays++;
-          currentStreak++;
-          if (currentStreak > maxStreak) maxStreak = currentStreak;
-        } else {
-          currentStreak = 0;
-        }
+    if (tasksDoneCount > 0) {
+      months.forEach(m => {
+        m.days.forEach(d => {
+          const count = AppState.data.activityLog[d.dateStr] || 0;
+          if (count > 0) {
+            totalTasksCompleted += count;
+            activeDays++;
+            currentStreak++;
+            if (currentStreak > maxStreak) maxStreak = currentStreak;
+          } else {
+            currentStreak = 0;
+          }
+        });
       });
-    });
 
-    if (window.StreakEngine) {
-      try {
-        const seStats = StreakEngine.getStats(AppState.data.activityLog || {});
-        if (seStats.longest && seStats.longest > maxStreak) {
-          maxStreak = seStats.longest;
-        }
-      } catch (e) {}
+      if (window.StreakEngine) {
+        try {
+          const seStats = StreakEngine.getStats(AppState.data.activityLog || {});
+          if (seStats.longest && seStats.longest > maxStreak) {
+            maxStreak = seStats.longest;
+          }
+        } catch (e) {}
+      }
     }
 
     // Update top header stats
@@ -1803,7 +1781,7 @@ function initDashboard(roadmapData) {
       // 2. Real calendar days in this month
       m.days.forEach(d => {
         const cell = document.createElement('div');
-        const count = AppState.data.activityLog[d.dateStr] || 0;
+        const count = tasksDoneCount === 0 ? 0 : (AppState.data.activityLog[d.dateStr] || 0);
 
         // Theme palette: Inactive dark surface -> Soft violet -> Medium violet -> Primary container -> Primary lavender
         let bgColor = 'bg-[#242429]'; // Level 0: Inactive

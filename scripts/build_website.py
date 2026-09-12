@@ -478,15 +478,12 @@ def generate_week_page(week, total_weeks, all_weeks):
         day_tasks_joined = "\n".join(tasks_html)
         
         if is_weekend:
-            budget_badge = '<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono text-[10px] border border-primary/20 font-semibold flex items-center gap-1"><span>⚡</span> 8.0h Deep Focus</span>'
             deferred_box = f'<div class="weekend-deferred-container px-5 pt-3" data-day="{day["day_code"]}"></div>'
             card_html = f'''
             <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="{day['day_code']}">
               <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
                 <div class="flex items-center gap-2.5">
                   <h3 class="font-headline text-sm font-semibold text-on-surface">{day['day_name']}</h3>
-                  <span class="text-outline-variant/40">&bull;</span>
-                  {budget_badge}
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / {len(day['tasks'])} done</span>
@@ -499,14 +496,11 @@ def generate_week_page(week, total_weeks, all_weeks):
             </div>'''
             weekend_cards.append(card_html)
         else:
-            budget_badge = '<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono text-[10px] border border-outline-variant/20">4.0h Budget</span>'
             card_html = f'''
             <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="{day['day_code']}">
               <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
                 <div class="flex items-center gap-2.5">
                   <h3 class="font-headline text-sm font-semibold text-on-surface">{day['day_name']}</h3>
-                  <span class="text-outline-variant/40">&bull;</span>
-                  {budget_badge}
                 </div>
                 <div class="flex items-center gap-1.5">
                   <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / {len(day['tasks'])} done</span>
@@ -768,16 +762,14 @@ def generate_dashboard(roadmap):
           </div>
         </section>
 
-        <!-- Backlog Execution Queue (Overdue tasks ordered from farthest past to recent past) -->
-        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="backlog-section">
+        <!-- Backlog Execution Queue (Hidden when empty) -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="backlog-section" style="display: none;">
           <div class="px-5 py-4 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-3">
-              <h2 class="font-headline text-base font-semibold text-amber-300 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px]">history</span>
+              <h2 class="font-headline text-base font-semibold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant">history</span>
                 <span>Backlog</span>
               </h2>
-              <span class="text-outline-variant/40">&bull;</span>
-              <span class="text-xs text-on-surface-variant" id="backlog-subtitle">Overdue &bull; Farthest past to recent</span>
             </div>
             <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
               <span class="text-on-surface font-semibold" id="backlog-completed-counter">0</span> of <span id="backlog-total-counter">0</span> completed
@@ -786,7 +778,7 @@ def generate_dashboard(roadmap):
 
           <!-- Micro Progress Bar -->
           <div class="w-full bg-surface-container h-1 overflow-hidden">
-            <div class="h-full bg-amber-400 transition-all duration-300 ease-out" id="backlog-progress-bar" style="width: 0%"></div>
+            <div class="h-full bg-primary transition-all duration-300 ease-out" id="backlog-progress-bar" style="width: 0%"></div>
           </div>
 
           <!-- Backlog Task List -->

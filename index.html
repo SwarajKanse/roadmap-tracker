@@ -109,16 +109,14 @@
           </div>
         </section>
 
-        <!-- Backlog Execution Queue (Overdue tasks ordered from farthest past to recent past) -->
-        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="backlog-section">
+        <!-- Backlog Execution Queue (Hidden when empty) -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="backlog-section" style="display: none;">
           <div class="px-5 py-4 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-3">
-              <h2 class="font-headline text-base font-semibold text-amber-300 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px]">history</span>
+              <h2 class="font-headline text-base font-semibold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-on-surface-variant">history</span>
                 <span>Backlog</span>
               </h2>
-              <span class="text-outline-variant/40">&bull;</span>
-              <span class="text-xs text-on-surface-variant" id="backlog-subtitle">Overdue &bull; Farthest past to recent</span>
             </div>
             <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
               <span class="text-on-surface font-semibold" id="backlog-completed-counter">0</span> of <span id="backlog-total-counter">0</span> completed
@@ -127,7 +125,7 @@
 
           <!-- Micro Progress Bar -->
           <div class="w-full bg-surface-container h-1 overflow-hidden">
-            <div class="h-full bg-amber-400 transition-all duration-300 ease-out" id="backlog-progress-bar" style="width: 0%"></div>
+            <div class="h-full bg-primary transition-all duration-300 ease-out" id="backlog-progress-bar" style="width: 0%"></div>
           </div>
 
           <!-- Backlog Task List -->
