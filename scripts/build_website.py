@@ -852,22 +852,8 @@ def generate_dashboard(roadmap):
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Header Navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/20 dark:border-white/5 transition-colors">
-    <div class="h-16 max-w-6xl mx-auto px-6 flex items-center justify-end gap-3">
-      <!-- Right Vitals: Streak & Sync -->
-      <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low/90 border border-outline-variant/20 dark:border-white/5">
-        <span class="material-symbols-outlined text-[14px] text-error">local_fire_department</span>
-        <span class="font-mono text-xs font-semibold text-on-surface" id="streak-stat-badge">0d</span>
-      </div>
-      <div class="sync-badge saving flex items-center gap-1.5 px-2 py-1 cursor-pointer" title="Supabase Live Cloud Sync">
-        <span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse sync-dot"></span>
-      </div>
-    </div>
-  </header>
-
   <!-- Main Executive Console Content -->
-  <main class="w-full pt-20 pb-16 min-h-screen">
+  <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
@@ -946,8 +932,8 @@ def generate_dashboard(roadmap):
           </div>
 
           <!-- Heatmap Container (Grouped by Month with Month Labels at Bottom) -->
-          <div class="overflow-x-auto pb-1 scrollbar-none">
-            <div class="flex items-start justify-between min-w-[760px] gap-2.5 sm:gap-3 select-none" id="heatmap-months-container">
+          <div class="overflow-x-auto pb-1 no-scrollbar">
+            <div class="flex items-start justify-between gap-1.5 sm:gap-2.5 select-none w-full min-w-[720px]" id="heatmap-months-container">
               <!-- Populated dynamically by app.js -->
             </div>
           </div>

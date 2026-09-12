@@ -1238,33 +1238,70 @@ function initDashboard(roadmapData) {
     const container = document.getElementById('heatmap-months-container');
     if (!container) return;
 
-    // Month distribution across 50 weeks (July 2026 to June 2027)
-    const monthDefs = [
-      { name: 'Jul', weeks: [1, 2, 3, 4] },
-      { name: 'Aug', weeks: [5, 6, 7, 8] },
-      { name: 'Sep', weeks: [9, 10, 11, 12, 13] },
-      { name: 'Oct', weeks: [14, 15, 16, 17] },
-      { name: 'Nov', weeks: [18, 19, 20, 21] },
-      { name: 'Dec', weeks: [22, 23, 24, 25, 26] },
-      { name: 'Jan', weeks: [27, 28, 29, 30] },
-      { name: 'Feb', weeks: [31, 32, 33, 34] },
-      { name: 'Mar', weeks: [35, 36, 37, 38] },
-      { name: 'Apr', weeks: [39, 40, 41, 42] },
-      { name: 'May', weeks: [43, 44, 45, 46] },
-      { name: 'Jun', weeks: [47, 48, 49, 50] }
-    ];
+    // Today is the strict end point of the 1-year contribution window
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayStr = today.toISOString().slice(0, 10);
 
+    // Synchronize tasks completed in AppState.data.tasks to activityLog for today if needed
+    if (!AppState.data.activityLog) AppState.data.activityLog = {};
+    const tasksDoneCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k]).length;
+    let totalInLog = 0;
+    Object.values(AppState.data.activityLog).forEach(v => totalInLog += (Number(v) || 0));
+    if (tasksDoneCount > totalInLog) {
+      AppState.data.activityLog[todayStr] = (AppState.data.activityLog[todayStr] || 0) + (tasksDoneCount - totalInLog);
+    }
+
+    // 364 days ago (giving exactly 365 days ending today)
+    const start = new Date(today);
+    start.setDate(today.getDate() - 364);
+    start.setHours(0, 0, 0, 0);
+
+    // Group days from start to today by Year-Month
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = [];
+    let cur = new Date(start);
+
+    while (cur <= today) {
+      const y = cur.getFullYear();
+      const m = cur.getMonth();
+      const mKey = `${y}-${m}`;
+
+      if (months.length === 0 || months[months.length - 1].key !== mKey) {
+        months.push({
+          key: mKey,
+          name: monthNames[m],
+          year: y,
+          days: []
+        });
+      }
+
+      const dateStr = cur.toISOString().slice(0, 10);
+      const dayOfWeek = cur.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+      const isToday = cur.getTime() === today.getTime();
+
+      months[months.length - 1].days.push({
+        date: new Date(cur),
+        dateStr: dateStr,
+        dayOfWeek: dayOfWeek,
+        isToday: isToday,
+        dayNum: cur.getDate()
+      });
+
+      cur.setDate(cur.getDate() + 1);
+    }
+
+    // Calculate submission statistics across the 365 days
     let totalSubmissions = 0;
     let activeDays = 0;
     let maxStreak = 0;
     let currentStreak = 0;
 
-    // Compute stats across all 50 weeks in chronological sequence
-    roadmapData.forEach(w => {
-      w.days.forEach(d => {
-        const doneCount = d.tasks.filter(t => !t.is_rest && AppState.isTaskDone(t.id)).length;
-        if (doneCount > 0) {
-          totalSubmissions += doneCount;
+    months.forEach(m => {
+      m.days.forEach(d => {
+        const count = AppState.data.activityLog[d.dateStr] || 0;
+        if (count > 0) {
+          totalSubmissions += count;
           activeDays++;
           currentStreak++;
           if (currentStreak > maxStreak) maxStreak = currentStreak;
@@ -1292,69 +1329,80 @@ function initDashboard(roadmapData) {
     if (activeEl) activeEl.textContent = activeDays;
     if (streakEl) streakEl.textContent = maxStreak;
 
-    // Lookup table for weeks
-    const weekMap = {};
-    roadmapData.forEach(w => {
-      weekMap[w.week_num] = w;
-    });
-
     // Populate month clusters
     container.innerHTML = '';
 
-    monthDefs.forEach(m => {
+    months.forEach(m => {
       const monthCol = document.createElement('div');
-      monthCol.className = 'flex flex-col items-center gap-2';
+      monthCol.className = 'flex flex-col items-center gap-2 shrink-0';
 
       const grid = document.createElement('div');
-      grid.className = 'grid grid-flow-col grid-rows-7 gap-[3px]';
+      grid.className = 'grid grid-flow-col grid-rows-7 gap-[2.5px]';
 
-      m.weeks.forEach(wNum => {
-        const wObj = weekMap[wNum];
-        if (!wObj) return;
+      // 1. Invisible placeholders before the first day of this month
+      const startDow = m.days[0].dayOfWeek; // 0..6 (Sun..Sat)
+      for (let i = 0; i < startDow; i++) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] opacity-0 pointer-events-none';
+        grid.appendChild(placeholder);
+      }
 
-        wObj.days.forEach(day => {
-          const cell = document.createElement('div');
-          const doneCount = day.tasks.filter(t => !t.is_rest && AppState.isTaskDone(t.id)).length;
-          const totalCount = day.tasks.filter(t => !t.is_rest).length;
+      // 2. Real days in this month
+      m.days.forEach(d => {
+        const cell = document.createElement('div');
+        const count = AppState.data.activityLog[d.dateStr] || 0;
 
-          // LeetCode Color Tiers based on completed tasks
-          let bgColor = 'bg-[#282828]'; // Level 0: empty
-          let hoverRing = 'hover:ring-1 hover:ring-zinc-500';
+        let bgColor = 'bg-[#282828]'; // Level 0
+        let hoverRing = 'hover:ring-1 hover:ring-zinc-500';
 
-          if (doneCount === 1) {
-            bgColor = 'bg-[#196c2e]'; // Level 1: forest green
-            hoverRing = 'hover:ring-1 hover:ring-emerald-400';
-          } else if (doneCount === 2) {
-            bgColor = 'bg-[#008435]'; // Level 2: medium green
-            hoverRing = 'hover:ring-1 hover:ring-emerald-300';
-          } else if (doneCount === 3) {
-            bgColor = 'bg-[#00c853]'; // Level 3: bright green
-            hoverRing = 'hover:ring-1 hover:ring-emerald-200';
-          } else if (doneCount >= 4) {
-            bgColor = 'bg-[#5ce67a]'; // Level 4: vivid neon lime green
-            hoverRing = 'hover:ring-1 hover:ring-white';
-          }
+        if (count === 1) {
+          bgColor = 'bg-[#196c2e]'; // Level 1
+          hoverRing = 'hover:ring-1 hover:ring-emerald-400';
+        } else if (count === 2) {
+          bgColor = 'bg-[#008435]'; // Level 2
+          hoverRing = 'hover:ring-1 hover:ring-emerald-300';
+        } else if (count === 3) {
+          bgColor = 'bg-[#00c853]'; // Level 3
+          hoverRing = 'hover:ring-1 hover:ring-emerald-200';
+        } else if (count >= 4) {
+          bgColor = 'bg-[#5ce67a]'; // Level 4
+          hoverRing = 'hover:ring-1 hover:ring-white';
+        }
 
-          cell.className = `w-[11px] h-[11px] sm:w-[12px] sm:h-[12px] rounded-[2px] transition-all duration-150 cursor-pointer ${bgColor} ${hoverRing}`;
-          
-          const tooltip = doneCount > 0 
-            ? `${doneCount} submissions on ${day.day_name}, Week ${String(wNum).padStart(2, '0')} (${doneCount}/${totalCount} tasks)`
-            : `No submissions on ${day.day_name}, Week ${String(wNum).padStart(2, '0')}`;
-          
-          cell.setAttribute('title', tooltip);
-          cell.setAttribute('data-week', wNum);
-          cell.setAttribute('data-day', day.day_code);
+        const todayRing = d.isToday ? ' ring-1 ring-white/50' : '';
+        cell.className = `w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] rounded-[2px] transition-all duration-150 cursor-pointer ${bgColor} ${hoverRing}${todayRing}`;
 
-          cell.addEventListener('click', () => {
-            window.location.href = `weeks/week-${String(wNum).padStart(2, '0')}.html#day-${day.day_code.toLowerCase()}`;
-          });
+        const dateLabel = `${m.name} ${d.dayNum}, ${m.year}`;
+        const tooltip = count > 0 
+          ? `${count} ${count === 1 ? 'submission' : 'submissions'} on ${dateLabel}${d.isToday ? ' (Today)' : ''}`
+          : `No submissions on ${dateLabel}${d.isToday ? ' (Today)' : ''}`;
 
-          grid.appendChild(cell);
+        cell.setAttribute('title', tooltip);
+        cell.setAttribute('data-date', d.dateStr);
+
+        cell.addEventListener('click', () => {
+          const todayEl = document.getElementById('today');
+          if (todayEl) todayEl.scrollIntoView({ behavior: 'smooth' });
         });
+
+        grid.appendChild(cell);
       });
+
+      // 3. Invisible placeholders after the last day to fill the last column to 7 slots
+      const totalSlots = startDow + m.days.length;
+      const remainder = totalSlots % 7;
+      if (remainder !== 0) {
+        const fillSlots = 7 - remainder;
+        for (let i = 0; i < fillSlots; i++) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] opacity-0 pointer-events-none';
+          grid.appendChild(placeholder);
+        }
+      }
 
       monthCol.appendChild(grid);
 
+      // Month name label at bottom
       const label = document.createElement('span');
       label.className = 'text-[11px] text-zinc-400 font-normal select-none pt-0.5';
       label.textContent = m.name;
@@ -1362,6 +1410,12 @@ function initDashboard(roadmapData) {
 
       container.appendChild(monthCol);
     });
+
+    // Auto-scroll to today (the rightmost side) on smaller screens
+    const wrapper = container.parentElement;
+    if (wrapper) {
+      wrapper.scrollLeft = wrapper.scrollWidth;
+    }
   }
 
   function initQuietAccordion() {
