@@ -430,6 +430,13 @@ body {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.day-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .day-title {
   font-size: 0.95rem;
   font-weight: 600;
@@ -437,6 +444,29 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.day-budget-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.day-budget-pill.weekday {
+  background: var(--tag-corecs-bg);
+  color: var(--tag-corecs-text);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.day-budget-pill.weekend {
+  background: var(--tag-aptitude-bg);
+  color: var(--tag-aptitude-text);
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .day-progress {
@@ -594,6 +624,20 @@ body {
 .track-tag.aptitude {
   background: var(--tag-aptitude-bg);
   color: var(--tag-aptitude-text);
+}
+
+.time-estimate-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.1rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .task-text {
@@ -796,6 +840,113 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 0.25rem;
+}
+
+/* Schedule Banner Card on Dashboard */
+.schedule-banner-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.schedule-banner-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.schedule-total-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--accent-light);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-ring);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.schedule-item {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.schedule-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.6rem;
+}
+
+.schedule-badge.weekday {
+  background: var(--tag-corecs-bg);
+  color: var(--tag-corecs-text);
+}
+
+.schedule-badge.weekend {
+  background: var(--tag-aptitude-bg);
+  color: var(--tag-aptitude-text);
+}
+
+.schedule-hours {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.schedule-breakdown {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.86rem;
+}
+
+.schedule-breakdown li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.schedule-breakdown .time-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 /* Phase Groupings on Dashboard */

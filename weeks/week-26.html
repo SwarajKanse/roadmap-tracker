@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 26 Checklist &bull; Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end</title>
+  <title>Week 26 Checklist &bull; Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end & API</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -95,7 +95,7 @@
   <main class="container">
     <header class="week-header">
       <div class="phase-pill">Phase 6: Capstone, Deployment & Interview Sprint (Weeks 26–30)</div>
-      <h1 class="week-title">Week 26 &mdash; Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end</h1>
+      <h1 class="week-title">Week 26 &mdash; Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end & API</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
 
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,6 +148,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Alien Dictionary; Shortest path in DAG</div>
               </div>
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Capstone — add a simple front end (Streamlit is fine) so it's demoable</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Exception Handling (LLD)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_mon_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_mon_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Quant Mock 1; Quant Mock 2</div>
+                <div class="task-text"><strong>Model Deployment 1: FastAPI / Flask</strong> — Krish Naik: Wrap your capstone pipeline with FastAPI, asynchronous request handling, Pydantic schemas, Swagger UI documentation, error handlers, and CORS configuration</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Shortest path in undirected graph with unit weights; Word ladder I</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Capstone — wire the front end to your RAG chain / GPT sampler end-to-end</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Building Resilient Systems</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_tue_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_tue_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Quant Mock 3; Quant Mock 4</div>
+                <div class="task-text"><strong>LLD Interview Problems 1</strong> — How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design &amp; Code: <strong>Parking Lot System</strong> in Java (Multi-floor, vehicle types, ticketing, billing)</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Word ladder II — <strong>Graph Hard Problems complete</strong>; Dijkstra's algorithm</div>
+                <div class="task-text">Word ladder II; Dijkstra's algorithm</div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Push capstone to GitHub with a proper README (architecture diagram, key decisions, what you'd improve)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">All About APIs</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_wed_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_wed_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Quant Mock 5; Quant Mock 6</div>
+                <div class="task-text"><strong>Model Deployment 2: Docker Containerization</strong> — freeCodeCamp Docker crash course: Dockerfile for Python ML apps, multi-stage builds, container networking, environment variables, running containerized capstone locally</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Print Shortest Path; Shortest Distance in a Binary Maze</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text"><strong>Teach it:</strong> write a blog post or LinkedIn post explaining what you built and why it works, in your own words</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Database Design and Integration</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_thu_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_thu_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Quant Mock 7; Quant Mock 8</div>
+                <div class="task-text"><strong>LLD Interview Problems 2</strong> — Design &amp; Code: <strong>Logging Framework</strong> in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,6 +324,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Path with minimum effort; Cheapest flight within K stops</div>
               </div>
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Krish Naik — GenAI: LLM evaluation basics (correctness, citation quality for RAG; coherence/perplexity for a from-scratch GPT)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">How to approach a LLD Interview</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_fri_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_fri_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Quant Mock 9; Quant Mock 10</div>
+                <div class="task-text"><strong>Deployment Pipeline &amp; Docker Compose</strong> — Docker Compose for multi-container orchestration (FastAPI + Vector DB + Frontend UI); push Dockerized capstone to GitHub with clean deployment commands</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,6 +368,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Minimum multiplications to reach end; Number of ways to arrive at destination</div>
               </div>
@@ -505,23 +384,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Add Friday's evaluation approach into your own capstone</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Parking Lot (Design)</div>
+                <div class="task-text"><strong>AI+Java Capstone: Domain &amp; Architecture Design (4.0h)</strong> — Define capstone domain (e.g. Enterprise Technical Documentation &amp; Code Intelligence Engine); design layered Java backend and Python AI pipeline.</div>
               </div>
             </div>
 
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aptitude">Aptitude</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Quant Mock 11; Quant Mock 12</div>
+                <div class="task-text"><strong>Quant Mocks 1–6</strong> — Timed placement test simulation (6 full Quant mocks)</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,8 +428,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Bellman ford algorithm; Floyd warshall algorithm; Find the city with the smallest number of neighbors + Contest</div>
+                <div class="task-text">Bellman ford algorithm; Floyd warshall algorithm; Find the city with smallest number of neighbors + Contest</div>
               </div>
             </div>
 
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Revision: mock-explain your capstone out loud, end-to-end, as if to an interviewer</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w26_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w26_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Parking Lot (Code) — <strong>LLD Interview Problems Part 1 begins</strong></div>
+                <div class="task-text"><strong>Capstone Data Ingestion &amp; Chunking Pipeline (4.0h)</strong> — Ingest raw technical PDFs / Markdown; benchmark semantic chunking vs recursive character chunking; generate vector embeddings.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aptitude">Aptitude</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Review mistakes from this week's 12 Quant Mocks; timed retake of your weakest one</div>
+                <div class="task-text"><strong>Quant Mocks 7–12</strong> — Timed simulation (6 full Quant mocks) + review incorrect questions and retake weakest areas</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> Graph Hard Problems + Shortest Path Algorithms done. Capstone has a working front end, an evaluation pass, and a public write-up.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> Graph Hard Problems + Shortest Path Algorithms done. Capstone has a working API, Docker container, and front end.</div>
             </div>
           </div>
         </div>

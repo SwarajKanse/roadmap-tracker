@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" selected>Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -94,7 +94,7 @@
   <!-- Main Container -->
   <main class="container">
     <header class="week-header">
-      <div class="phase-pill">Phase 8: HLD Finishes, Modern Java, and Production-Grade Spring Boot (Weeks 36–40)</div>
+      <div class="phase-pill">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</div>
       <h1 class="week-title">Week 37 &mdash; Modern Java Language Features, DDIA begins, Kaggle wraps up, Logging & Observability</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,8 +148,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><code>Optional&lt;T&gt;</code> — using it properly (never calling <code>.get()</code> blindly); avoiding "Optional soup"</div>
+                <div class="task-text"><code>Optional&lt;T&gt;</code> — using it properly (never calling <code>.get()</code> blindly), <code>map</code>, <code>flatMap</code>, <code>orElseGet</code>, avoiding "Optional anti-patterns"</div>
               </div>
             </div>
 
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Kaggle — refine using cross-validation / hyperparameter tuning, whatever this competition's format allows</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>Designing Data-Intensive Applications</em> — Ch.1: Reliable, Scalable, Maintainable Applications</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">SLF4J + Logback: structured logging basics; what to log (and what never to log — secrets, tokens, PII)</div>
+                <div class="task-text"><strong>Kaggle Refinement</strong> — Cross-validation tuning, hyperparameter search, error analysis on validation predictions</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Records (Java 16+) — replacing boilerplate DTOs/value objects with one line</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Kaggle — continue refining</div>
+                <div class="task-text">Records (Java 16+) — replacing boilerplate DTOs/value objects, canonical &amp; compact constructors, record patterns</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">DDIA — Ch.2: Data Models and Query Languages</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Spring Boot Actuator: <code>/health</code>, <code>/metrics</code>, <code>/info</code> endpoints; why every production service needs these</div>
+                <div class="task-text"><strong>DDIA Part 1: Foundations</strong> — <em>Designing Data-Intensive Applications</em> (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications &amp; Ch. 2: Data Models (Relational vs Document vs Graph)</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><code>var</code> for local type inference — where it helps readability and where it hurts it</div>
+                <div class="task-text"><code>var</code> for local type inference — where it improves readability vs where it obscures types</div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Kaggle — continue refining</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA — Ch.3: Storage and Retrieval (LSM-trees vs. B-trees — direct callback to your SQL B+-Tree week)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Micrometer basics — how Actuator's metrics actually get collected; a custom metric on one of your endpoints</div>
+                <div class="task-text"><strong>Kaggle Model Blending</strong> — Train complementary models; blend predictions using weighted averaging or stacking</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Sealed classes + pattern matching for <code>switch</code> (Java 21) — modeling closed hierarchies properly</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text"><strong>Kaggle competition wraps up</strong> — read 2–3 top solutions and note what they did differently</div>
+                <div class="task-text">Sealed classes + pattern matching for <code>switch</code> (Java 21) — modeling closed algebraic hierarchies</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">DDIA — Ch.4: Encoding and Evolution (schema evolution — ties directly to your Flyway migrations work)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Rework your logging so a request's full path through Controller → Service → Repository is traceable via a correlation/request ID</div>
+                <div class="task-text"><strong>DDIA Part 1: Storage &amp; Evolution</strong> — DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) &amp; Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,8 +324,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Refactor one of your Phase 7 backend's DTOs into a Record</div>
+                <div class="task-text">Refactor Phase 7 backend's DTOs into Java Records</div>
               </div>
             </div>
 
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Write up 2–3 things this competition taught you that Phase 3's Kaggle entry didn't</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA revision: explain LSM-trees vs. B-trees out loud, in your own words</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Add Actuator + structured logging to the Todo API from Phase 7; push to GitHub</div>
+                <div class="task-text"><strong>Kaggle Competition Closeout</strong> — Submit final predictions; read top solutions; write reflection on model choices (<strong>Two closed Kaggle competitions on profile!</strong>)</div>
               </div>
             </div>
           </div>
@@ -475,12 +350,15 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
-            <div class="task-item is-rest" data-task-id="w37_sat_dsa" data-track="dsa">
+            <div class="task-item " data-task-id="w37_sat_dsa" data-track="dsa">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w37_sat_dsa">
                 <div class="checkbox-visual">
@@ -490,12 +368,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text">Contest + revise Modern Java features</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w37_sat_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w37_sat_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w37_sat_aiml">
                 <div class="checkbox-visual">
@@ -505,27 +384,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>MLOps &amp; Model Monitoring Lab (4.0h)</strong> — Set up MLflow for experiment tracking; log hyperparameters, metrics, and model artifacts.</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w37_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w37_sat_backend" data-track="backend">
+            <div class="task-item " data-task-id="w37_sat_backend" data-track="backend">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w37_sat_backend">
                 <div class="checkbox-visual">
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>Structured Logging with SLF4J &amp; Logback</strong> — SLF4J + Logback: Structured JSON logging, log levels (INFO/WARN/ERROR), masking secrets and PII; trace requests through layers</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,8 +428,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Full revision: modern Java features, mixed practice</div>
+                <div class="task-text">Full revision: modern Java features self-test</div>
               </div>
             </div>
 
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Phase checkpoint (teach it): write up what changed between your two Kaggle entries — model choices, feature engineering, evaluation</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w37_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w37_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Full revision: DDIA Ch.1–4 self-test</div>
+                <div class="task-text"><strong>Data Drift &amp; Concept Drift Detection (4.0h)</strong> — Implement Evidently AI or custom statistical drift tests (KS-test, PSI) on incoming inference data.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Revision: explain why observability (metrics + structured logs) matters more than "it works on my machine"</div>
+                <div class="task-text"><strong>Production Metrics with Actuator &amp; Micrometer</strong> — Spring Boot Actuator endpoints (<code>/health</code>, <code>/metrics</code>), custom Health Indicators, Micrometer metrics collection; push observable backend to GitHub</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> Modern Java (Optional, Records, <code>var</code>, sealed classes, pattern matching) done. Two closed-out Kaggle competitions on your profile. DDIA's first four chapters done. Your backend now emits real operational signal (metrics, health, structured logs).</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> Modern Java (Optional, Records, <code>var</code>, sealed classes, pattern matching) done. Two closed-out Kaggle competitions. DDIA Ch. 1–4 done. Production observability live.</div>
             </div>
           </div>
         </div>

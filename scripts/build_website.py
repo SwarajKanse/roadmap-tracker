@@ -138,7 +138,10 @@ def parse_roadmap():
                 for idx, cell_content in enumerate(cells[1:]):
                     if idx >= len(col_meta):
                         break
-                    is_rest = not cell_content or cell_content == '-' or 'open — catch up or rest' in cell_content.lower()
+                    cell_trimmed = cell_content.strip()
+                    if not cell_trimmed or cell_trimmed == '-':
+                        continue
+                    is_rest = 'open — catch up or rest' in cell_trimmed.lower()
                     task_id = f"w{w_num}_{day_code.lower()}_{col_meta[idx]['cat_id']}"
                     
                     if is_rest:
@@ -147,8 +150,8 @@ def parse_roadmap():
                             'track_original': col_meta[idx]['original'],
                             'track_id': col_meta[idx]['cat_id'],
                             'track_name': col_meta[idx]['cat_name'],
-                            'raw_text': cell_content or "Rest / Catch up",
-                            'html': '<em>(Open — catch up or rest)</em>' if 'open' in (cell_content or '').lower() else '<em>Rest / Catch up</em>',
+                            'raw_text': cell_trimmed,
+                            'html': '<em>(Open — catch up or rest)</em>' if 'open' in cell_trimmed.lower() else '<em>Rest / Catch up</em>',
                             'is_rest': True
                         })
                     else:
@@ -157,8 +160,8 @@ def parse_roadmap():
                             'track_original': col_meta[idx]['original'],
                             'track_id': col_meta[idx]['cat_id'],
                             'track_name': col_meta[idx]['cat_name'],
-                            'raw_text': cell_content,
-                            'html': format_cell_html(cell_content),
+                            'raw_text': cell_trimmed,
+                            'html': format_cell_html(cell_trimmed),
                             'is_rest': False
                         })
                         
@@ -232,12 +235,23 @@ def generate_week_page(week, total_weeks, all_weeks):
     days_html = []
     for day in week['days']:
         tasks_html = []
+        is_weekend = day['day_code'] in ['Sat', 'Sun']
         for t in day['tasks']:
             task_id = t['id']
             track_class = t['track_id']
             track_name = t['track_name']
             content_html = t['html']
             rest_class = 'is-rest' if t['is_rest'] else ''
+            
+            # Duration estimation
+            if track_class == 'dsa':
+                duration = '1.5h'
+            elif is_weekend and track_class == 'aiml':
+                duration = '4.0h'
+            elif track_class in ['aptitude', 'backend']:
+                duration = '2.5h'
+            else:
+                duration = '2.5h'
             
             tasks_html.append(f'''
             <div class="task-item {rest_class}" data-task-id="{task_id}" data-track="{track_class}">
@@ -250,16 +264,22 @@ def generate_week_page(week, total_weeks, all_weeks):
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag {track_class}">{track_name}</span>
+                  <span class="time-estimate-pill">⏱️ {duration}</span>
                 </div>
                 <div class="task-text">{content_html}</div>
               </div>
             </div>''')
             
         day_tasks_joined = "\n".join(tasks_html)
+        budget_badge = '<span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>' if is_weekend else '<span class="day-budget-pill weekday">⏱️ 4h Budget</span>'
+        
         days_html.append(f'''
         <div class="day-card" data-day="{day['day_code']}">
           <div class="day-card-header">
-            <span class="day-title">{day['day_name']}</span>
+            <div class="day-title-group">
+              <span class="day-title">{day['day_name']}</span>
+              {budget_badge}
+            </div>
             <span class="day-progress">0/{len(day['tasks'])} done</span>
           </div>
           <div class="tasks-list">
@@ -543,6 +563,36 @@ def generate_dashboard(roadmap):
         <div class="stat-label">Target Placement Drive</div>
       </div>
     </div>
+
+    <!-- Study Schedule & Time Allocation Banner -->
+    <section class="schedule-banner-card">
+      <div class="schedule-banner-header">
+        <div class="schedule-banner-title">
+          <span>⏱️</span>
+          <span>Daily Time Allocation &amp; Multi-Subject Schedule</span>
+        </div>
+        <span class="schedule-total-badge">36 Hours / Week Total</span>
+      </div>
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="schedule-badge weekday">📅 Weekdays (Mon &ndash; Fri)</div>
+          <div class="schedule-hours">4.0 hrs / day</div>
+          <ul class="schedule-breakdown">
+            <li><span class="time-tag">1.5h</span> <span><strong>DSA (Java)</strong> &bull; Daily problem reps &amp; Striver TUF+ sheet</span></li>
+            <li><span class="time-tag">2.5h</span> <span><strong>Core Focus Track</strong> &bull; AI/ML (Mon/Wed/Fri) or Core CS (Tue/Thu)</span></li>
+          </ul>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-badge weekend">⚡ Weekends (Sat &ndash; Sun)</div>
+          <div class="schedule-hours">8.0 hrs / day</div>
+          <ul class="schedule-breakdown">
+            <li><span class="time-tag">1.5h</span> <span><strong>DSA (Java)</strong> &bull; Weekly contest problems, revision &amp; hard drills</span></li>
+            <li><span class="time-tag">2.5h</span> <span><strong>Aptitude / Backend</strong> &bull; Quant, Logical, Verbal mocks / Spring Boot</span></li>
+            <li><span class="time-tag">4.0h</span> <span><strong>AI/ML Hands-On Lab</strong> &bull; Kaggle, scratch code, papers &amp; projects</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- Phases Grid -->
     <section class="phases-container">

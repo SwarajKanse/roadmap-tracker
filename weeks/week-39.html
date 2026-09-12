@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" selected>Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -94,7 +94,7 @@
   <!-- Main Container -->
   <main class="container">
     <header class="week-header">
-      <div class="phase-pill">Phase 8: HLD Finishes, Modern Java, and Production-Grade Spring Boot (Weeks 36–40)</div>
+      <div class="phase-pill">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</div>
       <h1 class="week-title">Week 39 &mdash; Advanced Concurrency, DDIA Consistency chapter, MLOps: serving & cost, API Gateway + Resilience</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,8 +148,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><code>CompletableFuture</code> — chaining async work (<code>thenApply</code>, <code>thenCompose</code>, <code>allOf</code>)</div>
+                <div class="task-text"><code>CompletableFuture</code> — async pipelines, <code>thenApply</code>, <code>thenCompose</code>, <code>thenCombine</code>, <code>allOf</code>, exception handling</div>
               </div>
             </div>
 
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Serving optimization: what vLLM/continuous batching solve conceptually (you don't need to run a GPU cluster — understand the idea)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA — Ch.9: Consistency and Consensus (linearizability, quorum reads/writes)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text"><strong>Spring Cloud Gateway</strong> — a single entry point routing to your two services</div>
+                <div class="task-text"><strong>Cost Engineering in GenAI</strong> — Token economics, prompt caching, token budgets, optimizing prompts to reduce API bills by 50%+</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Concurrent collections: <code>ConcurrentHashMap</code>, <code>CopyOnWriteArrayList</code> — why they beat synchronizing a plain <code>HashMap</code></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Cost-per-call thinking: token counting, why prompt length is a cost lever, not just a quality one</div>
+                <div class="task-text">Concurrent collections: <code>ConcurrentHashMap</code>, <code>CopyOnWriteArrayList</code>, <code>BlockingQueue</code> — why they beat synchronized maps</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">DDIA — Ch.9 continued: consensus algorithms at a conceptual level (Paxos/Raft — you don't need to implement one)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Inter-service communication: <code>RestTemplate</code> (legacy) vs. <code>WebClient</code> (reactive) vs. a <strong>Feign client</strong> (declarative) — build one of each against your two services</div>
+                <div class="task-text"><strong>DDIA Part 2: Consistency &amp; Consensus</strong> — DDIA Ch. 9: Consistency and Consensus (Linearizability, Total Order Broadcast, 2-Phase Commit vs Raft / Paxos conceptual understanding)</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><code>java.util.concurrent.locks</code>: <code>ReentrantLock</code>, <code>ReadWriteLock</code> — when you'd reach for these over <code>synchronized</code></div>
+                <div class="task-text">Explicit Locks: <code>ReentrantLock</code>, <code>ReadWriteLock</code>, <code>Condition</code> variables — when to choose over <code>synchronized</code></div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Apply cost-per-call thinking to your Phase 7 RAG capstone — where is it spending tokens unnecessarily?</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA revision: explain linearizability vs. eventual consistency out loud, with an example each</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text"><strong>Resilience4j</strong>: circuit breakers — what happens when <code>user-service</code> goes down while <code>todo-service</code> calls it</div>
+                <div class="task-text"><strong>Audit Capstone Token Efficiency</strong> — Apply token cost reduction techniques to your Phase 7 capstone prompts; measure before/after token usage</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,27 +280,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Producer-Consumer in Java using a <code>BlockingQueue</code> — direct callback to your OS Producer-Consumer module, now actually coded</div>
+                <div class="task-text">Producer-Consumer in Java using a <code>BlockingQueue</code> — direct implementation of classic OS problem</div>
               </div>
             </div>
 
-            <div class="task-item " data-task-id="w39_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Trim your capstone's prompt/retrieval pipeline based on Wednesday's findings</div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w39_thu_corecs" data-track="corecs">
+            <div class="task-item " data-task-id="w39_thu_corecs" data-track="corecs">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w39_thu_corecs">
                 <div class="checkbox-visual">
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Retries + timeouts + fallbacks with Resilience4j — make <code>todo-service</code> degrade gracefully instead of hanging</div>
+                <div class="task-text"><strong>HLD Practice Problems 5 (HLD 100% Done!)</strong> — <strong>System Design of a Chess Website</strong> &amp; <strong>System Design of Google Docs</strong> (<strong>All 17 HLD Practice Problems Complete!</strong>)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,12 +324,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Deadlock, reproduced and fixed with <code>java.util.concurrent</code> tools instead of raw locks</div>
+                <div class="task-text">Deadlock reproduction and resolution using <code>tryLock()</code> with timeouts</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w39_fri_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w39_fri_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w39_fri_aiml">
                 <div class="checkbox-visual">
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w39_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Wire the Gateway + Feign + Resilience4j together end-to-end</div>
+                <div class="task-text"><strong>MLOps Synthesis &amp; System Design</strong> — Write up notes on production ML systems: monitoring dashboards, serving optimization, and cost tradeoffs</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,12 +368,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Contest + revise all of Week 38–39's concurrency content</div>
+                <div class="task-text">Contest + revise Week 38–39 concurrency content</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w39_sat_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w39_sat_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w39_sat_aiml">
                 <div class="checkbox-visual">
@@ -505,27 +384,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>DDIA Distributed Storage &amp; Replication Synthesis (4.0h)</strong> — Deep architectural synthesis of DDIA Part 2: replication lag, leaderless consensus, and vector index persistence.</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w39_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w39_sat_backend" data-track="backend">
+            <div class="task-item " data-task-id="w39_sat_backend" data-track="backend">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w39_sat_backend">
                 <div class="checkbox-visual">
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>API Gateway with Spring Cloud Gateway</strong> — Spring Cloud Gateway: Route definitions, path predicates, custom filters, JWT validation at the gateway level</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,6 +428,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Full revision: redo 2 concurrency exercises cold</div>
               </div>
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Phase checkpoint (teach it): explain, in writing, what you changed in your capstone's cost profile and why</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w39_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w39_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Full self-test: DDIA Ch.9 + full weeks 38–39 review</div>
+                <div class="task-text"><strong>Distributed Cache &amp; Vector Index Benchmarking (4.0h)</strong> — Benchmark Redis cache hit ratios vs PostgreSQL pgvector similarity query latencies under load.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Push the gateway-fronted, resilient two-service setup to GitHub with a README covering the failure scenarios you tested</div>
+                <div class="task-text"><strong>Resilience with Resilience4j</strong> — Circuit Breaker pattern, Rate Limiting, Retry with exponential backoff, Fallbacks; wire Gateway + Feign + Resilience4j together on GitHub</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> <code>CompletableFuture</code>, concurrent collections, and explicit locks done — you can build correct concurrent Java, not just avoid breaking it. DDIA's consistency/consensus chapter done. A gateway-fronted microservice setup that survives a dependent service going down.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> <code>CompletableFuture</code>, concurrent collections, and explicit locks done. DDIA consistency &amp; consensus done. <strong>All 17 HLD practice problems 100% complete.</strong> Resilient, gateway-fronted microservices.</div>
             </div>
           </div>
         </div>

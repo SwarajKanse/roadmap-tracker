@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 29 Checklist &bull; DP (Subsequences + LIS begins), HLD continues, Interview-question review + mock interviews begin</title>
+  <title>Week 29 Checklist &bull; DP (Subsequences + LIS begins), HLD continues, System Design Deep Dive</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -95,7 +95,7 @@
   <main class="container">
     <header class="week-header">
       <div class="phase-pill">Phase 6: Capstone, Deployment & Interview Sprint (Weeks 26–30)</div>
-      <h1 class="week-title">Week 29 &mdash; DP (Subsequences + LIS begins), HLD continues, Interview-question review + mock interviews begin</h1>
+      <h1 class="week-title">Week 29 &mdash; DP (Subsequences + LIS begins), HLD continues, System Design Deep Dive</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
 
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,6 +148,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Subset sum equals to target; Partition equal subset sum</div>
               </div>
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Krish Naik — "Machine Learning Interview Questions" playlist, first half</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">What are Bloom Filters?; What is Data Replication?</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_mon_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_mon_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Logical Mock 19; Logical Mock 20 — <strong>all 20 Logical Mocks complete!</strong></div>
+                <div class="task-text"><strong>Rapid-Fire AI Algorithm Drills</strong> — Redo 5 hardest conceptual questions across ML, DL, and Transformers; StatQuest rapid review on weakest topics (e.g. SVM kernels, BatchNorm, Self-Attention)</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Partition a set into two subsets with minimum absolute sum difference; Count subsets with sum K</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Krish Naik — ML Interview Questions, second half</div>
+                <div class="task-text">Partition min absolute sum difference; Count subsets with sum K</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">How are NoSQL databases optimized?; What are Location-based Databases?</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_tue_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_tue_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Verbal Mock 1; Verbal Mock 2</div>
+                <div class="task-text"><strong>HLD System Components</strong> — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + Quiz</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,6 +236,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Count partitions with given difference; 0 and 1 Knapsack</div>
               </div>
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Krish Naik — "Deep Learning Interview Questions" playlist</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Database Migrations — <strong>DataStores module complete</strong>; What is Data Consistency?</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_wed_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_wed_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Verbal Mock 3; Verbal Mock 4</div>
+                <div class="task-text"><strong>Mock Interview #4: Architecture Grilling</strong> — Have a peer or mentor grill you on architectural choices: Why this chunk size? Why FAISS over Pinecone? Why this loss function? How to handle model drift?</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Minimum coins; Target sum</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Re-watch StatQuest — pick 3 topics that felt shakiest across the whole roadmap and re-watch as rapid revision</div>
+                <div class="task-text">Minimum coins; Target sum; Coin change II</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Data Consistency Levels; Transaction Isolation Levels — <strong>Consistency vs. Availability module complete</strong></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_thu_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_thu_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Verbal Mock 5; Verbal Mock 6</div>
+                <div class="task-text"><strong>HLD System Design 1</strong> — <strong>System Design of Instagram / Photo Sharing Service</strong> &amp; <strong>System Design of WhatsApp / Chat Application</strong> (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,8 +324,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Coin change II; Unbounded knapsack</div>
+                <div class="task-text">Unbounded knapsack; Rod cutting problem</div>
               </div>
             </div>
 
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><strong>Mock interview #1</strong> — explain a classical ML project (Phase 3) out loud to a friend/senior, or record yourself and listen back</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">What is a Message Queue?; What is the publisher-subscriber model?</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_fri_aptitude" data-track="aptitude">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_fri_aptitude">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aptitude">Aptitude</span>
-                </div>
-                <div class="task-text">Verbal Mock 7; Verbal Mock 8</div>
+                <div class="task-text"><strong>AI Portfolio Audit &amp; Polish</strong> — Review all 6 GitHub repositories (<code>ml-from-scratch</code>, EDA, CNN Classifier, nanoGPT, LangChain RAG, Deployed Capstone); ensure polished READMEs with architecture diagrams and demo GIFs</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,8 +368,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Rod cutting problem + Contest</div>
+                <div class="task-text">Longest Increasing Subsequence (LIS); Print LIS</div>
               </div>
             </div>
 
@@ -505,23 +384,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><strong>Mock interview #2</strong> — explain your Deep Learning/CNN project (Phase 4) out loud</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">What are event-driven systems?; Database as a Message Queue — <strong>Message Queues module complete</strong></div>
+                <div class="task-text"><strong>Comprehensive Placement Mock Interview 1 (4.0h)</strong> — 2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL &amp; Transformers (attention, backprop, embeddings).</div>
               </div>
             </div>
 
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aptitude">Aptitude</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Verbal Mock 9; Verbal Mock 10</div>
+                <div class="task-text"><strong>Verbal Mocks 1–8</strong> — Timed simulation</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,8 +428,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Longest Increasing Subsequence; Print Longest Increasing Subsequence + revision</div>
+                <div class="task-text">LIS variations + Contest</div>
               </div>
             </div>
 
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><strong>Mock interview #3</strong> — explain your GenAI capstone (Phases 5–6) out loud</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w29_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w29_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">What is a Single Point of Failure?; What are Containers?</div>
+                <div class="task-text"><strong>Comprehensive Placement Mock Interview 2 (4.0h)</strong> — 2-hour mock interview on Capstone system architecture &amp; RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aptitude">Aptitude</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Review mistakes from this week's Verbal Mocks</div>
+                <div class="task-text"><strong>Verbal Mocks 9–16</strong> — Timed simulation + <strong>HLD System Design 2</strong>: <strong>System Design of Uber / Ride Hailing Service</strong> (Geohashing, quadtrees, driver matching)</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> DP on Subsequences done, LIS begun. HLD DataStores, Consistency, Message Queues done. Three mock interviews done — one per major project.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> DP on Subsequences done, LIS begun. HLD DataStores, Consistency, Message Queues, and 3 major System Designs done.</div>
             </div>
           </div>
         </div>

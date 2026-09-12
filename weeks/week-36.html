@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 36 Checklist &bull; Java Streams & Functional Style, HLD problems continue, second Kaggle competition begins, Caching/Async/Scheduling</title>
+  <title>Week 36 Checklist &bull; Java Streams API, HLD finishes, Kaggle competition 2 begins, Caching & Async</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" selected>Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" selected>Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -94,8 +94,8 @@
   <!-- Main Container -->
   <main class="container">
     <header class="week-header">
-      <div class="phase-pill">Phase 8: HLD Finishes, Modern Java, and Production-Grade Spring Boot (Weeks 36–40)</div>
-      <h1 class="week-title">Week 36 &mdash; Java Streams & Functional Style, HLD problems continue, second Kaggle competition begins, Caching/Async/Scheduling</h1>
+      <div class="phase-pill">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</div>
+      <h1 class="week-title">Week 36 &mdash; Java Streams API, HLD finishes, Kaggle competition 2 begins, Caching & Async</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
 
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,8 +148,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Lambdas and functional interfaces (<code>Function</code>, <code>Predicate</code>, <code>Supplier</code>, <code>Consumer</code>)</div>
+                <div class="task-text">Lambdas and functional interfaces (<code>Function</code>, <code>Predicate</code>, <code>Supplier</code>, <code>Consumer</code>, Method References)</div>
               </div>
             </div>
 
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Pick a fresh <strong>Kaggle "Playground" or NLP-flavored competition</strong> (not a repeat of Phase 3's) — read the problem and data, write your planned approach</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">System Design of Doordash</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Spring's caching abstraction: <code>@Cacheable</code>, <code>@CacheEvict</code>; wire up Redis as the cache store</div>
+                <div class="task-text"><strong>Second Kaggle Competition Kickoff</strong> — Pick a fresh <strong>Kaggle Playground or NLP competition</strong>; inspect dataset, understand evaluation metric, write your approach</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">The Streams API: <code>map</code>/<code>filter</code>/<code>reduce</code>/<code>collect</code></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Baseline submission using what you already know (classical ML or a pretrained model)</div>
+                <div class="task-text">The Streams API: <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>collect</code>, stream pipeline lifecycle</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">System Design of Amazon Online Shops</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Cache eviction strategies in practice; when caching helps and when it just hides a real problem</div>
+                <div class="task-text"><strong>HLD Practice Problems 3</strong> — <strong>System Design of DoorDash</strong> (Order placement, real-time driver tracking) &amp; <strong>System Design of Amazon Online Shop</strong> (Inventory management, cart service)</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><code>Collectors</code>: <code>groupingBy</code>, <code>partitioningBy</code>, <code>toMap</code>, joining strings</div>
+                <div class="task-text"><code>Collectors</code>: <code>groupingBy</code>, <code>partitioningBy</code>, <code>toMap</code>, joining strings, downstream collectors</div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Feature/embedding work specific to this competition</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">System Design of Google Maps</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text"><code>@Async</code> — offloading work to a separate thread pool; configuring a custom <code>Executor</code></div>
+                <div class="task-text"><strong>Kaggle Baseline Submission</strong> — Build and submit a clean baseline model (feature engineering + tree ensemble or pretrained embedding)</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Parallel streams — when they actually help vs. when they just add overhead</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Iterate on Wednesday's approach; try a second model/technique</div>
+                <div class="task-text">Parallel streams — when they help vs when thread pool contention hurts performance</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">System Design of Gmail</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text"><code>@Scheduled</code> — cron-style and fixed-rate jobs; a real use case (e.g., a nightly cleanup job on your Todo API's DB)</div>
+                <div class="task-text"><strong>HLD Practice Problems 4</strong> — <strong>System Design of Google Maps</strong> (Routing algorithms, spatial indexing) &amp; <strong>System Design of Gmail</strong> (Email storage, search, IMAP/SMTP)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,8 +324,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Refactor 3 old DSA solutions (any topic) to use Streams where it genuinely improves readability — not everywhere</div>
+                <div class="task-text">Refactor 3 old DSA solutions (any topic) to use Streams where it genuinely improves readability</div>
               </div>
             </div>
 
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Submit an improved entry</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">System Design of a Chess Website</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Combine this week: an <code>@Scheduled</code> job that caches its result and can be <code>@Async</code>-triggered on demand</div>
+                <div class="task-text"><strong>Kaggle Iteration &amp; Leaderboard Feedback</strong> — Explore top public notebooks; experiment with feature additions and evaluate CV score</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,6 +368,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Contest + revise Streams API</div>
               </div>
@@ -505,27 +384,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Read 1–2 top-voted public notebooks so far, note techniques you haven't tried</div>
+                <div class="task-text"><strong>Second Kaggle Competition: Feature Sprint (4.0h)</strong> — Enter second Kaggle competition; build automated feature engineering pipeline; train ensemble models.</div>
               </div>
             </div>
 
-            <div class="task-item " data-task-id="w36_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">System Design of Google Docs — <strong>all 17 HLD Practice Problems now complete</strong></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w36_sat_backend" data-track="backend">
+            <div class="task-item " data-task-id="w36_sat_backend" data-track="backend">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w36_sat_backend">
                 <div class="checkbox-visual">
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>Spring Caching with Redis</strong> — Spring Cache abstraction: <code>@EnableCaching</code>, <code>@Cacheable</code>, <code>@CacheEvict</code>, <code>@CachePut</code>; run Redis in Docker, wire Redis cache manager</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,6 +428,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Full revision: explain the Streams pipeline model (lazy evaluation, terminal vs. intermediate ops) out loud</div>
               </div>
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Apply one technique from Saturday's notebooks to your entry</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w36_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w36_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Full HLD self-test: pick 2 practice problems at random and re-derive the design from scratch, no notes. <strong>HLD conceptual syllabus + all practice problems are now 100% complete.</strong></div>
+                <div class="task-text"><strong>Kaggle Model Stacking &amp; Blending (4.0h)</strong> — Train level-2 meta-learners; analyze out-of-fold validation predictions; submit competitive ensemble.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Push this week's caching/async/scheduling work to GitHub</div>
+                <div class="task-text"><strong>Async Execution &amp; Scheduled Tasks</strong> — <code>@Async</code>, thread pool configuration with <code>ThreadPoolTaskExecutor</code>, <code>@Scheduled</code> cron jobs; build a background cache refresher on GitHub</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> Java Streams fluency. <strong>All of HLD is now fully complete</strong> — the last piece of your entire TUF+ subscription. A live second Kaggle entry.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> Java Streams fluency. HLD practice problems 3 &amp; 4 done. A second live Kaggle competition entry. Redis caching and async tasks integrated.</div>
             </div>
           </div>
         </div>

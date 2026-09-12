@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" selected>Week 44: Bringing It All Together, Documenti</option>
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,6 +148,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Weekly contest</div>
               </div>
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Design conversation memory for the capstone via Spring AI Advisors</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Draw the full component diagram of your capstone</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Add conversation memory via Spring AI Advisors, backed by your existing JPA persistence</div>
+                <div class="task-text"><strong>Conversation Memory Architecture</strong> — Design conversation memory for multi-turn dialogues using Spring AI Advisors (<code>MessageChatMemoryAdvisor</code>, <code>PromptChatMemoryAdvisor</code>)</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Redo 2 hard problems, weakest topic</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Plan the full end-to-end flow: auth → chat → RAG → tool-calling → response</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Trace a single request end-to-end through every component, on paper</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Integrate your Phase 7 JWT auth into the capstone's chat endpoints</div>
+                <div class="task-text"><strong>Capstone Architecture Document 1: Component Design</strong> — Draw the full system component diagram: Client $\rightarrow$ API Gateway $\rightarrow$ Spring AI Service $\rightarrow$ pgvector $\rightarrow$ MCP Server $\rightarrow$ LLM Provider</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,6 +236,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Redo 2 hard problems, second weak topic</div>
               </div>
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Identify edge cases: empty retrieval results, a failed tool call, a rate-limited provider</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Scaling considerations — where would this system break first under load, and how would you fix it</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Handle the edge cases identified this morning: fallbacks, timeouts, graceful tool-failure messages</div>
+                <div class="task-text"><strong>Edge Case Analysis &amp; Guardrails</strong> — Design handling for: empty vector retrieval results, tool execution failure, prompt injection attempts, context window overflow</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Light mixed practice</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Design a simple evaluation rubric for the capstone (borrow the RAGAS ideas, adapt them manually since this isn't pure RAG anymore)</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Failure modes — what happens if the LLM provider is down, if pgvector is slow, if a tool call times out</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Add rate limiting to the AI endpoints — this is literally last week's Core CS design, now implemented for real</div>
+                <div class="task-text"><strong>Capstone Architecture Document 2: Data Flow &amp; Failure Modes</strong> — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion)</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,6 +324,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Second weekly contest</div>
               </div>
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Revision: talk through the end-to-end flow out loud</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Tradeoffs section — what you'd change with more time or budget</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Full end-to-end build day — get every piece talking to every other piece</div>
+                <div class="task-text"><strong>Automated Evaluation Rubric</strong> — Define quantitative evaluation rubric for the integrated capstone: accuracy of tool selection, RAG grounding, response latency, token cost</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,6 +368,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Review contest mistakes</div>
               </div>
@@ -505,23 +384,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(open — supports today's build day)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Compile everything into a polished design document</div>
+                <div class="task-text"><strong>Full Spring AI Enterprise Integration (4.0h)</strong> — Combine RAG, tool calling, conversation history memory, and rate limiting in single production Spring Boot application.</div>
               </div>
             </div>
 
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Full end-to-end build day, continued</div>
+                <div class="task-text"><strong>Security, Memory &amp; Rate Limiting Integration</strong> — Integrate JWT authentication into AI endpoints; persist conversation memory in PostgreSQL; add Spring Cloud Gateway rate limiting</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,6 +428,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Full mixed revision</div>
               </div>
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(open — supports today's build day)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w44_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w44_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Revision: refine the doc after a self-review</div>
+                <div class="task-text"><strong>Spring AI Observability &amp; Tracing (4.0h)</strong> — Integrate Micrometer and OpenTelemetry for LLM token usage tracking, latency spans, and error monitoring.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Build day — get one complete, working demo end to end</div>
+                <div class="task-text"><strong>Full End-to-End Build &amp; Integration</strong> — Wire all components together: Auth + Memory + RAG + Tool Calling + MCP Server; run automated end-to-end integration tests on GitHub</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> a complete, working demo of the capstone — auth, persistence, RAG, tool-calling, memory, and rate limiting, all integrated. A formal, written system-design document for it, in your own words.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> Complete working demo of capstone — auth, persistence, RAG, tool-calling, memory, and rate limiting integrated. Formal written system-design document for your own system.</div>
             </div>
           </div>
         </div>

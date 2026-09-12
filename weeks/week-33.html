@@ -56,12 +56,12 @@
 <option value="week-33.html" selected>Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" >Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,6 +148,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Longest common subsequence; Longest common substring</div>
               </div>
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Advanced RAG techniques: hybrid search (keyword + vector), why pure cosine-similarity retrieval falls short</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">SQL: <strong>JSON in SQL</strong> — Dummy Data Setup; JSON Insertion + Data Loading; JSON Read/Query Commands</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">From JDBC → JPA → Hibernate: how they relate; spin up a real Postgres via Docker (you already know Docker from Phase 6)</div>
+                <div class="task-text"><strong>Advanced RAG: Hybrid Search &amp; Re-ranking</strong> — Beyond naive vector search: Keyword (BM25) + Vector hybrid search, Re-ranking models (Cross-Encoders, Cohere Rerank), reciprocal rank fusion (RRF)</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Longest palindromic subsequence; Minimum insertions to make string palindrome</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Re-ranking: why a two-stage retrieve-then-rerank pipeline beats single-stage retrieval</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">SQL: JSON Arrays and Search; JSON Updates; JSON Output Builders; Performance and Indexing; Upsert Power Features — <strong>JSON module done</strong></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Entity mapping: <code>@Entity</code>, <code>@Id</code>, <code>@GeneratedValue</code>, <code>@Column</code>; <code>JpaRepository</code> basics</div>
+                <div class="task-text"><strong>SQL: Window Functions Mastery &amp; JSON</strong> — Distribution Helpers, Window Frames (<code>ROWS BETWEEN</code>), solve: Top 3 Salaries per Department, Track Task Failures + <strong>JSON in SQL</strong> (Insertion, querying, JSON arrays/search) + Quiz</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Minimum insertions or deletions to convert string A to B; Shortest common supersequence</div>
+                <div class="task-text">Minimum insertions or deletions to convert A to B; Shortest common supersequence</div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><strong>RAGAS</strong> (<code><a href="https://docs.ragas.io" target="_blank" rel="noopener noreferrer" class="task-link">docs.ragas.io</a></code>) — set up faithfulness/context-relevance scoring on your Phase 5–6 capstone</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">SQL: <strong>Database Design Fundamentals</strong> — Importance/Raw Data and Pain; Core Concepts Overview; Mental Model (First Principle)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Relationships: <code>@OneToMany</code>, <code>@ManyToOne</code>, <code>@ManyToMany</code>, <code>@OneToOne</code>; <code>FetchType.LAZY</code> vs. <code>EAGER</code> — where a lot of interview questions live</div>
+                <div class="task-text"><strong>RAG Evaluation with RAGAS</strong> (<code><a href="https://docs.ragas.io" target="_blank" rel="noopener noreferrer" class="task-link">docs.ragas.io</a></code>) — Automated evaluation metrics: Faithfulness, Answer Relevance, Context Precision, Context Recall; apply RAGAS to your Phase 5–6 Capstone</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Distinct subsequences</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Apply Wednesday's RAGAS scores: find your capstone's weakest metric and fix one thing that moves it</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">SQL: Schema Design; Entity and Attributes; Relationships, Cardinality and Optionality</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Query methods (derived queries), <code>@Query</code> (JPQL) and native queries, pagination &amp; sorting (<code>Pageable</code>)</div>
+                <div class="task-text"><strong>SQL: Database Design &amp; Performance</strong> — Database Design Fundamentals (Schema design, Cardinality, Normalization review) + <strong>Performance &amp; Debugging</strong> (Stored Procedures, <code>EXPLAIN</code> query plans) + Quiz</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,6 +324,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Edit distance; Wildcard matching — <strong>DP on Strings fully done</strong></div>
               </div>
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Revision: explain hybrid search and re-ranking out loud, with your capstone as the example</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">SQL: Everything About Keys; Normalisation and their Forms — <strong>Database Design Fundamentals done</strong></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Transactions: <code>@Transactional</code>, propagation, isolation levels — tie this directly back to the DBMS "Transactions and Concurrency" module you already know</div>
+                <div class="task-text"><strong>RAG Optimization Cycle</strong> — Use RAGAS metric feedback to diagnose weakest retriever components, tune chunk size/overlap, and re-evaluate; push improvements to GitHub</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,12 +368,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Matrix chain multiplication; Minimum cost to cut the stick</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w33_sat_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w33_sat_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w33_sat_aiml">
                 <div class="checkbox-visual">
@@ -505,23 +384,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">SQL: <strong>Performance &amp; Debugging</strong> — Raw Data Setup and Stored Procedures (<em>+ DBMS: Triggers, Stored Procedures — same subject</em>); Debugging Queries with <code>EXPLAIN</code></div>
+                <div class="task-text"><strong>Hugging Face Agents Course Lab (4.0h)</strong> — Implement autonomous tool-calling agents; design ReAct reasoning loops and agent memory.</div>
               </div>
             </div>
 
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Database migrations with Flyway — why <code>ddl-auto=update</code> is a production landmine, and what to do instead</div>
+                <div class="task-text"><strong>Data Persistence with Spring Data JPA</strong> — JDBC $\rightarrow$ JPA $\rightarrow$ Hibernate; spin up Postgres via Docker; <code>@Entity</code>, <code>@Id</code>, <code>@GeneratedValue</code>, <code>@Column</code>, <code>JpaRepository</code>, custom JPQL and native queries, pagination &amp; sorting</div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,6 +428,7 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Burst balloons; Palindrome partitioning II + Contest — <strong>MCM DP fully done</strong></div>
               </div>
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Revision: teach-it — write up what re-ranking and RAGAS scoring taught you about your capstone's weaknesses</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w33_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w33_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Query Performance; Debugging Correctness + Quiz — <strong>Performance &amp; Debugging done</strong></div>
+                <div class="task-text"><strong>Multi-Agent Systems &amp; Evaluation Lab (4.0h)</strong> — Build multi-agent supervisor pattern (Researcher + Coder + Reviewer); analyze latency and error recovery.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Rebuild the Todo API against the real Postgres DB with proper entities, relationships, and Flyway migrations; push to GitHub</div>
+                <div class="task-text"><strong>Entity Relationships &amp; Flyway Migrations</strong> — <code>@ManyToOne</code>, <code>@OneToMany</code>, <code>FetchType.LAZY</code> vs <code>EAGER</code>, solving the N+1 problem, Flyway database migrations; persist Todo API against real Postgres on GitHub</div>
               </div>
             </div>
           </div>
@@ -628,7 +485,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Deliverable:</strong> DP on Strings + MCM DP done. SQL's JSON, Database Design, and Performance &amp; Debugging modules done. Your GenAI capstone now has a measured (not eyeballed) evaluation pass. A persisted, migration-managed backend on GitHub.</div>
+              <div class="deliverable-text"><strong>Deliverable:</strong> DP on Strings + MCM DP done. SQL JSON, Database Design, and Performance &amp; Debugging done. Your GenAI capstone now has a measured evaluation pass. A persisted, migration-managed backend on GitHub.</div>
             </div>
           </div>
         </div>

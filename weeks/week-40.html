@@ -56,12 +56,12 @@
 <option value="week-33.html" >Week 33: DP on Strings + MCM DP (DSA), SQL: </option>
 <option value="week-34.html" >Week 34: Graph Additional Algorithms (DSA), </option>
 <option value="week-35.html" >Week 35: HLD Practice Problems continue (Cor</option>
-<option value="week-36.html" >Week 36: Java Streams & Functional Style, HL</option>
+<option value="week-36.html" >Week 36: Java Streams API, HLD finishes, Kag</option>
 <option value="week-37.html" >Week 37: Modern Java Language Features, DDIA</option>
 <option value="week-38.html" >Week 38: Java Concurrency Fundamentals, DDIA</option>
 <option value="week-39.html" >Week 39: Advanced Concurrency, DDIA Consiste</option>
 <option value="week-40.html" selected>Week 40: JVM Internals, DDIA Part 3 begins, </option>
-<option value="week-41.html" >Week 41: Choosing the stack, InterviewReady </option>
+<option value="week-41.html" >Week 41: Choosing the stack, URL Shortener D</option>
 <option value="week-42.html" >Week 42: Retrieval-Augmented Generation in S</option>
 <option value="week-43.html" >Week 43: Tool-Calling & MCP in Spring AI, De</option>
 <option value="week-44.html" >Week 44: Bringing It All Together, Documenti</option>
@@ -94,7 +94,7 @@
   <!-- Main Container -->
   <main class="container">
     <header class="week-header">
-      <div class="phase-pill">Phase 8: HLD Finishes, Modern Java, and Production-Grade Spring Boot (Weeks 36–40)</div>
+      <div class="phase-pill">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</div>
       <h1 class="week-title">Week 40 &mdash; JVM Internals, DDIA Part 3 begins, MLOps wrap-up, Messaging with Kafka</h1>
       <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
     </header>
@@ -130,8 +130,11 @@
       
         <div class="day-card" data-day="Mon">
           <div class="day-card-header">
-            <span class="day-title">Monday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Monday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -145,8 +148,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">The JVM memory model: heap, stack, metaspace — "what happens when you run <code>java MyApp</code>," in the same spirit as your OS/CN "what happens when..." modules</div>
+                <div class="task-text">JVM Memory Model: Heap, Stack, Metaspace, Program Counter, Native Method Stack — "what happens when you run <code>java MyApp</code>"</div>
               </div>
             </div>
 
@@ -160,38 +164,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><strong>Confluent Developer — "Kafka 101"</strong> (<code><a href="https://developer.confluent.io" target="_blank" rel="noopener noreferrer" class="task-link">developer.confluent.io</a></code>) — free, official: topics, partitions, producers/consumers, offsets</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_mon_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_mon_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA — Ch.10: Batch Processing (MapReduce-style thinking)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_mon_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_mon_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Kafka fundamentals in parallel with the AI/ML column today — same course, applied lens</div>
+                <div class="task-text"><strong>Kafka Fundamentals 1</strong> — <strong>Confluent Developer: "Kafka 101"</strong> (<code><a href="https://developer.confluent.io" target="_blank" rel="noopener noreferrer" class="task-link">developer.confluent.io</a></code>): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups</div>
               </div>
             </div>
           </div>
@@ -199,8 +174,11 @@
 
         <div class="day-card" data-day="Tue">
           <div class="day-card-header">
-            <span class="day-title">Tuesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Tuesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -214,23 +192,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Garbage collection basics: generational GC, why young/old generations exist</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_tue_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_tue_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text">Kafka 101 continued: consumer groups, delivery semantics (at-least-once vs. exactly-once)</div>
+                <div class="task-text">Garbage Collection Foundations: Generational hypothesis, Young Gen (Eden, Survivor), Old Gen, Stop-the-World pauses</div>
               </div>
             </div>
 
@@ -244,23 +208,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">DDIA — Ch.11: Stream Processing (how it differs from batch — direct callback to CN's "Circuit vs. Packet Switching" intuition about continuous vs. discrete)</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_tue_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_tue_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text"><strong>Confluent Developer — "Spring Framework and Apache Kafka"</strong> course begins: producing your first message from a Spring Boot app</div>
+                <div class="task-text"><strong>DDIA Part 3: Derived Data (Book Complete!)</strong> — DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) &amp; Ch. 11: Stream Processing (Event streams, messaging systems) &amp; Ch. 12: Summary (<strong>DDIA 100% Done!</strong>)</div>
               </div>
             </div>
           </div>
@@ -268,8 +218,11 @@
 
         <div class="day-card" data-day="Wed">
           <div class="day-card-header">
-            <span class="day-title">Wednesday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Wednesday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -283,8 +236,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Common GC algorithms at a conceptual level (G1, ZGC) — you don't need to tune one, you need to explain the tradeoffs</div>
+                <div class="task-text">Common GC Algorithms: Serial, Parallel, G1, ZGC, Shenandoah — operational tradeoffs and pause times</div>
               </div>
             </div>
 
@@ -298,38 +252,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Continue the Spring+Kafka course</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_wed_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_wed_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">DDIA — Ch.12: The Future of Data Systems — <strong>book complete</strong></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_wed_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_wed_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Spring Kafka: <code>@KafkaListener</code> — consuming messages in <code>user-service</code></div>
+                <div class="task-text"><strong>Kafka Fundamentals 2</strong> — Delivery semantics (at-least-once, at-most-once, exactly-once), Broker architecture, Partition rebalancing, Consumer offset commits</div>
               </div>
             </div>
           </div>
@@ -337,8 +262,11 @@
 
         <div class="day-card" data-day="Thu">
           <div class="day-card-header">
-            <span class="day-title">Thursday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Thursday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -352,23 +280,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Class loading basics: what happens between "javac" and a running object</div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w40_thu_aiml" data-track="aiml">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_thu_aiml">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag aiml">AI / ML</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text">Classloading Subsystem: Bootstrap, Platform, Application classloaders, Delegation hierarchy, Custom classloaders</div>
               </div>
             </div>
 
@@ -382,23 +296,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag corecs">Core CS</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Revision: explain MapReduce and stream processing out loud, using your own examples</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_thu_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_thu_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Wire <code>todo-service</code> to publish a Kafka event on every Todo creation; <code>user-service</code> consumes it and logs it — your first real event-driven flow</div>
+                <div class="task-text"><strong>DDIA Comprehensive Self-Test</strong> — 5 rapid-fire questions covering the entire book: replication, partitioning, transactions, consensus, batch, stream</div>
               </div>
             </div>
           </div>
@@ -406,8 +306,11 @@
 
         <div class="day-card" data-day="Fri">
           <div class="day-card-header">
-            <span class="day-title">Friday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Friday</span>
+              <span class="day-budget-pill weekday">⏱️ 4h Budget</span>
+            </div>
+            <span class="day-progress">0/2 done</span>
           </div>
           <div class="tasks-list">
             
@@ -421,12 +324,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text">Revision: explain what happens end-to-end when a Java program runs, from <code>.java</code> to bytecode to a garbage-collected object, out loud</div>
+                <div class="task-text">Java Program Lifecycle: <code>.java</code> $\rightarrow$ bytecode $\rightarrow$ JIT compilation (C1/C2 compilers) $\rightarrow$ native machine execution</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w40_fri_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w40_fri_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w40_fri_aiml">
                 <div class="checkbox-visual">
@@ -436,38 +340,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w40_fri_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_fri_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_fri_backend" data-track="backend">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_fri_backend">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag backend">Java Backend</span>
-                </div>
-                <div class="task-text">Handle a malformed/poison message gracefully — a dead-letter topic or simple retry</div>
+                <div class="task-text"><strong>Event-Driven AI Pipelines</strong> — Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking &amp; embedding</div>
               </div>
             </div>
           </div>
@@ -475,8 +350,11 @@
 
         <div class="day-card" data-day="Sat">
           <div class="day-card-header">
-            <span class="day-title">Saturday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Saturday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -490,12 +368,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
                 <div class="task-text">Contest + full Modern Java + Concurrency + JVM self-test</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w40_sat_aiml" data-track="aiml">
+            <div class="task-item " data-task-id="w40_sat_aiml" data-track="aiml">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w40_sat_aiml">
                 <div class="checkbox-visual">
@@ -505,27 +384,13 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>Phase 8 Modern Java &amp; MLOps Defense (4.0h)</strong> — Explain JVM memory layout, garbage collection pauses, Kafka partition rebalancing, and DDIA linearizability out loud.</div>
               </div>
             </div>
 
-            <div class="task-item is-rest" data-task-id="w40_sat_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_sat_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
-              </div>
-            </div>
-
-            <div class="task-item is-rest" data-task-id="w40_sat_backend" data-track="backend">
+            <div class="task-item " data-task-id="w40_sat_backend" data-track="backend">
               <label class="custom-checkbox">
                 <input type="checkbox" class="task-checkbox" data-task-id="w40_sat_backend">
                 <div class="checkbox-visual">
@@ -535,8 +400,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text"><em>(Open — catch up or rest)</em></div>
+                <div class="task-text"><strong>Spring Kafka Producer Integration</strong> — Spin up Kafka &amp; KRaft in Docker; add <code>spring-kafka</code>, configure <code>KafkaTemplate</code>, publish structured JSON events from <code>todo-service</code></div>
               </div>
             </div>
           </div>
@@ -544,8 +410,11 @@
 
         <div class="day-card" data-day="Sun">
           <div class="day-card-header">
-            <span class="day-title">Sunday</span>
-            <span class="day-progress">0/4 done</span>
+            <div class="day-title-group">
+              <span class="day-title">Sunday</span>
+              <span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>
+            </div>
+            <span class="day-progress">0/3 done</span>
           </div>
           <div class="tasks-list">
             
@@ -559,8 +428,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag dsa">DSA & Java</span>
+                  <span class="time-estimate-pill">⏱️ 1.5h</span>
                 </div>
-                <div class="task-text"><strong>Phase checkpoint (teach it):</strong> write a README explaining Streams, modern Java features, concurrency primitives, and JVM internals in your own words</div>
+                <div class="task-text"><strong>Phase 8 Master Review:</strong> write README synthesizing Streams, Modern Java, Concurrency, and JVM internals</div>
               </div>
             </div>
 
@@ -574,23 +444,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag aiml">AI / ML</span>
+                  <span class="time-estimate-pill">⏱️ 4.0h</span>
                 </div>
-                <div class="task-text">Phase checkpoint (teach it): explain Kafka's delivery semantics out loud, with your event-driven Todo flow as the example</div>
-              </div>
-            </div>
-
-            <div class="task-item " data-task-id="w40_sun_corecs" data-track="corecs">
-              <label class="custom-checkbox">
-                <input type="checkbox" class="task-checkbox" data-task-id="w40_sun_corecs">
-                <div class="checkbox-visual">
-                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-              </label>
-              <div class="task-content">
-                <div class="task-meta">
-                  <span class="track-tag corecs">Core CS</span>
-                </div>
-                <div class="task-text">Full DDIA self-test: 5 rapid-fire questions covering the whole book</div>
+                <div class="task-text"><strong>Spring AI Architecture Planning (4.0h)</strong> — Finalize architecture for Phase 9 Flagship Spring AI 2.0 + MCP Enterprise Application.</div>
               </div>
             </div>
 
@@ -604,8 +460,9 @@
               <div class="task-content">
                 <div class="task-meta">
                   <span class="track-tag backend">Java Backend</span>
+                  <span class="time-estimate-pill">⏱️ 2.5h</span>
                 </div>
-                <div class="task-text">Push the full event-driven, Kafka-connected microservice setup to GitHub with an architecture diagram</div>
+                <div class="task-text"><strong>Spring Kafka Consumer &amp; Resilient Processing</strong> — <code>@KafkaListener</code>, consumer groups, error handling with Dead Letter Topics (DLT); complete event-driven microservices on GitHub</div>
               </div>
             </div>
           </div>
@@ -638,7 +495,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Modern Java + Concurrency + JVM Internals: done</strong> — Streams, Records, sealed classes, <code>CompletableFuture</code>, concurrent collections, locks, and enough JVM internals to explain what's actually happening under a Spring Boot app.</div>
+              <div class="deliverable-text"><strong>Modern Java + Concurrency + JVM Internals: done</strong> — Streams, Records, sealed classes, <code>CompletableFuture</code>, concurrent collections, locks, and deep JVM internals.</div>
             </div>
 
             <div class="deliverable-item" data-task-id="w40_deliv_3">
@@ -648,7 +505,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Core CS: all of HLD (conceptual syllabus + all 17 practice problems) is 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.</strong></div>
+              <div class="deliverable-text"><strong>Core CS: All 17 HLD practice problems 100% done. <em>Designing Data-Intensive Applications</em> read cover to cover.</strong></div>
             </div>
 
             <div class="deliverable-item" data-task-id="w40_deliv_4">
@@ -658,7 +515,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>AI/ML: a second, closed-out Kaggle competition; MLOps fundamentals (monitoring, evaluation pipelines, cost/serving awareness) applied back to your own capstone.</strong></div>
+              <div class="deliverable-text"><strong>AI/ML: Two closed-out Kaggle competitions; MLOps fundamentals (monitoring, serving optimization, cost engineering, Kafka event streaming).</strong></div>
             </div>
 
             <div class="deliverable-item" data-task-id="w40_deliv_5">
@@ -668,7 +525,7 @@
                   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
               </label>
-              <div class="deliverable-text"><strong>Java Backend: a production-grade, event-driven microservice system</strong> — caching, async work, scheduled jobs, Actuator/Micrometer observability, service discovery, an API gateway, circuit breakers, and Kafka-based communication between services.</div>
+              <div class="deliverable-text"><strong>Java Backend: Production-grade, event-driven microservice system</strong> — caching, async, Actuator/Micrometer observability, Eureka service discovery, API Gateway, Resilience4j circuit breaking, and Kafka messaging.</div>
             </div>
           </div>
         </div>
