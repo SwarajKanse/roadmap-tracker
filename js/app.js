@@ -1353,38 +1353,20 @@ function initDashboard(roadmapData) {
         const cell = document.createElement('div');
         const count = AppState.data.activityLog[d.dateStr] || 0;
 
-        let bgColor = 'bg-[#282828]'; // Level 0
-        let hoverRing = 'hover:ring-1 hover:ring-zinc-500';
-
+        // Theme palette: Inactive dark surface -> Soft violet -> Medium violet -> Primary container -> Primary lavender
+        let bgColor = 'bg-[#242429]'; // Level 0: Inactive
         if (count === 1) {
-          bgColor = 'bg-[#196c2e]'; // Level 1
-          hoverRing = 'hover:ring-1 hover:ring-emerald-400';
+          bgColor = 'bg-[#8083ff]/30'; // Level 1: Theme Soft Indigo
         } else if (count === 2) {
-          bgColor = 'bg-[#008435]'; // Level 2
-          hoverRing = 'hover:ring-1 hover:ring-emerald-300';
+          bgColor = 'bg-[#8083ff]/60'; // Level 2: Theme Medium Indigo
         } else if (count === 3) {
-          bgColor = 'bg-[#00c853]'; // Level 3
-          hoverRing = 'hover:ring-1 hover:ring-emerald-200';
+          bgColor = 'bg-[#8083ff]'; // Level 3: Theme Vibrant Container
         } else if (count >= 4) {
-          bgColor = 'bg-[#5ce67a]'; // Level 4
-          hoverRing = 'hover:ring-1 hover:ring-white';
+          bgColor = 'bg-[#c0c1ff]'; // Level 4: Theme Primary Accent
         }
 
-        const todayRing = d.isToday ? ' ring-1 ring-white/50' : '';
-        cell.className = `w-[10px] h-[10px] sm:w-[11px] sm:h-[11px] rounded-[2px] transition-all duration-150 cursor-pointer ${bgColor} ${hoverRing}${todayRing}`;
-
-        const dateLabel = `${m.name} ${d.dayNum}, ${m.year}`;
-        const tooltip = count > 0 
-          ? `${count} ${count === 1 ? 'task completed' : 'tasks completed'} on ${dateLabel}${d.isToday ? ' (Today)' : ''}`
-          : `No tasks completed on ${dateLabel}${d.isToday ? ' (Today)' : ''}`;
-
-        cell.setAttribute('title', tooltip);
-        cell.setAttribute('data-date', d.dateStr);
-
-        cell.addEventListener('click', () => {
-          const todayEl = document.getElementById('today');
-          if (todayEl) todayEl.scrollIntoView({ behavior: 'smooth' });
-        });
+        const todayRing = d.isToday ? ' ring-1 ring-[#c0c1ff]/70' : '';
+        cell.className = `leetcode-cell ${bgColor}${todayRing}`;
 
         grid.appendChild(cell);
       });
