@@ -387,15 +387,29 @@ const AppState = {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && typeof parsed === 'object') {
-          this.data.tasks = parsed.tasks || {};
-          this.data.taskMeta = parsed.taskMeta || {};
+          const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+          const cleanTasks = {};
+          const cleanMeta = {};
+          Object.keys(parsed.tasks || {}).forEach(k => {
+            if (validPattern.test(k) && parsed.tasks[k]) {
+              cleanTasks[k] = true;
+            }
+          });
+          Object.keys(parsed.taskMeta || {}).forEach(k => {
+            if (validPattern.test(k)) {
+              cleanMeta[k] = parsed.taskMeta[k];
+            }
+          });
+
+          this.data.tasks = cleanTasks;
+          this.data.taskMeta = cleanMeta;
           this.data.notes = parsed.notes || {};
           this.data.notesMeta = parsed.notesMeta || {};
           this.data.activityLog = parsed.activityLog || {};
           this.data.deferredTasks = parsed.deferredTasks || {};
           this.data.lastModified = parsed.lastModified || null;
 
-          const doneCount = Object.keys(this.data.tasks || {}).filter(k => this.data.tasks[k]).length;
+          const doneCount = Object.keys(this.data.tasks).length;
           if (doneCount === 0) {
             this.data.activityLog = {};
           }
@@ -446,6 +460,7 @@ const AppState = {
   reconcileData(cloudData) {
     if (!cloudData || typeof cloudData !== 'object') return;
 
+    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
     // 1. Task reconciliation: Last-Write-Wins per task based on taskMeta or lastModified
     const localTasks = this.data.tasks || {};
     const cloudTasks = cloudData.tasks || {};
@@ -457,7 +472,7 @@ const AppState = {
       ...Object.keys(cloudTasks),
       ...Object.keys(localMeta),
       ...Object.keys(cloudMeta)
-    ]);
+    ].filter(id => validPattern.test(id)));
 
     const mergedTasks = {};
     const mergedMeta = {};
@@ -511,7 +526,7 @@ const AppState = {
     this.data.notesMeta = mergedNotesMeta;
 
     // 3. ActivityLog reconciliation: cumulative max per day so tasks completed are preserved
-    const activeTasksCount = Object.keys(mergedTasks).filter(k => mergedTasks[k]).length;
+    const activeTasksCount = Object.keys(mergedTasks).filter(k => mergedTasks[k] && validPattern.test(k)).length;
     if (activeTasksCount === 0) {
       this.data.activityLog = {};
     } else {
@@ -519,6 +534,13 @@ const AppState = {
       Object.entries(cloudData.activityLog || {}).forEach(([date, count]) => {
         mergedActivity[date] = Math.max(mergedActivity[date] || 0, Number(count) || 0);
       });
+      // Safety cap: total tasks in activityLog should never exceed activeTasksCount
+      let totalLogTasks = Object.values(mergedActivity).reduce((s, v) => s + (Number(v) || 0), 0);
+      if (totalLogTasks > activeTasksCount) {
+        const todayStr = new Date().toISOString().slice(0, 10);
+        mergedActivity[todayStr] = Math.max(0, activeTasksCount - (totalLogTasks - (mergedActivity[todayStr] || 0)));
+        if (mergedActivity[todayStr] === 0) delete mergedActivity[todayStr];
+      }
       this.data.activityLog = mergedActivity;
     }
 
@@ -568,11 +590,15 @@ const AppState = {
       }
     } else {
       delete this.data.tasks[id];
-      if (this.data.activityLog[todayStr]) {
+      const prevDate = (this.data.taskMeta[id]?.updatedAt || '').slice(0, 10) || todayStr;
+      if (this.data.activityLog[prevDate]) {
+        this.data.activityLog[prevDate] = Math.max(0, this.data.activityLog[prevDate] - 1);
+        if (this.data.activityLog[prevDate] === 0) delete this.data.activityLog[prevDate];
+      } else if (this.data.activityLog[todayStr]) {
         this.data.activityLog[todayStr] = Math.max(0, this.data.activityLog[todayStr] - 1);
         if (this.data.activityLog[todayStr] === 0) delete this.data.activityLog[todayStr];
       }
-      const remainingTasks = Object.keys(this.data.tasks || {}).filter(k => this.data.tasks[k]).length;
+      const remainingTasks = Object.keys(this.data.tasks || {}).filter(k => this.data.tasks[k] && /^w\d+_[a-z]+_[a-z0-9]+$/.test(k)).length;
       if (remainingTasks === 0) {
         this.data.activityLog = {};
       }
@@ -780,7 +806,8 @@ const AppState = {
 // ==========================================================================
 const StreakEngine = {
   getStats(activityLog = {}) {
-    const completedCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k]).length;
+    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+    const completedCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k] && validPattern.test(k)).length;
     if (completedCount === 0) {
       return { current: 0, longest: 0, totalDays: 0, todayDone: false };
     }
@@ -1668,8 +1695,8 @@ function initDashboard(roadmapData) {
     const todayStr = today.toISOString().slice(0, 10);
 
     // Synchronize tasks completed in AppState.data.tasks to activityLog for today if needed
-    if (!AppState.data.activityLog) AppState.data.activityLog = {};
-    const tasksDoneCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k]).length;
+    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+    const tasksDoneCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k] && validPattern.test(k)).length;
     if (tasksDoneCount === 0) {
       AppState.data.activityLog = {};
     } else {
