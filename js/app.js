@@ -138,7 +138,13 @@ const AuthManager = {
   },
 
   isAuthenticated() {
-    return true; // Unlocked workspace: unrestricted local & cloud persistence
+    if (!this.session) return false;
+    if (!this.session.authenticated) return false;
+    if (!this.session.expiresAt || Date.now() > this.session.expiresAt) {
+      this.logout();
+      return false;
+    }
+    return true;
   },
 
   saveSession(authType = 'master_password') {
@@ -163,66 +169,89 @@ const AuthManager = {
       localStorage.removeItem(AUTH_CONFIG.sessionKey);
     } catch (e) {}
     this.updateUIState();
-    showToast('Device locked. Password required to enter.');
+    showToast('🔒 Workspace locked. Password required to edit.');
   },
 
-  async verifyCredentials(email, password) {
+  async verifyCredentials(password) {
     const cleanPass = (password || '').trim();
-    const cleanEmail = (email || '').trim().toLowerCase();
     const statusEl = document.getElementById('auth-status-msg');
     const unlockBtn = document.getElementById('btn-unlock-auth');
 
     if (!cleanPass) {
       if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Please enter your Master Password.';
+        statusEl.className = 'auth-status-msg error text-xs text-red-400 font-mono mb-3';
+        statusEl.textContent = 'Please enter your password.';
       }
       const passInput = document.getElementById('auth-password-input');
       if (passInput) passInput.focus();
       return false;
     }
 
-    if (unlockBtn) unlockBtn.disabled = true;
-    if (statusEl) {
-      statusEl.className = 'auth-status-msg info';
-      statusEl.textContent = 'Verifying cryptographic credentials...';
+    if (unlockBtn) {
+      unlockBtn.disabled = true;
+      unlockBtn.classList.add('opacity-50');
     }
-
-    if (cleanEmail) {
-      const emailHash = await _hashEmail(cleanEmail);
-      if (emailHash !== _SEC.eH) {
-        if (statusEl) {
-          statusEl.className = 'auth-status-msg error';
-          statusEl.textContent = 'Access Denied: Unrecognized email address.';
-        }
-        if (unlockBtn) unlockBtn.disabled = false;
-        return false;
-      }
+    if (statusEl) {
+      statusEl.className = 'auth-status-msg info text-xs text-primary font-mono mb-3';
+      statusEl.textContent = 'Verifying cryptographic password...';
     }
 
     const passHash = await _hashPassword(cleanPass);
     if (passHash === _SEC.pH) {
       this.saveSession('master_password');
-      this.onAuthenticated('Master Password Verified');
-      if (unlockBtn) unlockBtn.disabled = false;
+      this.onAuthenticated('Password Verified');
+      if (unlockBtn) {
+        unlockBtn.disabled = false;
+        unlockBtn.classList.remove('opacity-50');
+      }
       return true;
     } else {
       if (statusEl) {
-        statusEl.className = 'auth-status-msg error';
-        statusEl.textContent = 'Invalid Master Password. Access Denied.';
+        statusEl.className = 'auth-status-msg error text-xs text-red-400 font-mono mb-3';
+        statusEl.textContent = 'Incorrect password. Access Denied.';
       }
-      if (unlockBtn) unlockBtn.disabled = false;
+      if (unlockBtn) {
+        unlockBtn.disabled = false;
+        unlockBtn.classList.remove('opacity-50');
+      }
+      const passInput = document.getElementById('auth-password-input');
+      if (passInput) {
+        passInput.value = '';
+        passInput.focus();
+      }
       return false;
     }
   },
 
-  onAuthenticated(reason) {
+  onAuthenticated(reason = 'Authorized') {
     const overlay = document.getElementById('auth-lock-overlay');
     if (overlay) {
       overlay.classList.remove('active');
     }
     document.body.classList.remove('auth-locked');
-    showToast(`🔓 Access granted (${reason}) • Device remembered for 30 days!`);
+    showToast(`🔓 Workspace unlocked • Device authorized for 30 days!`);
+  },
+
+  closeModal() {
+    const overlay = document.getElementById('auth-lock-overlay');
+    if (overlay) overlay.classList.remove('active');
+    document.body.classList.remove('auth-locked');
+    if (!this.isAuthenticated()) {
+      showToast('👀 Viewing in Read-Only mode. Password required to edit.');
+    }
+  },
+
+  showPrompt() {
+    const overlay = document.getElementById('auth-lock-overlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      document.body.classList.add('auth-locked');
+      const passInput = document.getElementById('auth-password-input');
+      if (passInput) {
+        passInput.value = '';
+        passInput.focus();
+      }
+    }
   },
 
   updateUIState() {
@@ -253,7 +282,7 @@ const AuthManager = {
         b.innerHTML = `<span class="auth-dot"></span><span>Locked</span>`;
         b.title = 'Workspace locked. Click to enter password.';
         b.onclick = () => {
-          if (overlay) overlay.classList.add('active');
+          AuthManager.showPrompt();
         };
       });
     }
@@ -266,38 +295,41 @@ const AuthManager = {
     overlay.id = 'auth-lock-overlay';
     overlay.className = 'auth-overlay' + (this.isAuthenticated() ? '' : ' active');
     overlay.innerHTML = `
-      <div class="auth-card">
-        <div class="auth-card-icon">
-          <div class="auth-icon-circle">🔐</div>
+      <div class="auth-card cockpit-glass border border-white/10 rounded-2xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative mx-4">
+        <button type="button" onclick="AuthManager.closeModal();" class="absolute top-4 right-4 text-on-surface-variant/40 hover:text-on-surface transition-colors p-1 rounded-lg cursor-pointer" title="View as Guest (Read-Only)">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+
+        <div class="flex justify-center mb-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/25 flex items-center justify-center text-primary shadow-inner">
+            <span class="material-symbols-outlined text-[24px]">lock</span>
+          </div>
         </div>
-        <h2 class="auth-title">Private Workspace</h2>
-        <p class="auth-subtitle">Swaraj Kanse &bull; B.E. AI&amp;DS, TSEC &bull; 2027 Placements</p>
+
+        <h2 class="font-headline text-lg sm:text-xl font-bold text-center text-on-surface mb-1">Authorization Required</h2>
+        <p class="font-mono text-xs text-on-surface-variant text-center mb-4">Swaraj Kanse &bull; Placement Roadmap</p>
         
-        <p class="auth-desc">
-          Authorized access only. Enter your Master Password to unlock your placement roadmap and sync your progress.
+        <p class="text-xs text-on-surface-variant/80 text-center leading-relaxed mb-5">
+          Enter password to unlock editing and authorize this device for 30 days.
         </p>
 
-        <form id="auth-login-form" onsubmit="event.preventDefault(); AuthManager.verifyCredentials(document.getElementById('auth-email-input').value, document.getElementById('auth-password-input').value);">
-          <div class="auth-email-group">
-            <label class="auth-input-label" for="auth-email-input">Authorized Email</label>
-            <input type="email" id="auth-email-input" class="auth-email-input" placeholder="Enter authorized email" autocomplete="username" />
+        <form id="auth-login-form" onsubmit="event.preventDefault(); AuthManager.verifyCredentials(document.getElementById('auth-password-input').value);">
+          <div class="mb-4 text-left">
+            <label class="block text-xs font-mono text-on-surface-variant mb-1.5 font-medium" for="auth-password-input">Password</label>
+            <input type="password" id="auth-password-input" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 text-sm text-on-surface placeholder:text-outline-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40 font-mono transition-all" placeholder="Enter password" autocomplete="current-password" autofocus />
           </div>
 
-          <div class="auth-email-group">
-            <label class="auth-input-label" for="auth-password-input">Master Password</label>
-            <input type="password" id="auth-password-input" class="auth-password-input" placeholder="Enter Master Password" autocomplete="current-password" autofocus />
-          </div>
+          <div id="auth-status-msg" class="auth-status-msg text-xs min-h-[1.25rem] text-center mb-3"></div>
 
-          <div id="auth-status-msg" class="auth-status-msg"></div>
-
-          <button type="submit" class="btn-auth-unlock" id="btn-unlock-auth">
-            🔓 Unlock &amp; Remember Device (30 Days)
+          <button type="submit" class="w-full py-2.5 px-4 rounded-lg bg-primary hover:bg-primary/90 text-on-primary text-xs font-semibold font-mono tracking-wide transition-all shadow-md cursor-pointer flex items-center justify-center gap-2" id="btn-unlock-auth">
+            <span class="material-symbols-outlined text-[16px]">key</span>
+            <span>Unlock Workspace (30 Days)</span>
           </button>
         </form>
 
-        <div class="auth-footer-notes">
-          <span>🛡️ Remembers this device for 1 month (30 days)</span>
-          <span>🔒 Cryptographic SHA-256 verification &bull; Zero rate limits</span>
+        <div class="mt-5 pt-3.5 border-t border-outline-variant/15 flex flex-col gap-1 text-center font-mono text-[11px] text-on-surface-variant/60">
+          <span>🛡️ Remembers this device for 30 days</span>
+          <span>🔒 Cryptographic SHA-256 validation</span>
         </div>
       </div>
     `;
@@ -332,6 +364,9 @@ const AppState = {
   async init() {
     if (this._initialized) return;
     this._initialized = true;
+
+    // 0. Initialize Authentication Gatekeeper
+    AuthManager.init();
 
     // 1. Instant load from local browser cache for zero-latency rendering
     this.loadLocal();
@@ -573,6 +608,12 @@ const AppState = {
   },
 
   setTask(id, done) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('🔒 Authorization required. Enter password to edit.');
+      AuthManager.showPrompt();
+      return;
+    }
+
     const now = new Date().toISOString();
     const todayStr = now.slice(0, 10);
     if (!this.data.activityLog) this.data.activityLog = {};
@@ -613,6 +654,12 @@ const AppState = {
   },
 
   deferTask(id, defer = true) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('🔒 Authorization required. Enter password to edit.');
+      AuthManager.showPrompt();
+      return;
+    }
+
     const now = new Date().toISOString();
     if (!this.data.deferredTasks) this.data.deferredTasks = {};
     if (defer) {
@@ -633,6 +680,12 @@ const AppState = {
   },
 
   setNote(weekNum, text) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('🔒 Authorization required to edit notes.');
+      AuthManager.showPrompt();
+      return;
+    }
+
     const now = new Date().toISOString();
     if (!this.data.notes) this.data.notes = {};
     if (!this.data.notesMeta) this.data.notesMeta = {};
@@ -656,6 +709,7 @@ const AppState = {
 
   flushCloudSync() {
     clearTimeout(this.syncTimeout);
+    if (!AuthManager.isAuthenticated()) return;
     if (!this.data || !this.data.lastModified) return;
 
     try {
@@ -680,6 +734,7 @@ const AppState = {
   },
 
   async pushToCloud() {
+    if (!AuthManager.isAuthenticated()) return;
     this.isSyncing = true;
     try {
       const res = await fetch(CLOUD_CONFIG.endpoint, {
@@ -1006,8 +1061,22 @@ function initWeekPage(weekNum) {
     }
     autoResizeNotes();
 
+    notesArea.addEventListener('focus', () => {
+      if (!AuthManager.isAuthenticated()) {
+        notesArea.blur();
+        showToast('🔒 Authorization required to edit notes.');
+        AuthManager.showPrompt();
+      }
+    });
+
     let timeout;
     notesArea.addEventListener('input', () => {
+      if (!AuthManager.isAuthenticated()) {
+        notesArea.value = localStorage.getItem(`study_notes_week_${weekNum}`) || AppState.getNote(weekNum) || '';
+        showToast('🔒 Authorization required to edit notes.');
+        AuthManager.showPrompt();
+        return;
+      }
       autoResizeNotes();
       notesArea._userTyping = true;
       const text = notesArea.value;
