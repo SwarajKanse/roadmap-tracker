@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>ORBIT // Executive Cockpit &bull; 50-Week Placement Engineering</title>
+  <title>ORBIT // Executive Cockpit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   
@@ -16,71 +16,35 @@
       theme: {
         extend: {
           colors: {
-            "inverse-on-surface": "#2f3034",
-            "primary-fixed": "#e1e0ff",
-            "outline-variant": "#464554",
-            "on-secondary-container": "#afb6bd",
-            "inverse-primary": "#494bd6",
-            "surface-container-highest": "#343538",
-            "on-background": "#e3e2e6",
-            "on-primary-fixed-variant": "#2f2ebe",
-            "on-surface": "#e3e2e6",
-            "surface-container": "#1f1f23",
-            "on-secondary-fixed": "#161c22",
-            "on-tertiary-container": "#1c2b3c",
             "surface-dim": "#121316",
-            "on-secondary-fixed-variant": "#41474e",
             "surface": "#121316",
             "background": "#121316",
-            "error": "#ffb4ab",
-            "surface-tint": "#c0c1ff",
-            "secondary-fixed-dim": "#c1c7cf",
-            "on-primary-fixed": "#07006c",
-            "tertiary": "#b9c8de",
-            "secondary-container": "#41474e",
-            "on-error": "#690005",
-            "error-container": "#93000a",
-            "surface-container-high": "#292a2d",
-            "primary": "#c0c1ff",
-            "tertiary-fixed": "#d4e4fa",
-            "on-surface-variant": "#c7c4d7",
-            "secondary": "#c1c7cf",
-            "on-primary": "#1000a9",
-            "tertiary-fixed-dim": "#b9c8de",
             "surface-container-lowest": "#0d0e11",
-            "primary-fixed-dim": "#c0c1ff",
-            "on-tertiary": "#233143",
-            "primary-container": "#8083ff",
-            "tertiary-container": "#8392a6",
-            "on-tertiary-fixed": "#0d1c2d",
-            "inverse-surface": "#e3e2e6",
-            "on-error-container": "#ffdad6",
             "surface-container-low": "#1b1b1f",
-            "on-secondary": "#2b3137",
-            "on-tertiary-fixed-variant": "#39485a",
-            "on-primary-container": "#0d0096",
-            "secondary-fixed": "#dde3eb",
-            "surface-variant": "#343538",
+            "surface-container": "#1f1f23",
+            "surface-container-high": "#292a2d",
+            "surface-container-highest": "#343538",
+            "on-surface": "#e3e2e6",
+            "on-surface-variant": "#c7c4d7",
+            "outline-variant": "#464554",
             "outline": "#908fa0",
-            "surface-bright": "#38393d"
+            "primary": "#c0c1ff",
+            "primary-container": "#8083ff",
+            "on-primary": "#1000a9",
+            "tertiary": "#b9c8de",
+            "secondary": "#c1c7cf",
+            "error": "#ffb4ab"
           },
           borderRadius: {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
           },
           fontFamily: {
-            "headline-lg": ["Space Grotesk", "Plus Jakarta Sans", "sans-serif"],
-            "headline-md": ["Space Grotesk", "Plus Jakarta Sans", "sans-serif"],
-            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "body-sm": ["Inter", "sans-serif"],
-            "mono-metric-lg": ["JetBrains Mono", "monospace"],
-            "mono-metric-md": ["JetBrains Mono", "monospace"],
-            "label-kbd": ["JetBrains Mono", "monospace"],
-            "label-caps": ["JetBrains Mono", "monospace"]
+            "headline": ["Space Grotesk", "Plus Jakarta Sans", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "mono": ["JetBrains Mono", "monospace"]
           }
         }
       }
@@ -89,20 +53,19 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
+<body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
-  <!-- Subtle Ambient Glow Overlay (Raycast/Linear aesthetic) -->
+  <!-- Subtle Ambient Glow Overlay (Code 1 Exact) -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Header Navigation -->
+  <!-- Header Navigation (Code 1 Exact Architecture) -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/20 dark:border-white/5 transition-colors">
     <div class="h-16 max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
       <!-- Brand & Mission Tag -->
       <div class="flex items-center gap-3 shrink-0">
         <div class="flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-low/90 border border-outline-variant/30 dark:border-white/10">
-          <span class="font-headline-sm text-xs font-bold text-on-surface tracking-wide">Cockpit</span>
-          <span class="text-[10px] font-mono-metric-md text-primary font-bold uppercase tracking-wider">50 WEEKS</span>
+          <span class="font-headline text-xs font-bold text-on-surface tracking-wide">Cockpit</span>
         </div>
       </div>
 
@@ -111,27 +74,22 @@
         <a href="#today" data-path="today" class="nav-segmented-btn px-3.5 py-1 rounded-full text-xs font-semibold text-on-surface bg-surface-container-high transition-all shadow-[0_1px_2px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,0.08)] cursor-pointer">Today</a>
         <a href="#roadmap" data-path="roadmap" class="nav-segmented-btn px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium cursor-pointer">Roadmap</a>
         <a href="#telemetry" data-path="telemetry" class="nav-segmented-btn px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium cursor-pointer">Telemetry</a>
-        <a href="#schedule" data-path="schedule" class="nav-segmented-btn px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium cursor-pointer">Schedule</a>
       </nav>
 
       <!-- Right Vitals & Interactive Controls -->
       <div class="flex items-center gap-2.5 shrink-0">
         <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low/90 border border-outline-variant/20 dark:border-white/5">
           <span class="material-symbols-outlined text-[14px] text-error">local_fire_department</span>
-          <span class="font-mono-metric-md text-xs font-semibold text-on-surface" id="streak-stat-badge">0d</span>
+          <span class="font-mono text-xs font-semibold text-on-surface" id="streak-stat-badge">0d</span>
         </div>
-        
-        <!-- Cloud Sync Pill -->
         <div class="sync-badge saving flex items-center gap-1.5 px-2 py-1 cursor-pointer" title="Supabase Live Cloud Sync">
-          <span class="h-2 w-2 rounded-full bg-primary animate-pulse sync-dot"></span>
+          <span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse sync-dot"></span>
         </div>
-
         <button type="button" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all active:scale-95 border border-transparent hover:border-outline-variant/20 flex items-center justify-center cursor-pointer" id="theme-toggle-btn" aria-label="Toggle visual theme">
           <span class="material-symbols-outlined text-[19px]" id="theme-icon">dark_mode</span>
         </button>
-        
         <button type="button" class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center hover:ring-2 ring-primary/30 transition-all shadow-sm cursor-pointer" aria-label="Executive Profile">
-          <span class="font-mono-metric-md text-xs font-bold text-primary">SK</span>
+          <span class="font-mono text-xs font-bold text-primary">SK</span>
         </button>
       </div>
     </div>
@@ -142,27 +100,27 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- 1. Executive Vitals Bar (Hero Metrics) -->
+        <!-- 1. Executive Vitals Bar (Hero Metrics - Code 1 Exact) -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
             <div class="text-xs text-on-surface-variant font-medium mb-1">Target Countdown</div>
-            <div class="font-mono-metric-lg text-2xl font-bold tracking-tight text-on-surface">
+            <div class="font-mono text-2xl font-bold tracking-tight text-on-surface">
               <span id="vitals-countdown-val">487d</span> <span class="text-xs text-on-surface-variant font-normal">remaining</span>
             </div>
-            <div class="mt-2 text-[11px] text-on-surface-variant">Target: July 2027 Drive</div>
+            <div class="mt-2 text-[11px] text-on-surface-variant">Target: July 2027</div>
           </div>
 
           <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
             <div class="text-xs text-on-surface-variant font-medium mb-1">Consistency</div>
-            <div class="font-mono-metric-lg text-2xl font-bold text-on-surface">
+            <div class="font-mono text-2xl font-bold text-on-surface">
               <span id="streak-current-val">0</span> <span class="text-xs text-on-surface-variant font-normal">days</span>
             </div>
-            <div class="mt-2 text-[11px] text-on-surface-variant">Active consecutive streak</div>
+            <div class="mt-2 text-[11px] text-on-surface-variant">Active streak</div>
           </div>
 
           <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
             <div class="text-xs text-on-surface-variant font-medium mb-1">Overall Progress</div>
-            <div class="font-mono-metric-lg text-2xl font-bold text-on-surface tracking-tight" id="stat-pct-done">0.0%</div>
+            <div class="font-mono text-2xl font-bold text-on-surface tracking-tight" id="stat-pct-done">0.0%</div>
             <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden mt-3">
               <div class="h-full bg-primary rounded-full transition-all duration-500" id="global-progress-bar" style="width: 0%"></div>
             </div>
@@ -170,114 +128,109 @@
 
           <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
             <div class="text-xs text-on-surface-variant font-medium mb-1">Focus Time</div>
-            <div class="font-mono-metric-lg text-2xl font-bold text-on-surface" id="vitals-logged-hours">0.0h</div>
-            <div class="mt-2 text-[11px] text-on-surface-variant" id="stat-tasks-done-sub">0 tasks completed</div>
+            <div class="font-mono text-2xl font-bold text-on-surface" id="vitals-logged-hours">0.0h</div>
+            <div class="mt-2 text-[11px] text-on-surface-variant" id="stat-tasks-done-sub">Logged this week</div>
           </div>
         </section>
 
-        <!-- 2. Today's Execution Queue (Immediate Priority Workspace) -->
+        <!-- 2. Today's Execution Queue (Code 1 Exact Architecture) -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="today">
-          <!-- Queue Header Bar -->
           <div class="px-5 py-4 border-b border-outline-variant/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-3">
-              <h2 class="font-headline-sm text-base font-semibold text-on-surface">Today</h2>
+              <h2 class="font-headline text-base font-semibold text-on-surface">Today</h2>
               <span class="text-outline-variant/40">&bull;</span>
               <span class="text-xs text-on-surface-variant" id="today-day-title">Loading schedule...</span>
-              <span class="px-2 py-0.5 rounded bg-surface-container text-primary font-mono-metric-md text-[11px] border border-outline-variant/20" id="today-budget-pill">⏱️ 4h Budget</span>
             </div>
             <div class="flex items-center gap-3">
-              <select id="today-day-picker" class="bg-surface-container border border-outline-variant/30 rounded-lg text-xs font-mono-metric-md text-on-surface px-2.5 py-1 focus:outline-none focus:border-primary cursor-pointer" aria-label="Switch Active Day"></select>
-              <a href="weeks/week-01.html" id="today-open-week-link" class="text-xs font-mono-metric-md text-primary hover:underline font-semibold flex items-center gap-1 cursor-pointer">
+              <select id="today-day-picker" class="bg-surface-container border border-outline-variant/30 rounded-lg text-xs font-mono text-on-surface px-2.5 py-1 focus:outline-none focus:border-primary cursor-pointer" aria-label="Switch Active Day"></select>
+              <a href="weeks/week-01.html" id="today-open-week-link" class="text-xs font-mono text-primary hover:underline font-semibold flex items-center gap-1 cursor-pointer">
                 <span>Open Week</span> &rarr;
               </a>
-              <div class="flex items-center gap-2 text-on-surface-variant font-mono-metric-md text-xs pl-2 border-l border-outline-variant/20">
+              <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs pl-2 border-l border-outline-variant/20">
                 <span class="text-on-surface font-semibold" id="queue-completed-counter">0</span> of <span id="queue-total-counter">0</span> completed
                 <span class="text-primary text-[11px] font-semibold ml-1" id="queue-percent">0%</span>
               </div>
             </div>
           </div>
 
-          <!-- Micro Progress Bar for Execution Queue -->
+          <!-- Micro Progress Bar -->
           <div class="w-full bg-surface-container h-1 overflow-hidden">
             <div class="h-full bg-primary transition-all duration-300 ease-out" id="queue-progress-bar" style="width: 0%"></div>
           </div>
 
-          <!-- Task List dynamically rendered -->
-          <div class="divide-y divide-outline-variant/10 text-body-md" id="today-tasks-list">
-            <!-- Dynamic task items injected by app.js -->
+          <!-- Task List (Code 1 Exact 1-line Rows) -->
+          <div class="divide-y divide-outline-variant/10 text-body" id="today-tasks-list">
+            <!-- Populated dynamically by app.js -->
           </div>
         </section>
 
-        <!-- 3. Subsystem Workload Distribution (Balance & Burn Velocity) -->
+        <!-- 3. Subsystem Workload Distribution (Code 1 Exact) -->
         <section class="flex flex-col gap-3">
           <div class="flex items-center justify-between">
             <h3 class="text-xs uppercase tracking-wider text-on-surface-variant font-medium">Workload Balance</h3>
-            <span class="text-xs text-on-surface-variant" id="workload-summary-label">Across 50 Weeks</span>
+            <span class="text-xs text-on-surface-variant" id="workload-summary-label">13.7h logged</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <div class="p-3.5 rounded-xl cockpit-glass">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-medium text-on-surface">DSA &amp; Java</span>
-                <span class="font-mono-metric-md text-xs text-on-surface-variant" id="workload-dsa-pct">35%</span>
+                <span class="font-mono text-xs text-on-surface-variant" id="workload-dsa-pct">34%</span>
               </div>
               <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-primary rounded-full transition-all duration-300" id="workload-dsa-bar" style="width: 35%"></div>
+                <div class="h-full bg-primary rounded-full transition-all duration-300" id="workload-dsa-bar" style="width: 34%"></div>
               </div>
             </div>
 
             <div class="p-3.5 rounded-xl cockpit-glass">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-medium text-on-surface">Applied AI &amp; ML</span>
-                <span class="font-mono-metric-md text-xs text-on-surface-variant" id="workload-aiml-pct">30%</span>
+                <span class="font-mono text-xs text-on-surface-variant" id="workload-aiml-pct">26%</span>
               </div>
               <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-tertiary rounded-full transition-all duration-300" id="workload-aiml-bar" style="width: 30%"></div>
+                <div class="h-full bg-tertiary rounded-full transition-all duration-300" id="workload-aiml-bar" style="width: 26%"></div>
               </div>
             </div>
 
             <div class="p-3.5 rounded-xl cockpit-glass">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-medium text-on-surface">Core CS</span>
-                <span class="font-mono-metric-md text-xs text-on-surface-variant" id="workload-corecs-pct">20%</span>
+                <span class="font-mono text-xs text-on-surface-variant" id="workload-corecs-pct">31%</span>
               </div>
               <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-secondary rounded-full transition-all duration-300" id="workload-corecs-bar" style="width: 20%"></div>
+                <div class="h-full bg-secondary rounded-full transition-all duration-300" id="workload-corecs-bar" style="width: 31%"></div>
               </div>
             </div>
 
             <div class="p-3.5 rounded-xl cockpit-glass">
               <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-medium text-on-surface">Backend &amp; Aptitude</span>
-                <span class="font-mono-metric-md text-xs text-on-surface-variant" id="workload-backend-pct">15%</span>
+                <span class="text-xs font-medium text-on-surface">Backend</span>
+                <span class="font-mono text-xs text-on-surface-variant" id="workload-backend-pct">21%</span>
               </div>
               <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-surface-container-high rounded-full transition-all duration-300" id="workload-backend-bar" style="width: 15%"></div>
+                <div class="h-full bg-surface-container-high rounded-full transition-all duration-300" id="workload-backend-bar" style="width: 21%"></div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 4. 50-Week Execution Cadence (Heatmap Matrix with interactive subsystem filters) -->
+        <!-- 4. 50-Week Execution Cadence (Heatmap Matrix - Code 1 Exact) -->
         <section class="p-5 rounded-xl cockpit-glass flex flex-col gap-4 shadow-xl" id="telemetry">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="flex items-center gap-3">
-              <h3 class="font-headline-sm text-base font-semibold text-on-surface">Activity</h3>
-              <span class="text-xs text-on-surface-variant" id="tooltip-text">Hover any node to inspect execution load &amp; track distribution</span>
+              <h3 class="font-headline text-base font-semibold text-on-surface">Activity</h3>
             </div>
             <div class="flex items-center gap-1.5 overflow-x-auto py-0.5 text-xs" id="heatmap-filter-group">
-              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface bg-surface-container-high border border-outline-variant/40 font-mono-metric-md text-[11px] font-medium shadow-sm transition-all cursor-pointer" data-filter="all">All</button>
-              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono-metric-md text-[11px] transition-all cursor-pointer" data-filter="dsa">DSA</button>
-              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono-metric-md text-[11px] transition-all cursor-pointer" data-filter="aiml">AI/ML</button>
-              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono-metric-md text-[11px] transition-all cursor-pointer" data-filter="corecs">Core CS</button>
-              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono-metric-md text-[11px] transition-all cursor-pointer" data-filter="backend">Backend</button>
+              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface bg-surface-container-high border border-outline-variant/40 font-mono text-[11px] font-medium shadow-sm transition-all cursor-pointer" data-filter="all">All</button>
+              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono text-[11px] transition-all cursor-pointer" data-filter="dsa">DSA</button>
+              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono text-[11px] transition-all cursor-pointer" data-filter="aiml">AI/ML</button>
+              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono text-[11px] transition-all cursor-pointer" data-filter="corecs">Core CS</button>
+              <button type="button" class="heatmap-filter px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface bg-transparent font-mono text-[11px] transition-all cursor-pointer" data-filter="backend">Backend</button>
             </div>
           </div>
 
-          <!-- Matrix Display (50 Weeks x 7 Days Grid Representation) -->
           <div class="overflow-x-auto pb-2 relative">
             <div class="min-w-[800px] flex flex-col gap-1.5">
-              <!-- Month / Phase Markers Bar -->
-              <div class="flex text-[10px] font-mono-metric-md text-on-surface-variant/65 pl-6 mb-1 justify-between pr-2">
+              <div class="flex text-[10px] font-mono text-on-surface-variant/65 pl-6 mb-1 justify-between pr-2">
                 <span>W01 (Jul)</span>
                 <span>W06 (Aug)</span>
                 <span>W11 (Sep)</span>
@@ -292,15 +245,13 @@
                 <span>W50 (Jun 2027)</span>
               </div>
 
-              <!-- Heatmap Columns container -->
               <div class="flex gap-2 items-center">
-                <div class="flex flex-col gap-1 text-[9px] font-mono-metric-md text-on-surface-variant/60 w-5 shrink-0 select-none">
+                <div class="flex flex-col gap-1 text-[9px] font-mono text-on-surface-variant/60 w-5 shrink-0 select-none">
                   <span>M</span>
                   <span>W</span>
                   <span>F</span>
                   <span>S</span>
                 </div>
-                <!-- Week Cells dynamically rendered via JS -->
                 <div class="grid grid-flow-col grid-rows-7 gap-1 flex-1" id="heatmap-grid">
                   <!-- Populated dynamically by app.js -->
                 </div>
@@ -308,94 +259,43 @@
             </div>
           </div>
 
-          <!-- Heatmap Footer Metrics -->
           <div class="pt-3 border-t border-outline-variant/15 flex flex-wrap items-center justify-between gap-3 text-xs text-on-surface-variant">
-            <div class="text-xs text-on-surface-variant">50-week execution matrix</div>
+            <div class="text-xs text-on-surface-variant" id="tooltip-text">50-week log</div>
             <div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
               <span>Less</span>
-              <span class="w-2.5 h-2.5 rounded-[2px] bg-surface-container"></span>
-              <span class="w-2.5 h-2.5 rounded-[2px] bg-primary/25"></span>
-              <span class="w-2.5 h-2.5 rounded-[2px] bg-primary/50"></span>
-              <span class="w-2.5 h-2.5 rounded-[2px] bg-primary"></span>
+              <span class="w-2 h-2 rounded-[2px] bg-surface-container"></span>
+              <span class="w-2 h-2 rounded-[2px] bg-primary/25"></span>
+              <span class="w-2 h-2 rounded-[2px] bg-primary/50"></span>
+              <span class="w-2 h-2 rounded-[2px] bg-primary"></span>
               <span>More</span>
             </div>
           </div>
         </section>
 
-        <!-- 5. Daily Time Allocation & Schedule Protocol Banner -->
-        <section class="p-5 rounded-xl cockpit-glass flex flex-col gap-3.5 shadow-sm" id="schedule">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-lg">⏱️</span>
-              <h3 class="font-headline-sm text-base font-semibold text-on-surface">Daily Time Allocation Protocol</h3>
-            </div>
-            <span class="px-2.5 py-1 rounded bg-primary/20 text-primary font-mono-metric-md text-xs font-bold border border-primary/30">36 Hours / Week Total</span>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-            <div class="p-4 rounded-lg cockpit-subglass border border-outline-variant/20 flex flex-col gap-2">
-              <div class="flex items-center justify-between">
-                <span class="font-headline-sm text-xs font-bold text-on-surface uppercase tracking-wide">📅 Weekdays (Mon &ndash; Fri)</span>
-                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono-metric-md text-[11px]">4.0 hrs / day</span>
-              </div>
-              <ul class="text-xs text-on-surface-variant space-y-1.5 pt-1">
-                <li class="flex items-start gap-2">
-                  <span class="font-mono-metric-md font-bold text-primary shrink-0">1.5h</span>
-                  <span><strong>DSA (Java)</strong> &bull; Problem reps &amp; Striver TUF+ sheet topics</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-mono-metric-md font-bold text-primary shrink-0">2.5h</span>
-                  <span><strong>Core Focus</strong> &bull; Applied AI/ML (Mon/Wed/Fri) or Core CS (Tue/Thu)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="p-4 rounded-lg cockpit-subglass border border-primary/30 flex flex-col gap-2">
-              <div class="flex items-center justify-between">
-                <span class="font-headline-sm text-xs font-bold text-primary uppercase tracking-wide">⚡ Weekends (Sat &ndash; Sun)</span>
-                <span class="px-2 py-0.5 rounded bg-primary/20 text-primary font-mono-metric-md text-[11px] font-bold">8.0 hrs / day</span>
-              </div>
-              <ul class="text-xs text-on-surface-variant space-y-1.5 pt-1">
-                <li class="flex items-start gap-2">
-                  <span class="font-mono-metric-md font-bold text-primary shrink-0">1.5h</span>
-                  <span><strong>DSA (Java)</strong> &bull; Weekly contest problems, revision &amp; hard drills</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-mono-metric-md font-bold text-primary shrink-0">2.5h</span>
-                  <span><strong>Aptitude / Backend</strong> &bull; Quant, Logical, Verbal mocks or Spring Boot</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="font-mono-metric-md font-bold text-primary shrink-0">4.0h</span>
-                  <span><strong>AI/ML Hands-On Lab</strong> &bull; Kaggle, scratch code, papers &amp; projects</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- 6. 10-Phase Placement Roadmap (Quiet Accordion Architecture) -->
+        <!-- 5. 10-Phase Placement Roadmap (Quiet Accordion - Code 1 Exact) -->
         <section class="flex flex-col gap-3" id="roadmap">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <h3 class="font-headline-sm text-base font-semibold text-on-surface">10-Phase Placement Roadmap</h3>
+              <h3 class="font-headline text-base font-semibold text-on-surface">Roadmap</h3>
             </div>
-            <span class="text-xs text-on-surface-variant">50 Weeks &bull; Full Curriculum</span>
+            <span class="text-xs text-on-surface-variant">Phase 1 of 10</span>
           </div>
 
           <div class="flex flex-col gap-2.5" id="roadmap-accordion">
             
         <div class="rounded-xl border border-primary/40 bg-surface-container-low/95 overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="1">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="1">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="1">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                01
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                1
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 01 &bull; Weeks 01–05</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 1: Foundations (Weeks 1–5)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 01 &bull; Weeks 01–05</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 1: Foundations (Weeks 1–5)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-1-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-1-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 rotate-180 text-primary">expand_more</span>
             </div>
           </button>
@@ -406,61 +306,61 @@
                 
             <a href="weeks/week-01.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-1">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 01</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 01</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Java refresh, OOPs begins, CS50P Weeks 0–5</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-1-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-1-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-1-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-1-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-02.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-2">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 02</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 02</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">DSA concept basics, CS50P finishes + Corey Schafer OOP, OOPs core principles</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-2-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-2-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-2-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-2-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-03.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-3">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 03</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 03</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Recursion + Sorting, first from-scratch Python projects, OOPs finishes, Linear Algebra begins</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-3-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-3-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-3-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-3-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-04.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-4">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 04</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 04</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Arrays (Java), Linear Algebra continues, DBMS begins</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-4-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-4-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-4-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-4-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-05.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-5">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 05</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 05</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Arrays FAQs (Medium), Calculus + Statistics/Probability, DBMS continues</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-5-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-5-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-5-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-5-pct">0%</span>
               </div>
             </a>
               </div>
@@ -469,18 +369,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="2">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="2">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="2">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                02
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                2
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 02 &bull; Weeks 06–10</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 2: Tooling → ML Begins (Weeks 6–10)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 02 &bull; Weeks 06–10</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 2: Tooling → ML Begins (Weeks 6–10)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-2-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-2-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -491,61 +391,61 @@
                 
             <a href="weeks/week-06.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-6">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 06</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 06</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">SQL foundations, Arrays FAQs finish, The Data Toolkit</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-6-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-6-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-6-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-6-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-07.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-7">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 07</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 07</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Hashing, SQL aggregation/functions, ML begins: Feature Engineering</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-7-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-7-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-7-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-7-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-08.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-8">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 08</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 08</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Search begins, SQL Joins, Linear Regression + Gradient Descent + Regularization</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-8-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-8-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-8-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-8-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-09.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-9">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 09</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 09</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Search "On Answers", SQL Subqueries, Logistic Regression</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-9-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-9-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-9-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-9-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-10.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-10">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 10</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 10</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Search 2D, SQL CTEs/Dates, Decision Trees</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-10-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-10-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-10-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-10-pct">0%</span>
               </div>
             </a>
               </div>
@@ -554,18 +454,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="3">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="3">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="3">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                03
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                3
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 03 &bull; Weeks 11–15</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 3: Classical ML, In Depth (Weeks 11–15)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 03 &bull; Weeks 11–15</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 3: Classical ML, In Depth (Weeks 11–15)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-3-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-3-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -576,61 +476,61 @@
                 
             <a href="weeks/week-11.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-11">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 11</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 11</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Recursion (Implementation), OS begins, Ensembles: Bagging & Random Forest</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-11-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-11-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-11-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-11-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-12.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-12">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 12</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 12</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Recursion (Hard), OS scheduling, Ensembles: Boosting & XGBoost</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-12-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-12-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-12-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-12-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-13.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-13">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 13</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 13</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Linked List begins, OS threads/sync, KNN, Naive Bayes, SVM — Kaggle begins</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-13-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-13-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-13-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-13-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-14.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-14">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 14</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 14</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Linked List (Logic + FAQs), OS deadlock, Unsupervised Learning — Kaggle in progress</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-14-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-14-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-14-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-14-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-15.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-15">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 15</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 15</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Linked List finishes + Bit Manipulation, OS finishes, Evaluation, CV, Hyperparameter Tuning — Kaggle wraps up</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-15-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-15-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-15-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-15-pct">0%</span>
               </div>
             </a>
               </div>
@@ -639,18 +539,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="4">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="4">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="4">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                04
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                4
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 04 &bull; Weeks 16–20</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 4: Deep Learning (Weeks 16–20)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 04 &bull; Weeks 16–20</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 4: Deep Learning (Weeks 16–20)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-4-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-4-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -661,61 +561,61 @@
                 
             <a href="weeks/week-16.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-16">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 16</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 16</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Greedy, CN begins, What a neural network actually is</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-16-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-16-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-16-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-16-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-17.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-17">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 17</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 17</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Sliding Window/2 Pointer, CN continues, Karpathy's micrograd — build your own autograd engine</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-17-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-17-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-17-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-17-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-18.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-18">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 18</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 18</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Stack/Queue (Implementation + Monotonic), CN continues, Deep Neural Networks & Regularization</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-18-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-18-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-18-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-18-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-19.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-19">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 19</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 19</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Stack/Queue FAQs, CN continues, Convolutional Neural Networks</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-19-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-19-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-19-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-19-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-20.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-20">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 20</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 20</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Trees begin, CN finishes, ResNet — your first paper</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-20-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-20-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-20-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-20-pct">0%</span>
               </div>
             </a>
               </div>
@@ -724,18 +624,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="5">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="5">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="5">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                05
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                5
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 05 &bull; Weeks 21–25</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 5: Transformers, LLMs & GenAI (Weeks 21–25)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 05 &bull; Weeks 21–25</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 5: Transformers, LLMs & GenAI (Weeks 21–25)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-5-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-5-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -746,61 +646,61 @@
                 
             <a href="weeks/week-21.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-21">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 21</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 21</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Trees finish, LLD begins (Intro + SOLID + UML), 3Blue1Brown's GPT chapters + Karpathy's makemore series</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-21-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-21-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-21-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-21-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-22.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-22">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 22</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 22</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Binary Search Trees, LLD Creational Patterns, Karpathy: "Let's build GPT" + the GPT Tokenizer</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-22-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-22-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-22-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-22-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-23.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-23">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 23</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 23</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Heaps, LLD Structural Patterns, Reproducing GPT-2 + reading "Attention Is All You Need"</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-23-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-23-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-23-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-23-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-24.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-24">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 24</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 24</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Graphs begin (Traversal), LLD Behavioural Patterns, RAG pipeline + Agents — capstone begins</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-24-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-24-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-24-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-24-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-25.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-25">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 25</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 25</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Graphs continue (Cycles), LLD Multithreading/DI, Capstone with evaluation — Phase checkpoint</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-25-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-25-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-25-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-25-pct">0%</span>
               </div>
             </a>
               </div>
@@ -809,18 +709,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="6">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="6">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="6">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                06
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                6
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 06 &bull; Weeks 26–30</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 6: Capstone, Deployment & Interview Sprint (Weeks 26–30)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 06 &bull; Weeks 26–30</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 6: Capstone, Deployment & Interview Sprint (Weeks 26–30)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-6-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-6-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -831,61 +731,61 @@
                 
             <a href="weeks/week-26.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-26">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 26</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 26</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Graphs (Hard Problems + Shortest Paths), LLD Interview Problems begin, Capstone gets a front end & API</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-26-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-26-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-26-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-26-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-27.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-27">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 27</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 27</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Graphs finish (MST + Hard Problems II), DP begins, LLD Interview Problems continue, Capstone polish</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-27-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-27-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-27-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-27-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-28.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-28">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 28</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 28</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">DP (2D, Grids, Stocks), LLD Interview Problems finish, HLD begins, Project Defenses</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-28-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-28-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-28-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-28-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-29.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-29">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 29</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 29</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">DP (Subsequences + LIS begins), HLD continues, System Design Deep Dive</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-29-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-29-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-29-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-29-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-30.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-30">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 30</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 30</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">DP finishes (LIS), full revision, HLD wraps up, final mock interviews — placement-ready checkpoint</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-30-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-30-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-30-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-30-pct">0%</span>
               </div>
             </a>
               </div>
@@ -894,18 +794,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="7">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="7">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="7">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                07
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                7
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 07 &bull; Weeks 31–35</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 7: Closing Out TUF+ & Spring Boot Begins (Weeks 31–35)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 07 &bull; Weeks 31–35</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 7: Closing Out TUF+ & Spring Boot Begins (Weeks 31–35)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-7-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-7-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -916,61 +816,61 @@
                 
             <a href="weeks/week-31.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-31">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 31</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 31</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Tries + Maths (DSA), LLD Part 3 begins (Core CS), NLP specialization begins (AI/ML), Spring Core + first REST API (Java Backend)</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-31-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-31-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-31-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-31-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-32.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-32">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 32</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 32</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Advanced String Algorithms (DSA), LLD finishes + SQL Access Control & Window Functions begin (Core CS), LoRA fine-tuning (AI/ML), REST API depth (Java Backend)</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-32-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-32-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-32-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-32-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-33.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-33">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 33</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 33</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">DP on Strings + MCM DP (DSA), SQL: JSON/DB Design/Performance (Core CS), advanced RAG (AI/ML), Data Persistence (Java Backend)</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-33-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-33-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-33-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-33-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-34.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-34">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 34</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 34</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Graph Additional Algorithms (DSA), SQL finishes + HLD begins (Core CS), Hugging Face Agents Course (AI/ML), Spring Security (Java Backend)</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-34-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-34-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-34-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-34-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-35.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-35">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 35</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 35</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">HLD Practice Problems continue (Core CS), specialization checkpoint (AI/ML), Testing (Java Backend)</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-35-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-35-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-35-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-35-pct">0%</span>
               </div>
             </a>
               </div>
@@ -979,18 +879,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="8">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="8">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="8">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                08
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                8
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 08 &bull; Weeks 36–40</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 08 &bull; Weeks 36–40</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 8: Modern Java, Concurrency, JVM & Production Backend (Weeks 36–40)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-8-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-8-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -1001,61 +901,61 @@
                 
             <a href="weeks/week-36.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-36">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 36</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 36</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Java Streams API, HLD finishes, Kaggle competition 2 begins, Caching & Async</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-36-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-36-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-36-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-36-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-37.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-37">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 37</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 37</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Modern Java Language Features, DDIA begins, Kaggle wraps up, Logging & Observability</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-37-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-37-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-37-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-37-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-38.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-38">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 38</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 38</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Java Concurrency Fundamentals, DDIA continues, MLOps begins, Microservices Fundamentals</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-38-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-38-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-38-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-38-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-39.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-39">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 39</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 39</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Advanced Concurrency, DDIA Consistency chapter, MLOps: serving & cost, API Gateway + Resilience</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-39-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-39-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-39-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-39-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-40.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-40">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 40</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 40</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">JVM Internals, DDIA Part 3 begins, MLOps wrap-up, Messaging with Kafka</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-40-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-40-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-40-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-40-pct">0%</span>
               </div>
             </a>
               </div>
@@ -1064,18 +964,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="9">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="9">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="9">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
-                09
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
+                9
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 09 &bull; Weeks 41–45</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 9: The AI + Java Capstone (Weeks 41–45)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 09 &bull; Weeks 41–45</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 9: The AI + Java Capstone (Weeks 41–45)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-9-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-9-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -1086,61 +986,61 @@
                 
             <a href="weeks/week-41.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-41">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 41</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 41</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Choosing the stack, URL Shortener Design, Spring AI setup</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-41-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-41-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-41-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-41-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-42.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-42">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 42</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 42</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Retrieval-Augmented Generation in Spring AI, URL Shortener Scaling</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-42-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-42-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-42-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-42-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-43.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-43">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 43</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 43</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Tool-Calling & MCP in Spring AI, Design a Rate Limiter</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-43-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-43-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-43-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-43-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-44.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-44">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 44</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 44</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Bringing It All Together, Documenting Your Own System Design</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-44-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-44-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-44-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-44-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-45.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-45">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 45</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 45</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Evaluate, Polish, Ship</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-45-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-45-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-45-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-45-pct">0%</span>
               </div>
             </a>
               </div>
@@ -1149,18 +1049,18 @@
         </div>
 
         <div class="rounded-xl cockpit-glass overflow-hidden transition-all duration-200 phase-accordion-card shadow-sm" data-phase-card="10">
-          <button type="button" class="phase-toggle w-full px-5 py-4 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="10">
+          <button type="button" class="phase-toggle w-full px-5 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-high/40 transition-colors cursor-pointer" data-phase="10">
             <div class="flex items-center gap-3.5">
-              <span class="w-6 h-6 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary shadow-sm font-mono-metric-md text-xs font-bold">
+              <span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant/40 flex items-center justify-center text-primary font-mono text-[10px] font-bold shadow-sm">
                 10
               </span>
               <div>
-                <span class="font-label-caps text-[10px] text-primary font-bold uppercase tracking-wider block">Phase 10 &bull; Weeks 46–50</span>
-                <h4 class="font-headline-sm text-sm sm:text-base font-semibold text-on-surface">Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)</h4>
+                <span class="font-mono text-[10px] text-on-surface-variant font-semibold block uppercase">Phase 10 &bull; Weeks 46–50</span>
+                <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">Phase 10: Full-Stack Interview Sprint & Placement-Ready Checkpoint (Weeks 46–50)</h4>
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <span class="font-mono-metric-md text-xs font-semibold text-primary phase-status-pill" id="phase-10-status">0% (5 Weeks)</span>
+              <span class="font-mono text-xs font-semibold text-primary phase-status-pill" id="phase-10-status">0% (5 Weeks)</span>
               <span class="chevron-icon material-symbols-outlined text-[20px] transition-transform duration-200 text-on-surface-variant">expand_more</span>
             </div>
           </button>
@@ -1171,61 +1071,61 @@
                 
             <a href="weeks/week-46.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-46">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 46</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 46</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Full-Stack Self-Test & the Interview Question Bank</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-46-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-46-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-46-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-46-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-47.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-47">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 47</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 47</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Mock Interview Round 1</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-47-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-47-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-47-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-47-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-48.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-48">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 48</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 48</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Close the Gaps, Second Full Self-Test</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-48-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-48-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-48-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-48-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-49.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-49">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 49</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 49</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Mock Interview Round 2</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-49-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-49-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-49-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-49-pct">0%</span>
               </div>
             </a>
 
             <a href="weeks/week-50.html" class="p-3 rounded-lg cockpit-subglass flex flex-col justify-between hover:border-primary/50 transition-colors group cursor-pointer" id="dash-week-50">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="font-mono-metric-md text-[11px] text-on-surface font-semibold">WEEK 50</span>
+                <span class="font-mono text-[11px] text-on-surface font-semibold">WEEK 50</span>
                 <span class="material-symbols-outlined text-[15px] text-outline-variant group-hover:text-primary transition-colors">arrow_forward</span>
               </div>
               <span class="text-xs text-on-surface font-medium truncate mb-2">Final Polish & the Real Placement-Ready Checkpoint</span>
               <div class="flex items-center justify-between">
-                <span class="font-mono-metric-md text-[10px] text-on-surface-variant week-task-count" id="dash-week-50-tasks">16 Tasks</span>
-                <span class="font-mono-metric-md text-[10px] text-primary font-bold week-pct" id="dash-week-50-pct">0%</span>
+                <span class="font-mono text-[10px] text-on-surface-variant week-task-count" id="dash-week-50-tasks">16 Tasks</span>
+                <span class="font-mono text-[10px] text-primary font-bold week-pct" id="dash-week-50-pct">0%</span>
               </div>
             </a>
               </div>
@@ -1241,9 +1141,9 @@
 
   <!-- Executive Footer -->
   <footer class="w-full border-t border-outline-variant/20 dark:border-white/5 bg-surface-container-lowest/90 backdrop-blur-md py-6 transition-colors">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-on-surface-variant text-xs font-mono-metric-md">
-      <div>Swaraj Kanse &bull; B.E. AI&amp;DS, TSEC</div>
-      <div>Target July 2027 &bull; Supabase Synchronized</div>
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-on-surface-variant text-xs font-mono">
+      <div>Cockpit</div>
+      <div>Target July 2027</div>
     </div>
   </footer>
 

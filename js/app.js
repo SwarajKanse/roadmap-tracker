@@ -683,12 +683,12 @@ const StreakEngine = {
 // ==========================================================================
 function initWeekPage(weekNum) {
   function syncUI() {
-    const checkboxes = document.querySelectorAll('.task-checkbox');
-    checkboxes.forEach(cb => {
-      const taskId = cb.getAttribute('data-task-id');
+    const taskCards = document.querySelectorAll('.task-card, .task-item');
+    taskCards.forEach(card => {
+      const taskId = card.getAttribute('data-task-id');
       const isDone = AppState.isTaskDone(taskId);
-      cb.checked = isDone;
-      updateTaskItemVisual(cb, isDone);
+      card.setAttribute('data-completed', isDone ? 'true' : 'false');
+      updateTaskCardVisual(card, isDone);
       updateDeferBtnVisual(taskId);
     });
 
@@ -706,29 +706,32 @@ function initWeekPage(weekNum) {
     syncUI();
   });
 
-  // 1. Checkboxes setup
-  const checkboxes = document.querySelectorAll('.task-checkbox');
-  checkboxes.forEach(cb => {
-    const taskId = cb.getAttribute('data-task-id');
-    cb.checked = AppState.isTaskDone(taskId);
-    updateTaskItemVisual(cb, cb.checked);
+  // 1. Task Card & Checkbox clicks
+  document.querySelectorAll('.task-card, .task-item').forEach(card => {
+    const taskId = card.getAttribute('data-task-id');
+    const isDone = AppState.isTaskDone(taskId);
+    card.setAttribute('data-completed', isDone ? 'true' : 'false');
+    updateTaskCardVisual(card, isDone);
     updateDeferBtnVisual(taskId);
 
-    cb.addEventListener('change', () => {
+    card.addEventListener('click', (e) => {
+      // Ignore if clicking on external link or defer button
+      if (e.target.closest('a') || e.target.closest('.btn-defer')) return;
       if (!AuthManager.isAuthenticated()) {
-        cb.checked = !cb.checked;
         showToast('⚠️ Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
         return;
       }
-      const checked = cb.checked;
-      AppState.setTask(taskId, checked);
-      updateTaskItemVisual(cb, checked);
+      const currentDone = AppState.isTaskDone(taskId);
+      const nextDone = !currentDone;
+      AppState.setTask(taskId, nextDone);
+      card.setAttribute('data-completed', nextDone ? 'true' : 'false');
+      updateTaskCardVisual(card, nextDone);
       updateDeferBtnVisual(taskId);
       updateWeekProgress();
       updateDayProgress();
-      
-      if (checked && isWeekAllDone()) {
+
+      if (nextDone && isWeekAllDone()) {
         showToast('🎉 Outstanding! All Week tasks completed & logged!');
       }
     });
@@ -746,31 +749,39 @@ function initWeekPage(weekNum) {
     });
   });
 
-  updateWeekProgress();
-  updateDayProgress();
-  renderWeekendDeferredQueue(weekNum);
-
-  // 3. Track Filtering setup
-  const trackPills = document.querySelectorAll('.track-filter-pill');
-  trackPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      trackPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+  // 3. Track Filtering setup: support both .filter-btn and .track-filter-pill
+  const filterBtns = document.querySelectorAll('.filter-btn, .track-filter-pill');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active-filter', 'active', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
+        b.classList.add('bg-surface-container-low', 'hover:bg-surface-container', 'font-medium');
+      });
+      btn.classList.add('active-filter', 'active', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
+      btn.classList.remove('bg-surface-container-low', 'hover:bg-surface-container', 'font-medium');
       applyFilters();
     });
   });
 
-  // 4. Quick Actions
-  const btnCopySummary = document.getElementById('btn-copy-summary');
+  // 4. Quick Action: Copy Summary
+  const btnCopySummary = document.getElementById('copy-summary-btn') || document.getElementById('btn-copy-summary');
   if (btnCopySummary) {
     btnCopySummary.addEventListener('click', () => {
       copyWeekSummaryToClipboard(weekNum);
     });
   }
 
+  // Quick Action: Export Markdown Notes
+  const btnExportNotes = document.getElementById('export-notes-btn');
+  if (btnExportNotes) {
+    btnExportNotes.addEventListener('click', () => {
+      exportWeekNotesAsMarkdown(weekNum);
+    });
+  }
+
   // 5. Notes Scratchpad auto-save
   const notesArea = document.getElementById('week-notes');
-  const saveStatus = document.getElementById('notes-save-status');
+  const saveStatus = document.getElementById('save-status') || document.getElementById('notes-save-status');
   if (notesArea) {
     notesArea.value = AppState.getNote(weekNum);
     let timeout;
@@ -786,7 +797,7 @@ function initWeekPage(weekNum) {
       timeout = setTimeout(() => {
         AppState.setNote(weekNum, notesArea.value);
         notesArea._userTyping = false;
-        if (saveStatus) saveStatus.textContent = 'Saved to browser & cloud';
+        if (saveStatus) saveStatus.textContent = 'Auto-saved to Supabase • Live';
       }, 400);
     });
   }
@@ -796,12 +807,12 @@ function initWeekPage(weekNum) {
     if (['TEXTAREA', 'INPUT', 'SELECT'].includes(document.activeElement.tagName)) return;
     
     if (e.key === 'ArrowLeft' || e.key === '[') {
-      const prevBtn = document.getElementById('nav-prev');
+      const prevBtn = document.getElementById('nav-prev') || document.querySelector('a[title*="Previous Week"]');
       if (prevBtn && prevBtn.getAttribute('href')) {
         window.location.href = prevBtn.getAttribute('href');
       }
     } else if (e.key === 'ArrowRight' || e.key === ']') {
-      const nextBtn = document.getElementById('nav-next');
+      const nextBtn = document.getElementById('nav-next') || document.querySelector('a[title*="Next Week"]');
       if (nextBtn && nextBtn.getAttribute('href')) {
         window.location.href = nextBtn.getAttribute('href');
       }
@@ -810,26 +821,22 @@ function initWeekPage(weekNum) {
     }
   });
 
-  const weekSelect = document.getElementById('week-select-dropdown');
-  if (weekSelect) {
-    weekSelect.addEventListener('change', (e) => {
-      const target = e.target.value;
-      if (target) window.location.href = target;
-    });
-  }
+  updateWeekProgress();
+  updateDayProgress();
+  renderWeekendDeferredQueue(weekNum);
 }
 
 function updateDeferBtnVisual(taskId) {
   const btn = document.querySelector(`.btn-defer[data-task-id="${taskId}"]`);
-  const item = document.querySelector(`.task-item[data-task-id="${taskId}"]`);
+  const card = document.querySelector(`.task-card[data-task-id="${taskId}"], .task-item[data-task-id="${taskId}"]`);
   const isDeferred = AppState.isTaskDeferred(taskId);
   const isDone = AppState.isTaskDone(taskId);
 
-  if (item) {
+  if (card) {
     if (isDeferred && !isDone) {
-      item.classList.add('deferred');
+      card.classList.add('deferred');
     } else {
-      item.classList.remove('deferred');
+      card.classList.remove('deferred');
     }
   }
 
@@ -839,11 +846,13 @@ function updateDeferBtnVisual(taskId) {
     } else {
       btn.style.display = 'inline-flex';
       if (isDeferred) {
-        btn.classList.add('active');
-        btn.innerHTML = '⏳ Deferred to Weekend';
+        btn.classList.add('text-primary');
+        btn.classList.remove('text-slate-500');
+        btn.setAttribute('title', 'Deferred to weekend lab');
       } else {
-        btn.classList.remove('active');
-        btn.innerHTML = '⏳ Defer';
+        btn.classList.remove('text-primary');
+        btn.classList.add('text-slate-500');
+        btn.setAttribute('title', 'Defer to Weekend Lab');
       }
     }
   }
@@ -867,98 +876,101 @@ function renderWeekendDeferredQueue(weekNum) {
     box.style.display = 'block';
     let listHtml = '';
     weekDeferred.forEach(tid => {
-      const originalItem = document.querySelector(`.task-item[data-task-id="${tid}"]`);
-      const rawText = originalItem ? originalItem.querySelector('.task-text')?.innerText : tid;
+      const originalCard = document.querySelector(`.task-card[data-task-id="${tid}"], .task-item[data-task-id="${tid}"]`);
+      const rawText = originalCard ? (originalCard.querySelector('.task-title, .task-text')?.innerText || tid) : tid;
       listHtml += `
-        <div class="deferred-backlog-row">
-          <label class="custom-checkbox">
-            <input type="checkbox" onchange="AppState.setTask('${tid}', this.checked); this.closest('.deferred-backlog-row').remove();">
-            <div class="checkbox-visual"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-          </label>
-          <span class="deferred-backlog-text">${rawText}</span>
-          <button type="button" class="btn-undefer" onclick="AppState.deferTask('${tid}', false); renderWeekendDeferredQueue(${weekNum});">Return to Day</button>
+        <div class="deferred-backlog-row flex items-center justify-between p-2.5 rounded bg-surface-container border border-white/[0.06] text-xs">
+          <div class="flex items-center gap-2.5 min-w-0 flex-1">
+            <span class="text-amber-400">⏳</span>
+            <span class="deferred-backlog-text text-slate-300 truncate">${rawText}</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button type="button" class="btn-complete-defer px-2 py-0.5 rounded bg-primary/20 text-primary hover:bg-primary/30 text-[11px] font-mono cursor-pointer" onclick="AppState.setTask('${tid}', true); renderWeekendDeferredQueue(${weekNum}); updateWeekProgress(); updateDayProgress();">Complete</button>
+            <button type="button" class="btn-undefer text-slate-500 hover:text-slate-300 text-[11px] font-mono cursor-pointer" onclick="AppState.deferTask('${tid}', false); renderWeekendDeferredQueue(${weekNum}); updateDeferBtnVisual('${tid}');">Return</button>
+          </div>
         </div>
       `;
     });
 
     box.innerHTML = `
-      <div class="deferred-backlog-header">
-        <span class="deferred-backlog-title">📌 Deferred Weekday Backlog (${weekDeferred.length})</span>
-        <span class="deferred-backlog-hint">Tackle during your 4.0h Lab block</span>
-      </div>
-      <div class="deferred-backlog-list">
-        ${listHtml}
+      <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/80 border border-primary/20 p-3 mb-3 flex flex-col gap-2">
+        <div class="flex items-center justify-between pb-1 border-b border-white/[0.06]">
+          <span class="font-mono text-[11px] font-semibold text-primary">📌 Deferred Weekday Backlog (${weekDeferred.length})</span>
+          <span class="font-mono text-[10px] text-slate-400">Tackle during 4.0h Lab block</span>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          ${listHtml}
+        </div>
       </div>
     `;
   });
 }
 
-function updateTaskItemVisual(checkbox, isChecked) {
-  const item = checkbox.closest('.task-item') || checkbox.closest('.deliverable-item');
-  if (item) {
-    const icon = item.querySelector('.checkbox-visual .material-symbols-outlined') || item.querySelector('.checkbox-visual svg');
-    const visual = item.querySelector('.checkbox-visual');
-    const title = item.querySelector('.task-text') || item.querySelector('.deliverable-text');
+function updateTaskCardVisual(card, isDone) {
+  const btn = card.querySelector('.task-toggle-btn, .task-checkbox');
+  const icon = btn?.querySelector('.material-symbols-outlined') || btn?.querySelector('svg');
+  const title = card.querySelector('.task-title, .task-text');
 
-    if (isChecked) {
-      item.classList.add('completed');
-      if (visual) {
-        visual.className = 'checkbox-visual checkbox-spring w-5 h-5 rounded-[4px] bg-primary border border-primary flex items-center justify-center shadow-sm';
-      }
-      if (icon) {
-        icon.classList.remove('opacity-0');
-        icon.classList.add('opacity-100', 'text-on-primary');
-      }
-      if (title) {
-        title.classList.add('line-through', 'text-on-surface-variant');
-      }
-    } else {
-      item.classList.remove('completed');
-      if (visual) {
-        visual.className = 'checkbox-visual checkbox-spring w-5 h-5 rounded-[4px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-inner';
-      }
-      if (icon) {
-        icon.classList.add('opacity-0');
-        icon.classList.remove('opacity-100', 'text-on-primary');
-      }
-      if (title) {
-        title.classList.remove('line-through', 'text-on-surface-variant');
-      }
+  if (isDone) {
+    card.classList.add('completed');
+    card.setAttribute('data-completed', 'true');
+    if (btn) {
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring mt-0.5 h-5 w-5 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0 transition-colors cursor-pointer shadow-sm';
+    }
+    if (icon) {
+      icon.classList.remove('opacity-0');
+      icon.classList.add('opacity-100', 'text-emerald-400');
+    }
+    if (title) {
+      title.classList.add('line-through', 'text-slate-400');
+      title.classList.remove('text-slate-200');
+    }
+  } else {
+    card.classList.remove('completed');
+    card.setAttribute('data-completed', 'false');
+    if (btn) {
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring mt-0.5 h-5 w-5 rounded border border-white/20 hover:border-white/40 bg-white/5 flex items-center justify-center shrink-0 transition-colors cursor-pointer';
+    }
+    if (icon) {
+      icon.classList.add('opacity-0');
+      icon.classList.remove('opacity-100', 'text-emerald-400');
+    }
+    if (title) {
+      title.classList.remove('line-through', 'text-slate-400');
+      title.classList.add('text-slate-200');
     }
   }
 }
 
+function updateTaskItemVisual(checkbox, isChecked) {
+  const card = checkbox.closest('.task-card, .task-item, .deliverable-item');
+  if (card) {
+    updateTaskCardVisual(card, isChecked);
+  }
+}
+
 function updateWeekProgress() {
-  const allCheckboxes = document.querySelectorAll('.task-checkbox');
-  const total = allCheckboxes.length;
+  const allCards = document.querySelectorAll('.task-card, .task-item');
+  const total = allCards.length;
   let done = 0;
   let loggedHours = 0;
 
-  allCheckboxes.forEach(cb => {
-    if (cb.checked) {
+  allCards.forEach(card => {
+    const tid = card.getAttribute('data-task-id');
+    const h = parseFloat(card.getAttribute('data-hours')) || 2.5;
+    if (AppState.isTaskDone(tid)) {
       done++;
-      const item = cb.closest('.task-item');
-      const track = item?.getAttribute('data-track');
-      const dayCard = cb.closest('.day-card');
-      const dayCode = dayCard?.getAttribute('data-day');
-      const isWeekend = ['Sat', 'Sun'].includes(dayCode);
-
-      let h = 2.5;
-      if (track === 'dsa') h = 1.5;
-      else if (isWeekend && track === 'aiml') h = 4.0;
       loggedHours += h;
     }
   });
 
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const fill = document.getElementById('progress-bar-fill') || document.getElementById('week-progress-fill');
-  const stats = document.getElementById('week-progress-stats');
   const completedCountEl = document.getElementById('completed-count');
   const progressPercentEl = document.getElementById('progress-percent');
   const loggedHoursLabel = document.getElementById('logged-hours-label');
   
   if (fill) fill.style.width = pct + '%';
-  if (stats) stats.textContent = `${done} of ${total} completed (${pct}%)`;
   if (completedCountEl) completedCountEl.textContent = done;
   if (progressPercentEl) progressPercentEl.textContent = `(${pct}%)`;
   if (loggedHoursLabel) loggedHoursLabel.textContent = `Logged: ${loggedHours.toFixed(1)}h`;
@@ -975,37 +987,45 @@ function updateWeekProgress() {
 }
 
 function isWeekAllDone() {
-  const allCheckboxes = document.querySelectorAll('.task-checkbox');
-  return allCheckboxes.length > 0 && Array.from(allCheckboxes).every(cb => cb.checked);
+  const allCards = document.querySelectorAll('.task-card, .task-item');
+  return allCards.length > 0 && Array.from(allCards).every(card => {
+    const tid = card.getAttribute('data-task-id');
+    return AppState.isTaskDone(tid);
+  });
 }
 
 function updateDayProgress() {
   const dayCards = document.querySelectorAll('.day-card');
   dayCards.forEach(card => {
-    const cbs = card.querySelectorAll('.task-checkbox');
-    const badge = card.querySelector('.day-progress');
-    if (badge && cbs.length > 0) {
+    const tasks = card.querySelectorAll('.task-card, .task-item');
+    const badge = card.querySelector('.day-badge, .day-progress');
+    if (badge && tasks.length > 0) {
       let done = 0;
-      cbs.forEach(cb => { if (cb.checked) done++; });
-      badge.textContent = `${done}/${cbs.length} done`;
-      if (done === cbs.length && done > 0) {
-        badge.className = 'day-progress font-mono-metric-md text-xs font-semibold px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/40';
+      tasks.forEach(t => {
+        const tid = t.getAttribute('data-task-id');
+        if (AppState.isTaskDone(tid)) done++;
+      });
+      badge.textContent = `${done} / ${tasks.length} done`;
+      if (done === tasks.length && done > 0) {
+        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+      } else if (done > 0) {
+        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-primary/15 text-primary border border-primary/30';
       } else {
-        badge.className = 'day-progress font-mono-metric-md text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant/20';
+        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-white/[0.05] text-slate-400 border border-white/10';
       }
     }
   });
 }
 
 function applyFilters() {
-  const activeTrack = document.querySelector('.track-filter-pill.active-filter')?.getAttribute('data-track') || 
-                      document.querySelector('.track-filter-pill.active')?.getAttribute('data-track') || 'all';
+  const activeBtn = document.querySelector('.filter-btn.active-filter') || document.querySelector('.filter-btn.active') || document.querySelector('.track-filter-pill.active');
+  const activeTrack = activeBtn?.getAttribute('data-filter') || activeBtn?.getAttribute('data-track') || 'all';
 
   const dayCards = document.querySelectorAll('.day-card');
   dayCards.forEach(card => {
-    const taskItems = card.querySelectorAll('.task-item');
+    const taskCards = card.querySelectorAll('.task-card, .task-item');
     let visibleTasksInDay = 0;
-    taskItems.forEach(item => {
+    taskCards.forEach(item => {
       const trackId = item.getAttribute('data-track');
       const trackMatch = (activeTrack === 'all' || activeTrack === trackId || 
                          (activeTrack === 'backend' && ['aptitude', 'backend'].includes(trackId)));
@@ -1017,21 +1037,22 @@ function applyFilters() {
       }
     });
 
-    card.style.display = visibleTasksInDay > 0 ? 'flex' : 'none';
+    card.style.display = (visibleTasksInDay > 0 || activeTrack === 'all') ? 'flex' : 'none';
   });
 }
 
 function copyWeekSummaryToClipboard(weekNum) {
-  const allCheckboxes = document.querySelectorAll('.task-checkbox');
-  const total = allCheckboxes.length;
+  const allCards = document.querySelectorAll('.task-card, .task-item');
+  const total = allCards.length;
   let done = 0;
   const completedList = [];
   const pendingList = [];
 
-  allCheckboxes.forEach(cb => {
-    const taskId = cb.getAttribute('data-task-id');
-    const label = cb.closest('.task-item, .deliverable-item')?.querySelector('.task-text, .deliverable-text')?.innerText.trim() || taskId;
-    if (cb.checked) {
+  allCards.forEach(card => {
+    const taskId = card.getAttribute('data-task-id');
+    const isDone = AppState.isTaskDone(taskId);
+    const label = card.querySelector('.task-title, .task-text')?.innerText.trim() || taskId;
+    if (isDone) {
       done++;
       completedList.push(`- [x] ${label}`);
     } else {
@@ -1039,7 +1060,7 @@ function copyWeekSummaryToClipboard(weekNum) {
     }
   });
 
-  const pct = Math.round((done / total) * 100);
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const text = `# Week ${weekNum} Progress: ${done}/${total} (${pct}%)\n\n## Completed:\n${completedList.join('\n') || 'None'}\n\n## Pending:\n${pendingList.join('\n') || 'None'}\n`;
 
   navigator.clipboard.writeText(text).then(() => {
@@ -1053,6 +1074,20 @@ function copyWeekSummaryToClipboard(weekNum) {
   }).catch(() => {
     showToast('Failed to copy summary');
   });
+}
+
+function exportWeekNotesAsMarkdown(weekNum) {
+  const notes = AppState.getNote(weekNum);
+  const blob = new Blob([`# Week ${String(weekNum).padStart(2, '0')} Technical Notes\n\n${notes || '_No notes recorded yet._'}\n`], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `week-${String(weekNum).padStart(2, '0')}-notes.md`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('Notes exported as Markdown');
 }
 
 // ==========================================================================
@@ -1135,50 +1170,48 @@ function initDashboard(roadmapData) {
 
       let duration = '2.5h';
       let mins = 150;
-      let tagStyle = 'bg-surface-container border-outline-variant/30 text-on-surface-variant';
+      let tagText = 'CORE';
 
       if (t.track_id === 'dsa') {
         duration = '1.5h';
         mins = 90;
-        tagStyle = 'bg-primary/15 border-primary/30 text-primary font-bold';
+        tagText = 'DSA';
       } else if (isWeekend && t.track_id === 'aiml') {
         duration = '4.0h';
         mins = 240;
-        tagStyle = 'bg-tertiary/15 border-tertiary/30 text-tertiary font-bold';
+        tagText = 'AI/ML';
       } else if (t.track_id === 'aiml') {
-        tagStyle = 'bg-tertiary/15 border-tertiary/30 text-tertiary';
+        tagText = 'AI/ML';
       } else if (t.track_id === 'corecs') {
-        tagStyle = 'bg-secondary/15 border-secondary/30 text-secondary';
+        tagText = 'CORE';
       } else if (['aptitude', 'backend'].includes(t.track_id)) {
-        tagStyle = 'bg-primary-container/15 border-primary-container/30 text-primary-fixed';
+        tagText = t.track_id === 'backend' ? 'JAVA' : 'APT';
       }
 
       totalEstimatedMinutes += mins;
       if (isDone) completedEstimatedMinutes += mins;
 
-      const deferBtnHtml = (!isWeekend && !isDone) ? `
-        <button type="button" class="btn-defer text-[10px] font-mono-metric-md px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors cursor-pointer ${isDeferred ? 'text-primary border-primary/40' : ''}" onclick="AppState.deferTask('${t.id}', ${!isDeferred});">
-          ${isDeferred ? '⏳ Deferred to Weekend' : '⏳ Defer'}
-        </button>
+      let cleanTitle = t.title || t.raw || '';
+      cleanTitle = cleanTitle.replace(/<[^>]*>/g, '').trim();
+
+      const deferredBadge = (isDeferred && !isDone) ? `
+        <span class="text-[10px] text-amber-400 font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend">⏳</span>
       ` : '';
 
       tasksHtml += `
-        <div class="task-row group flex items-start justify-between px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}">
-          <div class="flex items-start gap-3.5 min-w-0 flex-1">
-            <label class="custom-checkbox shrink-0 mt-0.5 cursor-pointer">
-              <input type="checkbox" class="today-task-checkbox" data-task-id="${t.id}" ${isDone ? 'checked' : ''} style="display:none;" onchange="AppState.setTask('${t.id}', this.checked)">
-              <div class="checkbox-visual checkbox-spring w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border-outline-variant/50 group-hover:border-primary'} border flex items-center justify-center shadow-sm">
-                <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
-              </div>
-            </label>
-            <div class="flex flex-col gap-1 min-w-0 flex-1">
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="px-2 py-0.5 rounded font-label-caps text-[10px] uppercase border ${tagStyle}">${t.track_name}</span>
-                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱️ ${duration}</span>
-                ${deferBtnHtml}
-              </div>
-              <div class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'line-through text-on-surface-variant' : 'text-on-surface'} transition-all leading-relaxed">${t.html}</div>
+        <div class="task-row group flex items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.today-task-checkbox-btn')) { const cb = this.querySelector('.today-task-checkbox-btn'); if(cb) cb.click(); }">
+          <div class="flex items-center gap-3.5 min-w-0 flex-1">
+            <button type="button" aria-label="Toggle task status" class="today-task-checkbox-btn checkbox-spring shrink-0 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderTodayCommandCenter(); renderDashboardStats();">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
+            </button>
+            <div class="flex items-center gap-2.5 min-w-0 truncate">
+              <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
+              <span class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'text-on-surface-variant/60 line-through' : 'text-on-surface'} truncate transition-all duration-150" title="${cleanTitle.replace(/"/g, '&quot;')}">${cleanTitle}</span>
             </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3">
+            ${deferredBadge}
+            <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">${duration}</span>
           </div>
         </div>
       `;
