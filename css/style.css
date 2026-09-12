@@ -5,73 +5,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-:root {
-  /* Light Theme */
-  --bg-canvas: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-surface-elevated: #ffffff;
-  --bg-surface-subtle: #f1f5f9;
-  --bg-hover: #eef2f6;
-  
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --border-accent: rgba(79, 70, 229, 0.35);
-  
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-faint: #94a3b8;
-  
-  --accent-primary: #4f46e5;
-  --accent-hover: #4338ca;
-  --accent-light: #eef2ff;
-  --accent-ring: rgba(79, 70, 229, 0.2);
-  
-  --success: #059669;
-  --success-bg: #ecfdf5;
-  --success-border: #a7f3d0;
-  --streak-flame: #ea580c;
-  
-  --warning: #d97706;
-  --warning-bg: #fffbeb;
-  
-  /* Track Badges (Light) */
-  --tag-dsa-bg: #e0e7ff;
-  --tag-dsa-text: #3730a3;
-  --tag-aiml-bg: #d1fae5;
-  --tag-aiml-text: #065f46;
-  --tag-corecs-bg: #e0f2fe;
-  --tag-corecs-text: #0369a1;
-  --tag-backend-bg: #ede9fe;
-  --tag-backend-text: #5b21b6;
-  --tag-aptitude-bg: #fef3c7;
-  --tag-aptitude-text: #92400e;
-
-  /* Heatmap Levels (Light) */
-  --heat-lvl-0: #e2e8f0;
-  --heat-lvl-1: #a7f3d0;
-  --heat-lvl-2: #34d399;
-  --heat-lvl-3: #059669;
-
-  /* Elevation */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08);
-  
-  /* Radius */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-full: 9999px;
-
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-
-[data-theme="dark"], html.dark {
-  /* Executive Cockpit Palette (Matching Inspiration 1) */
+:root, html.dark, [data-theme="dark"] {
+  /* Executive Obsidian Cockpit Palette */
   --bg-canvas: #121316;
   --bg-surface: #1b1b1f;
   --bg-surface-elevated: #292a2d;
@@ -121,30 +56,32 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
   --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.6);
+  
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* Tactile Glass & Micro Border utility */
 .cockpit-glass {
-  background: rgba(18, 19, 22, 0.72);
+  background: rgba(18, 19, 22, 0.75) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
-}
-.light .cockpit-glass, [data-theme="light"] .cockpit-glass {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
 }
 
 .cockpit-subglass {
-  background: rgba(27, 27, 31, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(27, 27, 31, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
-}
-.light .cockpit-subglass, [data-theme="light"] .cockpit-subglass {
-  background: rgba(243, 244, 246, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Spring-like checkbox animations */

@@ -754,7 +754,6 @@ def generate_dashboard(roadmap):
             </div>
             <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
               <span class="text-on-surface font-semibold" id="queue-completed-counter">0</span> of <span id="queue-total-counter">0</span> completed
-              <span class="text-primary text-[11px] font-semibold ml-1" id="queue-percent">0%</span>
             </div>
           </div>
 
@@ -765,6 +764,33 @@ def generate_dashboard(roadmap):
 
           <!-- Task List (Code 1 Exact 1-line Rows) -->
           <div class="divide-y divide-outline-variant/10 text-body" id="today-tasks-list">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </section>
+
+        <!-- Backlog Execution Queue (Overdue tasks ordered from farthest past to recent past) -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="backlog-section">
+          <div class="px-5 py-4 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-3">
+              <h2 class="font-headline text-base font-semibold text-amber-300 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">history</span>
+                <span>Backlog</span>
+              </h2>
+              <span class="text-outline-variant/40">&bull;</span>
+              <span class="text-xs text-on-surface-variant" id="backlog-subtitle">Overdue &bull; Farthest past to recent</span>
+            </div>
+            <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
+              <span class="text-on-surface font-semibold" id="backlog-completed-counter">0</span> of <span id="backlog-total-counter">0</span> completed
+            </div>
+          </div>
+
+          <!-- Micro Progress Bar -->
+          <div class="w-full bg-surface-container h-1 overflow-hidden">
+            <div class="h-full bg-amber-400 transition-all duration-300 ease-out" id="backlog-progress-bar" style="width: 0%"></div>
+          </div>
+
+          <!-- Backlog Task List -->
+          <div class="divide-y divide-outline-variant/10 text-body" id="backlog-tasks-list">
             <!-- Populated dynamically by app.js -->
           </div>
         </section>

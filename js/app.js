@@ -14,6 +14,42 @@
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
 const THEME_KEY = 'study_roadmap_theme';
 
+// Hardened Roadmap Start Date: Monday, September 14, 2026
+const ROADMAP_START_DATE = new Date(2026, 8, 14); // Month 8 = September (0-indexed)
+ROADMAP_START_DATE.setHours(0, 0, 0, 0);
+
+function getRoadmapCalendarInfo(targetDate = new Date()) {
+  const cur = new Date(targetDate);
+  cur.setHours(0, 0, 0, 0);
+  
+  const diffTime = cur.getTime() - ROADMAP_START_DATE.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const dayCodes = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  
+  if (diffDays < 0) {
+    // Before official start: anchor to Week 1, Monday
+    return {
+      weekNum: 1,
+      dayCode: 'Mon',
+      dayIndex: 0,
+      diffDays: diffDays,
+      isBeforeStart: true
+    };
+  }
+  
+  const weekNum = Math.min(50, Math.floor(diffDays / 7) + 1);
+  const dayIndex = diffDays % 7; // 0 = Mon, ..., 6 = Sun
+  const dayCode = dayCodes[dayIndex] || 'Mon';
+  
+  return {
+    weekNum,
+    dayCode,
+    dayIndex,
+    diffDays,
+    isBeforeStart: false
+  };
+}
+
 const CLOUD_CONFIG = {
   endpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/rest/v1/tracker_state',
   apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqcW12d3ZmbXlvYWFrZ3N4ZGR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNTc1ODAsImV4cCI6MjEwNDYzMzU4MH0.aVUPWDOnirAco45eh0iTLNxupL9etepBWkInje0dZuk',
@@ -707,36 +743,20 @@ const AppState = {
   },
 
   initTheme() {
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = savedTheme || 'dark'; // default dark executive cockpit
-    document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
+    // Bulletproof Obsidian Dark Executive Cockpit
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+    try {
+      localStorage.setItem(THEME_KEY, 'dark');
+    } catch (e) {}
     const icon = document.getElementById('theme-icon');
-    if (icon) icon.textContent = theme === 'dark' ? 'dark_mode' : 'light_mode';
+    if (icon) icon.textContent = 'dark_mode';
   },
 
   toggleTheme() {
-    const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    if (next === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
-    const icon = document.getElementById('theme-icon');
-    if (icon) icon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
-    localStorage.setItem(THEME_KEY, next);
-    showToast(`Switched to ${next} mode`);
+    // Locked to Obsidian Dark
+    this.initTheme();
   }
 };
 
@@ -997,7 +1017,7 @@ function initWeekPage(weekNum) {
     window.addEventListener('resize', autoResizeNotes);
   }
 
-  // 6. Keyboard navigation
+  // 6. Keyboard navigation (Arrow keys & bracket shortcuts)
   window.addEventListener('keydown', (e) => {
     if (['TEXTAREA', 'INPUT', 'SELECT'].includes(document.activeElement.tagName)) return;
     
@@ -1011,8 +1031,6 @@ function initWeekPage(weekNum) {
       if (nextBtn && nextBtn.getAttribute('href')) {
         window.location.href = nextBtn.getAttribute('href');
       }
-    } else if (e.key.toLowerCase() === 'd' || e.key.toLowerCase() === 't') {
-      AppState.toggleTheme();
     }
   });
 
@@ -1053,52 +1071,167 @@ function updateDeferBtnVisual(taskId) {
   }
 }
 
+/**
+ * Weekend Spillover Protocol
+ * If a weekday task is incomplete when that day passes (or if manually deferred),
+ * it is automatically added to the weekend, allocated to Saturday or Sunday
+ * based on whichever day currently has fewer scheduled hours.
+ */
 function renderWeekendDeferredQueue(weekNum) {
-  const containers = document.querySelectorAll('.weekend-deferred-container');
-  if (!containers || containers.length === 0) return;
+  const satContainer = document.querySelector('.weekend-deferred-container[data-day="Sat"]');
+  const sunContainer = document.querySelector('.weekend-deferred-container[data-day="Sun"]');
+  if (!satContainer && !sunContainer) return;
 
-  const deferredIds = Object.keys(AppState.data.deferredTasks || {});
-  const prefix = `w${weekNum}_`;
-  const weekDeferred = deferredIds.filter(id => id.startsWith(prefix) && !AppState.isTaskDone(id));
+  const cal = getRoadmapCalendarInfo();
+  const weekdayCodes = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+  const eligibleSpilloverTasks = [];
 
-  containers.forEach(box => {
-    if (weekDeferred.length === 0) {
-      box.style.display = 'none';
-      box.innerHTML = '';
+  // 1. Gather all incomplete weekday tasks from this week
+  weekdayCodes.forEach((dayCode, dIdx) => {
+    const dayCard = document.querySelector(`.day-card[data-day="${dayCode}"]`);
+    if (!dayCard) return;
+
+    const dayName = dayCard.querySelector('h3')?.innerText.trim() || dayCode;
+    const taskCards = dayCard.querySelectorAll('.task-card, .task-item');
+
+    taskCards.forEach(card => {
+      const tid = card.getAttribute('data-task-id');
+      const isDone = AppState.isTaskDone(tid);
+      const isExplicitlyDeferred = AppState.isTaskDeferred(tid);
+      const hours = parseFloat(card.getAttribute('data-hours')) || 2.5;
+      const track = card.getAttribute('data-track') || 'corecs';
+      const trackTag = card.querySelector('.task-tag')?.innerText.trim() || 'CORE';
+      const rawText = card.querySelector('.task-title, .task-text')?.innerText.trim() || tid;
+      const descText = card.querySelector('.task-desc')?.innerHTML || '';
+
+      // Eligibility criteria:
+      // Incomplete AND (manually deferred OR past week OR past weekday in current week)
+      const isPastDay = (weekNum < cal.weekNum) || (weekNum === cal.weekNum && !cal.isBeforeStart && dIdx < cal.dayIndex);
+      
+      if (!isDone && (isExplicitlyDeferred || isPastDay)) {
+        eligibleSpilloverTasks.push({
+          id: tid,
+          dayCode: dayCode,
+          dayName: dayName,
+          title: rawText,
+          desc: descText,
+          hours: hours,
+          track: track,
+          trackTag: trackTag,
+          isDeferred: isExplicitlyDeferred
+        });
+      }
+    });
+  });
+
+  // 2. Calculate base hours for Saturday and Sunday
+  let satBaseHours = 0;
+  document.querySelectorAll('.day-card[data-day="Sat"] .task-card').forEach(c => {
+    satBaseHours += parseFloat(c.getAttribute('data-hours')) || 2.5;
+  });
+  if (satBaseHours === 0) satBaseHours = 8.0;
+
+  let sunBaseHours = 0;
+  document.querySelectorAll('.day-card[data-day="Sun"] .task-card').forEach(c => {
+    sunBaseHours += parseFloat(c.getAttribute('data-hours')) || 2.5;
+  });
+  if (sunBaseHours === 0) sunBaseHours = 8.0;
+
+  // 3. Allocate spilled tasks dynamically to Saturday or Sunday (lowest load balance)
+  let currentSatHours = satBaseHours;
+  let currentSunHours = sunBaseHours;
+  const satTasks = [];
+  const sunTasks = [];
+
+  eligibleSpilloverTasks.forEach(task => {
+    if (currentSatHours <= currentSunHours) {
+      satTasks.push(task);
+      currentSatHours += task.hours;
+    } else {
+      sunTasks.push(task);
+      currentSunHours += task.hours;
+    }
+  });
+
+  // Helper to render spillover list in a container
+  function renderSpilloverBox(container, tasks, dayName) {
+    if (!container) return;
+    if (tasks.length === 0) {
+      container.style.display = 'none';
+      container.innerHTML = '';
       return;
     }
 
-    box.style.display = 'block';
-    let listHtml = '';
-    weekDeferred.forEach(tid => {
-      const originalCard = document.querySelector(`.task-card[data-task-id="${tid}"], .task-item[data-task-id="${tid}"]`);
-      const rawText = originalCard ? (originalCard.querySelector('.task-title, .task-text')?.innerText || tid) : tid;
-      listHtml += `
-        <div class="deferred-backlog-row flex items-center justify-between p-2.5 rounded bg-surface-container border border-white/[0.06] text-xs">
-          <div class="flex items-center gap-2.5 min-w-0 flex-1">
-            <span class="text-amber-400">⏳</span>
-            <span class="deferred-backlog-text text-slate-300 truncate">${rawText}</span>
+    container.style.display = 'block';
+    const totalSpillHours = tasks.reduce((sum, t) => sum + t.hours, 0);
+
+    let rowsHtml = '';
+    tasks.forEach(t => {
+      const isDone = AppState.isTaskDone(t.id);
+      rowsHtml += `
+        <div class="deferred-backlog-row flex items-start justify-between p-2.5 rounded bg-surface-container border border-white/[0.06] text-xs gap-2 ${isDone ? 'opacity-50' : ''}">
+          <div class="flex items-start gap-2.5 min-w-0 flex-1">
+            <button type="button" aria-label="Toggle task completion" class="checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50'} flex items-center justify-center shadow-sm cursor-pointer" onclick="AppState.setTask('${t.id}', ${!isDone}); const p = window.location.pathname; if(window.initWeekPage) { const m = p.match(/week-(\\d+)/); if(m) initWeekPage(parseInt(m[1], 10)); }">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'}">check</span>
+            </button>
+            <div class="flex flex-col gap-0.5 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-1.5 min-w-0">
+                <span class="px-1.5 py-0.2 rounded bg-amber-400/15 text-amber-300 font-mono text-[10px] border border-amber-400/25 font-semibold">From ${t.dayName}</span>
+                <span class="task-tag shrink-0 px-1.5 py-0.2 rounded bg-surface-container-highest font-mono text-[10px] text-on-surface-variant font-semibold uppercase">${t.trackTag}</span>
+                <span class="deferred-backlog-text font-semibold ${isDone ? 'line-through text-on-surface-variant/60' : 'text-on-surface'} truncate">${t.title}</span>
+              </div>
+              ${t.desc ? `<div class="text-[11px] text-on-surface-variant opacity-80 line-clamp-1">${t.desc}</div>` : ''}
+            </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button type="button" class="btn-complete-defer px-2 py-0.5 rounded bg-primary/20 text-primary hover:bg-primary/30 text-[11px] font-mono cursor-pointer" onclick="AppState.setTask('${tid}', true); renderWeekendDeferredQueue(${weekNum}); updateWeekProgress(); updateDayProgress();">Complete</button>
-            <button type="button" class="btn-undefer text-slate-500 hover:text-slate-300 text-[11px] font-mono cursor-pointer" onclick="AppState.deferTask('${tid}', false); renderWeekendDeferredQueue(${weekNum}); updateDeferBtnVisual('${tid}');">Return</button>
+          <div class="flex items-center gap-2 shrink-0 pt-0.5">
+            <span class="font-mono text-[11px] text-on-surface-variant/70">${t.hours}h</span>
+            ${t.isDeferred ? `<button type="button" class="btn-undefer text-slate-500 hover:text-slate-300 text-[10px] font-mono cursor-pointer" onclick="AppState.deferTask('${t.id}', false); renderWeekendDeferredQueue(${weekNum}); updateDeferBtnVisual('${t.id}');">Return</button>` : ''}
           </div>
         </div>
       `;
     });
 
-    box.innerHTML = `
-      <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/80 border border-primary/20 p-3 mb-3 flex flex-col gap-2">
-        <div class="flex items-center justify-between pb-1 border-b border-white/[0.06]">
-          <span class="font-mono text-[11px] font-semibold text-primary">📌 Deferred Weekday Backlog (${weekDeferred.length})</span>
-          <span class="font-mono text-[10px] text-slate-400">Tackle during 4.0h Lab block</span>
+    container.innerHTML = `
+      <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/90 border border-amber-400/30 p-3 mb-3 flex flex-col gap-2 shadow-lg">
+        <div class="flex items-center justify-between pb-1.5 border-b border-white/[0.06]">
+          <span class="font-mono text-[11px] font-semibold text-amber-300 flex items-center gap-1.5">
+            <span>⏳</span>
+            <span>Spillover Queue (${tasks.length} tasks &bull; +${totalSpillHours.toFixed(1)}h)</span>
+          </span>
+          <span class="font-mono text-[10px] text-slate-400">Allocated to ${dayName} (load balanced)</span>
         </div>
         <div class="flex flex-col gap-1.5">
-          ${listHtml}
+          ${rowsHtml}
         </div>
       </div>
     `;
-  });
+  }
+
+  renderSpilloverBox(satContainer, satTasks, 'Saturday');
+  renderSpilloverBox(sunContainer, sunTasks, 'Sunday');
+
+  // Update day badges with spillover hours
+  const satBadge = document.querySelector('.day-card[data-day="Sat"] .day-badge');
+  if (satBadge && satTasks.length > 0) {
+    const totalSatCount = document.querySelectorAll('.day-card[data-day="Sat"] .task-card').length + satTasks.length;
+    let doneSatCount = 0;
+    document.querySelectorAll('.day-card[data-day="Sat"] .task-card').forEach(c => {
+      if (AppState.isTaskDone(c.getAttribute('data-task-id'))) doneSatCount++;
+    });
+    satTasks.forEach(t => { if (AppState.isTaskDone(t.id)) doneSatCount++; });
+    satBadge.textContent = `${doneSatCount} / ${totalSatCount} done (+${satTasks.length} spill)`;
+  }
+
+  const sunBadge = document.querySelector('.day-card[data-day="Sun"] .day-badge');
+  if (sunBadge && sunTasks.length > 0) {
+    const totalSunCount = document.querySelectorAll('.day-card[data-day="Sun"] .task-card').length + sunTasks.length;
+    let doneSunCount = 0;
+    document.querySelectorAll('.day-card[data-day="Sun"] .task-card').forEach(c => {
+      if (AppState.isTaskDone(c.getAttribute('data-task-id'))) doneSunCount++;
+    });
+    sunTasks.forEach(t => { if (AppState.isTaskDone(t.id)) doneSunCount++; });
+    sunBadge.textContent = `${doneSunCount} / ${totalSunCount} done (+${sunTasks.length} spill)`;
+  }
 }
 
 function updateTaskCardVisual(card, isDone) {
@@ -1314,25 +1447,10 @@ function initDashboard(roadmapData) {
     AppState.init();
   }
 
-  let selectedWeekNum = 1;
-  let selectedDayCode = 'Mon';
-
-  function findFirstIncomplete() {
-    for (const w of roadmapData) {
-      for (const d of w.days) {
-        const hasIncomplete = d.tasks.some(t => !t.is_rest && !AppState.isTaskDone(t.id));
-        if (hasIncomplete) {
-          return { weekNum: w.week_num, dayCode: d.day_code };
-        }
-      }
-    }
-    return { weekNum: 1, dayCode: 'Mon' };
-  }
-
-  // Initialize selected day to active incomplete day
-  const active = findFirstIncomplete();
-  selectedWeekNum = active.weekNum;
-  selectedDayCode = active.dayCode;
+  // Anchor Today's Command Center strictly to today's date
+  const calInfo = getRoadmapCalendarInfo();
+  let selectedWeekNum = calInfo.weekNum;
+  let selectedDayCode = calInfo.dayCode;
 
   function renderTodayCommandCenter() {
     const currentWeek = roadmapData.find(w => w.week_num === selectedWeekNum) || roadmapData[0];
@@ -1426,7 +1544,7 @@ function initDashboard(roadmapData) {
       tasksHtml += `
         <div class="task-row group flex items-start justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.today-task-checkbox-btn') && !event.target.closest('a')) { const cb = this.querySelector('.today-task-checkbox-btn'); if(cb) cb.click(); }">
           <div class="flex items-start gap-3.5 min-w-0 flex-1">
-            <button type="button" aria-label="Toggle task status" class="today-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderTodayCommandCenter(); renderDashboardStats();">
+            <button type="button" aria-label="Toggle task status" class="today-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderTodayCommandCenter(); renderBacklogQueue(); renderDashboardStats();">
               <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
             </button>
             <div class="flex flex-col gap-1 min-w-0 flex-1">
@@ -1447,19 +1565,125 @@ function initDashboard(roadmapData) {
 
     listContainer.innerHTML = tasksHtml;
 
-    // Queue Counters & Progress Bar
+    // Queue Counters & Progress Bar (No % in Today box)
     const totalCount = currentDay.tasks.length;
     const pct = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
     
     const completedCounter = document.getElementById('queue-completed-counter');
     const totalCounter = document.getElementById('queue-total-counter');
-    const percentEl = document.getElementById('queue-percent');
     const progressBar = document.getElementById('queue-progress-bar');
 
     if (completedCounter) completedCounter.textContent = completedCount;
     if (totalCounter) totalCounter.textContent = totalCount;
-    if (percentEl) percentEl.textContent = `${pct}%`;
     if (progressBar) progressBar.style.width = `${pct}%`;
+  }
+
+  function renderBacklogQueue() {
+    const listContainer = document.getElementById('backlog-tasks-list');
+    if (!listContainer) return;
+
+    const cal = getRoadmapCalendarInfo();
+    const dayCodes = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    // Collect all past tasks in sequence from farthest past to recent past
+    const backlogTasks = [];
+
+    if (!cal.isBeforeStart) {
+      for (const w of roadmapData) {
+        if (w.week_num > cal.weekNum) break;
+        for (const d of w.days) {
+          const dIdx = dayCodes.indexOf(d.day_code);
+          const isPast = (w.week_num < cal.weekNum) || (w.week_num === cal.weekNum && dIdx < cal.dayIndex);
+          if (isPast) {
+            d.tasks.forEach(t => {
+              if (!t.is_rest) {
+                backlogTasks.push({
+                  ...t,
+                  weekNum: w.week_num,
+                  dayCode: d.day_code,
+                  dayName: d.day_name
+                });
+              }
+            });
+          }
+        }
+      }
+    }
+
+    const incompleteTasks = backlogTasks.filter(t => !AppState.isTaskDone(t.id));
+    const totalBacklogCount = backlogTasks.length;
+    const completedBacklogCount = backlogTasks.filter(t => AppState.isTaskDone(t.id)).length;
+
+    const completedCounter = document.getElementById('backlog-completed-counter');
+    const totalCounter = document.getElementById('backlog-total-counter');
+    const progressBar = document.getElementById('backlog-progress-bar');
+
+    if (completedCounter) completedCounter.textContent = completedBacklogCount;
+    if (totalCounter) totalCounter.textContent = totalBacklogCount;
+    if (progressBar) {
+      const pct = totalBacklogCount > 0 ? Math.round((completedBacklogCount / totalBacklogCount) * 100) : 100;
+      progressBar.style.width = `${pct}%`;
+    }
+
+    if (backlogTasks.length === 0 || incompleteTasks.length === 0) {
+      listContainer.innerHTML = `
+        <div class="px-5 py-6 text-center text-xs text-on-surface-variant flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px] text-emerald-400">check_circle</span>
+          <span class="text-on-surface font-medium">All caught up! Zero backlog from past days.</span>
+        </div>
+      `;
+      return;
+    }
+
+    // Sequence: Incomplete tasks first (farthest past to recent past), followed by completed past tasks
+    const orderedTasks = [...incompleteTasks, ...backlogTasks.filter(t => AppState.isTaskDone(t.id))];
+
+    let html = '';
+    orderedTasks.forEach(t => {
+      const isDone = AppState.isTaskDone(t.id);
+      let duration = '2.5h';
+      let tagText = 'CORE';
+      if (t.track_id === 'dsa') {
+        duration = '1.5h';
+        tagText = 'DSA';
+      } else if (t.track_id === 'aiml') {
+        duration = ['Sat', 'Sun'].includes(t.dayCode) ? '4.0h' : '2.5h';
+        tagText = 'AI/ML';
+      } else if (['aptitude', 'backend'].includes(t.track_id)) {
+        tagText = t.track_id === 'backend' ? 'JAVA' : 'APT';
+      }
+
+      const titleHtml = t.title || t.raw || '';
+      const hasDesc = t.desc && t.desc.trim().length > 0;
+      const descHtml = hasDesc ? `
+        <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5 ${isDone ? 'line-through opacity-50' : ''}">
+          ${t.desc}
+        </div>
+      ` : '';
+
+      html += `
+        <div class="task-row group flex items-start justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.backlog-task-checkbox-btn') && !event.target.closest('a')) { const cb = this.querySelector('.backlog-task-checkbox-btn'); if(cb) cb.click(); }">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button type="button" aria-label="Toggle backlog task status" class="backlog-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-amber-400 border-amber-400' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderBacklogQueue(); renderTodayCommandCenter(); renderDashboardStats();">
+              <span class="material-symbols-outlined text-[13px] text-black font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20 font-mono text-[10px] text-amber-300 font-semibold uppercase">W${String(t.weekNum).padStart(2, '0')} ${t.dayCode}</span>
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'text-on-surface-variant/60 line-through' : 'text-on-surface'} font-semibold leading-snug break-words transition-all duration-150">${titleHtml}</span>
+              </div>
+              ${descHtml}
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">${duration}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    listContainer.innerHTML = html;
   }
 
   function render50WeekHeatmap() {
@@ -1801,6 +2025,7 @@ function initDashboard(roadmapData) {
     if (backendBarEl) backendBarEl.style.width = `${backendPct}%`;
 
     renderTodayCommandCenter();
+    renderBacklogQueue();
     render50WeekHeatmap();
     initQuietAccordion();
   }
