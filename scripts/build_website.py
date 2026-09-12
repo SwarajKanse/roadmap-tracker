@@ -441,18 +441,18 @@ def generate_week_page(week, total_weeks, all_weeks):
             defer_btn = f'''<button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="{task_id}" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>''' if not is_weekend else ''
 
             tasks_html.append(f'''
-            <div class="task-card group flex items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
-              <div class="flex items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
+              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex items-center gap-2.5 min-w-0 truncate">
+                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
                   <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">{track_tag}</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface truncate transition-all duration-150" title="{clean_title}">{title}</span>
+                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="{clean_title}">{title}</span>
                   {ref_badge}
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
                 {defer_btn}
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">{duration}</span>
               </div>
@@ -527,8 +527,8 @@ def generate_week_page(week, total_weeks, all_weeks):
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Semi-Transparent Glassmorphism Top Bar (Sticks in place while page scrolls) -->
-  <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-background/70 border-b border-white/[0.08] select-none py-3.5 transition-all">
+  <!-- Semi-Transparent Glassmorphism Top Bar (Borderless, highly transparent) -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background/25 select-none py-3 transition-all border-none">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
       <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
         <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
@@ -552,12 +552,8 @@ def generate_week_page(week, total_weeks, all_weeks):
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- Weekly Deliverable / Priority 1 Target Card -->
+        <!-- Weekly Deliverable Card -->
         <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <div class="text-xs text-on-surface-variant font-medium">Weekly Deliverable</div>
-            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">Priority 1 Target</span>
-          </div>
           <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text">{deliv_text}</div>
         </section>
 
@@ -581,18 +577,12 @@ def generate_week_page(week, total_weeks, all_weeks):
 
         <!-- Reflection & Technical Notes Journal -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 p-5 sm:p-6 flex flex-col gap-4" id="journal">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-outline-variant/15">
-            <div class="flex items-center gap-2.5">
-              <span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
-              <h3 class="text-sm font-semibold text-on-surface tracking-tight">Week {w_pad} Technical Notes &amp; Journal</h3>
-            </div>
-            <div class="flex items-center gap-1.5 text-xs font-mono text-on-surface-variant">
-              <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span id="save-status">Auto-saved to Supabase &bull; Live</span>
-            </div>
+          <div class="flex items-center gap-2.5 pb-3 border-b border-outline-variant/15">
+            <span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+            <h3 class="text-sm font-semibold text-on-surface tracking-tight">Week {w_pad} Technical Notes &amp; Journal</h3>
           </div>
-          <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/50 transition-colors p-3.5">
-            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 focus:outline-none resize-none" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="6"></textarea>
+          <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/60 focus-within:ring-1 focus-within:ring-primary/20 transition-all p-3.5">
+            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 border-0 outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none overflow-hidden block" style="outline: none !important; box-shadow: none !important; border: none !important;" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="5"></textarea>
           </div>
           <div class="flex items-center gap-1.5 pt-1">
             <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>

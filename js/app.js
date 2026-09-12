@@ -682,6 +682,18 @@ const StreakEngine = {
 // Week Page Controller
 // ==========================================================================
 function initWeekPage(weekNum) {
+  if (!AppState._initialized) {
+    AppState.init();
+    AppState._initialized = true;
+  }
+
+  const notesArea = document.getElementById('week-notes');
+  function autoResizeNotes() {
+    if (!notesArea) return;
+    notesArea.style.height = 'auto';
+    notesArea.style.height = `${Math.max(120, notesArea.scrollHeight)}px`;
+  }
+
   function syncUI() {
     const taskCards = document.querySelectorAll('.task-card, .task-item');
     taskCards.forEach(card => {
@@ -692,9 +704,12 @@ function initWeekPage(weekNum) {
       updateDeferBtnVisual(taskId);
     });
 
-    const notesArea = document.getElementById('week-notes');
     if (notesArea && !notesArea._userTyping) {
-      notesArea.value = AppState.getNote(weekNum);
+      const savedNote = localStorage.getItem(`study_notes_week_${weekNum}`) || AppState.getNote(weekNum) || '';
+      if (savedNote) {
+        notesArea.value = savedNote;
+        autoResizeNotes();
+      }
     }
 
     updateWeekProgress();
@@ -779,27 +794,41 @@ function initWeekPage(weekNum) {
     });
   }
 
-  // 5. Notes Scratchpad auto-save
-  const notesArea = document.getElementById('week-notes');
-  const saveStatus = document.getElementById('save-status') || document.getElementById('notes-save-status');
+  // 5. Notes Scratchpad auto-save & auto-expanding height
   if (notesArea) {
-    notesArea.value = AppState.getNote(weekNum);
+    // Initial fetch from localStorage and AppState
+    const initialNote = localStorage.getItem(`study_notes_week_${weekNum}`) || AppState.getNote(weekNum) || '';
+    if (initialNote) {
+      notesArea.value = initialNote;
+    }
+    autoResizeNotes();
+
     let timeout;
     notesArea.addEventListener('input', () => {
-      if (!AuthManager.isAuthenticated()) {
-        showToast('⚠️ Workspace is locked. Unlock to edit.');
-        AuthManager.updateUIState();
-        return;
-      }
+      autoResizeNotes();
       notesArea._userTyping = true;
-      if (saveStatus) saveStatus.textContent = 'Saving...';
+      const text = notesArea.value;
+
+      // Instant local persistence
+      try {
+        localStorage.setItem(`study_notes_week_${weekNum}`, text);
+      } catch (e) {}
+
+      if (!AppState.data.notes) AppState.data.notes = {};
+      AppState.data.notes[weekNum] = text;
+      AppState.saveLocal();
+
+      // Cloud sync debounced
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        AppState.setNote(weekNum, notesArea.value);
         notesArea._userTyping = false;
-        if (saveStatus) saveStatus.textContent = 'Auto-saved to Supabase • Live';
+        if (AuthManager.isAuthenticated()) {
+          AppState.scheduleCloudSync();
+        }
       }, 400);
     });
+
+    window.addEventListener('resize', autoResizeNotes);
   }
 
   // 6. Keyboard navigation
@@ -921,7 +950,7 @@ function updateTaskCardVisual(card, isDone) {
       icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-100 transition-opacity';
     }
     if (title) {
-      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface-variant/60 line-through truncate transition-all duration-150';
+      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface-variant/60 line-through leading-snug break-words transition-all duration-150';
     }
   } else {
     card.classList.remove('completed');
@@ -933,7 +962,7 @@ function updateTaskCardVisual(card, isDone) {
       icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity';
     }
     if (title) {
-      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface truncate transition-all duration-150';
+      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150';
     }
   }
 }
