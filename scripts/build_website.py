@@ -451,7 +451,6 @@ def generate_week_page(week, total_weeks, all_weeks):
 
             clean_title = re.sub(r'<[^>]*>', '', title).replace('"', '&quot;')
             ref_badge = f'<span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">{ref}</span>' if ref else ''
-            defer_btn = f'''<button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="{task_id}" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>''' if not is_weekend else ''
             desc_html = f'<div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">{desc}</div>' if desc else ''
 
             tasks_html.append(f'''
@@ -470,7 +469,6 @@ def generate_week_page(week, total_weeks, all_weeks):
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                {defer_btn}
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">{duration}</span>
               </div>
             </div>''')
