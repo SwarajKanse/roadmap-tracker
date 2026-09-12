@@ -86,7 +86,7 @@
 
         <!-- Weekly Deliverable Card -->
         <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
-          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><strong class="text-on-surface font-semibold">Deliverable:</strong> Greedy done. You can explain what a neuron, a layer, activation functions, and gradient descent-for-NNs are, conceptually.</div>
+          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><div class="space-y-2"><div class="leading-relaxed"><strong class="text-on-surface font-semibold">Deliverable:</strong> Greedy done. You can explain what a neuron, a layer, activation functions, and gradient descent-for-NNs are, conceptually.</div></div></div>
         </section>
 
         <!-- Structured Day Schedule Cards -->
@@ -105,35 +105,41 @@
               </div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_mon_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_mon_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_mon_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_mon_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Assign Cookies; Lemonade Change">Assign Cookies; Lemonade Change</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Assign Cookies; Lemonade Change">Assign Cookies; Lemonade Change</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_mon_dsa" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_mon_aiml" data-track="aiml">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_mon_aiml" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_mon_aiml" data-track="aiml">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_mon_aiml" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Neural Networks Intuition 1">Neural Networks Intuition 1</span>
-                  <span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">3Blue1Brown — Neural Networks, Ch.1</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Neural Networks Intuition 1">Neural Networks Intuition 1</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5"><strong class="text-on-surface font-semibold">3Blue1Brown — Neural Networks, Ch.1</strong> "But what IS a neural network?" & <strong class="text-on-surface font-semibold">Ch.2</strong> "Gradient descent, how neural networks learn" (visualizing high-dimensional loss landscapes, weight updates)</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_mon_aiml" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -154,35 +160,41 @@
               </div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_tue_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_tue_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_tue_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_tue_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Jump Game">Jump Game</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Jump Game">Jump Game</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">I</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_tue_dsa" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_tue_corecs" data-track="corecs">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_tue_corecs" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_tue_corecs" data-track="corecs">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_tue_corecs" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="CN Foundations &amp; Physical Media">CN Foundations &amp; Physical Media</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="CN Foundations & Physical Media">CN Foundations & Physical Media</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical & Logical Topologies + Quiz</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_tue_corecs" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -203,35 +215,41 @@
               </div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_wed_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_wed_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_wed_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_wed_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Shortest Job First; Job Sequencing Problem">Shortest Job First; Job Sequencing Problem</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Shortest Job First; Job Sequencing Problem">Shortest Job First; Job Sequencing Problem</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_wed_dsa" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_wed_aiml" data-track="aiml">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_wed_aiml" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_wed_aiml" data-track="aiml">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_wed_aiml" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Neural Networks Intuition 2">Neural Networks Intuition 2</span>
-                  <span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">3Blue1Brown Ch.3</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Neural Networks Intuition 2">Neural Networks Intuition 2</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5"><strong class="text-on-surface font-semibold">3Blue1Brown Ch.3</strong> "What is backpropagation really doing?" & <strong class="text-on-surface font-semibold">Ch.4</strong> "Backpropagation calculus" (chain rule applied backwards through layers, partial derivatives)</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_wed_aiml" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -252,35 +270,41 @@
               </div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_thu_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_thu_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_thu_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_thu_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="N meetings in one room">N meetings in one room</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="N meetings in one room">N meetings in one room</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_thu_dsa" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_thu_corecs" data-track="corecs">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_thu_corecs" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_thu_corecs" data-track="corecs">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_thu_corecs" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Layered Architecture: OSI &amp; TCP/IP">Layered Architecture: OSI &amp; TCP/IP</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Layered Architecture: OSI & TCP/IP">Layered Architecture: OSI & TCP/IP</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Why Layered Architecture? OSI 7-layer model vs TCP/IP 4-layer model, Data encapsulation and decapsulation, Protocol Data Units (PDUs) at each layer + Quiz</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_thu_corecs" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -301,35 +325,41 @@
               </div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_fri_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_fri_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_fri_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_fri_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Non-overlapping Intervals; Insert Interval">Non-overlapping Intervals; Insert Interval</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Non-overlapping Intervals; Insert Interval">Non-overlapping Intervals; Insert Interval</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_fri_dsa" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_fri_aiml" data-track="aiml">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_fri_aiml" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_fri_aiml" data-track="aiml">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_fri_aiml" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Deep Learning Foundations">Deep Learning Foundations</span>
-                  <span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">StatQuest — "Neural Networks/Deep Learning" playlist</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Deep Learning Foundations">Deep Learning Foundations</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5"><strong class="text-on-surface font-semibold">StatQuest — "Neural Networks/Deep Learning" playlist</strong>: Activation functions (Sigmoid, Tanh, ReLU, Leaky ReLU), forward pass matrix operations, Cross-Entropy Loss vs MSE Loss</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 <button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="w16_fri_aiml" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -363,52 +393,61 @@
               <div class="weekend-deferred-container px-5 pt-3" data-day="Sat"></div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_sat_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_sat_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Minimum number of platforms required">Minimum number of platforms required</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Minimum number of platforms required">Minimum number of platforms required</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w16_sat_aiml" data-track="aiml">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_aiml" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w16_sat_aiml" data-track="aiml">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_aiml" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Karpathy's micrograd Part 1 (4.0h)">Karpathy's micrograd Part 1 (4.0h)</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Karpathy's micrograd Part 1 (4.0h)">Karpathy's micrograd Part 1 (4.0h)</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Build scalar Value engine with computational graph and forward pass (<code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">+</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">*</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">relu</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">pow</code>).</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_sat_aptitude" data-track="aptitude">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_aptitude" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_sat_aptitude" data-track="aptitude">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sat_aptitude" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Quant M16 Compound Interest (Basic &amp; Advance)">Quant M16 Compound Interest (Basic &amp; Advance)</span>
-                  <span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">Quant M16 & Verbal/Logical</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Quant M16 & Verbal/Logical">Quant M16 & Verbal/Logical</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Quant M16 Compound Interest (Basic & Advance) + Verbal/Logical Mixed Practice</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>
@@ -430,52 +469,61 @@
               <div class="weekend-deferred-container px-5 pt-3" data-day="Sun"></div>
               <div class="divide-y divide-outline-variant/10 text-body">
                 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_sun_dsa" data-track="dsa">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_dsa" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w16_sun_dsa" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_dsa" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Valid Parenthesis Checker; Candy + Contest + revision">Valid Parenthesis Checker; Candy + Contest + revision</span>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Valid Parenthesis Checker; Candy + Contest + revision">Valid Parenthesis Checker; Candy + Contest + revision</span>
+                    
+                  </div>
                   
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w16_sun_aiml" data-track="aiml">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_aiml" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w16_sun_aiml" data-track="aiml">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_aiml" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Karpathy's micrograd Part 2 &amp; Backprop Ninja (4.0h)">Karpathy's micrograd Part 2 &amp; Backprop Ninja (4.0h)</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Karpathy's micrograd Part 2 & Backprop Ninja (4.0h)">Karpathy's micrograd Part 2 & Backprop Ninja (4.0h)</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Implement reverse-mode automatic differentiation (topological sort + backward pass); train a tiny 2-layer MLP on a toy dataset.</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_sun_aptitude" data-track="aptitude">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_aptitude" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w16_sun_aptitude" data-track="aptitude">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w16_sun_aptitude" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="Physical &amp; Data Link Layer">Physical &amp; Data Link Layer</span>
-                  
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Physical & Data Link Layer">Physical & Data Link Layer</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Transmission Media (Twisted pair, Fiber, Coaxial), MAC Address, Framing, Error Detection (CRC, Checksum), CSMA/CD, CSMA/CA, Address Resolution Protocol (ARP)</div>
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
               </div>

@@ -939,12 +939,13 @@ function updateTaskCardVisual(card, isDone) {
   const btn = card.querySelector('.task-toggle-btn, .task-checkbox');
   const icon = btn?.querySelector('.material-symbols-outlined') || btn?.querySelector('svg');
   const title = card.querySelector('.task-title, .task-text');
+  const desc = card.querySelector('.task-desc');
 
   if (isDone) {
     card.classList.add('completed');
     card.setAttribute('data-completed', 'true');
     if (btn) {
-      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-primary border-primary flex items-center justify-center shadow-sm cursor-pointer';
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-primary border-primary flex items-center justify-center shadow-sm cursor-pointer';
     }
     if (icon) {
       icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-100 transition-opacity';
@@ -952,17 +953,23 @@ function updateTaskCardVisual(card, isDone) {
     if (title) {
       title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface-variant/60 line-through leading-snug break-words transition-all duration-150';
     }
+    if (desc) {
+      desc.classList.add('line-through', 'opacity-50');
+    }
   } else {
     card.classList.remove('completed');
     card.setAttribute('data-completed', 'false');
     if (btn) {
-      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer';
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer';
     }
     if (icon) {
       icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity';
     }
     if (title) {
       title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150';
+    }
+    if (desc) {
+      desc.classList.remove('line-through', 'opacity-50');
     }
   }
 }
@@ -1216,25 +1223,33 @@ function initDashboard(roadmapData) {
       totalEstimatedMinutes += mins;
       if (isDone) completedEstimatedMinutes += mins;
 
-      let cleanTitle = t.title || t.raw || '';
-      cleanTitle = cleanTitle.replace(/<[^>]*>/g, '').trim();
+      const titleHtml = t.title || t.raw || '';
+      const hasDesc = t.desc && t.desc.trim().length > 0;
+      const descHtml = hasDesc ? `
+        <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5 ${isDone ? 'line-through opacity-50' : ''}">
+          ${t.desc}
+        </div>
+      ` : '';
 
       const deferredBadge = (isDeferred && !isDone) ? `
         <span class="text-[10px] text-amber-400 font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend">⏳</span>
       ` : '';
 
       tasksHtml += `
-        <div class="task-row group flex items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.today-task-checkbox-btn')) { const cb = this.querySelector('.today-task-checkbox-btn'); if(cb) cb.click(); }">
-          <div class="flex items-center gap-3.5 min-w-0 flex-1">
-            <button type="button" aria-label="Toggle task status" class="today-task-checkbox-btn checkbox-spring shrink-0 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderTodayCommandCenter(); renderDashboardStats();">
+        <div class="task-row group flex items-start justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer ${isDone ? 'completed' : ''}" data-task-id="${t.id}" onclick="if(!event.target.closest('.today-task-checkbox-btn') && !event.target.closest('a')) { const cb = this.querySelector('.today-task-checkbox-btn'); if(cb) cb.click(); }">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button type="button" aria-label="Toggle task status" class="today-task-checkbox-btn checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] ${isDone ? 'bg-primary border-primary' : 'bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary'} flex items-center justify-center shadow-sm cursor-pointer" onclick="event.stopPropagation(); AppState.setTask('${t.id}', ${!isDone}); renderTodayCommandCenter(); renderDashboardStats();">
               <span class="material-symbols-outlined text-[13px] text-on-primary font-bold ${isDone ? 'opacity-100' : 'opacity-0'} transition-opacity">check</span>
             </button>
-            <div class="flex items-center gap-2.5 min-w-0 truncate">
-              <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
-              <span class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'text-on-surface-variant/60 line-through' : 'text-on-surface'} truncate transition-all duration-150" title="${cleanTitle.replace(/"/g, '&quot;')}">${cleanTitle}</span>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] ${isDone ? 'text-on-surface-variant/60 line-through' : 'text-on-surface'} font-semibold leading-snug break-words transition-all duration-150">${titleHtml}</span>
+              </div>
+              ${descHtml}
             </div>
           </div>
-          <div class="flex items-center gap-2.5 shrink-0 pl-3">
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
             ${deferredBadge}
             <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">${duration}</span>
           </div>
@@ -1636,4 +1651,41 @@ function initDashboard(roadmapData) {
   AppState.onDataLoaded(() => {
     renderDashboardStats();
   });
+}
+
+// ==========================================================================
+// Premium Silk Page Transitions (Cross-document Navigation Blending)
+// ==========================================================================
+function initPageTransitions() {
+  window.addEventListener('pageshow', () => {
+    document.body.classList.remove('page-leaving');
+  });
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    // Ignore anchors, JS links, new tab targets, downloads, and external protocols
+    if (href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || link.target === '_blank' || link.hasAttribute('download')) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    // Check if navigating to another HTML file in cockpit
+    const isInternalNav = href.endsWith('.html') || href.includes('week-') || href.includes('index.html') || href.startsWith('./') || href.startsWith('../');
+    if (!isInternalNav) return;
+
+    e.preventDefault();
+    document.body.classList.add('page-leaving');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 120);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPageTransitions);
+} else {
+  initPageTransitions();
 }

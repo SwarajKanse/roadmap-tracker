@@ -27,10 +27,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**CS50P Weeks 0 & 1** — Functions, Variables & Loops (freeCodeCamp.org YouTube: \"CS50's Introduction to Programming with Python\") + Problem Sets 0 & 1 (cs50.harvard.edu/python/psets/) + set up your first Python virtual environment (`python -m venv`)",
-            "ref": "CS50P Weeks 0 & 1",
-            "title": "Functions, Variables &amp; Loops",
-            "desc": "Problem Sets 0 &amp; 1 (<a href=\"https://cs50.harvard.edu/python/psets/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[CS50]</a>) + set up your first Python virtual environment (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">python -m venv</code>) • freeCodeCamp.org YouTube: \"CS50's Introduction to Programming with Python\"",
-            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 0 &amp; 1</strong> — Functions, Variables &amp; Loops (freeCodeCamp.org YouTube: \"CS50's Introduction to Programming with Python\") + Problem Sets 0 &amp; 1 (<a href=\"https://cs50.harvard.edu/python/psets/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[CS50]</a>) + set up your first Python virtual environment (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">python -m venv</code>)",
+            "ref": "",
+            "title": "CS50P Weeks 0 & 1",
+            "desc": "Functions, Variables & Loops (freeCodeCamp.org YouTube: \"CS50's Introduction to Programming with Python\") + Problem Sets 0 & 1 (<a href=\"https://cs50.harvard.edu/python/psets/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[CS50]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) + set up your first Python virtual environment (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">python -m venv</code>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 0 & 1</strong> — Functions, Variables & Loops (freeCodeCamp.org YouTube: \"CS50's Introduction to Programming with Python\") + Problem Sets 0 & 1 (<a href=\"https://cs50.harvard.edu/python/psets/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[CS50]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) + set up your first Python virtual environment (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">python -m venv</code>)",
             "is_rest": false
           }
         ]
@@ -87,10 +87,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**CS50P Weeks 2 & 3** — Exceptions & Libraries + Problem Sets 2 & 3",
-            "ref": "CS50P Weeks 2 & 3",
-            "title": "Exceptions &amp; Libraries + Problem Sets 2 &amp; 3",
-            "desc": "",
-            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 2 &amp; 3</strong> — Exceptions &amp; Libraries + Problem Sets 2 &amp; 3",
+            "ref": "",
+            "title": "CS50P Weeks 2 & 3",
+            "desc": "Exceptions & Libraries + Problem Sets 2 & 3",
+            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 2 & 3</strong> — Exceptions & Libraries + Problem Sets 2 & 3",
             "is_rest": false
           }
         ]
@@ -118,9 +118,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Constructors & Object Lifecycle** — Default & Parameterized Constructors, Constructor Overloading + practice + Week 1 comprehensive OOPs quiz & revision",
             "ref": "",
-            "title": "Constructors &amp; Object Lifecycle",
-            "desc": "Default &amp; Parameterized Constructors, Constructor Overloading + practice + Week 1 comprehensive OOPs quiz &amp; revision",
-            "html": "<strong class=\"text-on-surface font-semibold\">Constructors &amp; Object Lifecycle</strong> — Default &amp; Parameterized Constructors, Constructor Overloading + practice + Week 1 comprehensive OOPs quiz &amp; revision",
+            "title": "Constructors & Object Lifecycle",
+            "desc": "Default & Parameterized Constructors, Constructor Overloading + practice + Week 1 comprehensive OOPs quiz & revision",
+            "html": "<strong class=\"text-on-surface font-semibold\">Constructors & Object Lifecycle</strong> — Default & Parameterized Constructors, Constructor Overloading + practice + Week 1 comprehensive OOPs quiz & revision",
             "is_rest": false
           }
         ]
@@ -147,10 +147,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**CS50P Weeks 4 & 5** — Unit Tests & File I/O + Problem Sets 4 & 5 + push all Week 1 problem-set solutions to a new GitHub repo with a short README inside your venv",
-            "ref": "CS50P Weeks 4 & 5",
-            "title": "Unit Tests &amp; File I/O",
-            "desc": "Problem Sets 4 &amp; 5 + push all Week 1 problem-set solutions to a new GitHub repo with a short README inside your venv",
-            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 4 &amp; 5</strong> — Unit Tests &amp; File I/O + Problem Sets 4 &amp; 5 + push all Week 1 problem-set solutions to a new GitHub repo with a short README inside your venv",
+            "ref": "",
+            "title": "CS50P Weeks 4 & 5",
+            "desc": "Unit Tests & File I/O + Problem Sets 4 & 5 + push all Week 1 problem-set solutions to a new GitHub repo with a short README inside your venv",
+            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 4 & 5</strong> — Unit Tests & File I/O + Problem Sets 4 & 5 + push all Week 1 problem-set solutions to a new GitHub repo with a short README inside your venv",
             "is_rest": false
           }
         ]
@@ -178,9 +178,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Python Hands-on Dev & PyTest Lab (4.0h)** — Set up local Python dev environment (VS Code / PyCharm + venv + git). Solve 5 algorithmic problems from CS50P PSet 0 & 1 in Python from scratch. Write unit tests with `pytest`.",
             "ref": "",
-            "title": "Python Hands-on Dev &amp; PyTest Lab (4.0h)",
-            "desc": "Set up local Python dev environment (VS Code / PyCharm + venv + git). Solve 5 algorithmic problems from CS50P PSet 0 &amp; 1 in Python from scratch. Write unit tests with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pytest</code>.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Python Hands-on Dev &amp; PyTest Lab (4.0h)</strong> — Set up local Python dev environment (VS Code / PyCharm + venv + git). Solve 5 algorithmic problems from CS50P PSet 0 &amp; 1 in Python from scratch. Write unit tests with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pytest</code>.",
+            "title": "Python Hands-on Dev & PyTest Lab (4.0h)",
+            "desc": "Set up local Python dev environment (VS Code / PyCharm + venv + git). Solve 5 algorithmic problems from CS50P PSet 0 & 1 in Python from scratch. Write unit tests with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pytest</code>.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Python Hands-on Dev & PyTest Lab (4.0h)</strong> — Set up local Python dev environment (VS Code / PyCharm + venv + git). Solve 5 algorithmic problems from CS50P PSet 0 & 1 in Python from scratch. Write unit tests with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pytest</code>.",
             "is_rest": false
           },
           {
@@ -189,10 +189,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant Focus** — Quant M1 Numbers: Basic (Set A & B) + Numbers Advance + timed problem practice",
-            "ref": "Quant Focus",
-            "title": "Quant M1 Numbers: Basic (Set A &amp; B)",
-            "desc": "Numbers Advance + timed problem practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant Focus</strong> — Quant M1 Numbers: Basic (Set A &amp; B) + Numbers Advance + timed problem practice",
+            "ref": "",
+            "title": "Quant Focus",
+            "desc": "Quant M1 Numbers: Basic (Set A & B) + Numbers Advance + timed problem practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant Focus</strong> — Quant M1 Numbers: Basic (Set A & B) + Numbers Advance + timed problem practice",
             "is_rest": false
           }
         ]
@@ -208,8 +208,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Revision:** redo 5 patterns from memory",
             "ref": "",
-            "title": "Revision: redo 5 patterns from memory",
-            "desc": "",
+            "title": "Revision",
+            "desc": "redo 5 patterns from memory",
             "html": "<strong class=\"text-on-surface font-semibold\">Revision:</strong> redo 5 patterns from memory",
             "is_rest": false
           },
@@ -220,9 +220,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Interactive CLI Project & Git Lab (4.0h)** — Build an interactive command-line CLI application (e.g. Student Gradebook or Expense Tracker) utilizing classes, error handling, and file persistence; push to GitHub with clean README.",
             "ref": "",
-            "title": "Interactive CLI Project &amp; Git Lab (4.0h)",
+            "title": "Interactive CLI Project & Git Lab (4.0h)",
             "desc": "Build an interactive command-line CLI application (e.g. Student Gradebook or Expense Tracker) utilizing classes, error handling, and file persistence; push to GitHub with clean README.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Interactive CLI Project &amp; Git Lab (4.0h)</strong> — Build an interactive command-line CLI application (e.g. Student Gradebook or Expense Tracker) utilizing classes, error handling, and file persistence; push to GitHub with clean README.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Interactive CLI Project & Git Lab (4.0h)</strong> — Build an interactive command-line CLI application (e.g. Student Gradebook or Expense Tracker) utilizing classes, error handling, and file persistence; push to GitHub with clean README.",
             "is_rest": false
           },
           {
@@ -231,10 +231,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Verbal & Logical Focus** — Verbal: Sentence Rearrangement (Basic) + Logical: Series, Missing Numbers, Odd One Out (Basic & Advance) + mixed revision test",
-            "ref": "Verbal & Logical Focus",
-            "title": "Verbal: Sentence Rearrangement (Basic)",
-            "desc": "Logical: Series, Missing Numbers, Odd One Out (Basic &amp; Advance) + mixed revision test",
-            "html": "<strong class=\"text-on-surface font-semibold\">Verbal &amp; Logical Focus</strong> — Verbal: Sentence Rearrangement (Basic) + Logical: Series, Missing Numbers, Odd One Out (Basic &amp; Advance) + mixed revision test",
+            "ref": "",
+            "title": "Verbal & Logical Focus",
+            "desc": "Verbal: Sentence Rearrangement (Basic) + Logical: Series, Missing Numbers, Odd One Out (Basic & Advance) + mixed revision test",
+            "html": "<strong class=\"text-on-surface font-semibold\">Verbal & Logical Focus</strong> — Verbal: Sentence Rearrangement (Basic) + Logical: Series, Missing Numbers, Odd One Out (Basic & Advance) + mixed revision test",
             "is_rest": false
           }
         ]
@@ -277,10 +277,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**CS50P Weeks 6 & 7** — Regular Expressions + OOP Part 1 (classes, objects) + Problem Sets 6 & 7",
-            "ref": "CS50P Weeks 6 & 7",
-            "title": "Regular Expressions",
-            "desc": "OOP Part 1 (classes, objects) + Problem Sets 6 &amp; 7",
-            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 6 &amp; 7</strong> — Regular Expressions + OOP Part 1 (classes, objects) + Problem Sets 6 &amp; 7",
+            "ref": "",
+            "title": "CS50P Weeks 6 & 7",
+            "desc": "Regular Expressions + OOP Part 1 (classes, objects) + Problem Sets 6 & 7",
+            "html": "<strong class=\"text-on-surface font-semibold\">CS50P Weeks 6 & 7</strong> — Regular Expressions + OOP Part 1 (classes, objects) + Problem Sets 6 & 7",
             "is_rest": false
           }
         ]
@@ -296,8 +296,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Basic Maths: count digits, count odd digits, reverse a number, palindrome number",
             "ref": "",
-            "title": "Basic Maths: count digits, count odd digits, reverse a number, palindrome number",
-            "desc": "",
+            "title": "Basic Maths",
+            "desc": "count digits, count odd digits, reverse a number, palindrome number",
             "html": "Basic Maths: count digits, count odd digits, reverse a number, palindrome number",
             "is_rest": false
           },
@@ -308,9 +308,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Encapsulation & Access Modifiers** — Data hiding, getters/setters, `public`/`private`/`protected`/default access levels + practice & TUF+ Quizzes",
             "ref": "",
-            "title": "Encapsulation &amp; Access Modifiers",
-            "desc": "Data hiding, getters/setters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">public</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">private</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">protected</code>/default access levels + practice &amp; TUF+ Quizzes",
-            "html": "<strong class=\"text-on-surface font-semibold\">Encapsulation &amp; Access Modifiers</strong> — Data hiding, getters/setters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">public</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">private</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">protected</code>/default access levels + practice &amp; TUF+ Quizzes",
+            "title": "Encapsulation & Access Modifiers",
+            "desc": "Data hiding, getters/setters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">public</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">private</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">protected</code>/default access levels + practice & TUF+ Quizzes",
+            "html": "<strong class=\"text-on-surface font-semibold\">Encapsulation & Access Modifiers</strong> — Data hiding, getters/setters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">public</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">private</code>/<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">protected</code>/default access levels + practice & TUF+ Quizzes",
             "is_rest": false
           }
         ]
@@ -326,8 +326,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Basic Maths: largest digit, factorial, Armstrong number, perfect number",
             "ref": "",
-            "title": "Basic Maths: largest digit, factorial, Armstrong number, perfect number",
-            "desc": "",
+            "title": "Basic Maths",
+            "desc": "largest digit, factorial, Armstrong number, perfect number",
             "html": "Basic Maths: largest digit, factorial, Armstrong number, perfect number",
             "is_rest": false
           },
@@ -337,9 +337,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**CS50P Week 8 + Corey Schafer OOP Deep Dive** — CS50P PSet 8 + Corey Schafer (\"Python OOP Tutorials,\" YouTube): \"Classes and Instances\", \"Class Variables\", \"Inheritance\", and \"Dunder/Magic Methods\"",
-            "ref": "CS50P Week 8 + Corey Schafer OOP Deep Dive",
-            "title": "CS50P PSet 8",
-            "desc": "Corey Schafer (\"Python OOP Tutorials,\" YouTube): \"Classes and Instances\", \"Class Variables\", \"Inheritance\", and \"Dunder/Magic Methods\"",
+            "ref": "",
+            "title": "CS50P Week 8 + Corey Schafer OOP Deep Dive",
+            "desc": "CS50P PSet 8 + Corey Schafer (\"Python OOP Tutorials,\" YouTube): \"Classes and Instances\", \"Class Variables\", \"Inheritance\", and \"Dunder/Magic Methods\"",
             "html": "<strong class=\"text-on-surface font-semibold\">CS50P Week 8 + Corey Schafer OOP Deep Dive</strong> — CS50P PSet 8 + Corey Schafer (\"Python OOP Tutorials,\" YouTube): \"Classes and Instances\", \"Class Variables\", \"Inheritance\", and \"Dunder/Magic Methods\"",
             "is_rest": false
           }
@@ -356,8 +356,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Basic Maths: prime number check, count primes till N, GCD, LCM, divisors",
             "ref": "",
-            "title": "Basic Maths: prime number check, count primes till N, GCD, LCM, divisors",
-            "desc": "",
+            "title": "Basic Maths",
+            "desc": "prime number check, count primes till N, GCD, LCM, divisors",
             "html": "Basic Maths: prime number check, count primes till N, GCD, LCM, divisors",
             "is_rest": false
           },
@@ -368,9 +368,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Inheritance & Polymorphism** — `extends`, `super`, method overriding vs overloading, dynamic method dispatch + practice writing hierarchical class systems + TUF+ Quizzes & full OOPs revision",
             "ref": "",
-            "title": "Inheritance &amp; Polymorphism",
-            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">extends</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">super</code>, method overriding vs overloading, dynamic method dispatch + practice writing hierarchical class systems + TUF+ Quizzes &amp; full OOPs revision",
-            "html": "<strong class=\"text-on-surface font-semibold\">Inheritance &amp; Polymorphism</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">extends</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">super</code>, method overriding vs overloading, dynamic method dispatch + practice writing hierarchical class systems + TUF+ Quizzes &amp; full OOPs revision",
+            "title": "Inheritance & Polymorphism",
+            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">extends</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">super</code>, method overriding vs overloading, dynamic method dispatch + practice writing hierarchical class systems + TUF+ Quizzes & full OOPs revision",
+            "html": "<strong class=\"text-on-surface font-semibold\">Inheritance & Polymorphism</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">extends</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">super</code>, method overriding vs overloading, dynamic method dispatch + practice writing hierarchical class systems + TUF+ Quizzes & full OOPs revision",
             "is_rest": false
           }
         ]
@@ -386,8 +386,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Basic Arrays: sum of array, count odd numbers, check sorted-I, reverse array",
             "ref": "",
-            "title": "Basic Arrays: sum of array, count odd numbers, check sorted-I, reverse array",
-            "desc": "",
+            "title": "Basic Arrays",
+            "desc": "sum of array, count odd numbers, check sorted-I, reverse array",
             "html": "Basic Arrays: sum of array, count odd numbers, check sorted-I, reverse array",
             "is_rest": false
           },
@@ -397,10 +397,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Corey Schafer Decorators & CS50P Finish** — `@property` and Custom Decorators + **CS50P Week 9** (Et Cetera + final Problem Set) + push Week 2's code to GitHub with a README — **CS50P is now fully done**",
-            "ref": "Corey Schafer Decorators & CS50P Finish",
-            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@property</code> and Custom Decorators",
-            "desc": "<strong class=\"text-on-surface font-semibold\">CS50P Week 9</strong> (Et Cetera + final Problem Set) + push Week 2's code to GitHub with a README — <strong class=\"text-on-surface font-semibold\">CS50P is now fully done</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Corey Schafer Decorators &amp; CS50P Finish</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@property</code> and Custom Decorators + <strong class=\"text-on-surface font-semibold\">CS50P Week 9</strong> (Et Cetera + final Problem Set) + push Week 2's code to GitHub with a README — <strong class=\"text-on-surface font-semibold\">CS50P is now fully done</strong>",
+            "ref": "",
+            "title": "Corey Schafer Decorators & CS50P Finish",
+            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@property</code> and Custom Decorators + <strong class=\"text-on-surface font-semibold\">CS50P Week 9</strong> (Et Cetera + final Problem Set) + push Week 2's code to GitHub with a README — <strong class=\"text-on-surface font-semibold\">CS50P is now fully done</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Corey Schafer Decorators & CS50P Finish</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@property</code> and Custom Decorators + <strong class=\"text-on-surface font-semibold\">CS50P Week 9</strong> (Et Cetera + final Problem Set) + push Week 2's code to GitHub with a README — <strong class=\"text-on-surface font-semibold\">CS50P is now fully done</strong>",
             "is_rest": false
           }
         ]
@@ -416,8 +416,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Basic Hashing: highest occurring element, second highest occurring, sum of highest+lowest frequency",
             "ref": "",
-            "title": "Basic Hashing: highest occurring element, second highest occurring, sum of highest+lowest frequency",
-            "desc": "",
+            "title": "Basic Hashing",
+            "desc": "highest occurring element, second highest occurring, sum of highest+lowest frequency",
             "html": "Basic Hashing: highest occurring element, second highest occurring, sum of highest+lowest frequency",
             "is_rest": false
           },
@@ -439,10 +439,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M2 LCM & HCF** — Theory, Basic Set + Advance Problem Set + timed practice",
-            "ref": "Quant M2 LCM & HCF",
-            "title": "Theory, Basic Set",
-            "desc": "Advance Problem Set + timed practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M2 LCM &amp; HCF</strong> — Theory, Basic Set + Advance Problem Set + timed practice",
+            "ref": "",
+            "title": "Quant M2 LCM & HCF",
+            "desc": "Theory, Basic Set + Advance Problem Set + timed practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M2 LCM & HCF</strong> — Theory, Basic Set + Advance Problem Set + timed practice",
             "is_rest": false
           }
         ]
@@ -470,9 +470,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Decorator & File I/O Project (4.0h)** — Build a decorator-based logging and execution-timer framework; complete CS50P final problem set; full Git commit review and README polishing.",
             "ref": "",
-            "title": "Decorator &amp; File I/O Project (4.0h)",
+            "title": "Decorator & File I/O Project (4.0h)",
             "desc": "Build a decorator-based logging and execution-timer framework; complete CS50P final problem set; full Git commit review and README polishing.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Decorator &amp; File I/O Project (4.0h)</strong> — Build a decorator-based logging and execution-timer framework; complete CS50P final problem set; full Git commit review and README polishing.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Decorator & File I/O Project (4.0h)</strong> — Build a decorator-based logging and execution-timer framework; complete CS50P final problem set; full Git commit review and README polishing.",
             "is_rest": false
           },
           {
@@ -481,10 +481,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Verbal & Mixed Practice** — Verbal: Error Detection and Correction (Basic & Advance) + Mixed Quant M1–M2 revision test",
-            "ref": "Verbal & Mixed Practice",
-            "title": "Verbal: Error Detection and Correction (Basic &amp; Advance)",
-            "desc": "Mixed Quant M1–M2 revision test",
-            "html": "<strong class=\"text-on-surface font-semibold\">Verbal &amp; Mixed Practice</strong> — Verbal: Error Detection and Correction (Basic &amp; Advance) + Mixed Quant M1–M2 revision test",
+            "ref": "",
+            "title": "Verbal & Mixed Practice",
+            "desc": "Verbal: Error Detection and Correction (Basic & Advance) + Mixed Quant M1–M2 revision test",
+            "html": "<strong class=\"text-on-surface font-semibold\">Verbal & Mixed Practice</strong> — Verbal: Error Detection and Correction (Basic & Advance) + Mixed Quant M1–M2 revision test",
             "is_rest": false
           }
         ]
@@ -516,8 +516,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Recursion theory + concepts with parameters, sum of first N numbers",
             "ref": "",
-            "title": "Recursion theory",
-            "desc": "concepts with parameters, sum of first N numbers",
+            "title": "Recursion theory + concepts with parameters, sum of first N numbers",
+            "desc": "",
             "html": "Recursion theory + concepts with parameters, sum of first N numbers",
             "is_rest": false
           },
@@ -546,8 +546,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Recursion: factorial, sum of array-II, reverse a string-I",
             "ref": "",
-            "title": "Recursion: factorial, sum of array-II, reverse a string-I",
-            "desc": "",
+            "title": "Recursion",
+            "desc": "factorial, sum of array-II, reverse a string-I",
             "html": "Recursion: factorial, sum of array-II, reverse a string-I",
             "is_rest": false
           },
@@ -558,9 +558,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Abstraction, Interfaces & Static Members** — Abstraction + Interfaces + Static Keyword + Inner Classes + TUF+ Quizzes & code practice",
             "ref": "",
-            "title": "Abstraction, Interfaces &amp; Static Members",
-            "desc": "Abstraction + Interfaces + Static Keyword + Inner Classes + TUF+ Quizzes &amp; code practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Abstraction, Interfaces &amp; Static Members</strong> — Abstraction + Interfaces + Static Keyword + Inner Classes + TUF+ Quizzes &amp; code practice",
+            "title": "Abstraction, Interfaces & Static Members",
+            "desc": "Abstraction + Interfaces + Static Keyword + Inner Classes + TUF+ Quizzes & code practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Abstraction, Interfaces & Static Members</strong> — Abstraction + Interfaces + Static Keyword + Inner Classes + TUF+ Quizzes & code practice",
             "is_rest": false
           }
         ]
@@ -576,8 +576,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Recursion: check palindrome, check prime, reverse array",
             "ref": "",
-            "title": "Recursion: check palindrome, check prime, reverse array",
-            "desc": "",
+            "title": "Recursion",
+            "desc": "check palindrome, check prime, reverse array",
             "html": "Recursion: check palindrome, check prime, reverse array",
             "is_rest": false
           },
@@ -606,8 +606,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Recursion: check sorted-II, sum of digits, Fibonacci",
             "ref": "",
-            "title": "Recursion: check sorted-II, sum of digits, Fibonacci",
-            "desc": "",
+            "title": "Recursion",
+            "desc": "check sorted-II, sum of digits, Fibonacci",
             "html": "Recursion: check sorted-II, sum of digits, Fibonacci",
             "is_rest": false
           },
@@ -618,9 +618,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**OOP Advanced & Java Internals** — Association, Aggregation, Composition + Object Cloning + Exception Handling (Java) + Generics + File Handling (Java) + Quizzes — **OOPs fully done**",
             "ref": "",
-            "title": "OOP Advanced &amp; Java Internals",
+            "title": "OOP Advanced & Java Internals",
             "desc": "Association, Aggregation, Composition + Object Cloning + Exception Handling (Java) + Generics + File Handling (Java) + Quizzes — <strong class=\"text-on-surface font-semibold\">OOPs fully done</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">OOP Advanced &amp; Java Internals</strong> — Association, Aggregation, Composition + Object Cloning + Exception Handling (Java) + Generics + File Handling (Java) + Quizzes — <strong class=\"text-on-surface font-semibold\">OOPs fully done</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">OOP Advanced & Java Internals</strong> — Association, Aggregation, Composition + Object Cloning + Exception Handling (Java) + Generics + File Handling (Java) + Quizzes — <strong class=\"text-on-surface font-semibold\">OOPs fully done</strong>",
             "is_rest": false
           }
         ]
@@ -647,10 +647,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Linear Algebra Begins (Intuition)** — **3Blue1Brown — Essence of Linear Algebra** (youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) Ep. 1 (\"Vectors, what even are they?\"), Ep. 2–3 (Linear combinations, span, basis vectors), and Ep. 4 (Linear transformations & matrices)",
-            "ref": "3Blue1Brown — Essence of Linear Algebra",
+            "ref": "",
             "title": "Linear Algebra Begins (Intuition)",
-            "desc": "[YouTube] Ep. 1 (\"Vectors, what even are they?\"), Ep. 2–3 (Linear combinations, span, basis vectors), and Ep. 4 (Linear transformations &amp; matrices)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra Begins (Intuition)</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Linear Algebra</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[YouTube]</a>) Ep. 1 (\"Vectors, what even are they?\"), Ep. 2–3 (Linear combinations, span, basis vectors), and Ep. 4 (Linear transformations &amp; matrices)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Linear Algebra</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) Ep. 1 (\"Vectors, what even are they?\"), Ep. 2–3 (Linear combinations, span, basis vectors), and Ep. 4 (Linear transformations & matrices)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra Begins (Intuition)</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Linear Algebra</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) Ep. 1 (\"Vectors, what even are they?\"), Ep. 2–3 (Linear combinations, span, basis vectors), and Ep. 4 (Linear transformations & matrices)",
             "is_rest": false
           }
         ]
@@ -689,10 +689,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M3 & Verbal** — Quant M3 Work & Wages (Basic & Advance) + Verbal: Fill in the Blanks (Basic & Advance)",
-            "ref": "Quant M3 & Verbal",
-            "title": "Quant M3 Work &amp; Wages (Basic &amp; Advance)",
-            "desc": "Verbal: Fill in the Blanks (Basic &amp; Advance)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M3 &amp; Verbal</strong> — Quant M3 Work &amp; Wages (Basic &amp; Advance) + Verbal: Fill in the Blanks (Basic &amp; Advance)",
+            "ref": "",
+            "title": "Quant M3 & Verbal",
+            "desc": "Quant M3 Work & Wages (Basic & Advance) + Verbal: Fill in the Blanks (Basic & Advance)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M3 & Verbal</strong> — Quant M3 Work & Wages (Basic & Advance) + Verbal: Fill in the Blanks (Basic & Advance)",
             "is_rest": false
           }
         ]
@@ -708,8 +708,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Quick Sort + **revision:** mixed recursion + sorting problems",
             "ref": "",
-            "title": "Quick Sort",
-            "desc": "<strong class=\"text-on-surface font-semibold\">revision:</strong> mixed recursion + sorting problems",
+            "title": "Quick Sort + <strong class=\"text-on-surface font-semibold\">revision:</strong> mixed recursion + sorting problems",
+            "desc": "",
             "html": "Quick Sort + <strong class=\"text-on-surface font-semibold\">revision:</strong> mixed recursion + sorting problems",
             "is_rest": false
           },
@@ -731,10 +731,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Full Week Test** — Logical: Data Sufficiency (Basic & Advance) + mixed timed revision test (Quant M1–3)",
-            "ref": "Logical & Full Week Test",
-            "title": "Logical: Data Sufficiency (Basic &amp; Advance)",
-            "desc": "mixed timed revision test (Quant M1–3)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Full Week Test</strong> — Logical: Data Sufficiency (Basic &amp; Advance) + mixed timed revision test (Quant M1–3)",
+            "ref": "",
+            "title": "Logical & Full Week Test",
+            "desc": "Logical: Data Sufficiency (Basic & Advance) + mixed timed revision test (Quant M1–3)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Full Week Test</strong> — Logical: Data Sufficiency (Basic & Advance) + mixed timed revision test (Quant M1–3)",
             "is_rest": false
           }
         ]
@@ -744,7 +744,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w3_deliv_1",
         "raw_text": "**Deliverable:** OOPs (Java) complete — pass the TUF+ OOPs quizzes at >90%. Two real from-scratch Python projects on GitHub. You've started seeing vectors visually.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> OOPs (Java) complete — pass the TUF+ OOPs quizzes at &gt;90%. Two real from-scratch Python projects on GitHub. You've started seeing vectors visually."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> OOPs (Java) complete — pass the TUF+ OOPs quizzes at >90%. Two real from-scratch Python projects on GitHub. You've started seeing vectors visually."
       }
     ],
     "notes": []
@@ -766,8 +766,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Arrays Fundamentals: Linear Search, Largest Element",
             "ref": "",
-            "title": "Arrays Fundamentals: Linear Search, Largest Element",
-            "desc": "",
+            "title": "Arrays Fundamentals",
+            "desc": "Linear Search, Largest Element",
             "html": "Arrays Fundamentals: Linear Search, Largest Element",
             "is_rest": false
           },
@@ -778,9 +778,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Linear Algebra: Transformations & Spaces** — 3Blue1Brown Ep. 5 (Matrix multiplication as composition), Ep. 6–7 (3D transformations, determinants), and Ep. 8–9 (Inverse matrices, column space, null space, rank)",
             "ref": "",
-            "title": "Linear Algebra: Transformations &amp; Spaces",
+            "title": "Linear Algebra: Transformations & Spaces",
             "desc": "3Blue1Brown Ep. 5 (Matrix multiplication as composition), Ep. 6–7 (3D transformations, determinants), and Ep. 8–9 (Inverse matrices, column space, null space, rank)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra: Transformations &amp; Spaces</strong> — 3Blue1Brown Ep. 5 (Matrix multiplication as composition), Ep. 6–7 (3D transformations, determinants), and Ep. 8–9 (Inverse matrices, column space, null space, rank)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra: Transformations & Spaces</strong> — 3Blue1Brown Ep. 5 (Matrix multiplication as composition), Ep. 6–7 (3D transformations, determinants), and Ep. 8–9 (Inverse matrices, column space, null space, rank)",
             "is_rest": false
           }
         ]
@@ -808,9 +808,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**DBMS Foundations & Architecture** — Data, Information & Database; Types of Databases; Advantages/Disadvantages of DBMS; Data Abstraction & 3-Tier DBMS Architecture + Quiz: Intro to DBMS",
             "ref": "",
-            "title": "DBMS Foundations &amp; Architecture",
-            "desc": "Data, Information &amp; Database; Types of Databases; Advantages/Disadvantages of DBMS; Data Abstraction &amp; 3-Tier DBMS Architecture + Quiz: Intro to DBMS",
-            "html": "<strong class=\"text-on-surface font-semibold\">DBMS Foundations &amp; Architecture</strong> — Data, Information &amp; Database; Types of Databases; Advantages/Disadvantages of DBMS; Data Abstraction &amp; 3-Tier DBMS Architecture + Quiz: Intro to DBMS",
+            "title": "DBMS Foundations & Architecture",
+            "desc": "Data, Information & Database; Types of Databases; Advantages/Disadvantages of DBMS; Data Abstraction & 3-Tier DBMS Architecture + Quiz: Intro to DBMS",
+            "html": "<strong class=\"text-on-surface font-semibold\">DBMS Foundations & Architecture</strong> — Data, Information & Database; Types of Databases; Advantages/Disadvantages of DBMS; Data Abstraction & 3-Tier DBMS Architecture + Quiz: Intro to DBMS",
             "is_rest": false
           }
         ]
@@ -838,9 +838,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Linear Algebra: Dot Products & Eigenvalues** — 3Blue1Brown Ep. 10–11 (Dot products and duality, cross products) + Ep. 14 (Eigenvectors and eigenvalues)",
             "ref": "",
-            "title": "Linear Algebra: Dot Products &amp; Eigenvalues",
+            "title": "Linear Algebra: Dot Products & Eigenvalues",
             "desc": "3Blue1Brown Ep. 10–11 (Dot products and duality, cross products) + Ep. 14 (Eigenvectors and eigenvalues)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra: Dot Products &amp; Eigenvalues</strong> — 3Blue1Brown Ep. 10–11 (Dot products and duality, cross products) + Ep. 14 (Eigenvectors and eigenvalues)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra: Dot Products & Eigenvalues</strong> — 3Blue1Brown Ep. 10–11 (Dot products and duality, cross products) + Ep. 14 (Eigenvectors and eigenvalues)",
             "is_rest": false
           }
         ]
@@ -856,8 +856,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Logic Building: Move Zeros to End, Remove Duplicates from Sorted Array",
             "ref": "",
-            "title": "Logic Building: Move Zeros to End, Remove Duplicates from Sorted Array",
-            "desc": "",
+            "title": "Logic Building",
+            "desc": "Move Zeros to End, Remove Duplicates from Sorted Array",
             "html": "Logic Building: Move Zeros to End, Remove Duplicates from Sorted Array",
             "is_rest": false
           },
@@ -868,9 +868,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Data Models & ER Modeling** — Data Models and Their Types; ER Model and its Components; Types of Relationships in DBMS; Extended ER Features & Inheritance",
             "ref": "",
-            "title": "Data Models &amp; ER Modeling",
-            "desc": "Data Models and Their Types; ER Model and its Components; Types of Relationships in DBMS; Extended ER Features &amp; Inheritance",
-            "html": "<strong class=\"text-on-surface font-semibold\">Data Models &amp; ER Modeling</strong> — Data Models and Their Types; ER Model and its Components; Types of Relationships in DBMS; Extended ER Features &amp; Inheritance",
+            "title": "Data Models & ER Modeling",
+            "desc": "Data Models and Their Types; ER Model and its Components; Types of Relationships in DBMS; Extended ER Features & Inheritance",
+            "html": "<strong class=\"text-on-surface font-semibold\">Data Models & ER Modeling</strong> — Data Models and Their Types; ER Model and its Components; Types of Relationships in DBMS; Extended ER Features & Inheritance",
             "is_rest": false
           }
         ]
@@ -897,10 +897,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Linear Algebra Mastery & Math Drill** — **Khan Academy Linear Algebra** (khanacademy.org/math/linear-algebra) mixed vector/matrix practice set + **Level-up drill**: take a 2-variable quadratic function $f(x, y) = x^2 + y^2$, compute its gradient by hand at a point $(2, 3)$ — explain what a matrix \"does\" to space out loud",
-            "ref": "Khan Academy Linear Algebra",
-            "title": "Linear Algebra Mastery &amp; Math Drill",
-            "desc": "(<a href=\"https://khanacademy.org/math/linear-algebra\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a>) mixed vector/matrix practice set + <strong class=\"text-on-surface font-semibold\">Level-up drill</strong>: take a 2-variable quadratic function $f(x, y) = x^2 + y^2$, compute its gradient by hand at a point $(2, 3)$ — explain what a matrix \"does\" to space out loud",
-            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra Mastery &amp; Math Drill</strong> — <strong class=\"text-on-surface font-semibold\">Khan Academy Linear Algebra</strong> (<a href=\"https://khanacademy.org/math/linear-algebra\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a>) mixed vector/matrix practice set + <strong class=\"text-on-surface font-semibold\">Level-up drill</strong>: take a 2-variable quadratic function $f(x, y) = x^2 + y^2$, compute its gradient by hand at a point $(2, 3)$ — explain what a matrix \"does\" to space out loud",
+            "ref": "",
+            "title": "Linear Algebra Mastery & Math Drill",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Khan Academy Linear Algebra</strong> (<a href=\"https://khanacademy.org/math/linear-algebra\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[Khan Academy]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) mixed vector/matrix practice set + <strong class=\"text-on-surface font-semibold\">Level-up drill</strong>: take a 2-variable quadratic function <span class=\"font-mono text-[11px] text-primary\">f(x, y) = x<sup>2</sup> + y<sup>2</sup></span>, compute its gradient by hand at a point <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">(2, 3)</code> — explain what a matrix \"does\" to space out loud",
+            "html": "<strong class=\"text-on-surface font-semibold\">Linear Algebra Mastery & Math Drill</strong> — <strong class=\"text-on-surface font-semibold\">Khan Academy Linear Algebra</strong> (<a href=\"https://khanacademy.org/math/linear-algebra\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[Khan Academy]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) mixed vector/matrix practice set + <strong class=\"text-on-surface font-semibold\">Level-up drill</strong>: take a 2-variable quadratic function <span class=\"font-mono text-[11px] text-primary\">f(x, y) = x<sup>2</sup> + y<sup>2</sup></span>, compute its gradient by hand at a point <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">(2, 3)</code> — explain what a matrix \"does\" to space out loud",
             "is_rest": false
           }
         ]
@@ -916,8 +916,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Intersection of Two Sorted Arrays + revise all Fundamentals/Logic Building",
             "ref": "",
-            "title": "Intersection of Two Sorted Arrays",
-            "desc": "revise all Fundamentals/Logic Building",
+            "title": "Intersection of Two Sorted Arrays + revise all Fundamentals/Logic Building",
+            "desc": "",
             "html": "Intersection of Two Sorted Arrays + revise all Fundamentals/Logic Building",
             "is_rest": false
           },
@@ -928,9 +928,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Khan Academy & Matrix Calculus Drill (4.0h)** — Solve 15 matrix multiplication, rank, null-space, and eigenvalue problems on Khan Academy; compute 2-variable function gradients by hand.",
             "ref": "",
-            "title": "Khan Academy &amp; Matrix Calculus Drill (4.0h)",
+            "title": "Khan Academy & Matrix Calculus Drill (4.0h)",
             "desc": "Solve 15 matrix multiplication, rank, null-space, and eigenvalue problems on Khan Academy; compute 2-variable function gradients by hand.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Khan Academy &amp; Matrix Calculus Drill (4.0h)</strong> — Solve 15 matrix multiplication, rank, null-space, and eigenvalue problems on Khan Academy; compute 2-variable function gradients by hand.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Khan Academy & Matrix Calculus Drill (4.0h)</strong> — Solve 15 matrix multiplication, rank, null-space, and eigenvalue problems on Khan Academy; compute 2-variable function gradients by hand.",
             "is_rest": false
           },
           {
@@ -939,10 +939,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M4 & Verbal** — Quant M4 Pipes and Cisterns (Theory, Basic & Advance) + Verbal: Jumbled Words/Paragraphs (Basic & Advance)",
-            "ref": "Quant M4 & Verbal",
-            "title": "Quant M4 Pipes and Cisterns (Theory, Basic &amp; Advance)",
-            "desc": "Verbal: Jumbled Words/Paragraphs (Basic &amp; Advance)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M4 &amp; Verbal</strong> — Quant M4 Pipes and Cisterns (Theory, Basic &amp; Advance) + Verbal: Jumbled Words/Paragraphs (Basic &amp; Advance)",
+            "ref": "",
+            "title": "Quant M4 & Verbal",
+            "desc": "Quant M4 Pipes and Cisterns (Theory, Basic & Advance) + Verbal: Jumbled Words/Paragraphs (Basic & Advance)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M4 & Verbal</strong> — Quant M4 Pipes and Cisterns (Theory, Basic & Advance) + Verbal: Jumbled Words/Paragraphs (Basic & Advance)",
             "is_rest": false
           }
         ]
@@ -958,8 +958,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Revision + mixed practice:** all of this week's array problems, timed",
             "ref": "",
-            "title": "**Revision",
-            "desc": "mixed practice:** all of this week's array problems, timed",
+            "title": "Revision + mixed practice",
+            "desc": "all of this week's array problems, timed",
             "html": "<strong class=\"text-on-surface font-semibold\">Revision + mixed practice:</strong> all of this week's array problems, timed",
             "is_rest": false
           },
@@ -971,8 +971,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Gradient Descent Verification from Scratch (4.0h)** — Write a Python script to compute finite-difference approximations of gradients and verify your analytical derivatives on $f(x,y)=x^2+3y^2+2xy$; visualize contour plots.",
             "ref": "",
             "title": "Gradient Descent Verification from Scratch (4.0h)",
-            "desc": "Write a Python script to compute finite-difference approximations of gradients and verify your analytical derivatives on $f(x,y)=x^2+3y^2+2xy$; visualize contour plots.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Gradient Descent Verification from Scratch (4.0h)</strong> — Write a Python script to compute finite-difference approximations of gradients and verify your analytical derivatives on $f(x,y)=x^2+3y^2+2xy$; visualize contour plots.",
+            "desc": "Write a Python script to compute finite-difference approximations of gradients and verify your analytical derivatives on <span class=\"font-mono text-[11px] text-primary\">f(x,y)=x<sup>2</sup>+3y<sup>2</sup>+2xy</span>; visualize contour plots.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Gradient Descent Verification from Scratch (4.0h)</strong> — Write a Python script to compute finite-difference approximations of gradients and verify your analytical derivatives on <span class=\"font-mono text-[11px] text-primary\">f(x,y)=x<sup>2</sup>+3y<sup>2</sup>+2xy</span>; visualize contour plots.",
             "is_rest": false
           },
           {
@@ -981,10 +981,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Revision** — Logical: Assumptions and Conclusions, Courses of Action (Basic & Advance) + mixed weekly revision test",
-            "ref": "Logical & Revision",
-            "title": "Logical: Assumptions and Conclusions, Courses of Action (Basic &amp; Advance)",
-            "desc": "mixed weekly revision test",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Revision</strong> — Logical: Assumptions and Conclusions, Courses of Action (Basic &amp; Advance) + mixed weekly revision test",
+            "ref": "",
+            "title": "Logical & Revision",
+            "desc": "Logical: Assumptions and Conclusions, Courses of Action (Basic & Advance) + mixed weekly revision test",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Revision</strong> — Logical: Assumptions and Conclusions, Courses of Action (Basic & Advance) + mixed weekly revision test",
             "is_rest": false
           }
         ]
@@ -1027,10 +1027,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Calculus Foundations (Intuition)** — **3Blue1Brown — Essence of Calculus** (youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr) Ep. 1–4 (derivatives as rates of change, chain rule, product rule visually)",
-            "ref": "3Blue1Brown — Essence of Calculus",
+            "ref": "",
             "title": "Calculus Foundations (Intuition)",
-            "desc": "[YouTube] Ep. 1–4 (derivatives as rates of change, chain rule, product rule visually)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Calculus Foundations (Intuition)</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Calculus</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[YouTube]</a>) Ep. 1–4 (derivatives as rates of change, chain rule, product rule visually)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Calculus</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) Ep. 1–4 (derivatives as rates of change, chain rule, product rule visually)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Calculus Foundations (Intuition)</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Essence of Calculus</strong> (<a href=\"https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>) Ep. 1–4 (derivatives as rates of change, chain rule, product rule visually)",
             "is_rest": false
           }
         ]
@@ -1088,9 +1088,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Calculus to Python & Statistics Intro** — 3Blue1Brown Ep. 5–7 (implicit differentiation, limits) + **Level-up Python check**: verify Monday's hand-computed gradient numerically in Python (finite-difference check) + **StatQuest** & **Khan Academy**: mean, median, mode, variance, standard deviation",
             "ref": "",
-            "title": "Calculus to Python &amp; Statistics Intro",
-            "desc": "3Blue1Brown Ep. 5–7 (implicit differentiation, limits) + <strong class=\"text-on-surface font-semibold\">Level-up Python check</strong>: verify Monday's hand-computed gradient numerically in Python (finite-difference check) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong> &amp; <strong class=\"text-on-surface font-semibold\">Khan Academy</strong>: mean, median, mode, variance, standard deviation",
-            "html": "<strong class=\"text-on-surface font-semibold\">Calculus to Python &amp; Statistics Intro</strong> — 3Blue1Brown Ep. 5–7 (implicit differentiation, limits) + <strong class=\"text-on-surface font-semibold\">Level-up Python check</strong>: verify Monday's hand-computed gradient numerically in Python (finite-difference check) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong> &amp; <strong class=\"text-on-surface font-semibold\">Khan Academy</strong>: mean, median, mode, variance, standard deviation",
+            "title": "Calculus to Python & Statistics Intro",
+            "desc": "3Blue1Brown Ep. 5–7 (implicit differentiation, limits) + <strong class=\"text-on-surface font-semibold\">Level-up Python check</strong>: verify Monday's hand-computed gradient numerically in Python (finite-difference check) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong> & <strong class=\"text-on-surface font-semibold\">Khan Academy</strong>: mean, median, mode, variance, standard deviation",
+            "html": "<strong class=\"text-on-surface font-semibold\">Calculus to Python & Statistics Intro</strong> — 3Blue1Brown Ep. 5–7 (implicit differentiation, limits) + <strong class=\"text-on-surface font-semibold\">Level-up Python check</strong>: verify Monday's hand-computed gradient numerically in Python (finite-difference check) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong> & <strong class=\"text-on-surface font-semibold\">Khan Academy</strong>: mean, median, mode, variance, standard deviation",
             "is_rest": false
           }
         ]
@@ -1118,9 +1118,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Relational Normalization & Concurrency Foundations** — Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
             "ref": "",
-            "title": "Relational Normalization &amp; Concurrency Foundations",
+            "title": "Relational Normalization & Concurrency Foundations",
             "desc": "Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Relational Normalization &amp; Concurrency Foundations</strong> — Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Relational Normalization & Concurrency Foundations</strong> — Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
             "is_rest": false
           }
         ]
@@ -1148,9 +1148,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Probability & Distributions** — Khan Academy & StatQuest: probability basics, normal distribution, central limit theorem, sampling + explain \"what is variance\" and gradient descent building blocks out loud",
             "ref": "",
-            "title": "Probability &amp; Distributions",
-            "desc": "Khan Academy &amp; StatQuest: probability basics, normal distribution, central limit theorem, sampling + explain \"what is variance\" and gradient descent building blocks out loud",
-            "html": "<strong class=\"text-on-surface font-semibold\">Probability &amp; Distributions</strong> — Khan Academy &amp; StatQuest: probability basics, normal distribution, central limit theorem, sampling + explain \"what is variance\" and gradient descent building blocks out loud",
+            "title": "Probability & Distributions",
+            "desc": "Khan Academy & StatQuest: probability basics, normal distribution, central limit theorem, sampling + explain \"what is variance\" and gradient descent building blocks out loud",
+            "html": "<strong class=\"text-on-surface font-semibold\">Probability & Distributions</strong> — Khan Academy & StatQuest: probability basics, normal distribution, central limit theorem, sampling + explain \"what is variance\" and gradient descent building blocks out loud",
             "is_rest": false
           }
         ]
@@ -1178,9 +1178,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Probability & Statistics Simulation Lab (4.0h)** — Code Monte Carlo simulations in Python to demonstrate Central Limit Theorem, Normal Distribution, and Law of Large Numbers; plot histograms with Matplotlib.",
             "ref": "",
-            "title": "Probability &amp; Statistics Simulation Lab (4.0h)",
+            "title": "Probability & Statistics Simulation Lab (4.0h)",
             "desc": "Code Monte Carlo simulations in Python to demonstrate Central Limit Theorem, Normal Distribution, and Law of Large Numbers; plot histograms with Matplotlib.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Probability &amp; Statistics Simulation Lab (4.0h)</strong> — Code Monte Carlo simulations in Python to demonstrate Central Limit Theorem, Normal Distribution, and Law of Large Numbers; plot histograms with Matplotlib.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Probability & Statistics Simulation Lab (4.0h)</strong> — Code Monte Carlo simulations in Python to demonstrate Central Limit Theorem, Normal Distribution, and Law of Large Numbers; plot histograms with Matplotlib.",
             "is_rest": false
           },
           {
@@ -1189,10 +1189,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M5 & Verbal** — Quant M5 Time, Speed and Distance (Basic & Advance) + Verbal: Antonyms and Synonyms (Basic & Advance)",
-            "ref": "Quant M5 & Verbal",
-            "title": "Quant M5 Time, Speed and Distance (Basic &amp; Advance)",
-            "desc": "Verbal: Antonyms and Synonyms (Basic &amp; Advance)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M5 &amp; Verbal</strong> — Quant M5 Time, Speed and Distance (Basic &amp; Advance) + Verbal: Antonyms and Synonyms (Basic &amp; Advance)",
+            "ref": "",
+            "title": "Quant M5 & Verbal",
+            "desc": "Quant M5 Time, Speed and Distance (Basic & Advance) + Verbal: Antonyms and Synonyms (Basic & Advance)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M5 & Verbal</strong> — Quant M5 Time, Speed and Distance (Basic & Advance) + Verbal: Antonyms and Synonyms (Basic & Advance)",
             "is_rest": false
           }
         ]
@@ -1208,8 +1208,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Revision:** redo Two Sum/3 Sum/4 Sum without looking at solutions",
             "ref": "",
-            "title": "Revision: redo Two Sum/3 Sum/4 Sum without looking at solutions",
-            "desc": "",
+            "title": "Revision",
+            "desc": "redo Two Sum/3 Sum/4 Sum without looking at solutions",
             "html": "<strong class=\"text-on-surface font-semibold\">Revision:</strong> redo Two Sum/3 Sum/4 Sum without looking at solutions",
             "is_rest": false
           },
@@ -1220,9 +1220,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 1 Math & Python Capstone Synthesis (4.0h)** — Comprehensive 4-hour review: build a tiny linear regression optimizer using pure math & Python; explain vectors, determinants, and gradient descent out loud.",
             "ref": "",
-            "title": "Phase 1 Math &amp; Python Capstone Synthesis (4.0h)",
-            "desc": "Comprehensive 4-hour review: build a tiny linear regression optimizer using pure math &amp; Python; explain vectors, determinants, and gradient descent out loud.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 1 Math &amp; Python Capstone Synthesis (4.0h)</strong> — Comprehensive 4-hour review: build a tiny linear regression optimizer using pure math &amp; Python; explain vectors, determinants, and gradient descent out loud.",
+            "title": "Phase 1 Math & Python Capstone Synthesis (4.0h)",
+            "desc": "Comprehensive 4-hour review: build a tiny linear regression optimizer using pure math & Python; explain vectors, determinants, and gradient descent out loud.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 1 Math & Python Capstone Synthesis (4.0h)</strong> — Comprehensive 4-hour review: build a tiny linear regression optimizer using pure math & Python; explain vectors, determinants, and gradient descent out loud.",
             "is_rest": false
           },
           {
@@ -1231,10 +1231,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical Puzzles & Full Phase 1 Revision** — Logical: Puzzles (Basic & Advance) + Full revision self-test: Quant M1–5, Logical L1–4, Verbal V1–5",
-            "ref": "Logical Puzzles & Full Phase 1 Revision",
-            "title": "Logical: Puzzles (Basic &amp; Advance)",
-            "desc": "Full revision self-test: Quant M1–5, Logical L1–4, Verbal V1–5",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical Puzzles &amp; Full Phase 1 Revision</strong> — Logical: Puzzles (Basic &amp; Advance) + Full revision self-test: Quant M1–5, Logical L1–4, Verbal V1–5",
+            "ref": "",
+            "title": "Logical Puzzles & Full Phase 1 Revision",
+            "desc": "Logical: Puzzles (Basic & Advance) + Full revision self-test: Quant M1–5, Logical L1–4, Verbal V1–5",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical Puzzles & Full Phase 1 Revision</strong> — Logical: Puzzles (Basic & Advance) + Full revision self-test: Quant M1–5, Logical L1–4, Verbal V1–5",
             "is_rest": false
           }
         ]
@@ -1249,7 +1249,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w5_deliv_2",
         "raw_text": "DSA: Language basics, patterns, time complexity, concept basics, recursion, sorting, Arrays-I & FAQs (Medium, partial) — done",
-        "html": "DSA: Language basics, patterns, time complexity, concept basics, recursion, sorting, Arrays-I &amp; FAQs (Medium, partial) — done"
+        "html": "DSA: Language basics, patterns, time complexity, concept basics, recursion, sorting, Arrays-I & FAQs (Medium, partial) — done"
       },
       {
         "id": "w5_deliv_3",
@@ -1268,7 +1268,7 @@ window.ROADMAP_DATA = [
       }
     ],
     "notes": [
-      "Run a 1-hour <strong class=\"text-on-surface font-semibold\">self-test Sunday evening</strong>: solve 3 random DSA problems from this phase from memory, answer 5 OOPs/DBMS quiz questions, and explain gradient descent's building blocks (derivative $\\rightarrow$ gradient) out loud.",
+      "Run a 1-hour <strong class=\"text-on-surface font-semibold\">self-test Sunday evening</strong>: solve 3 random DSA problems from this phase from memory, answer 5 OOPs/DBMS quiz questions, and explain gradient descent's building blocks (derivative &rarr; gradient) out loud.",
       "Next: <strong class=\"text-on-surface font-semibold\">Phase 2 — Weeks 6–10</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">02_Phase2_Weeks_06-10.md</code>)"
     ]
   },
@@ -1332,8 +1332,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**SQL Foundations** — Intro to SQL, Why SQL Exists, How Databases Work, DDL vs DML, Database & Table Basics, Data Types, Constraints (Primary/Foreign Key, Unique, Check, Default)",
             "ref": "",
             "title": "SQL Foundations",
-            "desc": "Intro to SQL, Why SQL Exists, How Databases Work, DDL vs DML, Database &amp; Table Basics, Data Types, Constraints (Primary/Foreign Key, Unique, Check, Default)",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL Foundations</strong> — Intro to SQL, Why SQL Exists, How Databases Work, DDL vs DML, Database &amp; Table Basics, Data Types, Constraints (Primary/Foreign Key, Unique, Check, Default)",
+            "desc": "Intro to SQL, Why SQL Exists, How Databases Work, DDL vs DML, Database & Table Basics, Data Types, Constraints (Primary/Foreign Key, Unique, Check, Default)",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL Foundations</strong> — Intro to SQL, Why SQL Exists, How Databases Work, DDL vs DML, Database & Table Basics, Data Types, Constraints (Primary/Foreign Key, Unique, Check, Default)",
             "is_rest": false
           }
         ]
@@ -1391,9 +1391,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Query Fundamentals & Practice** — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + **TRIM() / LTRIM() / RTRIM()** + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, **Odd Non-Boring Movies**, **Exceeding Tweet Length**",
             "ref": "",
-            "title": "Query Fundamentals &amp; Practice",
+            "title": "Query Fundamentals & Practice",
             "desc": "SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + <strong class=\"text-on-surface font-semibold\">TRIM() / LTRIM() / RTRIM()</strong> + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, <strong class=\"text-on-surface font-semibold\">Odd Non-Boring Movies</strong>, <strong class=\"text-on-surface font-semibold\">Exceeding Tweet Length</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Query Fundamentals &amp; Practice</strong> — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + <strong class=\"text-on-surface font-semibold\">TRIM() / LTRIM() / RTRIM()</strong> + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, <strong class=\"text-on-surface font-semibold\">Odd Non-Boring Movies</strong>, <strong class=\"text-on-surface font-semibold\">Exceeding Tweet Length</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Query Fundamentals & Practice</strong> — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + <strong class=\"text-on-surface font-semibold\">TRIM() / LTRIM() / RTRIM()</strong> + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, <strong class=\"text-on-surface font-semibold\">Odd Non-Boring Movies</strong>, <strong class=\"text-on-surface font-semibold\">Exceeding Tweet Length</strong>",
             "is_rest": false
           }
         ]
@@ -1421,9 +1421,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Data Visualization & First Kaggle EDA Project** — Matplotlib & Seaborn crash course (freeCodeCamp YouTube) + set up Kaggle account + perform full **Exploratory Data Analysis (EDA)** on a real dataset (e.g. Titanic) + push notebook with README to GitHub",
             "ref": "",
-            "title": "Data Visualization &amp; First Kaggle EDA Project",
-            "desc": "Matplotlib &amp; Seaborn crash course (freeCodeCamp YouTube) + set up Kaggle account + perform full <strong class=\"text-on-surface font-semibold\">Exploratory Data Analysis (EDA)</strong> on a real dataset (e.g. Titanic) + push notebook with README to GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Data Visualization &amp; First Kaggle EDA Project</strong> — Matplotlib &amp; Seaborn crash course (freeCodeCamp YouTube) + set up Kaggle account + perform full <strong class=\"text-on-surface font-semibold\">Exploratory Data Analysis (EDA)</strong> on a real dataset (e.g. Titanic) + push notebook with README to GitHub",
+            "title": "Data Visualization & First Kaggle EDA Project",
+            "desc": "Matplotlib & Seaborn crash course (freeCodeCamp YouTube) + set up Kaggle account + perform full <strong class=\"text-on-surface font-semibold\">Exploratory Data Analysis (EDA)</strong> on a real dataset (e.g. Titanic) + push notebook with README to GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Data Visualization & First Kaggle EDA Project</strong> — Matplotlib & Seaborn crash course (freeCodeCamp YouTube) + set up Kaggle account + perform full <strong class=\"text-on-surface font-semibold\">Exploratory Data Analysis (EDA)</strong> on a real dataset (e.g. Titanic) + push notebook with README to GitHub",
             "is_rest": false
           }
         ]
@@ -1451,9 +1451,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**NumPy & Pandas Intensive Lab (4.0h)** — Kaggle Learn \"Python\" & \"Pandas\" micro-courses (earn certificates); complete 20 vector manipulation exercises in Jupyter notebook.",
             "ref": "",
-            "title": "NumPy &amp; Pandas Intensive Lab (4.0h)",
-            "desc": "Kaggle Learn \"Python\" &amp; \"Pandas\" micro-courses (earn certificates); complete 20 vector manipulation exercises in Jupyter notebook.",
-            "html": "<strong class=\"text-on-surface font-semibold\">NumPy &amp; Pandas Intensive Lab (4.0h)</strong> — Kaggle Learn \"Python\" &amp; \"Pandas\" micro-courses (earn certificates); complete 20 vector manipulation exercises in Jupyter notebook.",
+            "title": "NumPy & Pandas Intensive Lab (4.0h)",
+            "desc": "Kaggle Learn \"Python\" & \"Pandas\" micro-courses (earn certificates); complete 20 vector manipulation exercises in Jupyter notebook.",
+            "html": "<strong class=\"text-on-surface font-semibold\">NumPy & Pandas Intensive Lab (4.0h)</strong> — Kaggle Learn \"Python\" & \"Pandas\" micro-courses (earn certificates); complete 20 vector manipulation exercises in Jupyter notebook.",
             "is_rest": false
           },
           {
@@ -1462,10 +1462,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M6 & Verbal** — Quant M6 Trains, Boats and Streams (Basic & Advance) + Verbal: Idioms and Phrases (Basic & Advance)",
-            "ref": "Quant M6 & Verbal",
-            "title": "Quant M6 Trains, Boats and Streams (Basic &amp; Advance)",
-            "desc": "Verbal: Idioms and Phrases (Basic &amp; Advance)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M6 &amp; Verbal</strong> — Quant M6 Trains, Boats and Streams (Basic &amp; Advance) + Verbal: Idioms and Phrases (Basic &amp; Advance)",
+            "ref": "",
+            "title": "Quant M6 & Verbal",
+            "desc": "Quant M6 Trains, Boats and Streams (Basic & Advance) + Verbal: Idioms and Phrases (Basic & Advance)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M6 & Verbal</strong> — Quant M6 Trains, Boats and Streams (Basic & Advance) + Verbal: Idioms and Phrases (Basic & Advance)",
             "is_rest": false
           }
         ]
@@ -1481,8 +1481,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Revision + Contest:** redo 3 array problems cold",
             "ref": "",
-            "title": "Revision + Contest: redo 3 array problems cold",
-            "desc": "",
+            "title": "Revision + Contest",
+            "desc": "redo 3 array problems cold",
             "html": "<strong class=\"text-on-surface font-semibold\">Revision + Contest:</strong> redo 3 array problems cold",
             "is_rest": false
           },
@@ -1504,10 +1504,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & SQL Query Practice** — Logical: Syllogism (Basic & Advance) + Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + solve: Non-Referred Customers, Employee Work Time Summary",
-            "ref": "Logical & SQL Query Practice",
-            "title": "Logical: Syllogism (Basic &amp; Advance)",
-            "desc": "Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + solve: Non-Referred Customers, Employee Work Time Summary",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; SQL Query Practice</strong> — Logical: Syllogism (Basic &amp; Advance) + Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + solve: Non-Referred Customers, Employee Work Time Summary",
+            "ref": "",
+            "title": "Logical & SQL Query Practice",
+            "desc": "Logical: Syllogism (Basic & Advance) + Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + solve: Non-Referred Customers, Employee Work Time Summary",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & SQL Query Practice</strong> — Logical: Syllogism (Basic & Advance) + Filtering Essentials (IS NULL, IN, BETWEEN, LIKE) + solve: Non-Referred Customers, Employee Work Time Summary",
             "is_rest": false
           }
         ]
@@ -1550,9 +1550,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Feature Engineering 1: Missing Data** — **CampusX \"100 Days of ML\"** (YouTube): Complete Case Analysis, Mean/Median imputation, Arbitrary value imputation, End of Distribution imputation, Missing Indicator",
-            "ref": "CampusX \"100 Days of ML\"",
+            "ref": "",
             "title": "Feature Engineering 1: Missing Data",
-            "desc": "(YouTube): Complete Case Analysis, Mean/Median imputation, Arbitrary value imputation, End of Distribution imputation, Missing Indicator",
+            "desc": "<strong class=\"text-on-surface font-semibold\">CampusX \"100 Days of ML\"</strong> (YouTube): Complete Case Analysis, Mean/Median imputation, Arbitrary value imputation, End of Distribution imputation, Missing Indicator",
             "html": "<strong class=\"text-on-surface font-semibold\">Feature Engineering 1: Missing Data</strong> — <strong class=\"text-on-surface font-semibold\">CampusX \"100 Days of ML\"</strong> (YouTube): Complete Case Analysis, Mean/Median imputation, Arbitrary value imputation, End of Distribution imputation, Missing Indicator",
             "is_rest": false
           }
@@ -1611,9 +1611,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Feature Engineering 2: Encoding & Scaling** — CampusX: Categorical Encoding (One-Hot Encoding, Label Encoding, Ordinal Encoding, Target Encoding) + Feature Scaling (Standardization vs MinMax Normalization)",
             "ref": "",
-            "title": "Feature Engineering 2: Encoding &amp; Scaling",
+            "title": "Feature Engineering 2: Encoding & Scaling",
             "desc": "CampusX: Categorical Encoding (One-Hot Encoding, Label Encoding, Ordinal Encoding, Target Encoding) + Feature Scaling (Standardization vs MinMax Normalization)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Feature Engineering 2: Encoding &amp; Scaling</strong> — CampusX: Categorical Encoding (One-Hot Encoding, Label Encoding, Ordinal Encoding, Target Encoding) + Feature Scaling (Standardization vs MinMax Normalization)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Feature Engineering 2: Encoding & Scaling</strong> — CampusX: Categorical Encoding (One-Hot Encoding, Label Encoding, Ordinal Encoding, Target Encoding) + Feature Scaling (Standardization vs MinMax Normalization)",
             "is_rest": false
           }
         ]
@@ -1641,9 +1641,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**SQL Functions & Conditional Logic** — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, **Instant Food Delivery**",
             "ref": "",
-            "title": "SQL Functions &amp; Conditional Logic",
+            "title": "SQL Functions & Conditional Logic",
             "desc": "Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, <strong class=\"text-on-surface font-semibold\">Instant Food Delivery</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL Functions &amp; Conditional Logic</strong> — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, <strong class=\"text-on-surface font-semibold\">Instant Food Delivery</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL Functions & Conditional Logic</strong> — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, <strong class=\"text-on-surface font-semibold\">Instant Food Delivery</strong>",
             "is_rest": false
           }
         ]
@@ -1671,9 +1671,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Feature Engineering 3: Outliers & Intuition** — CampusX: Outlier detection & handling (Z-score treatment, IQR method, Winsorization) + matching **StatQuest** videos + clean and feature-engineer a new raw dataset end-to-end",
             "ref": "",
-            "title": "Feature Engineering 3: Outliers &amp; Intuition",
-            "desc": "CampusX: Outlier detection &amp; handling (Z-score treatment, IQR method, Winsorization) + matching <strong class=\"text-on-surface font-semibold\">StatQuest</strong> videos + clean and feature-engineer a new raw dataset end-to-end",
-            "html": "<strong class=\"text-on-surface font-semibold\">Feature Engineering 3: Outliers &amp; Intuition</strong> — CampusX: Outlier detection &amp; handling (Z-score treatment, IQR method, Winsorization) + matching <strong class=\"text-on-surface font-semibold\">StatQuest</strong> videos + clean and feature-engineer a new raw dataset end-to-end",
+            "title": "Feature Engineering 3: Outliers & Intuition",
+            "desc": "CampusX: Outlier detection & handling (Z-score treatment, IQR method, Winsorization) + matching <strong class=\"text-on-surface font-semibold\">StatQuest</strong> videos + clean and feature-engineer a new raw dataset end-to-end",
+            "html": "<strong class=\"text-on-surface font-semibold\">Feature Engineering 3: Outliers & Intuition</strong> — CampusX: Outlier detection & handling (Z-score treatment, IQR method, Winsorization) + matching <strong class=\"text-on-surface font-semibold\">StatQuest</strong> videos + clean and feature-engineer a new raw dataset end-to-end",
             "is_rest": false
           }
         ]
@@ -1712,10 +1712,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M7 & Verbal** — Quant M7 Percentage (Basic & Advance) + Verbal: Vocabulary and Grammar (Basic & Advance)",
-            "ref": "Quant M7 & Verbal",
-            "title": "Quant M7 Percentage (Basic &amp; Advance)",
-            "desc": "Verbal: Vocabulary and Grammar (Basic &amp; Advance)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M7 &amp; Verbal</strong> — Quant M7 Percentage (Basic &amp; Advance) + Verbal: Vocabulary and Grammar (Basic &amp; Advance)",
+            "ref": "",
+            "title": "Quant M7 & Verbal",
+            "desc": "Quant M7 Percentage (Basic & Advance) + Verbal: Vocabulary and Grammar (Basic & Advance)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M7 & Verbal</strong> — Quant M7 Percentage (Basic & Advance) + Verbal: Vocabulary and Grammar (Basic & Advance)",
             "is_rest": false
           }
         ]
@@ -1731,8 +1731,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Revision:** redo 2 hashing problems from memory",
             "ref": "",
-            "title": "Revision: redo 2 hashing problems from memory",
-            "desc": "",
+            "title": "Revision",
+            "desc": "redo 2 hashing problems from memory",
             "html": "<strong class=\"text-on-surface font-semibold\">Revision:</strong> redo 2 hashing problems from memory",
             "is_rest": false
           },
@@ -1743,9 +1743,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Andrew Ng ML Course 1 & StatQuest Drill (4.0h)** — Andrew Ng ML Spec Course 1 Week 1; StatQuest Feature Engineering exercises; document outlier handling strategies.",
             "ref": "",
-            "title": "Andrew Ng ML Course 1 &amp; StatQuest Drill (4.0h)",
+            "title": "Andrew Ng ML Course 1 & StatQuest Drill (4.0h)",
             "desc": "Andrew Ng ML Spec Course 1 Week 1; StatQuest Feature Engineering exercises; document outlier handling strategies.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Andrew Ng ML Course 1 &amp; StatQuest Drill (4.0h)</strong> — Andrew Ng ML Spec Course 1 Week 1; StatQuest Feature Engineering exercises; document outlier handling strategies.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Andrew Ng ML Course 1 & StatQuest Drill (4.0h)</strong> — Andrew Ng ML Spec Course 1 Week 1; StatQuest Feature Engineering exercises; document outlier handling strategies.",
             "is_rest": false
           },
           {
@@ -1754,10 +1754,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Andrew Ng ML** — Logical: Cubes (Basic & Advance) + **Andrew Ng Machine Learning Specialization** (Coursera) Course 1 Week 1 + String Functions (CONCAT, SUBSTRING, REPLACE, LIKE)",
-            "ref": "Logical & Andrew Ng ML",
-            "title": "Logical: Cubes (Basic &amp; Advance)",
-            "desc": "<strong class=\"text-on-surface font-semibold\">Andrew Ng Machine Learning Specialization</strong> (Coursera) Course 1 Week 1 + String Functions (CONCAT, SUBSTRING, REPLACE, LIKE)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Andrew Ng ML</strong> — Logical: Cubes (Basic &amp; Advance) + <strong class=\"text-on-surface font-semibold\">Andrew Ng Machine Learning Specialization</strong> (Coursera) Course 1 Week 1 + String Functions (CONCAT, SUBSTRING, REPLACE, LIKE)",
+            "ref": "",
+            "title": "Logical & Andrew Ng ML",
+            "desc": "Logical: Cubes (Basic & Advance) + <strong class=\"text-on-surface font-semibold\">Andrew Ng Machine Learning Specialization</strong> (Coursera) Course 1 Week 1 + String Functions (CONCAT, SUBSTRING, REPLACE, LIKE)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Andrew Ng ML</strong> — Logical: Cubes (Basic & Advance) + <strong class=\"text-on-surface font-semibold\">Andrew Ng Machine Learning Specialization</strong> (Coursera) Course 1 Week 1 + String Functions (CONCAT, SUBSTRING, REPLACE, LIKE)",
             "is_rest": false
           }
         ]
@@ -1801,9 +1801,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Linear Regression: Math & Simple Model** — CampusX: Simple Linear Regression, cost function, Ordinary Least Squares (OLS) closed-form solution vs Gradient Descent intuition",
             "ref": "",
-            "title": "Linear Regression: Math &amp; Simple Model",
+            "title": "Linear Regression: Math & Simple Model",
             "desc": "CampusX: Simple Linear Regression, cost function, Ordinary Least Squares (OLS) closed-form solution vs Gradient Descent intuition",
-            "html": "<strong class=\"text-on-surface font-semibold\">Linear Regression: Math &amp; Simple Model</strong> — CampusX: Simple Linear Regression, cost function, Ordinary Least Squares (OLS) closed-form solution vs Gradient Descent intuition",
+            "html": "<strong class=\"text-on-surface font-semibold\">Linear Regression: Math & Simple Model</strong> — CampusX: Simple Linear Regression, cost function, Ordinary Least Squares (OLS) closed-form solution vs Gradient Descent intuition",
             "is_rest": false
           }
         ]
@@ -1831,9 +1831,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Editing & Merging Data** — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + **Unions in SQL** (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, **Inactive Sellers**",
             "ref": "",
-            "title": "Editing &amp; Merging Data",
+            "title": "Editing & Merging Data",
             "desc": "INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + <strong class=\"text-on-surface font-semibold\">Unions in SQL</strong> (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, <strong class=\"text-on-surface font-semibold\">Inactive Sellers</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Editing &amp; Merging Data</strong> — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + <strong class=\"text-on-surface font-semibold\">Unions in SQL</strong> (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, <strong class=\"text-on-surface font-semibold\">Inactive Sellers</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Editing & Merging Data</strong> — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + <strong class=\"text-on-surface font-semibold\">Unions in SQL</strong> (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, <strong class=\"text-on-surface font-semibold\">Inactive Sellers</strong>",
             "is_rest": false
           }
         ]
@@ -1861,9 +1861,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Multiple Linear Regression & Gradient Descent** — CampusX: Multiple Linear Regression, Batch Gradient Descent, Stochastic Gradient Descent, Mini-Batch Gradient Descent + **StatQuest**: \"Linear Regression, Clearly Explained\" & \"Gradient Descent, Step-by-Step\"",
             "ref": "",
-            "title": "Multiple Linear Regression &amp; Gradient Descent",
-            "desc": "CampusX: Multiple Linear Regression, Batch Gradient Descent, Stochastic Gradient Descent, Mini-Batch Gradient Descent + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Linear Regression, Clearly Explained\" &amp; \"Gradient Descent, Step-by-Step\"",
-            "html": "<strong class=\"text-on-surface font-semibold\">Multiple Linear Regression &amp; Gradient Descent</strong> — CampusX: Multiple Linear Regression, Batch Gradient Descent, Stochastic Gradient Descent, Mini-Batch Gradient Descent + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Linear Regression, Clearly Explained\" &amp; \"Gradient Descent, Step-by-Step\"",
+            "title": "Multiple Linear Regression & Gradient Descent",
+            "desc": "CampusX: Multiple Linear Regression, Batch Gradient Descent, Stochastic Gradient Descent, Mini-Batch Gradient Descent + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Linear Regression, Clearly Explained\" & \"Gradient Descent, Step-by-Step\"",
+            "html": "<strong class=\"text-on-surface font-semibold\">Multiple Linear Regression & Gradient Descent</strong> — CampusX: Multiple Linear Regression, Batch Gradient Descent, Stochastic Gradient Descent, Mini-Batch Gradient Descent + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Linear Regression, Clearly Explained\" & \"Gradient Descent, Step-by-Step\"",
             "is_rest": false
           }
         ]
@@ -1921,9 +1921,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Regularization & Scratch Implementation** — CampusX: Ridge (L2), Lasso (L1), ElasticNet + StatQuest: \"Ridge vs Lasso\" + **Scratch implementation**: Code Linear Regression with Gradient Descent in raw NumPy without scikit-learn; push to a new `ml-from-scratch` GitHub repo",
             "ref": "",
-            "title": "Regularization &amp; Scratch Implementation",
+            "title": "Regularization & Scratch Implementation",
             "desc": "CampusX: Ridge (L2), Lasso (L1), ElasticNet + StatQuest: \"Ridge vs Lasso\" + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Linear Regression with Gradient Descent in raw NumPy without scikit-learn; push to a new <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> GitHub repo",
-            "html": "<strong class=\"text-on-surface font-semibold\">Regularization &amp; Scratch Implementation</strong> — CampusX: Ridge (L2), Lasso (L1), ElasticNet + StatQuest: \"Ridge vs Lasso\" + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Linear Regression with Gradient Descent in raw NumPy without scikit-learn; push to a new <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> GitHub repo",
+            "html": "<strong class=\"text-on-surface font-semibold\">Regularization & Scratch Implementation</strong> — CampusX: Ridge (L2), Lasso (L1), ElasticNet + StatQuest: \"Ridge vs Lasso\" + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Linear Regression with Gradient Descent in raw NumPy without scikit-learn; push to a new <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> GitHub repo",
             "is_rest": false
           }
         ]
@@ -1952,8 +1952,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**`ml-from-scratch` Linear Regression Lab (4.0h)** — Code Batch, Mini-Batch, and Stochastic Gradient Descent in raw NumPy from scratch with $R^2$ and MSE loss metrics.",
             "ref": "",
             "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> Linear Regression Lab (4.0h)",
-            "desc": "Code Batch, Mini-Batch, and Stochastic Gradient Descent in raw NumPy from scratch with $R^2$ and MSE loss metrics.",
-            "html": "<strong class=\"text-on-surface font-semibold\"><code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> Linear Regression Lab (4.0h)</strong> — Code Batch, Mini-Batch, and Stochastic Gradient Descent in raw NumPy from scratch with $R^2$ and MSE loss metrics.",
+            "desc": "Code Batch, Mini-Batch, and Stochastic Gradient Descent in raw NumPy from scratch with <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">R<sup>2</sup></code> and MSE loss metrics.",
+            "html": "<strong class=\"text-on-surface font-semibold\"><code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> Linear Regression Lab (4.0h)</strong> — Code Batch, Mini-Batch, and Stochastic Gradient Descent in raw NumPy from scratch with <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">R<sup>2</sup></code> and MSE loss metrics.",
             "is_rest": false
           },
           {
@@ -1962,10 +1962,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M8 & Verbal** — Quant M8 Ratio and Proportion (Basic & Advance) + Verbal: One Word Substitution (Basic & Advance — **Verbal Ability complete!**)",
-            "ref": "Quant M8 & Verbal",
-            "title": "Quant M8 Ratio and Proportion (Basic &amp; Advance)",
-            "desc": "Verbal: One Word Substitution (Basic &amp; Advance — <strong class=\"text-on-surface font-semibold\">Verbal Ability complete!</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M8 &amp; Verbal</strong> — Quant M8 Ratio and Proportion (Basic &amp; Advance) + Verbal: One Word Substitution (Basic &amp; Advance — <strong class=\"text-on-surface font-semibold\">Verbal Ability complete!</strong>)",
+            "ref": "",
+            "title": "Quant M8 & Verbal",
+            "desc": "Quant M8 Ratio and Proportion (Basic & Advance) + Verbal: One Word Substitution (Basic & Advance — <strong class=\"text-on-surface font-semibold\">Verbal Ability complete!</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M8 & Verbal</strong> — Quant M8 Ratio and Proportion (Basic & Advance) + Verbal: One Word Substitution (Basic & Advance — <strong class=\"text-on-surface font-semibold\">Verbal Ability complete!</strong>)",
             "is_rest": false
           }
         ]
@@ -1981,8 +1981,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Single element in a sorted array + **revision:** all Binary Search Fundamentals/Logic Building so far",
             "ref": "",
-            "title": "Single element in a sorted array",
-            "desc": "<strong class=\"text-on-surface font-semibold\">revision:</strong> all Binary Search Fundamentals/Logic Building so far",
+            "title": "Single element in a sorted array + <strong class=\"text-on-surface font-semibold\">revision:</strong> all Binary Search Fundamentals/Logic Building so far",
+            "desc": "",
             "html": "Single element in a sorted array + <strong class=\"text-on-surface font-semibold\">revision:</strong> all Binary Search Fundamentals/Logic Building so far",
             "is_rest": false
           },
@@ -1993,9 +1993,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Regularization & Polynomial Regression Lab (4.0h)** — Implement L1 (Lasso) and L2 (Ridge) penalty terms from scratch in your NumPy Linear Regression; visualize decision boundaries and over-fitting.",
             "ref": "",
-            "title": "Regularization &amp; Polynomial Regression Lab (4.0h)",
+            "title": "Regularization & Polynomial Regression Lab (4.0h)",
             "desc": "Implement L1 (Lasso) and L2 (Ridge) penalty terms from scratch in your NumPy Linear Regression; visualize decision boundaries and over-fitting.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Regularization &amp; Polynomial Regression Lab (4.0h)</strong> — Implement L1 (Lasso) and L2 (Ridge) penalty terms from scratch in your NumPy Linear Regression; visualize decision boundaries and over-fitting.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Regularization & Polynomial Regression Lab (4.0h)</strong> — Implement L1 (Lasso) and L2 (Ridge) penalty terms from scratch in your NumPy Linear Regression; visualize decision boundaries and over-fitting.",
             "is_rest": false
           },
           {
@@ -2004,10 +2004,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Joins Level-2** — Logical: Alphanumeric Series (Basic & Advance) + Andrew Ng ML Spec Course 1 Week 2 + solve Level-2 Joins: Sales Analysis, Minimum Distance Between Points, Views in SQL",
-            "ref": "Logical & Joins Level-2",
-            "title": "Logical: Alphanumeric Series (Basic &amp; Advance)",
-            "desc": "Andrew Ng ML Spec Course 1 Week 2 + solve Level-2 Joins: Sales Analysis, Minimum Distance Between Points, Views in SQL",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Joins Level-2</strong> — Logical: Alphanumeric Series (Basic &amp; Advance) + Andrew Ng ML Spec Course 1 Week 2 + solve Level-2 Joins: Sales Analysis, Minimum Distance Between Points, Views in SQL",
+            "ref": "",
+            "title": "Logical & Joins Level-2",
+            "desc": "Logical: Alphanumeric Series (Basic & Advance) + Andrew Ng ML Spec Course 1 Week 2 + solve Level-2 Joins: Sales Analysis, Minimum Distance Between Points, Views in SQL",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Joins Level-2</strong> — Logical: Alphanumeric Series (Basic & Advance) + Andrew Ng ML Spec Course 1 Week 2 + solve Level-2 Joins: Sales Analysis, Minimum Distance Between Points, Views in SQL",
             "is_rest": false
           }
         ]
@@ -2051,9 +2051,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Logistic Regression: Theory & Sigmoid** — CampusX: Why not Linear Regression for classification? The Sigmoid function, Odds, Log-Odds, Maximum Likelihood Estimation (MLE), Binary Cross-Entropy Loss",
             "ref": "",
-            "title": "Logistic Regression: Theory &amp; Sigmoid",
+            "title": "Logistic Regression: Theory & Sigmoid",
             "desc": "CampusX: Why not Linear Regression for classification? The Sigmoid function, Odds, Log-Odds, Maximum Likelihood Estimation (MLE), Binary Cross-Entropy Loss",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logistic Regression: Theory &amp; Sigmoid</strong> — CampusX: Why not Linear Regression for classification? The Sigmoid function, Odds, Log-Odds, Maximum Likelihood Estimation (MLE), Binary Cross-Entropy Loss",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logistic Regression: Theory & Sigmoid</strong> — CampusX: Why not Linear Regression for classification? The Sigmoid function, Odds, Log-Odds, Maximum Likelihood Estimation (MLE), Binary Cross-Entropy Loss",
             "is_rest": false
           }
         ]
@@ -2081,9 +2081,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Advanced Joins & Views** — Views in SQL, Materialized Views + solve Level-2/Level-3 joins: Team Size, Average Experience by Project, Students in Non-Existent Departments, Low Bonus Employees",
             "ref": "",
-            "title": "Advanced Joins &amp; Views",
+            "title": "Advanced Joins & Views",
             "desc": "Views in SQL, Materialized Views + solve Level-2/Level-3 joins: Team Size, Average Experience by Project, Students in Non-Existent Departments, Low Bonus Employees",
-            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Joins &amp; Views</strong> — Views in SQL, Materialized Views + solve Level-2/Level-3 joins: Team Size, Average Experience by Project, Students in Non-Existent Departments, Low Bonus Employees",
+            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Joins & Views</strong> — Views in SQL, Materialized Views + solve Level-2/Level-3 joins: Team Size, Average Experience by Project, Students in Non-Existent Departments, Low Bonus Employees",
             "is_rest": false
           }
         ]
@@ -2111,9 +2111,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Logistic Regression: Intuition & Multiclass** — StatQuest: \"Logistic Regression, Clearly Explained\" + Andrew Ng ML Spec Course 1 Week 3 (classification, decision boundary, regularization) + Multiclass classification (One-vs-Rest, Softmax)",
             "ref": "",
-            "title": "Logistic Regression: Intuition &amp; Multiclass",
+            "title": "Logistic Regression: Intuition & Multiclass",
             "desc": "StatQuest: \"Logistic Regression, Clearly Explained\" + Andrew Ng ML Spec Course 1 Week 3 (classification, decision boundary, regularization) + Multiclass classification (One-vs-Rest, Softmax)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logistic Regression: Intuition &amp; Multiclass</strong> — StatQuest: \"Logistic Regression, Clearly Explained\" + Andrew Ng ML Spec Course 1 Week 3 (classification, decision boundary, regularization) + Multiclass classification (One-vs-Rest, Softmax)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logistic Regression: Intuition & Multiclass</strong> — StatQuest: \"Logistic Regression, Clearly Explained\" + Andrew Ng ML Spec Course 1 Week 3 (classification, decision boundary, regularization) + Multiclass classification (One-vs-Rest, Softmax)",
             "is_rest": false
           }
         ]
@@ -2171,9 +2171,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Evaluation Metrics & Scratch Implementation** — Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC curve + **Scratch implementation**: Code Logistic Regression with Gradient Descent in raw NumPy; add to `ml-from-scratch` repo",
             "ref": "",
-            "title": "Evaluation Metrics &amp; Scratch Implementation",
+            "title": "Evaluation Metrics & Scratch Implementation",
             "desc": "Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC curve + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Logistic Regression with Gradient Descent in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo",
-            "html": "<strong class=\"text-on-surface font-semibold\">Evaluation Metrics &amp; Scratch Implementation</strong> — Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC curve + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Logistic Regression with Gradient Descent in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo",
+            "html": "<strong class=\"text-on-surface font-semibold\">Evaluation Metrics & Scratch Implementation</strong> — Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC curve + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code Logistic Regression with Gradient Descent in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo",
             "is_rest": false
           }
         ]
@@ -2212,10 +2212,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M9 & Verbal** — Quant M9 Partnership (Basic & Advance) + Verbal: Mixed Practice Set (all 8 topics)",
-            "ref": "Quant M9 & Verbal",
-            "title": "Quant M9 Partnership (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice Set (all 8 topics)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M9 &amp; Verbal</strong> — Quant M9 Partnership (Basic &amp; Advance) + Verbal: Mixed Practice Set (all 8 topics)",
+            "ref": "",
+            "title": "Quant M9 & Verbal",
+            "desc": "Quant M9 Partnership (Basic & Advance) + Verbal: Mixed Practice Set (all 8 topics)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M9 & Verbal</strong> — Quant M9 Partnership (Basic & Advance) + Verbal: Mixed Practice Set (all 8 topics)",
             "is_rest": false
           }
         ]
@@ -2254,10 +2254,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Query Optimization** — Logical: Reasoning Analogy (Basic & Advance) + DBMS: Query Processing, Query Optimization, Indexes in SQL + solve: First Device Logged In, Salespersons Without RED Orders",
-            "ref": "Logical & Query Optimization",
-            "title": "Logical: Reasoning Analogy (Basic &amp; Advance)",
-            "desc": "DBMS: Query Processing, Query Optimization, Indexes in SQL + solve: First Device Logged In, Salespersons Without RED Orders",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Query Optimization</strong> — Logical: Reasoning Analogy (Basic &amp; Advance) + DBMS: Query Processing, Query Optimization, Indexes in SQL + solve: First Device Logged In, Salespersons Without RED Orders",
+            "ref": "",
+            "title": "Logical & Query Optimization",
+            "desc": "Logical: Reasoning Analogy (Basic & Advance) + DBMS: Query Processing, Query Optimization, Indexes in SQL + solve: First Device Logged In, Salespersons Without RED Orders",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Query Optimization</strong> — Logical: Reasoning Analogy (Basic & Advance) + DBMS: Query Processing, Query Optimization, Indexes in SQL + solve: First Device Logged In, Salespersons Without RED Orders",
             "is_rest": false
           }
         ]
@@ -2331,9 +2331,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Subqueries Level-2 & NoSQL Intro** — solve Subqueries Level-2 & 3: Employees with Highest Salary in Department, Safe Investment Countries, Tennis Grand Slam Winners + DBMS: NoSQL Databases overview",
             "ref": "",
-            "title": "Subqueries Level-2 &amp; NoSQL Intro",
-            "desc": "solve Subqueries Level-2 &amp; 3: Employees with Highest Salary in Department, Safe Investment Countries, Tennis Grand Slam Winners + DBMS: NoSQL Databases overview",
-            "html": "<strong class=\"text-on-surface font-semibold\">Subqueries Level-2 &amp; NoSQL Intro</strong> — solve Subqueries Level-2 &amp; 3: Employees with Highest Salary in Department, Safe Investment Countries, Tennis Grand Slam Winners + DBMS: NoSQL Databases overview",
+            "title": "Subqueries Level-2 & NoSQL Intro",
+            "desc": "solve Subqueries Level-2 & 3: Employees with Highest Salary in Department, Safe Investment Countries, Tennis Grand Slam Winners + DBMS: NoSQL Databases overview",
+            "html": "<strong class=\"text-on-surface font-semibold\">Subqueries Level-2 & NoSQL Intro</strong> — solve Subqueries Level-2 & 3: Employees with Highest Salary in Department, Safe Investment Countries, Tennis Grand Slam Winners + DBMS: NoSQL Databases overview",
             "is_rest": false
           }
         ]
@@ -2361,9 +2361,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Decision Trees: Code & Visual Intuition** — StatQuest: \"Decision Trees, Clearly Explained\" + CampusX: scikit-learn `DecisionTreeClassifier` and `DecisionTreeRegressor`, tree visualization, hyperparameter tuning (`max_depth`, `min_samples_split`)",
             "ref": "",
-            "title": "Decision Trees: Code &amp; Visual Intuition",
+            "title": "Decision Trees: Code & Visual Intuition",
             "desc": "StatQuest: \"Decision Trees, Clearly Explained\" + CampusX: scikit-learn <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeClassifier</code> and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeRegressor</code>, tree visualization, hyperparameter tuning (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">min_samples_split</code>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Decision Trees: Code &amp; Visual Intuition</strong> — StatQuest: \"Decision Trees, Clearly Explained\" + CampusX: scikit-learn <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeClassifier</code> and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeRegressor</code>, tree visualization, hyperparameter tuning (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">min_samples_split</code>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Decision Trees: Code & Visual Intuition</strong> — StatQuest: \"Decision Trees, Clearly Explained\" + CampusX: scikit-learn <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeClassifier</code> and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DecisionTreeRegressor</code>, tree visualization, hyperparameter tuning (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">min_samples_split</code>)",
             "is_rest": false
           }
         ]
@@ -2391,9 +2391,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Common Table Expressions (CTEs) & Date Functions** — Non-Recursive & Recursive CTEs (WITH clause) + Date/Time functions (**Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF**, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, **Restaurant Payment Trends**, **Top Ratings in Feb 2020**",
             "ref": "",
-            "title": "Common Table Expressions (CTEs) &amp; Date Functions",
-            "desc": "Non-Recursive &amp; Recursive CTEs (WITH clause) + Date/Time functions (<strong class=\"text-on-surface font-semibold\">Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF</strong>, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, <strong class=\"text-on-surface font-semibold\">Restaurant Payment Trends</strong>, <strong class=\"text-on-surface font-semibold\">Top Ratings in Feb 2020</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Common Table Expressions (CTEs) &amp; Date Functions</strong> — Non-Recursive &amp; Recursive CTEs (WITH clause) + Date/Time functions (<strong class=\"text-on-surface font-semibold\">Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF</strong>, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, <strong class=\"text-on-surface font-semibold\">Restaurant Payment Trends</strong>, <strong class=\"text-on-surface font-semibold\">Top Ratings in Feb 2020</strong>",
+            "title": "Common Table Expressions (CTEs) & Date Functions",
+            "desc": "Non-Recursive & Recursive CTEs (WITH clause) + Date/Time functions (<strong class=\"text-on-surface font-semibold\">Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF</strong>, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, <strong class=\"text-on-surface font-semibold\">Restaurant Payment Trends</strong>, <strong class=\"text-on-surface font-semibold\">Top Ratings in Feb 2020</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Common Table Expressions (CTEs) & Date Functions</strong> — Non-Recursive & Recursive CTEs (WITH clause) + Date/Time functions (<strong class=\"text-on-surface font-semibold\">Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF</strong>, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, <strong class=\"text-on-surface font-semibold\">Restaurant Payment Trends</strong>, <strong class=\"text-on-surface font-semibold\">Top Ratings in Feb 2020</strong>",
             "is_rest": false
           }
         ]
@@ -2421,9 +2421,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Decision Trees: Andrew Ng & Scratch Code** — Andrew Ng ML Spec Course 2 (Decision Trees module) + **Scratch implementation**: Code a simplified Decision Tree (single-feature-split logic, Gini-based) in raw NumPy; add to `ml-from-scratch` + write synthesis notes explaining all 4 ML algorithms",
             "ref": "",
-            "title": "Decision Trees: Andrew Ng &amp; Scratch Code",
+            "title": "Decision Trees: Andrew Ng & Scratch Code",
             "desc": "Andrew Ng ML Spec Course 2 (Decision Trees module) + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code a simplified Decision Tree (single-feature-split logic, Gini-based) in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> + write synthesis notes explaining all 4 ML algorithms",
-            "html": "<strong class=\"text-on-surface font-semibold\">Decision Trees: Andrew Ng &amp; Scratch Code</strong> — Andrew Ng ML Spec Course 2 (Decision Trees module) + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code a simplified Decision Tree (single-feature-split logic, Gini-based) in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> + write synthesis notes explaining all 4 ML algorithms",
+            "html": "<strong class=\"text-on-surface font-semibold\">Decision Trees: Andrew Ng & Scratch Code</strong> — Andrew Ng ML Spec Course 2 (Decision Trees module) + <strong class=\"text-on-surface font-semibold\">Scratch implementation</strong>: Code a simplified Decision Tree (single-feature-split logic, Gini-based) in raw NumPy; add to <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> + write synthesis notes explaining all 4 ML algorithms",
             "is_rest": false
           }
         ]
@@ -2462,10 +2462,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M10 & Verbal** — Quant M10 Mixtures and Alligation (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M10 & Verbal",
-            "title": "Quant M10 Mixtures and Alligation (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M10 &amp; Verbal</strong> — Quant M10 Mixtures and Alligation (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M10 & Verbal",
+            "desc": "Quant M10 Mixtures and Alligation (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M10 & Verbal</strong> — Quant M10 Mixtures and Alligation (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -2481,8 +2481,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Phase 2 checkpoint:** redo 1 problem from each DSA topic this phase",
             "ref": "",
-            "title": "Phase 2 checkpoint: redo 1 problem from each DSA topic this phase",
-            "desc": "",
+            "title": "Phase 2 checkpoint",
+            "desc": "redo 1 problem from each DSA topic this phase",
             "html": "<strong class=\"text-on-surface font-semibold\">Phase 2 checkpoint:</strong> redo 1 problem from each DSA topic this phase",
             "is_rest": false
           },
@@ -2493,9 +2493,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 2 Classical ML Review & Kaggle Drill (4.0h)** — Kaggle Learn \"Intro to Machine Learning\" certificate; benchmark your scratch Decision Tree vs scikit-learn.",
             "ref": "",
-            "title": "Phase 2 Classical ML Review &amp; Kaggle Drill (4.0h)",
+            "title": "Phase 2 Classical ML Review & Kaggle Drill (4.0h)",
             "desc": "Kaggle Learn \"Intro to Machine Learning\" certificate; benchmark your scratch Decision Tree vs scikit-learn.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 2 Classical ML Review &amp; Kaggle Drill (4.0h)</strong> — Kaggle Learn \"Intro to Machine Learning\" certificate; benchmark your scratch Decision Tree vs scikit-learn.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 2 Classical ML Review & Kaggle Drill (4.0h)</strong> — Kaggle Learn \"Intro to Machine Learning\" certificate; benchmark your scratch Decision Tree vs scikit-learn.",
             "is_rest": false
           },
           {
@@ -2504,10 +2504,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Transactions/ACID** — Logical: Blood Relations (Basic & Advance) + DBMS: Transactions & Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + **Database Backups (Full, Differential, Transaction Log / WAL) & Recovery Management (Point-in-Time Recovery, RPO/RTO)** + Full Phase 2 revision",
-            "ref": "Logical & Transactions/ACID",
-            "title": "Logical: Blood Relations (Basic &amp; Advance)",
-            "desc": "DBMS: Transactions &amp; Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + <strong class=\"text-on-surface font-semibold\">Database Backups (Full, Differential, Transaction Log / WAL) &amp; Recovery Management (Point-in-Time Recovery, RPO/RTO)</strong> + Full Phase 2 revision",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Transactions/ACID</strong> — Logical: Blood Relations (Basic &amp; Advance) + DBMS: Transactions &amp; Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + <strong class=\"text-on-surface font-semibold\">Database Backups (Full, Differential, Transaction Log / WAL) &amp; Recovery Management (Point-in-Time Recovery, RPO/RTO)</strong> + Full Phase 2 revision",
+            "ref": "",
+            "title": "Logical & Transactions/ACID",
+            "desc": "Logical: Blood Relations (Basic & Advance) + DBMS: Transactions & Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + <strong class=\"text-on-surface font-semibold\">Database Backups (Full, Differential, Transaction Log / WAL) & Recovery Management (Point-in-Time Recovery, RPO/RTO)</strong> + Full Phase 2 revision",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Transactions/ACID</strong> — Logical: Blood Relations (Basic & Advance) + DBMS: Transactions & Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + <strong class=\"text-on-surface font-semibold\">Database Backups (Full, Differential, Transaction Log / WAL) & Recovery Management (Point-in-Time Recovery, RPO/RTO)</strong> + Full Phase 2 revision",
             "is_rest": false
           }
         ]
@@ -2572,9 +2572,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Ensembles 1: Bagging Foundations** — **CampusX \"100 Days of ML\"**: Bootstrap Aggregation (Bagging), Out-of-Bag (OOB) evaluation, how bagging reduces model variance + **StatQuest**: \"Bagging, Clearly Explained\"",
-            "ref": "CampusX \"100 Days of ML\"",
+            "ref": "",
             "title": "Ensembles 1: Bagging Foundations",
-            "desc": "Bootstrap Aggregation (Bagging), Out-of-Bag (OOB) evaluation, how bagging reduces model variance + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Bagging, Clearly Explained\"",
+            "desc": "<strong class=\"text-on-surface font-semibold\">CampusX \"100 Days of ML\"</strong>: Bootstrap Aggregation (Bagging), Out-of-Bag (OOB) evaluation, how bagging reduces model variance + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Bagging, Clearly Explained\"",
             "html": "<strong class=\"text-on-surface font-semibold\">Ensembles 1: Bagging Foundations</strong> — <strong class=\"text-on-surface font-semibold\">CampusX \"100 Days of ML\"</strong>: Bootstrap Aggregation (Bagging), Out-of-Bag (OOB) evaluation, how bagging reduces model variance + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Bagging, Clearly Explained\"",
             "is_rest": false
           }
@@ -2603,9 +2603,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**OS Foundations & Protection** — Why OS? **Types of Operating Systems** (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts & Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + **Quiz: Introduction to Operating Systems**",
             "ref": "",
-            "title": "OS Foundations &amp; Protection",
-            "desc": "Why OS? <strong class=\"text-on-surface font-semibold\">Types of Operating Systems</strong> (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts &amp; Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Operating Systems</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">OS Foundations &amp; Protection</strong> — Why OS? <strong class=\"text-on-surface font-semibold\">Types of Operating Systems</strong> (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts &amp; Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Operating Systems</strong>",
+            "title": "OS Foundations & Protection",
+            "desc": "Why OS? <strong class=\"text-on-surface font-semibold\">Types of Operating Systems</strong> (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts & Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Operating Systems</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">OS Foundations & Protection</strong> — Why OS? <strong class=\"text-on-surface font-semibold\">Types of Operating Systems</strong> (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts & Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Operating Systems</strong>",
             "is_rest": false
           }
         ]
@@ -2634,8 +2634,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Ensembles 2: Random Forest Depth** — CampusX: Random Forest algorithm, Feature Bagging (random feature subsets), Gini/Entropy in forests + **StatQuest**: \"Random Forest, Clearly Explained,\" Parts 1 & 2",
             "ref": "",
             "title": "Ensembles 2: Random Forest Depth",
-            "desc": "CampusX: Random Forest algorithm, Feature Bagging (random feature subsets), Gini/Entropy in forests + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Random Forest, Clearly Explained,\" Parts 1 &amp; 2",
-            "html": "<strong class=\"text-on-surface font-semibold\">Ensembles 2: Random Forest Depth</strong> — CampusX: Random Forest algorithm, Feature Bagging (random feature subsets), Gini/Entropy in forests + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Random Forest, Clearly Explained,\" Parts 1 &amp; 2",
+            "desc": "CampusX: Random Forest algorithm, Feature Bagging (random feature subsets), Gini/Entropy in forests + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Random Forest, Clearly Explained,\" Parts 1 & 2",
+            "html": "<strong class=\"text-on-surface font-semibold\">Ensembles 2: Random Forest Depth</strong> — CampusX: Random Forest algorithm, Feature Bagging (random feature subsets), Gini/Entropy in forests + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Random Forest, Clearly Explained,\" Parts 1 & 2",
             "is_rest": false
           }
         ]
@@ -2663,9 +2663,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Process Lifecycle, Daemon Processes & IPC** — Process Creation & Termination, `fork()`, `exec()`, `wait()`, `exit()`, Zombie & Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, `mmap`) + **Quiz - Daemons and IPC Basics**",
             "ref": "",
-            "title": "Process Lifecycle, Daemon Processes &amp; IPC",
-            "desc": "Process Creation &amp; Termination, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">fork()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exec()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">wait()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exit()</code>, Zombie &amp; Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">mmap</code>) + <strong class=\"text-on-surface font-semibold\">Quiz - Daemons and IPC Basics</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Process Lifecycle, Daemon Processes &amp; IPC</strong> — Process Creation &amp; Termination, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">fork()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exec()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">wait()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exit()</code>, Zombie &amp; Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">mmap</code>) + <strong class=\"text-on-surface font-semibold\">Quiz - Daemons and IPC Basics</strong>",
+            "title": "Process Lifecycle, Daemon Processes & IPC",
+            "desc": "Process Creation & Termination, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">fork()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exec()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">wait()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exit()</code>, Zombie & Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">mmap</code>) + <strong class=\"text-on-surface font-semibold\">Quiz - Daemons and IPC Basics</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Process Lifecycle, Daemon Processes & IPC</strong> — Process Creation & Termination, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">fork()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exec()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">wait()</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">exit()</code>, Zombie & Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">mmap</code>) + <strong class=\"text-on-surface font-semibold\">Quiz - Daemons and IPC Basics</strong>",
             "is_rest": false
           }
         ]
@@ -2693,9 +2693,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Ensembles 3: Hands-on & Andrew Ng** — scikit-learn: Train a `RandomForestClassifier`, tune `n_estimators`, `max_depth`, `max_features`; **Andrew Ng ML Spec** Course 2 (Tree Ensembles module) + explain variance reduction out loud",
             "ref": "",
-            "title": "Ensembles 3: Hands-on &amp; Andrew Ng",
+            "title": "Ensembles 3: Hands-on & Andrew Ng",
             "desc": "scikit-learn: Train a <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomForestClassifier</code>, tune <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">n_estimators</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_features</code>; <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> Course 2 (Tree Ensembles module) + explain variance reduction out loud",
-            "html": "<strong class=\"text-on-surface font-semibold\">Ensembles 3: Hands-on &amp; Andrew Ng</strong> — scikit-learn: Train a <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomForestClassifier</code>, tune <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">n_estimators</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_features</code>; <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> Course 2 (Tree Ensembles module) + explain variance reduction out loud",
+            "html": "<strong class=\"text-on-surface font-semibold\">Ensembles 3: Hands-on & Andrew Ng</strong> — scikit-learn: Train a <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomForestClassifier</code>, tune <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">n_estimators</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_depth</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">max_features</code>; <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> Course 2 (Tree Ensembles module) + explain variance reduction out loud",
             "is_rest": false
           }
         ]
@@ -2723,9 +2723,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Ensemble Methods Lab: Bagging & Random Forest (4.0h)** — Implement bootstrap aggregating and feature bagging from scratch; compare variance reduction against single Decision Tree.",
             "ref": "",
-            "title": "Ensemble Methods Lab: Bagging &amp; Random Forest (4.0h)",
+            "title": "Ensemble Methods Lab: Bagging & Random Forest (4.0h)",
             "desc": "Implement bootstrap aggregating and feature bagging from scratch; compare variance reduction against single Decision Tree.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Ensemble Methods Lab: Bagging &amp; Random Forest (4.0h)</strong> — Implement bootstrap aggregating and feature bagging from scratch; compare variance reduction against single Decision Tree.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Ensemble Methods Lab: Bagging & Random Forest (4.0h)</strong> — Implement bootstrap aggregating and feature bagging from scratch; compare variance reduction against single Decision Tree.",
             "is_rest": false
           },
           {
@@ -2734,10 +2734,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M11 & Verbal** — Quant M11 Algebra (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M11 & Verbal",
-            "title": "Quant M11 Algebra (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M11 &amp; Verbal</strong> — Quant M11 Algebra (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M11 & Verbal",
+            "desc": "Quant M11 Algebra (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M11 & Verbal</strong> — Quant M11 Algebra (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -2776,10 +2776,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & CPU Scheduling** — Logical: Calendars (Basic & Advance) + CPU Scheduling Basics (FCFS, SJF, SRTF, RR, Priority, Multi-level Queue) + mixed revision test",
-            "ref": "Logical & CPU Scheduling",
-            "title": "Logical: Calendars (Basic &amp; Advance)",
-            "desc": "CPU Scheduling Basics (FCFS, SJF, SRTF, RR, Priority, Multi-level Queue) + mixed revision test",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; CPU Scheduling</strong> — Logical: Calendars (Basic &amp; Advance) + CPU Scheduling Basics (FCFS, SJF, SRTF, RR, Priority, Multi-level Queue) + mixed revision test",
+            "ref": "",
+            "title": "Logical & CPU Scheduling",
+            "desc": "Logical: Calendars (Basic & Advance) + CPU Scheduling Basics (FCFS, SJF, SRTF, RR, Priority, Multi-level Queue) + mixed revision test",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & CPU Scheduling</strong> — Logical: Calendars (Basic & Advance) + CPU Scheduling Basics (FCFS, SJF, SRTF, RR, Priority, Multi-level Queue) + mixed revision test",
             "is_rest": false
           }
         ]
@@ -2853,9 +2853,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Advanced Scheduling & Kernel Types** — HRRN, Multilevel Feedback Queue Scheduling, Multicore Scheduling, Cache locality & NUMA + Kernel Structures (Monolithic vs Microkernel vs Hybrid) + Quiz",
             "ref": "",
-            "title": "Advanced Scheduling &amp; Kernel Types",
-            "desc": "HRRN, Multilevel Feedback Queue Scheduling, Multicore Scheduling, Cache locality &amp; NUMA + Kernel Structures (Monolithic vs Microkernel vs Hybrid) + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Scheduling &amp; Kernel Types</strong> — HRRN, Multilevel Feedback Queue Scheduling, Multicore Scheduling, Cache locality &amp; NUMA + Kernel Structures (Monolithic vs Microkernel vs Hybrid) + Quiz",
+            "title": "Advanced Scheduling & Kernel Types",
+            "desc": "HRRN, Multilevel Feedback Queue Scheduling, Multicore Scheduling, Cache locality & NUMA + Kernel Structures (Monolithic vs Microkernel vs Hybrid) + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Scheduling & Kernel Types</strong> — HRRN, Multilevel Feedback Queue Scheduling, Multicore Scheduling, Cache locality & NUMA + Kernel Structures (Monolithic vs Microkernel vs Hybrid) + Quiz",
             "is_rest": false
           }
         ]
@@ -2913,9 +2913,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Threads & Critical Section Problem** — User-level vs Kernel-level threads, POSIX threads, Thread pools, Race conditions, Critical section requirements (Mutual exclusion, Progress, Bounded waiting) + Quiz",
             "ref": "",
-            "title": "Threads &amp; Critical Section Problem",
+            "title": "Threads & Critical Section Problem",
             "desc": "User-level vs Kernel-level threads, POSIX threads, Thread pools, Race conditions, Critical section requirements (Mutual exclusion, Progress, Bounded waiting) + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Threads &amp; Critical Section Problem</strong> — User-level vs Kernel-level threads, POSIX threads, Thread pools, Race conditions, Critical section requirements (Mutual exclusion, Progress, Bounded waiting) + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Threads & Critical Section Problem</strong> — User-level vs Kernel-level threads, POSIX threads, Thread pools, Race conditions, Critical section requirements (Mutual exclusion, Progress, Bounded waiting) + Quiz",
             "is_rest": false
           }
         ]
@@ -2943,9 +2943,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Boosting 3: XGBoost & Hands-on** — CampusX: Extreme Gradient Boosting (XGBoost), regularized objective, second-order Taylor expansion, tree pruning, handling missing values + **StatQuest**: \"XGBoost,\" Parts 1–4 + hands-on Python `xgboost`",
             "ref": "",
-            "title": "Boosting 3: XGBoost &amp; Hands-on",
+            "title": "Boosting 3: XGBoost & Hands-on",
             "desc": "CampusX: Extreme Gradient Boosting (XGBoost), regularized objective, second-order Taylor expansion, tree pruning, handling missing values + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"XGBoost,\" Parts 1–4 + hands-on Python <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">xgboost</code>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Boosting 3: XGBoost &amp; Hands-on</strong> — CampusX: Extreme Gradient Boosting (XGBoost), regularized objective, second-order Taylor expansion, tree pruning, handling missing values + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"XGBoost,\" Parts 1–4 + hands-on Python <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">xgboost</code>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Boosting 3: XGBoost & Hands-on</strong> — CampusX: Extreme Gradient Boosting (XGBoost), regularized objective, second-order Taylor expansion, tree pruning, handling missing values + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"XGBoost,\" Parts 1–4 + hands-on Python <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">xgboost</code>",
             "is_rest": false
           }
         ]
@@ -2973,9 +2973,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Boosting Algorithms Lab: AdaBoost & Gradient Boosting (4.0h)** — Implement simplified AdaBoost from scratch; understand pseudo-residuals in Gradient Boosting; tune learning rate.",
             "ref": "",
-            "title": "Boosting Algorithms Lab: AdaBoost &amp; Gradient Boosting (4.0h)",
+            "title": "Boosting Algorithms Lab: AdaBoost & Gradient Boosting (4.0h)",
             "desc": "Implement simplified AdaBoost from scratch; understand pseudo-residuals in Gradient Boosting; tune learning rate.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Boosting Algorithms Lab: AdaBoost &amp; Gradient Boosting (4.0h)</strong> — Implement simplified AdaBoost from scratch; understand pseudo-residuals in Gradient Boosting; tune learning rate.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Boosting Algorithms Lab: AdaBoost & Gradient Boosting (4.0h)</strong> — Implement simplified AdaBoost from scratch; understand pseudo-residuals in Gradient Boosting; tune learning rate.",
             "is_rest": false
           },
           {
@@ -2984,10 +2984,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M12 & Verbal** — Quant M12 Average (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M12 & Verbal",
-            "title": "Quant M12 Average (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M12 &amp; Verbal</strong> — Quant M12 Average (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M12 & Verbal",
+            "desc": "Quant M12 Average (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M12 & Verbal</strong> — Quant M12 Average (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -3003,7 +3003,7 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Sudoku Solver + Contest + **full Recursion revision**",
             "ref": "",
-            "title": "Sudoku Solver + Contest + full Recursion revision",
+            "title": "Sudoku Solver + Contest + <strong class=\"text-on-surface font-semibold\">full Recursion revision</strong>",
             "desc": "",
             "html": "Sudoku Solver + Contest + <strong class=\"text-on-surface font-semibold\">full Recursion revision</strong>",
             "is_rest": false
@@ -3015,9 +3015,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**XGBoost & LightGBM Mastery (4.0h)** — Kaggle Learn \"Intermediate Machine Learning\"; hyperparameter tuning with Optuna/GridSearchCV on your Kaggle competition submission.",
             "ref": "",
-            "title": "XGBoost &amp; LightGBM Mastery (4.0h)",
+            "title": "XGBoost & LightGBM Mastery (4.0h)",
             "desc": "Kaggle Learn \"Intermediate Machine Learning\"; hyperparameter tuning with Optuna/GridSearchCV on your Kaggle competition submission.",
-            "html": "<strong class=\"text-on-surface font-semibold\">XGBoost &amp; LightGBM Mastery (4.0h)</strong> — Kaggle Learn \"Intermediate Machine Learning\"; hyperparameter tuning with Optuna/GridSearchCV on your Kaggle competition submission.",
+            "html": "<strong class=\"text-on-surface font-semibold\">XGBoost & LightGBM Mastery (4.0h)</strong> — Kaggle Learn \"Intermediate Machine Learning\"; hyperparameter tuning with Optuna/GridSearchCV on your Kaggle competition submission.",
             "is_rest": false
           },
           {
@@ -3026,10 +3026,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Synchronization Solutions** — Logical: Coding and Decoding (Basic & Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting & Binary Semaphores",
-            "ref": "Logical & Synchronization Solutions",
-            "title": "Logical: Coding and Decoding (Basic &amp; Advance)",
-            "desc": "Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting &amp; Binary Semaphores",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Synchronization Solutions</strong> — Logical: Coding and Decoding (Basic &amp; Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting &amp; Binary Semaphores",
+            "ref": "",
+            "title": "Logical & Synchronization Solutions",
+            "desc": "Logical: Coding and Decoding (Basic & Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting & Binary Semaphores",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Synchronization Solutions</strong> — Logical: Coding and Decoding (Basic & Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting & Binary Semaphores",
             "is_rest": false
           }
         ]
@@ -3151,9 +3151,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Intro to Doubly LL, Deletion & Insertion in DLL",
             "ref": "",
-            "title": "Intro to Doubly LL, Deletion &amp; Insertion in DLL",
+            "title": "Intro to Doubly LL, Deletion & Insertion in DLL",
             "desc": "",
-            "html": "Intro to Doubly LL, Deletion &amp; Insertion in DLL",
+            "html": "Intro to Doubly LL, Deletion & Insertion in DLL",
             "is_rest": false
           },
           {
@@ -3163,9 +3163,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Deadlock Principles & Detection** — Deadlock definition, 4 Coffman conditions, Resource Allocation Graph (RAG), Wait-For Graph, Safe and Unsafe states + Quiz",
             "ref": "",
-            "title": "Deadlock Principles &amp; Detection",
+            "title": "Deadlock Principles & Detection",
             "desc": "Deadlock definition, 4 Coffman conditions, Resource Allocation Graph (RAG), Wait-For Graph, Safe and Unsafe states + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Deadlock Principles &amp; Detection</strong> — Deadlock definition, 4 Coffman conditions, Resource Allocation Graph (RAG), Wait-For Graph, Safe and Unsafe states + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Deadlock Principles & Detection</strong> — Deadlock definition, 4 Coffman conditions, Resource Allocation Graph (RAG), Wait-For Graph, Safe and Unsafe states + Quiz",
             "is_rest": false
           }
         ]
@@ -3193,9 +3193,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Classical ML 3: Support Vector Machines & Kaggle Kickoff** — CampusX: Maximal Margin Classifier, Soft Margin (Slack variables, C parameter), Kernel Trick (Linear, Polynomial, RBF) + **StatQuest**: \"SVM, Clearly Explained\" + **Enter a real Kaggle \"Getting Started\"/Playground competition** (inspect dataset, establish baseline)",
             "ref": "",
-            "title": "Classical ML 3: Support Vector Machines &amp; Kaggle Kickoff",
+            "title": "Classical ML 3: Support Vector Machines & Kaggle Kickoff",
             "desc": "CampusX: Maximal Margin Classifier, Soft Margin (Slack variables, C parameter), Kernel Trick (Linear, Polynomial, RBF) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"SVM, Clearly Explained\" + <strong class=\"text-on-surface font-semibold\">Enter a real Kaggle \"Getting Started\"/Playground competition</strong> (inspect dataset, establish baseline)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Classical ML 3: Support Vector Machines &amp; Kaggle Kickoff</strong> — CampusX: Maximal Margin Classifier, Soft Margin (Slack variables, C parameter), Kernel Trick (Linear, Polynomial, RBF) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"SVM, Clearly Explained\" + <strong class=\"text-on-surface font-semibold\">Enter a real Kaggle \"Getting Started\"/Playground competition</strong> (inspect dataset, establish baseline)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Classical ML 3: Support Vector Machines & Kaggle Kickoff</strong> — CampusX: Maximal Margin Classifier, Soft Margin (Slack variables, C parameter), Kernel Trick (Linear, Polynomial, RBF) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"SVM, Clearly Explained\" + <strong class=\"text-on-surface font-semibold\">Enter a real Kaggle \"Getting Started\"/Playground competition</strong> (inspect dataset, establish baseline)",
             "is_rest": false
           }
         ]
@@ -3223,9 +3223,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**`ml-from-scratch` KNN & Naive Bayes Lab (4.0h)** — Implement K-Nearest Neighbors (Euclidean & Manhattan distance) and Gaussian Naive Bayes from scratch in raw NumPy.",
             "ref": "",
-            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> KNN &amp; Naive Bayes Lab (4.0h)",
-            "desc": "Implement K-Nearest Neighbors (Euclidean &amp; Manhattan distance) and Gaussian Naive Bayes from scratch in raw NumPy.",
-            "html": "<strong class=\"text-on-surface font-semibold\"><code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> KNN &amp; Naive Bayes Lab (4.0h)</strong> — Implement K-Nearest Neighbors (Euclidean &amp; Manhattan distance) and Gaussian Naive Bayes from scratch in raw NumPy.",
+            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> KNN & Naive Bayes Lab (4.0h)",
+            "desc": "Implement K-Nearest Neighbors (Euclidean & Manhattan distance) and Gaussian Naive Bayes from scratch in raw NumPy.",
+            "html": "<strong class=\"text-on-surface font-semibold\"><code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> KNN & Naive Bayes Lab (4.0h)</strong> — Implement K-Nearest Neighbors (Euclidean & Manhattan distance) and Gaussian Naive Bayes from scratch in raw NumPy.",
             "is_rest": false
           },
           {
@@ -3234,10 +3234,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M13 & Verbal** — Quant M13 Age (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M13 & Verbal",
-            "title": "Quant M13 Age (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M13 &amp; Verbal</strong> — Quant M13 Age (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M13 & Verbal",
+            "desc": "Quant M13 Age (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M13 & Verbal</strong> — Quant M13 Age (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -3265,9 +3265,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**SVM & Kernel Trick Lab (4.0h)** — Train Linear and RBF kernel SVMs in scikit-learn; visualize margin boundaries, support vectors, and soft-margin $C$ hyperparameter effect.",
             "ref": "",
-            "title": "SVM &amp; Kernel Trick Lab (4.0h)",
-            "desc": "Train Linear and RBF kernel SVMs in scikit-learn; visualize margin boundaries, support vectors, and soft-margin $C$ hyperparameter effect.",
-            "html": "<strong class=\"text-on-surface font-semibold\">SVM &amp; Kernel Trick Lab (4.0h)</strong> — Train Linear and RBF kernel SVMs in scikit-learn; visualize margin boundaries, support vectors, and soft-margin $C$ hyperparameter effect.",
+            "title": "SVM & Kernel Trick Lab (4.0h)",
+            "desc": "Train Linear and RBF kernel SVMs in scikit-learn; visualize margin boundaries, support vectors, and soft-margin <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">C</code> hyperparameter effect.",
+            "html": "<strong class=\"text-on-surface font-semibold\">SVM & Kernel Trick Lab (4.0h)</strong> — Train Linear and RBF kernel SVMs in scikit-learn; visualize margin boundaries, support vectors, and soft-margin <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">C</code> hyperparameter effect.",
             "is_rest": false
           },
           {
@@ -3276,10 +3276,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Deadlock Handling** — Logical: Dices (Basic & Advance) + Deadlock Prevention, Deadlock Avoidance (Banker's Algorithm), Deadlock Detection & Recovery, Starvation vs Deadlock",
-            "ref": "Logical & Deadlock Handling",
-            "title": "Logical: Dices (Basic &amp; Advance)",
-            "desc": "Deadlock Prevention, Deadlock Avoidance (Banker's Algorithm), Deadlock Detection &amp; Recovery, Starvation vs Deadlock",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Deadlock Handling</strong> — Logical: Dices (Basic &amp; Advance) + Deadlock Prevention, Deadlock Avoidance (Banker's Algorithm), Deadlock Detection &amp; Recovery, Starvation vs Deadlock",
+            "ref": "",
+            "title": "Logical & Deadlock Handling",
+            "desc": "Logical: Dices (Basic & Advance) + Deadlock Prevention, Deadlock Avoidance (Banker's Algorithm), Deadlock Detection & Recovery, Starvation vs Deadlock",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Deadlock Handling</strong> — Logical: Dices (Basic & Advance) + Deadlock Prevention, Deadlock Avoidance (Banker's Algorithm), Deadlock Detection & Recovery, Starvation vs Deadlock",
             "is_rest": false
           }
         ]
@@ -3353,9 +3353,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Memory Management & Allocation** — Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction & Buddy System + Quiz",
             "ref": "",
-            "title": "Memory Management &amp; Allocation",
-            "desc": "Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction &amp; Buddy System + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Memory Management &amp; Allocation</strong> — Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction &amp; Buddy System + Quiz",
+            "title": "Memory Management & Allocation",
+            "desc": "Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction & Buddy System + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Memory Management & Allocation</strong> — Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction & Buddy System + Quiz",
             "is_rest": false
           }
         ]
@@ -3383,9 +3383,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Unsupervised 2: Hierarchical & DBSCAN** — CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, $\\varepsilon$, MinPts)",
             "ref": "",
-            "title": "Unsupervised 2: Hierarchical &amp; DBSCAN",
-            "desc": "CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, $\\varepsilon$, MinPts)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Unsupervised 2: Hierarchical &amp; DBSCAN</strong> — CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, $\\varepsilon$, MinPts)",
+            "title": "Unsupervised 2: Hierarchical & DBSCAN",
+            "desc": "CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, &epsilon; , MinPts)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Unsupervised 2: Hierarchical & DBSCAN</strong> — CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, &epsilon; , MinPts)",
             "is_rest": false
           }
         ]
@@ -3413,9 +3413,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Paging & Segmentation** — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, **TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)**, Segmentation + Quiz",
             "ref": "",
-            "title": "Paging &amp; Segmentation",
+            "title": "Paging & Segmentation",
             "desc": "Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, <strong class=\"text-on-surface font-semibold\">TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)</strong>, Segmentation + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Paging &amp; Segmentation</strong> — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, <strong class=\"text-on-surface font-semibold\">TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)</strong>, Segmentation + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Paging & Segmentation</strong> — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, <strong class=\"text-on-surface font-semibold\">TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)</strong>, Segmentation + Quiz",
             "is_rest": false
           }
         ]
@@ -3443,9 +3443,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Dimensionality Reduction: PCA & Kaggle Submission** — CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors & eigenvalues + **StatQuest**: \"PCA Step-by-Step\" + **Kaggle**: Build, tune, and submit your first full competition entry",
             "ref": "",
-            "title": "Dimensionality Reduction: PCA &amp; Kaggle Submission",
-            "desc": "CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors &amp; eigenvalues + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"PCA Step-by-Step\" + <strong class=\"text-on-surface font-semibold\">Kaggle</strong>: Build, tune, and submit your first full competition entry",
-            "html": "<strong class=\"text-on-surface font-semibold\">Dimensionality Reduction: PCA &amp; Kaggle Submission</strong> — CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors &amp; eigenvalues + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"PCA Step-by-Step\" + <strong class=\"text-on-surface font-semibold\">Kaggle</strong>: Build, tune, and submit your first full competition entry",
+            "title": "Dimensionality Reduction: PCA & Kaggle Submission",
+            "desc": "CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors & eigenvalues + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"PCA Step-by-Step\" + <strong class=\"text-on-surface font-semibold\">Kaggle</strong>: Build, tune, and submit your first full competition entry",
+            "html": "<strong class=\"text-on-surface font-semibold\">Dimensionality Reduction: PCA & Kaggle Submission</strong> — CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors & eigenvalues + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"PCA Step-by-Step\" + <strong class=\"text-on-surface font-semibold\">Kaggle</strong>: Build, tune, and submit your first full competition entry",
             "is_rest": false
           }
         ]
@@ -3484,10 +3484,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M14 & Verbal** — Quant M14 Profit and Loss (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M14 & Verbal",
-            "title": "Quant M14 Profit and Loss (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M14 &amp; Verbal</strong> — Quant M14 Profit and Loss (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M14 & Verbal",
+            "desc": "Quant M14 Profit and Loss (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M14 & Verbal</strong> — Quant M14 Profit and Loss (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -3515,9 +3515,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**PCA & Dimensionality Reduction Lab (4.0h)** — Implement PCA via Eigenvalue Decomposition of Covariance Matrix in NumPy; project high-dimensional data (MNIST) to 2D.",
             "ref": "",
-            "title": "PCA &amp; Dimensionality Reduction Lab (4.0h)",
+            "title": "PCA & Dimensionality Reduction Lab (4.0h)",
             "desc": "Implement PCA via Eigenvalue Decomposition of Covariance Matrix in NumPy; project high-dimensional data (MNIST) to 2D.",
-            "html": "<strong class=\"text-on-surface font-semibold\">PCA &amp; Dimensionality Reduction Lab (4.0h)</strong> — Implement PCA via Eigenvalue Decomposition of Covariance Matrix in NumPy; project high-dimensional data (MNIST) to 2D.",
+            "html": "<strong class=\"text-on-surface font-semibold\">PCA & Dimensionality Reduction Lab (4.0h)</strong> — Implement PCA via Eigenvalue Decomposition of Covariance Matrix in NumPy; project high-dimensional data (MNIST) to 2D.",
             "is_rest": false
           },
           {
@@ -3526,10 +3526,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical & Virtual Memory** — Logical: Clocks (Basic & Advance — **Logical Reasoning complete!**) + Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing",
-            "ref": "Logical & Virtual Memory",
-            "title": "Logical: Clocks (Basic &amp; Advance — Logical Reasoning complete!)",
-            "desc": "Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing",
-            "html": "<strong class=\"text-on-surface font-semibold\">Logical &amp; Virtual Memory</strong> — Logical: Clocks (Basic &amp; Advance — <strong class=\"text-on-surface font-semibold\">Logical Reasoning complete!</strong>) + Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing",
+            "ref": "",
+            "title": "Logical & Virtual Memory",
+            "desc": "Logical: Clocks (Basic & Advance — <strong class=\"text-on-surface font-semibold\">Logical Reasoning complete!</strong>) + Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing",
+            "html": "<strong class=\"text-on-surface font-semibold\">Logical & Virtual Memory</strong> — Logical: Clocks (Basic & Advance — <strong class=\"text-on-surface font-semibold\">Logical Reasoning complete!</strong>) + Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing",
             "is_rest": false
           }
         ]
@@ -3573,9 +3573,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Evaluation & Cross-Validation** — CampusX: K-Fold CV, Stratified K-Fold CV, TimeSeriesSplit + Confusion Matrix deep dive, Precision, Recall, F1, PR curves, ROC-AUC + **StatQuest**: \"ROC and AUC, Clearly Explained\"",
             "ref": "",
-            "title": "Evaluation &amp; Cross-Validation",
+            "title": "Evaluation & Cross-Validation",
             "desc": "CampusX: K-Fold CV, Stratified K-Fold CV, TimeSeriesSplit + Confusion Matrix deep dive, Precision, Recall, F1, PR curves, ROC-AUC + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"ROC and AUC, Clearly Explained\"",
-            "html": "<strong class=\"text-on-surface font-semibold\">Evaluation &amp; Cross-Validation</strong> — CampusX: K-Fold CV, Stratified K-Fold CV, TimeSeriesSplit + Confusion Matrix deep dive, Precision, Recall, F1, PR curves, ROC-AUC + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"ROC and AUC, Clearly Explained\"",
+            "html": "<strong class=\"text-on-surface font-semibold\">Evaluation & Cross-Validation</strong> — CampusX: K-Fold CV, Stratified K-Fold CV, TimeSeriesSplit + Confusion Matrix deep dive, Precision, Recall, F1, PR curves, ROC-AUC + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"ROC and AUC, Clearly Explained\"",
             "is_rest": false
           }
         ]
@@ -3633,9 +3633,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Hyperparameter Tuning & Diagnostics** — CampusX: `GridSearchCV`, `RandomizedSearchCV`, Hyperopt/Optuna concepts + **Andrew Ng ML Spec** advice on diagnosing bias vs variance, learning curves, data-centric iteration",
             "ref": "",
-            "title": "Hyperparameter Tuning &amp; Diagnostics",
+            "title": "Hyperparameter Tuning & Diagnostics",
             "desc": "CampusX: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">GridSearchCV</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomizedSearchCV</code>, Hyperopt/Optuna concepts + <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> advice on diagnosing bias vs variance, learning curves, data-centric iteration",
-            "html": "<strong class=\"text-on-surface font-semibold\">Hyperparameter Tuning &amp; Diagnostics</strong> — CampusX: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">GridSearchCV</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomizedSearchCV</code>, Hyperopt/Optuna concepts + <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> advice on diagnosing bias vs variance, learning curves, data-centric iteration",
+            "html": "<strong class=\"text-on-surface font-semibold\">Hyperparameter Tuning & Diagnostics</strong> — CampusX: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">GridSearchCV</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">RandomizedSearchCV</code>, Hyperopt/Optuna concepts + <strong class=\"text-on-surface font-semibold\">Andrew Ng ML Spec</strong> advice on diagnosing bias vs variance, learning curves, data-centric iteration",
             "is_rest": false
           }
         ]
@@ -3651,8 +3651,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Delete key in DLL; Remove duplicates from sorted DLL + Contest",
             "ref": "",
-            "title": "Delete key in DLL; Remove duplicates from sorted DLL",
-            "desc": "Contest",
+            "title": "Delete key in DLL; Remove duplicates from sorted DLL + Contest",
+            "desc": "",
             "html": "Delete key in DLL; Remove duplicates from sorted DLL + Contest",
             "is_rest": false
           },
@@ -3663,9 +3663,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**File Systems & Disk Scheduling** — File attributes & operations, File allocation (Contiguous, Linked, Indexed/Inodes), Directory structures, Disk Scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK) + **Full OS Revision / Self-Test (OS 100% complete!)**",
             "ref": "",
-            "title": "File Systems &amp; Disk Scheduling",
-            "desc": "File attributes &amp; operations, File allocation (Contiguous, Linked, Indexed/Inodes), Directory structures, Disk Scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK) + <strong class=\"text-on-surface font-semibold\">Full OS Revision / Self-Test (OS 100% complete!)</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">File Systems &amp; Disk Scheduling</strong> — File attributes &amp; operations, File allocation (Contiguous, Linked, Indexed/Inodes), Directory structures, Disk Scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK) + <strong class=\"text-on-surface font-semibold\">Full OS Revision / Self-Test (OS 100% complete!)</strong>",
+            "title": "File Systems & Disk Scheduling",
+            "desc": "File attributes & operations, File allocation (Contiguous, Linked, Indexed/Inodes), Directory structures, Disk Scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK) + <strong class=\"text-on-surface font-semibold\">Full OS Revision / Self-Test (OS 100% complete!)</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">File Systems & Disk Scheduling</strong> — File attributes & operations, File allocation (Contiguous, Linked, Indexed/Inodes), Directory structures, Disk Scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK) + <strong class=\"text-on-surface font-semibold\">Full OS Revision / Self-Test (OS 100% complete!)</strong>",
             "is_rest": false
           }
         ]
@@ -3693,9 +3693,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Kaggle Closeout & Portfolio Synthesis** — Refine Kaggle submission with CV/tuning + competition closes: read top-voted solutions + organize `ml-from-scratch` repo (Linear Reg, Logistic Reg, Decision Tree, K-Means) with clean READMEs",
             "ref": "",
-            "title": "Kaggle Closeout &amp; Portfolio Synthesis",
+            "title": "Kaggle Closeout & Portfolio Synthesis",
             "desc": "Refine Kaggle submission with CV/tuning + competition closes: read top-voted solutions + organize <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo (Linear Reg, Logistic Reg, Decision Tree, K-Means) with clean READMEs",
-            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Closeout &amp; Portfolio Synthesis</strong> — Refine Kaggle submission with CV/tuning + competition closes: read top-voted solutions + organize <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo (Linear Reg, Logistic Reg, Decision Tree, K-Means) with clean READMEs",
+            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Closeout & Portfolio Synthesis</strong> — Refine Kaggle submission with CV/tuning + competition closes: read top-voted solutions + organize <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo (Linear Reg, Logistic Reg, Decision Tree, K-Means) with clean READMEs",
             "is_rest": false
           }
         ]
@@ -3734,10 +3734,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M15 & Verbal** — Quant M15 Simple Interest (Basic & Advance) + Verbal: Mixed Practice",
-            "ref": "Quant M15 & Verbal",
-            "title": "Quant M15 Simple Interest (Basic &amp; Advance)",
-            "desc": "Verbal: Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M15 &amp; Verbal</strong> — Quant M15 Simple Interest (Basic &amp; Advance) + Verbal: Mixed Practice",
+            "ref": "",
+            "title": "Quant M15 & Verbal",
+            "desc": "Quant M15 Simple Interest (Basic & Advance) + Verbal: Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M15 & Verbal</strong> — Quant M15 Simple Interest (Basic & Advance) + Verbal: Mixed Practice",
             "is_rest": false
           }
         ]
@@ -3753,8 +3753,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Divide two numbers; Power Set (Bit Manipulation); XOR of numbers in range + Contest + revision",
             "ref": "",
-            "title": "Divide two numbers; Power Set (Bit Manipulation); XOR of numbers in range",
-            "desc": "Contest + revision",
+            "title": "Divide two numbers; Power Set (Bit Manipulation); XOR of numbers in range + Contest + revision",
+            "desc": "",
             "html": "Divide two numbers; Power Set (Bit Manipulation); XOR of numbers in range + Contest + revision",
             "is_rest": false
           },
@@ -3765,9 +3765,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 3 Kaggle Writeup & Mock Defense (4.0h)** — Read top 3 winning solutions on Kaggle forum; write detailed technical post-mortem README; explain bias-variance trade-off out loud.",
             "ref": "",
-            "title": "Phase 3 Kaggle Writeup &amp; Mock Defense (4.0h)",
+            "title": "Phase 3 Kaggle Writeup & Mock Defense (4.0h)",
             "desc": "Read top 3 winning solutions on Kaggle forum; write detailed technical post-mortem README; explain bias-variance trade-off out loud.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 3 Kaggle Writeup &amp; Mock Defense (4.0h)</strong> — Read top 3 winning solutions on Kaggle forum; write detailed technical post-mortem README; explain bias-variance trade-off out loud.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 3 Kaggle Writeup & Mock Defense (4.0h)</strong> — Read top 3 winning solutions on Kaggle forum; write detailed technical post-mortem README; explain bias-variance trade-off out loud.",
             "is_rest": false
           },
           {
@@ -3777,8 +3777,8 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Quant M11–15 Mixed Revision** + Full Phase 3 Checkpoint: Classical ML syllabus 100% complete!",
             "ref": "",
-            "title": "Quant M11–15 Mixed Revision",
-            "desc": "Full Phase 3 Checkpoint: Classical ML syllabus 100% complete!",
+            "title": "<strong class=\"text-on-surface font-semibold\">Quant M11–15 Mixed Revision</strong> + Full Phase 3 Checkpoint: Classical ML syllabus 100% complete!",
+            "desc": "",
             "html": "<strong class=\"text-on-surface font-semibold\">Quant M11–15 Mixed Revision</strong> + Full Phase 3 Checkpoint: Classical ML syllabus 100% complete!",
             "is_rest": false
           }
@@ -3844,10 +3844,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Neural Networks Intuition 1** — **3Blue1Brown — Neural Networks, Ch.1** \"But what IS a neural network?\" & **Ch.2** \"Gradient descent, how neural networks learn\" (visualizing high-dimensional loss landscapes, weight updates)",
-            "ref": "3Blue1Brown — Neural Networks, Ch.1",
+            "ref": "",
             "title": "Neural Networks Intuition 1",
-            "desc": "\"But what IS a neural network?\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.2</strong> \"Gradient descent, how neural networks learn\" (visualizing high-dimensional loss landscapes, weight updates)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Neural Networks Intuition 1</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.1</strong> \"But what IS a neural network?\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.2</strong> \"Gradient descent, how neural networks learn\" (visualizing high-dimensional loss landscapes, weight updates)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.1</strong> \"But what IS a neural network?\" & <strong class=\"text-on-surface font-semibold\">Ch.2</strong> \"Gradient descent, how neural networks learn\" (visualizing high-dimensional loss landscapes, weight updates)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Neural Networks Intuition 1</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.1</strong> \"But what IS a neural network?\" & <strong class=\"text-on-surface font-semibold\">Ch.2</strong> \"Gradient descent, how neural networks learn\" (visualizing high-dimensional loss landscapes, weight updates)",
             "is_rest": false
           }
         ]
@@ -3875,9 +3875,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**CN Foundations & Physical Media** — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical & Logical Topologies + Quiz",
             "ref": "",
-            "title": "CN Foundations &amp; Physical Media",
-            "desc": "Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical &amp; Logical Topologies + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">CN Foundations &amp; Physical Media</strong> — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical &amp; Logical Topologies + Quiz",
+            "title": "CN Foundations & Physical Media",
+            "desc": "Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical & Logical Topologies + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">CN Foundations & Physical Media</strong> — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical & Logical Topologies + Quiz",
             "is_rest": false
           }
         ]
@@ -3904,10 +3904,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Neural Networks Intuition 2** — **3Blue1Brown Ch.3** \"What is backpropagation really doing?\" & **Ch.4** \"Backpropagation calculus\" (chain rule applied backwards through layers, partial derivatives)",
-            "ref": "3Blue1Brown Ch.3",
+            "ref": "",
             "title": "Neural Networks Intuition 2",
-            "desc": "\"What is backpropagation really doing?\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.4</strong> \"Backpropagation calculus\" (chain rule applied backwards through layers, partial derivatives)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Neural Networks Intuition 2</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown Ch.3</strong> \"What is backpropagation really doing?\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.4</strong> \"Backpropagation calculus\" (chain rule applied backwards through layers, partial derivatives)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">3Blue1Brown Ch.3</strong> \"What is backpropagation really doing?\" & <strong class=\"text-on-surface font-semibold\">Ch.4</strong> \"Backpropagation calculus\" (chain rule applied backwards through layers, partial derivatives)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Neural Networks Intuition 2</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown Ch.3</strong> \"What is backpropagation really doing?\" & <strong class=\"text-on-surface font-semibold\">Ch.4</strong> \"Backpropagation calculus\" (chain rule applied backwards through layers, partial derivatives)",
             "is_rest": false
           }
         ]
@@ -3935,9 +3935,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Layered Architecture: OSI & TCP/IP** — Why Layered Architecture? OSI 7-layer model vs TCP/IP 4-layer model, Data encapsulation and decapsulation, Protocol Data Units (PDUs) at each layer + Quiz",
             "ref": "",
-            "title": "Layered Architecture: OSI &amp; TCP/IP",
+            "title": "Layered Architecture: OSI & TCP/IP",
             "desc": "Why Layered Architecture? OSI 7-layer model vs TCP/IP 4-layer model, Data encapsulation and decapsulation, Protocol Data Units (PDUs) at each layer + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Layered Architecture: OSI &amp; TCP/IP</strong> — Why Layered Architecture? OSI 7-layer model vs TCP/IP 4-layer model, Data encapsulation and decapsulation, Protocol Data Units (PDUs) at each layer + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Layered Architecture: OSI & TCP/IP</strong> — Why Layered Architecture? OSI 7-layer model vs TCP/IP 4-layer model, Data encapsulation and decapsulation, Protocol Data Units (PDUs) at each layer + Quiz",
             "is_rest": false
           }
         ]
@@ -3964,9 +3964,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Deep Learning Foundations** — **StatQuest — \"Neural Networks/Deep Learning\" playlist**: Activation functions (Sigmoid, Tanh, ReLU, Leaky ReLU), forward pass matrix operations, Cross-Entropy Loss vs MSE Loss",
-            "ref": "StatQuest — \"Neural Networks/Deep Learning\" playlist",
+            "ref": "",
             "title": "Deep Learning Foundations",
-            "desc": "Activation functions (Sigmoid, Tanh, ReLU, Leaky ReLU), forward pass matrix operations, Cross-Entropy Loss vs MSE Loss",
+            "desc": "<strong class=\"text-on-surface font-semibold\">StatQuest — \"Neural Networks/Deep Learning\" playlist</strong>: Activation functions (Sigmoid, Tanh, ReLU, Leaky ReLU), forward pass matrix operations, Cross-Entropy Loss vs MSE Loss",
             "html": "<strong class=\"text-on-surface font-semibold\">Deep Learning Foundations</strong> — <strong class=\"text-on-surface font-semibold\">StatQuest — \"Neural Networks/Deep Learning\" playlist</strong>: Activation functions (Sigmoid, Tanh, ReLU, Leaky ReLU), forward pass matrix operations, Cross-Entropy Loss vs MSE Loss",
             "is_rest": false
           }
@@ -4006,10 +4006,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M16 & Verbal/Logical** — Quant M16 Compound Interest (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M16 & Verbal/Logical",
-            "title": "Quant M16 Compound Interest (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M16 &amp; Verbal/Logical</strong> — Quant M16 Compound Interest (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M16 & Verbal/Logical",
+            "desc": "Quant M16 Compound Interest (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M16 & Verbal/Logical</strong> — Quant M16 Compound Interest (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -4037,9 +4037,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy's micrograd Part 2 & Backprop Ninja (4.0h)** — Implement reverse-mode automatic differentiation (topological sort + backward pass); train a tiny 2-layer MLP on a toy dataset.",
             "ref": "",
-            "title": "Karpathy's micrograd Part 2 &amp; Backprop Ninja (4.0h)",
+            "title": "Karpathy's micrograd Part 2 & Backprop Ninja (4.0h)",
             "desc": "Implement reverse-mode automatic differentiation (topological sort + backward pass); train a tiny 2-layer MLP on a toy dataset.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 2 &amp; Backprop Ninja (4.0h)</strong> — Implement reverse-mode automatic differentiation (topological sort + backward pass); train a tiny 2-layer MLP on a toy dataset.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 2 & Backprop Ninja (4.0h)</strong> — Implement reverse-mode automatic differentiation (topological sort + backward pass); train a tiny 2-layer MLP on a toy dataset.",
             "is_rest": false
           },
           {
@@ -4049,9 +4049,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Physical & Data Link Layer** — Transmission Media (Twisted pair, Fiber, Coaxial), MAC Address, Framing, Error Detection (CRC, Checksum), CSMA/CD, CSMA/CA, Address Resolution Protocol (ARP)",
             "ref": "",
-            "title": "Physical &amp; Data Link Layer",
+            "title": "Physical & Data Link Layer",
             "desc": "Transmission Media (Twisted pair, Fiber, Coaxial), MAC Address, Framing, Error Detection (CRC, Checksum), CSMA/CD, CSMA/CA, Address Resolution Protocol (ARP)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Physical &amp; Data Link Layer</strong> — Transmission Media (Twisted pair, Fiber, Coaxial), MAC Address, Framing, Error Detection (CRC, Checksum), CSMA/CD, CSMA/CA, Address Resolution Protocol (ARP)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Physical & Data Link Layer</strong> — Transmission Media (Twisted pair, Fiber, Coaxial), MAC Address, Framing, Error Detection (CRC, Checksum), CSMA/CD, CSMA/CA, Address Resolution Protocol (ARP)",
             "is_rest": false
           }
         ]
@@ -4094,10 +4094,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Karpathy's micrograd Part 1** — **Andrej Karpathy — \"The spelled-out intro to neural networks and backpropagation: building micrograd\"** (youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ): Build the scalar `Value` object, implement forward addition and multiplication",
-            "ref": "Andrej Karpathy — \"The spelled-out intro to neural networks and backpropagation: building micrograd\"",
+            "ref": "",
             "title": "Karpathy's micrograd Part 1",
-            "desc": "[YouTube]: Build the scalar <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code> object, implement forward addition and multiplication",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 1</strong> — <strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"The spelled-out intro to neural networks and backpropagation: building micrograd\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[YouTube]</a>): Build the scalar <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code> object, implement forward addition and multiplication",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"The spelled-out intro to neural networks and backpropagation: building micrograd\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>): Build the scalar <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code> object, implement forward addition and multiplication",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 1</strong> — <strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"The spelled-out intro to neural networks and backpropagation: building micrograd\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>): Build the scalar <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code> object, implement forward addition and multiplication",
             "is_rest": false
           }
         ]
@@ -4125,9 +4125,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Network Layer & IPv4 Addressing** — IPv4 Datagram format, Classful Addressing (Class A, B, C, D, E), Classless Inter-Domain Routing (CIDR), Subnetting & Supernetting math, Subnet Mask calculation + Quiz",
             "ref": "",
-            "title": "Network Layer &amp; IPv4 Addressing",
-            "desc": "IPv4 Datagram format, Classful Addressing (Class A, B, C, D, E), Classless Inter-Domain Routing (CIDR), Subnetting &amp; Supernetting math, Subnet Mask calculation + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Network Layer &amp; IPv4 Addressing</strong> — IPv4 Datagram format, Classful Addressing (Class A, B, C, D, E), Classless Inter-Domain Routing (CIDR), Subnetting &amp; Supernetting math, Subnet Mask calculation + Quiz",
+            "title": "Network Layer & IPv4 Addressing",
+            "desc": "IPv4 Datagram format, Classful Addressing (Class A, B, C, D, E), Classless Inter-Domain Routing (CIDR), Subnetting & Supernetting math, Subnet Mask calculation + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Network Layer & IPv4 Addressing</strong> — IPv4 Datagram format, Classful Addressing (Class A, B, C, D, E), Classless Inter-Domain Routing (CIDR), Subnetting & Supernetting math, Subnet Mask calculation + Quiz",
             "is_rest": false
           }
         ]
@@ -4185,9 +4185,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Network Layer Protocols & NAT** — Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure & IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing & EIGRP + Quiz",
             "ref": "",
-            "title": "Network Layer Protocols &amp; NAT",
-            "desc": "Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure &amp; IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing &amp; EIGRP + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Network Layer Protocols &amp; NAT</strong> — Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure &amp; IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing &amp; EIGRP + Quiz",
+            "title": "Network Layer Protocols & NAT",
+            "desc": "Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure & IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing & EIGRP + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Network Layer Protocols & NAT</strong> — Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure & IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing & EIGRP + Quiz",
             "is_rest": false
           }
         ]
@@ -4215,9 +4215,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy's micrograd Part 3 & DL Scratch Code** — Build Neuron, Layer, and Multi-Layer Perceptron (MLP) on top of `Value`; write loss function and gradient descent training loop on a toy dataset + push code to GitHub with README",
             "ref": "",
-            "title": "Karpathy's micrograd Part 3 &amp; DL Scratch Code",
+            "title": "Karpathy's micrograd Part 3 & DL Scratch Code",
             "desc": "Build Neuron, Layer, and Multi-Layer Perceptron (MLP) on top of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code>; write loss function and gradient descent training loop on a toy dataset + push code to GitHub with README",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 3 &amp; DL Scratch Code</strong> — Build Neuron, Layer, and Multi-Layer Perceptron (MLP) on top of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code>; write loss function and gradient descent training loop on a toy dataset + push code to GitHub with README",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy's micrograd Part 3 & DL Scratch Code</strong> — Build Neuron, Layer, and Multi-Layer Perceptron (MLP) on top of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Value</code>; write loss function and gradient descent training loop on a toy dataset + push code to GitHub with README",
             "is_rest": false
           }
         ]
@@ -4244,10 +4244,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**PyTorch Tensors & Custom Modules Lab (4.0h)** — Port micrograd MLP to PyTorch; explore `torch.nn.Module`, autograd engine, DataLoader, and cross-entropy loss.",
-            "ref": "PyTorch Tensors & Custom Modules Lab (4.0h)",
-            "title": "Port micrograd MLP to PyTorch; explore <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">torch.nn.Module</code>, autograd engine, DataLoader, and cross-entropy loss.",
-            "desc": "",
-            "html": "<strong class=\"text-on-surface font-semibold\">PyTorch Tensors &amp; Custom Modules Lab (4.0h)</strong> — Port micrograd MLP to PyTorch; explore <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">torch.nn.Module</code>, autograd engine, DataLoader, and cross-entropy loss.",
+            "ref": "",
+            "title": "PyTorch Tensors & Custom Modules Lab (4.0h)",
+            "desc": "Port micrograd MLP to PyTorch; explore <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">torch.nn.Module</code>, autograd engine, DataLoader, and cross-entropy loss.",
+            "html": "<strong class=\"text-on-surface font-semibold\">PyTorch Tensors & Custom Modules Lab (4.0h)</strong> — Port micrograd MLP to PyTorch; explore <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">torch.nn.Module</code>, autograd engine, DataLoader, and cross-entropy loss.",
             "is_rest": false
           },
           {
@@ -4256,10 +4256,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M17 & Verbal/Logical** — Quant M17 Mensuration 2D (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M17 & Verbal/Logical",
-            "title": "Quant M17 Mensuration 2D (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M17 &amp; Verbal/Logical</strong> — Quant M17 Mensuration 2D (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M17 & Verbal/Logical",
+            "desc": "Quant M17 Mensuration 2D (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M17 & Verbal/Logical</strong> — Quant M17 Mensuration 2D (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -4288,8 +4288,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Andrew Ng Deep Learning Specialization Sprint (4.0h)** — Complete Coursera DL Spec Course 1 & 2 quizzes; implement gradient checking and momentum optimizer in PyTorch.",
             "ref": "",
             "title": "Andrew Ng Deep Learning Specialization Sprint (4.0h)",
-            "desc": "Complete Coursera DL Spec Course 1 &amp; 2 quizzes; implement gradient checking and momentum optimizer in PyTorch.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Andrew Ng Deep Learning Specialization Sprint (4.0h)</strong> — Complete Coursera DL Spec Course 1 &amp; 2 quizzes; implement gradient checking and momentum optimizer in PyTorch.",
+            "desc": "Complete Coursera DL Spec Course 1 & 2 quizzes; implement gradient checking and momentum optimizer in PyTorch.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Andrew Ng Deep Learning Specialization Sprint (4.0h)</strong> — Complete Coursera DL Spec Course 1 & 2 quizzes; implement gradient checking and momentum optimizer in PyTorch.",
             "is_rest": false
           },
           {
@@ -4344,10 +4344,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Deep Neural Networks Theory** — **Andrew Ng Deep Learning Specialization** Course 1: Neural Networks & Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)",
-            "ref": "Andrew Ng Deep Learning Specialization",
+            "ref": "",
             "title": "Deep Neural Networks Theory",
-            "desc": "Course 1: Neural Networks &amp; Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Deep Neural Networks Theory</strong> — <strong class=\"text-on-surface font-semibold\">Andrew Ng Deep Learning Specialization</strong> Course 1: Neural Networks &amp; Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Andrew Ng Deep Learning Specialization</strong> Course 1: Neural Networks & Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Deep Neural Networks Theory</strong> — <strong class=\"text-on-surface font-semibold\">Andrew Ng Deep Learning Specialization</strong> Course 1: Neural Networks & Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)",
             "is_rest": false
           }
         ]
@@ -4375,9 +4375,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Transport Layer Fundamentals & UDP** — Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics & use cases + Quiz",
             "ref": "",
-            "title": "Transport Layer Fundamentals &amp; UDP",
-            "desc": "Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics &amp; use cases + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Transport Layer Fundamentals &amp; UDP</strong> — Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics &amp; use cases + Quiz",
+            "title": "Transport Layer Fundamentals & UDP",
+            "desc": "Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics & use cases + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Transport Layer Fundamentals & UDP</strong> — Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics & use cases + Quiz",
             "is_rest": false
           }
         ]
@@ -4436,8 +4436,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Transmission Control Protocol (TCP) Deep Dive** — TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence & Acknowledgement numbering, Reliable transmission & Retransmission timers",
             "ref": "",
             "title": "Transmission Control Protocol (TCP) Deep Dive",
-            "desc": "TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence &amp; Acknowledgement numbering, Reliable transmission &amp; Retransmission timers",
-            "html": "<strong class=\"text-on-surface font-semibold\">Transmission Control Protocol (TCP) Deep Dive</strong> — TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence &amp; Acknowledgement numbering, Reliable transmission &amp; Retransmission timers",
+            "desc": "TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence & Acknowledgement numbering, Reliable transmission & Retransmission timers",
+            "html": "<strong class=\"text-on-surface font-semibold\">Transmission Control Protocol (TCP) Deep Dive</strong> — TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence & Acknowledgement numbering, Reliable transmission & Retransmission timers",
             "is_rest": false
           }
         ]
@@ -4465,9 +4465,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Regularization & Hands-on PyTorch** — Andrew Ng DL Spec Course 2 (Weeks 1 & 3: L2 regularization/weight decay, Dropout, Batch Normalization) + **StatQuest**: \"Batch Normalization\" & \"Dropout\" + build and train a feedforward NN in PyTorch on Fashion-MNIST",
             "ref": "",
-            "title": "Regularization &amp; Hands-on PyTorch",
-            "desc": "Andrew Ng DL Spec Course 2 (Weeks 1 &amp; 3: L2 regularization/weight decay, Dropout, Batch Normalization) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Batch Normalization\" &amp; \"Dropout\" + build and train a feedforward NN in PyTorch on Fashion-MNIST",
-            "html": "<strong class=\"text-on-surface font-semibold\">Regularization &amp; Hands-on PyTorch</strong> — Andrew Ng DL Spec Course 2 (Weeks 1 &amp; 3: L2 regularization/weight decay, Dropout, Batch Normalization) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Batch Normalization\" &amp; \"Dropout\" + build and train a feedforward NN in PyTorch on Fashion-MNIST",
+            "title": "Regularization & Hands-on PyTorch",
+            "desc": "Andrew Ng DL Spec Course 2 (Weeks 1 & 3: L2 regularization/weight decay, Dropout, Batch Normalization) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Batch Normalization\" & \"Dropout\" + build and train a feedforward NN in PyTorch on Fashion-MNIST",
+            "html": "<strong class=\"text-on-surface font-semibold\">Regularization & Hands-on PyTorch</strong> — Andrew Ng DL Spec Course 2 (Weeks 1 & 3: L2 regularization/weight decay, Dropout, Batch Normalization) + <strong class=\"text-on-surface font-semibold\">StatQuest</strong>: \"Batch Normalization\" & \"Dropout\" + build and train a feedforward NN in PyTorch on Fashion-MNIST",
             "is_rest": false
           }
         ]
@@ -4495,9 +4495,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**CNN Architecture & Convolutions from Scratch (4.0h)** — Code 2D convolution and max-pooling operations in NumPy; visualize edge-detection filters and feature maps.",
             "ref": "",
-            "title": "CNN Architecture &amp; Convolutions from Scratch (4.0h)",
+            "title": "CNN Architecture & Convolutions from Scratch (4.0h)",
             "desc": "Code 2D convolution and max-pooling operations in NumPy; visualize edge-detection filters and feature maps.",
-            "html": "<strong class=\"text-on-surface font-semibold\">CNN Architecture &amp; Convolutions from Scratch (4.0h)</strong> — Code 2D convolution and max-pooling operations in NumPy; visualize edge-detection filters and feature maps.",
+            "html": "<strong class=\"text-on-surface font-semibold\">CNN Architecture & Convolutions from Scratch (4.0h)</strong> — Code 2D convolution and max-pooling operations in NumPy; visualize edge-detection filters and feature maps.",
             "is_rest": false
           },
           {
@@ -4506,10 +4506,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M18 & Verbal/Logical** — Quant M18 Trigonometry & Height/Distances (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M18 & Verbal/Logical",
-            "title": "Quant M18 Trigonometry &amp; Height/Distances (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M18 &amp; Verbal/Logical</strong> — Quant M18 Trigonometry &amp; Height/Distances (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M18 & Verbal/Logical",
+            "desc": "Quant M18 Trigonometry & Height/Distances (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M18 & Verbal/Logical</strong> — Quant M18 Trigonometry & Height/Distances (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -4538,8 +4538,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**PyTorch CNN Image Classifier Project (4.0h)** — Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve >85% test accuracy.",
             "ref": "",
             "title": "PyTorch CNN Image Classifier Project (4.0h)",
-            "desc": "Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve &gt;85% test accuracy.",
-            "html": "<strong class=\"text-on-surface font-semibold\">PyTorch CNN Image Classifier Project (4.0h)</strong> — Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve &gt;85% test accuracy.",
+            "desc": "Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve >85% test accuracy.",
+            "html": "<strong class=\"text-on-surface font-semibold\">PyTorch CNN Image Classifier Project (4.0h)</strong> — Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve >85% test accuracy.",
             "is_rest": false
           },
           {
@@ -4549,9 +4549,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**TCP Flow & Congestion Control** — Sliding Window flow control, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery), 4-Way FIN connection termination",
             "ref": "",
-            "title": "TCP Flow &amp; Congestion Control",
+            "title": "TCP Flow & Congestion Control",
             "desc": "Sliding Window flow control, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery), 4-Way FIN connection termination",
-            "html": "<strong class=\"text-on-surface font-semibold\">TCP Flow &amp; Congestion Control</strong> — Sliding Window flow control, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery), 4-Way FIN connection termination",
+            "html": "<strong class=\"text-on-surface font-semibold\">TCP Flow & Congestion Control</strong> — Sliding Window flow control, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery), 4-Way FIN connection termination",
             "is_rest": false
           }
         ]
@@ -4595,9 +4595,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**CNN Foundations: Convolutions & Pooling** — Andrew Ng DL Spec Course 4: Convolutional Neural Networks (Week 1: The convolution operation, edge detection, padding: valid vs same, stride, multi-channel convolutions, pooling layers: max vs average)",
             "ref": "",
-            "title": "CNN Foundations: Convolutions &amp; Pooling",
+            "title": "CNN Foundations: Convolutions & Pooling",
             "desc": "Andrew Ng DL Spec Course 4: Convolutional Neural Networks (Week 1: The convolution operation, edge detection, padding: valid vs same, stride, multi-channel convolutions, pooling layers: max vs average)",
-            "html": "<strong class=\"text-on-surface font-semibold\">CNN Foundations: Convolutions &amp; Pooling</strong> — Andrew Ng DL Spec Course 4: Convolutional Neural Networks (Week 1: The convolution operation, edge detection, padding: valid vs same, stride, multi-channel convolutions, pooling layers: max vs average)",
+            "html": "<strong class=\"text-on-surface font-semibold\">CNN Foundations: Convolutions & Pooling</strong> — Andrew Ng DL Spec Course 4: Convolutional Neural Networks (Week 1: The convolution operation, edge detection, padding: valid vs same, stride, multi-channel convolutions, pooling layers: max vs average)",
             "is_rest": false
           }
         ]
@@ -4684,10 +4684,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**Security & Cryptographic Protocols** — **Introduction to Cryptography**, **Security Goals of Cryptography** (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, **HTTPS and TLS** Handshake & Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC & HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + **Quiz: Introduction to Cryptography**",
-            "ref": "Introduction to Cryptography",
-            "title": "Security &amp; Cryptographic Protocols",
-            "desc": ", <strong class=\"text-on-surface font-semibold\">Security Goals of Cryptography</strong> (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, <strong class=\"text-on-surface font-semibold\">HTTPS and TLS</strong> Handshake &amp; Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC &amp; HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Cryptography</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Security &amp; Cryptographic Protocols</strong> — <strong class=\"text-on-surface font-semibold\">Introduction to Cryptography</strong>, <strong class=\"text-on-surface font-semibold\">Security Goals of Cryptography</strong> (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, <strong class=\"text-on-surface font-semibold\">HTTPS and TLS</strong> Handshake &amp; Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC &amp; HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Cryptography</strong>",
+            "ref": "",
+            "title": "Security & Cryptographic Protocols",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Introduction to Cryptography</strong>, <strong class=\"text-on-surface font-semibold\">Security Goals of Cryptography</strong> (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, <strong class=\"text-on-surface font-semibold\">HTTPS and TLS</strong> Handshake & Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC & HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Cryptography</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Security & Cryptographic Protocols</strong> — <strong class=\"text-on-surface font-semibold\">Introduction to Cryptography</strong>, <strong class=\"text-on-surface font-semibold\">Security Goals of Cryptography</strong> (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, <strong class=\"text-on-surface font-semibold\">HTTPS and TLS</strong> Handshake & Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC & HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + <strong class=\"text-on-surface font-semibold\">Quiz: Introduction to Cryptography</strong>",
             "is_rest": false
           }
         ]
@@ -4745,9 +4745,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Landmark DL Papers: Batch Normalization & Dropout (4.0h)** — Deep reading of Ioffe & Szegedy (2015) \"Batch Normalization\" & Srivastava et al. (2014) \"Dropout\"; implement custom BatchNorm1d layer.",
             "ref": "",
-            "title": "Landmark DL Papers: Batch Normalization &amp; Dropout (4.0h)",
-            "desc": "Deep reading of Ioffe &amp; Szegedy (2015) \"Batch Normalization\" &amp; Srivastava et al. (2014) \"Dropout\"; implement custom BatchNorm1d layer.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Landmark DL Papers: Batch Normalization &amp; Dropout (4.0h)</strong> — Deep reading of Ioffe &amp; Szegedy (2015) \"Batch Normalization\" &amp; Srivastava et al. (2014) \"Dropout\"; implement custom BatchNorm1d layer.",
+            "title": "Landmark DL Papers: Batch Normalization & Dropout (4.0h)",
+            "desc": "Deep reading of Ioffe & Szegedy (2015) \"Batch Normalization\" & Srivastava et al. (2014) \"Dropout\"; implement custom BatchNorm1d layer.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Landmark DL Papers: Batch Normalization & Dropout (4.0h)</strong> — Deep reading of Ioffe & Szegedy (2015) \"Batch Normalization\" & Srivastava et al. (2014) \"Dropout\"; implement custom BatchNorm1d layer.",
             "is_rest": false
           },
           {
@@ -4756,10 +4756,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M19 & Verbal/Logical** — Quant M19 Progressions (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M19 & Verbal/Logical",
-            "title": "Quant M19 Progressions (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M19 &amp; Verbal/Logical</strong> — Quant M19 Progressions (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M19 & Verbal/Logical",
+            "desc": "Quant M19 Progressions (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M19 & Verbal/Logical</strong> — Quant M19 Progressions (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -4799,9 +4799,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Network Security & Edge Architecture** — Firewalls (Packet filtering, Stateful, Application), Symmetric vs Asymmetric encryption, Content Delivery Networks (CDNs), Forward vs Reverse Proxies",
             "ref": "",
-            "title": "Network Security &amp; Edge Architecture",
+            "title": "Network Security & Edge Architecture",
             "desc": "Firewalls (Packet filtering, Stateful, Application), Symmetric vs Asymmetric encryption, Content Delivery Networks (CDNs), Forward vs Reverse Proxies",
-            "html": "<strong class=\"text-on-surface font-semibold\">Network Security &amp; Edge Architecture</strong> — Firewalls (Packet filtering, Stateful, Application), Symmetric vs Asymmetric encryption, Content Delivery Networks (CDNs), Forward vs Reverse Proxies",
+            "html": "<strong class=\"text-on-surface font-semibold\">Network Security & Edge Architecture</strong> — Firewalls (Packet filtering, Stateful, Application), Symmetric vs Asymmetric encryption, Content Delivery Networks (CDNs), Forward vs Reverse Proxies",
             "is_rest": false
           }
         ]
@@ -4846,8 +4846,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Research Paper 1: ResNet** — Read the original paper: *\"Deep Residual Learning for Image Recognition\"* (He et al., arxiv.org/abs/1512.03385) — understand degradation problem, vanishing gradients, identity shortcut / residual mapping",
             "ref": "",
             "title": "Research Paper 1: ResNet",
-            "desc": "Read the original paper: <em>\"Deep Residual Learning for Image Recognition\"</em> (He et al., <a href=\"https://arxiv.org/abs/1512.03385\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — understand degradation problem, vanishing gradients, identity shortcut / residual mapping",
-            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper 1: ResNet</strong> — Read the original paper: <em>\"Deep Residual Learning for Image Recognition\"</em> (He et al., <a href=\"https://arxiv.org/abs/1512.03385\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — understand degradation problem, vanishing gradients, identity shortcut / residual mapping",
+            "desc": "Read the original paper: <em>\"Deep Residual Learning for Image Recognition\"</em> (He et al., arxiv.org/abs/1512.03385) — understand degradation problem, vanishing gradients, identity shortcut / residual mapping",
+            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper 1: ResNet</strong> — Read the original paper: <em>\"Deep Residual Learning for Image Recognition\"</em> (He et al., arxiv.org/abs/1512.03385) — understand degradation problem, vanishing gradients, identity shortcut / residual mapping",
             "is_rest": false
           }
         ]
@@ -4875,9 +4875,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Wireless Networking, Performance & Security** — Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, **How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance**); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping & Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
             "ref": "",
-            "title": "Wireless Networking, Performance &amp; Security",
-            "desc": "Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, <strong class=\"text-on-surface font-semibold\">How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance</strong>); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping &amp; Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Wireless Networking, Performance &amp; Security</strong> — Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, <strong class=\"text-on-surface font-semibold\">How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance</strong>); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping &amp; Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
+            "title": "Wireless Networking, Performance & Security",
+            "desc": "Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, <strong class=\"text-on-surface font-semibold\">How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance</strong>); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping & Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Wireless Networking, Performance & Security</strong> — Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, <strong class=\"text-on-surface font-semibold\">How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance</strong>); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping & Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
             "is_rest": false
           }
         ]
@@ -4905,9 +4905,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Research Papers 2 & 3: Batch Normalization & Dropout** — Read *\"Batch Normalization: Accelerating Deep Network Training...\"* (Ioffe & Szegedy, arxiv.org/abs/1502.03167) & *\"Dropout\"* (Srivastava et al., JMLR 2014)",
             "ref": "",
-            "title": "Research Papers 2 &amp; 3: Batch Normalization &amp; Dropout",
-            "desc": "Read <em>\"Batch Normalization: Accelerating Deep Network Training...\"</em> (Ioffe &amp; Szegedy, <a href=\"https://arxiv.org/abs/1502.03167\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) &amp; <em>\"Dropout\"</em> (Srivastava et al., JMLR 2014)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Research Papers 2 &amp; 3: Batch Normalization &amp; Dropout</strong> — Read <em>\"Batch Normalization: Accelerating Deep Network Training...\"</em> (Ioffe &amp; Szegedy, <a href=\"https://arxiv.org/abs/1502.03167\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) &amp; <em>\"Dropout\"</em> (Srivastava et al., JMLR 2014)",
+            "title": "Research Papers 2 & 3: Batch Normalization & Dropout",
+            "desc": "Read <em>\"Batch Normalization: Accelerating Deep Network Training...\"</em> (Ioffe & Szegedy, arxiv.org/abs/1502.03167) & <em>\"Dropout\"</em> (Srivastava et al., JMLR 2014)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Research Papers 2 & 3: Batch Normalization & Dropout</strong> — Read <em>\"Batch Normalization: Accelerating Deep Network Training...\"</em> (Ioffe & Szegedy, arxiv.org/abs/1502.03167) & <em>\"Dropout\"</em> (Srivastava et al., JMLR 2014)",
             "is_rest": false
           }
         ]
@@ -4935,9 +4935,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**CN Comprehensive Self-Test & Review** — Rapid-fire review across OSI, TCP/IP, Subnetting, Routing, TCP, HTTP, TLS, DNS, Firewalls (**CN 100% Complete!**)",
             "ref": "",
-            "title": "CN Comprehensive Self-Test &amp; Review",
+            "title": "CN Comprehensive Self-Test & Review",
             "desc": "Rapid-fire review across OSI, TCP/IP, Subnetting, Routing, TCP, HTTP, TLS, DNS, Firewalls (<strong class=\"text-on-surface font-semibold\">CN 100% Complete!</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">CN Comprehensive Self-Test &amp; Review</strong> — Rapid-fire review across OSI, TCP/IP, Subnetting, Routing, TCP, HTTP, TLS, DNS, Firewalls (<strong class=\"text-on-surface font-semibold\">CN 100% Complete!</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">CN Comprehensive Self-Test & Review</strong> — Rapid-fire review across OSI, TCP/IP, Subnetting, Routing, TCP, HTTP, TLS, DNS, Firewalls (<strong class=\"text-on-surface font-semibold\">CN 100% Complete!</strong>)",
             "is_rest": false
           }
         ]
@@ -4965,9 +4965,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Deep Learning Synthesis & Architecture Drill** — Add residual skip connections to your CNN classifier; write Phase 4 synthesis notes explaining backpropagation, autograd, convolutions, and ResNet's residual connection",
             "ref": "",
-            "title": "Deep Learning Synthesis &amp; Architecture Drill",
+            "title": "Deep Learning Synthesis & Architecture Drill",
             "desc": "Add residual skip connections to your CNN classifier; write Phase 4 synthesis notes explaining backpropagation, autograd, convolutions, and ResNet's residual connection",
-            "html": "<strong class=\"text-on-surface font-semibold\">Deep Learning Synthesis &amp; Architecture Drill</strong> — Add residual skip connections to your CNN classifier; write Phase 4 synthesis notes explaining backpropagation, autograd, convolutions, and ResNet's residual connection",
+            "html": "<strong class=\"text-on-surface font-semibold\">Deep Learning Synthesis & Architecture Drill</strong> — Add residual skip connections to your CNN classifier; write Phase 4 synthesis notes explaining backpropagation, autograd, convolutions, and ResNet's residual connection",
             "is_rest": false
           }
         ]
@@ -4995,9 +4995,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Transfer Learning & Pretrained Models Lab (4.0h)** — Fine-tune a pretrained ResNet-18/34 on a custom image dataset using torchvision; freeze backbone layers and train classification head.",
             "ref": "",
-            "title": "Transfer Learning &amp; Pretrained Models Lab (4.0h)",
+            "title": "Transfer Learning & Pretrained Models Lab (4.0h)",
             "desc": "Fine-tune a pretrained ResNet-18/34 on a custom image dataset using torchvision; freeze backbone layers and train classification head.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Transfer Learning &amp; Pretrained Models Lab (4.0h)</strong> — Fine-tune a pretrained ResNet-18/34 on a custom image dataset using torchvision; freeze backbone layers and train classification head.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Transfer Learning & Pretrained Models Lab (4.0h)</strong> — Fine-tune a pretrained ResNet-18/34 on a custom image dataset using torchvision; freeze backbone layers and train classification head.",
             "is_rest": false
           },
           {
@@ -5006,10 +5006,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M20 & Verbal/Logical** — Quant M20 Logarithms (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M20 & Verbal/Logical",
-            "title": "Quant M20 Logarithms (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M20 &amp; Verbal/Logical</strong> — Quant M20 Logarithms (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M20 & Verbal/Logical",
+            "desc": "Quant M20 Logarithms (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M20 & Verbal/Logical</strong> — Quant M20 Logarithms (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -5037,9 +5037,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 4 Deep Learning Defense & Self-Test (4.0h)** — Explain vanishing/exploding gradients, residual connections, backpropagation chain rule, and receptive fields out loud.",
             "ref": "",
-            "title": "Phase 4 Deep Learning Defense &amp; Self-Test (4.0h)",
+            "title": "Phase 4 Deep Learning Defense & Self-Test (4.0h)",
             "desc": "Explain vanishing/exploding gradients, residual connections, backpropagation chain rule, and receptive fields out loud.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 4 Deep Learning Defense &amp; Self-Test (4.0h)</strong> — Explain vanishing/exploding gradients, residual connections, backpropagation chain rule, and receptive fields out loud.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 4 Deep Learning Defense & Self-Test (4.0h)</strong> — Explain vanishing/exploding gradients, residual connections, backpropagation chain rule, and receptive fields out loud.",
             "is_rest": false
           },
           {
@@ -5049,9 +5049,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Full Phase 4 Review & Checkpoint** — Full review of Deep Learning fundamentals, Greedy, Sliding Window, Stack/Queue, and CN",
             "ref": "",
-            "title": "Full Phase 4 Review &amp; Checkpoint",
+            "title": "Full Phase 4 Review & Checkpoint",
             "desc": "Full review of Deep Learning fundamentals, Greedy, Sliding Window, Stack/Queue, and CN",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full Phase 4 Review &amp; Checkpoint</strong> — Full review of Deep Learning fundamentals, Greedy, Sliding Window, Stack/Queue, and CN",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full Phase 4 Review & Checkpoint</strong> — Full review of Deep Learning fundamentals, Greedy, Sliding Window, Stack/Queue, and CN",
             "is_rest": false
           }
         ]
@@ -5116,10 +5116,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Transformers Visual Intuition** — **3Blue1Brown — Neural Networks, Ch.5** \"But what is a GPT? Visual intro to Transformers\" & **Ch.6** \"Attention in transformers, visually explained\" (Word vectors, high-dimensional spaces, context embeddings, self-attention mechanisms)",
-            "ref": "3Blue1Brown — Neural Networks, Ch.5",
+            "ref": "",
             "title": "Transformers Visual Intuition",
-            "desc": "\"But what is a GPT? Visual intro to Transformers\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.6</strong> \"Attention in transformers, visually explained\" (Word vectors, high-dimensional spaces, context embeddings, self-attention mechanisms)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Transformers Visual Intuition</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.5</strong> \"But what is a GPT? Visual intro to Transformers\" &amp; <strong class=\"text-on-surface font-semibold\">Ch.6</strong> \"Attention in transformers, visually explained\" (Word vectors, high-dimensional spaces, context embeddings, self-attention mechanisms)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.5</strong> \"But what is a GPT? Visual intro to Transformers\" & <strong class=\"text-on-surface font-semibold\">Ch.6</strong> \"Attention in transformers, visually explained\" (Word vectors, high-dimensional spaces, context embeddings, self-attention mechanisms)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Transformers Visual Intuition</strong> — <strong class=\"text-on-surface font-semibold\">3Blue1Brown — Neural Networks, Ch.5</strong> \"But what is a GPT? Visual intro to Transformers\" & <strong class=\"text-on-surface font-semibold\">Ch.6</strong> \"Attention in transformers, visually explained\" (Word vectors, high-dimensional spaces, context embeddings, self-attention mechanisms)",
             "is_rest": false
           }
         ]
@@ -5147,9 +5147,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**LLD Intro, Design Principles & SOLID** — Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
             "ref": "",
-            "title": "LLD Intro, Design Principles &amp; SOLID",
+            "title": "LLD Intro, Design Principles & SOLID",
             "desc": "Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Intro, Design Principles &amp; SOLID</strong> — Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Intro, Design Principles & SOLID</strong> — Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
             "is_rest": false
           }
         ]
@@ -5176,10 +5176,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Karpathy: makemore Part 1 & 2** — **Andrej Karpathy — \"Neural Networks: Zero to Hero\"** (youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ): \"Building makemore Part 1 (Bigram language model, counting vs neural net)\" & \"Part 2 (Multilayer Perceptron character-level LM based on Bengio et al. 2003)\"",
-            "ref": "Andrej Karpathy — \"Neural Networks: Zero to Hero\"",
-            "title": "Karpathy: makemore Part 1 &amp; 2",
-            "desc": "[YouTube]: \"Building makemore Part 1 (Bigram language model, counting vs neural net)\" &amp; \"Part 2 (Multilayer Perceptron character-level LM based on Bengio et al. 2003)\"",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: makemore Part 1 &amp; 2</strong> — <strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"Neural Networks: Zero to Hero\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[YouTube]</a>): \"Building makemore Part 1 (Bigram language model, counting vs neural net)\" &amp; \"Part 2 (Multilayer Perceptron character-level LM based on Bengio et al. 2003)\"",
+            "ref": "",
+            "title": "Karpathy: makemore Part 1 & 2",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"Neural Networks: Zero to Hero\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>): \"Building makemore Part 1 (Bigram language model, counting vs neural net)\" & \"Part 2 (Multilayer Perceptron character-level LM based on Bengio et al. 2003)\"",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: makemore Part 1 & 2</strong> — <strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"Neural Networks: Zero to Hero\"</strong> (<a href=\"https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium\">[YouTube]<span class=\"material-symbols-outlined text-[11px] inline-block align-middle ml-0.5\">open_in_new</span></a>): \"Building makemore Part 1 (Bigram language model, counting vs neural net)\" & \"Part 2 (Multilayer Perceptron character-level LM based on Bengio et al. 2003)\"",
             "is_rest": false
           }
         ]
@@ -5194,7 +5194,7 @@ window.ROADMAP_DATA = [
             "track_id": "dsa",
             "track_name": "DSA & Java",
             "raw_text": "LCA in BT; Maximum Width of BT",
-            "ref": "LeetCode #A",
+            "ref": "LC #A",
             "title": "LCA in BT; Maximum Width of BT",
             "desc": "",
             "html": "LCA in BT; Maximum Width of BT",
@@ -5237,9 +5237,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy: makemore Part 3 & 4** — Karpathy Zero to Hero: \"Building makemore Part 3 (Activations, Gradients, Batch Normalization)\" & \"Part 4 (Becoming a Backprop Ninja — manual backprop through CrossEntropy, BatchNorm, Linear layers)\"",
             "ref": "",
-            "title": "Karpathy: makemore Part 3 &amp; 4",
-            "desc": "Karpathy Zero to Hero: \"Building makemore Part 3 (Activations, Gradients, Batch Normalization)\" &amp; \"Part 4 (Becoming a Backprop Ninja — manual backprop through CrossEntropy, BatchNorm, Linear layers)\"",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: makemore Part 3 &amp; 4</strong> — Karpathy Zero to Hero: \"Building makemore Part 3 (Activations, Gradients, Batch Normalization)\" &amp; \"Part 4 (Becoming a Backprop Ninja — manual backprop through CrossEntropy, BatchNorm, Linear layers)\"",
+            "title": "Karpathy: makemore Part 3 & 4",
+            "desc": "Karpathy Zero to Hero: \"Building makemore Part 3 (Activations, Gradients, Batch Normalization)\" & \"Part 4 (Becoming a Backprop Ninja — manual backprop through CrossEntropy, BatchNorm, Linear layers)\"",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: makemore Part 3 & 4</strong> — Karpathy Zero to Hero: \"Building makemore Part 3 (Activations, Gradients, Batch Normalization)\" & \"Part 4 (Becoming a Backprop Ninja — manual backprop through CrossEntropy, BatchNorm, Linear layers)\"",
             "is_rest": false
           }
         ]
@@ -5267,9 +5267,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy makemore Part 1 & 2 (4.0h)** — Bigram model $\\rightarrow$ MLP character-level language model (Bengio 2003); visualize negative log likelihood and embedding matrix.",
             "ref": "",
-            "title": "Karpathy makemore Part 1 &amp; 2 (4.0h)",
-            "desc": "Bigram model $\\rightarrow$ MLP character-level language model (Bengio 2003); visualize negative log likelihood and embedding matrix.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy makemore Part 1 &amp; 2 (4.0h)</strong> — Bigram model $\\rightarrow$ MLP character-level language model (Bengio 2003); visualize negative log likelihood and embedding matrix.",
+            "title": "Karpathy makemore Part 1 & 2 (4.0h)",
+            "desc": "Bigram model &rarr; MLP character-level language model (Bengio 2003); visualize negative log likelihood and embedding matrix.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy makemore Part 1 & 2 (4.0h)</strong> — Bigram model &rarr; MLP character-level language model (Bengio 2003); visualize negative log likelihood and embedding matrix.",
             "is_rest": false
           },
           {
@@ -5278,10 +5278,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M21 & Verbal/Logical** — Quant M21 Permutation and Combination (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M21 & Verbal/Logical",
-            "title": "Quant M21 Permutation and Combination (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M21 &amp; Verbal/Logical</strong> — Quant M21 Permutation and Combination (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M21 & Verbal/Logical",
+            "desc": "Quant M21 Permutation and Combination (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M21 & Verbal/Logical</strong> — Quant M21 Permutation and Combination (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -5297,8 +5297,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Serialize and De-serialize BT; Morris Inorder Traversal; Morris Preorder Traversal + Contest + **full Binary Trees revision**",
             "ref": "",
-            "title": "Serialize and De-serialize BT; Morris Inorder Traversal; Morris Preorder Traversal",
-            "desc": "Contest + <strong class=\"text-on-surface font-semibold\">full Binary Trees revision</strong>",
+            "title": "Serialize and De-serialize BT; Morris Inorder Traversal; Morris Preorder Traversal + Contest + <strong class=\"text-on-surface font-semibold\">full Binary Trees revision</strong>",
+            "desc": "",
             "html": "Serialize and De-serialize BT; Morris Inorder Traversal; Morris Preorder Traversal + Contest + <strong class=\"text-on-surface font-semibold\">full Binary Trees revision</strong>",
             "is_rest": false
           },
@@ -5309,9 +5309,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy makemore Part 3 & 4 (Backprop Ninja & WaveNet) (4.0h)** — Implement BatchNorm manual backpropagation; build hierarchical WaveNet architecture; analyze gradient health.",
             "ref": "",
-            "title": "Karpathy makemore Part 3 &amp; 4 (Backprop Ninja &amp; WaveNet) (4.0h)",
+            "title": "Karpathy makemore Part 3 & 4 (Backprop Ninja & WaveNet) (4.0h)",
             "desc": "Implement BatchNorm manual backpropagation; build hierarchical WaveNet architecture; analyze gradient health.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy makemore Part 3 &amp; 4 (Backprop Ninja &amp; WaveNet) (4.0h)</strong> — Implement BatchNorm manual backpropagation; build hierarchical WaveNet architecture; analyze gradient health.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy makemore Part 3 & 4 (Backprop Ninja & WaveNet) (4.0h)</strong> — Implement BatchNorm manual backpropagation; build hierarchical WaveNet architecture; analyze gradient health.",
             "is_rest": false
           },
           {
@@ -5321,9 +5321,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**LLD Practice & makemore WaveNet** — Karpathy makemore Part 5 (WaveNet architecture, hierarchical convolutions) + Practice: implement a clean, SOLID-compliant system in Java",
             "ref": "",
-            "title": "LLD Practice &amp; makemore WaveNet",
+            "title": "LLD Practice & makemore WaveNet",
             "desc": "Karpathy makemore Part 5 (WaveNet architecture, hierarchical convolutions) + Practice: implement a clean, SOLID-compliant system in Java",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Practice &amp; makemore WaveNet</strong> — Karpathy makemore Part 5 (WaveNet architecture, hierarchical convolutions) + Practice: implement a clean, SOLID-compliant system in Java",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Practice & makemore WaveNet</strong> — Karpathy makemore Part 5 (WaveNet architecture, hierarchical convolutions) + Practice: implement a clean, SOLID-compliant system in Java",
             "is_rest": false
           }
         ]
@@ -5333,7 +5333,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w21_deliv_1",
         "raw_text": "**Deliverable:** Binary Trees (Theory, Medium, FAQs, Construction, Morris) **fully done**. SOLID + UML done. You've walked the language-model lineage bigram $\\rightarrow$ MLP $\\rightarrow$ WaveNet with Karpathy.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Binary Trees (Theory, Medium, FAQs, Construction, Morris) <strong class=\"text-on-surface font-semibold\">fully done</strong>. SOLID + UML done. You've walked the language-model lineage bigram $\\rightarrow$ MLP $\\rightarrow$ WaveNet with Karpathy."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Binary Trees (Theory, Medium, FAQs, Construction, Morris) <strong class=\"text-on-surface font-semibold\">fully done</strong>. SOLID + UML done. You've walked the language-model lineage bigram &rarr; MLP &rarr; WaveNet with Karpathy."
       }
     ],
     "notes": []
@@ -5366,9 +5366,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Karpathy: \"Let's build GPT\" Part 1 (Self-Attention)** — **Andrej Karpathy — \"Let's build GPT: from scratch, in code, spelled out\"**: Self-Attention mechanism from first principles, Query, Key, Value matrix math, Scaled dot-product attention, causal masking for autoregression",
-            "ref": "Andrej Karpathy — \"Let's build GPT: from scratch, in code, spelled out\"",
+            "ref": "",
             "title": "Karpathy: \"Let's build GPT\" Part 1 (Self-Attention)",
-            "desc": "Self-Attention mechanism from first principles, Query, Key, Value matrix math, Scaled dot-product attention, causal masking for autoregression",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"Let's build GPT: from scratch, in code, spelled out\"</strong>: Self-Attention mechanism from first principles, Query, Key, Value matrix math, Scaled dot-product attention, causal masking for autoregression",
             "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: \"Let's build GPT\" Part 1 (Self-Attention)</strong> — <strong class=\"text-on-surface font-semibold\">Andrej Karpathy — \"Let's build GPT: from scratch, in code, spelled out\"</strong>: Self-Attention mechanism from first principles, Query, Key, Value matrix math, Scaled dot-product attention, causal masking for autoregression",
             "is_rest": false
           }
@@ -5398,8 +5398,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Creational Design Patterns 1** — Singleton Pattern (Thread-safe Eager, Lazy, Double-Checked Locking, Bill Pugh, Enum) & Factory Method Pattern + Java code implementations + Quiz",
             "ref": "",
             "title": "Creational Design Patterns 1",
-            "desc": "Singleton Pattern (Thread-safe Eager, Lazy, Double-Checked Locking, Bill Pugh, Enum) &amp; Factory Method Pattern + Java code implementations + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">Creational Design Patterns 1</strong> — Singleton Pattern (Thread-safe Eager, Lazy, Double-Checked Locking, Bill Pugh, Enum) &amp; Factory Method Pattern + Java code implementations + Quiz",
+            "desc": "Singleton Pattern (Thread-safe Eager, Lazy, Double-Checked Locking, Bill Pugh, Enum) & Factory Method Pattern + Java code implementations + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">Creational Design Patterns 1</strong> — Singleton Pattern (Thread-safe Eager, Lazy, Double-Checked Locking, Bill Pugh, Enum) & Factory Method Pattern + Java code implementations + Quiz",
             "is_rest": false
           }
         ]
@@ -5444,7 +5444,7 @@ window.ROADMAP_DATA = [
             "track_id": "dsa",
             "track_name": "DSA & Java",
             "raw_text": "Check if a tree is a BST or not; LCA in BST",
-            "ref": "LeetCode #A",
+            "ref": "LC #A",
             "title": "Check if a tree is a BST or not; LCA in BST",
             "desc": "",
             "html": "Check if a tree is a BST or not; LCA in BST",
@@ -5487,9 +5487,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Karpathy: Build the GPT Tokenizer & nanoGPT Release** — Karpathy: \"Let's build the GPT Tokenizer\" (Byte Pair Encoding - BPE algorithm from scratch, training vocabulary, encoding/decoding text) + push your completed nanoGPT + BPE Tokenizer repo to GitHub with README",
             "ref": "",
-            "title": "Karpathy: Build the GPT Tokenizer &amp; nanoGPT Release",
+            "title": "Karpathy: Build the GPT Tokenizer & nanoGPT Release",
             "desc": "Karpathy: \"Let's build the GPT Tokenizer\" (Byte Pair Encoding - BPE algorithm from scratch, training vocabulary, encoding/decoding text) + push your completed nanoGPT + BPE Tokenizer repo to GitHub with README",
-            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: Build the GPT Tokenizer &amp; nanoGPT Release</strong> — Karpathy: \"Let's build the GPT Tokenizer\" (Byte Pair Encoding - BPE algorithm from scratch, training vocabulary, encoding/decoding text) + push your completed nanoGPT + BPE Tokenizer repo to GitHub with README",
+            "html": "<strong class=\"text-on-surface font-semibold\">Karpathy: Build the GPT Tokenizer & nanoGPT Release</strong> — Karpathy: \"Let's build the GPT Tokenizer\" (Byte Pair Encoding - BPE algorithm from scratch, training vocabulary, encoding/decoding text) + push your completed nanoGPT + BPE Tokenizer repo to GitHub with README",
             "is_rest": false
           }
         ]
@@ -5517,9 +5517,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Self-Attention & Scaled Dot-Product Attention from Scratch (4.0h)** — Code multi-head self-attention mechanism from scratch in PyTorch with Query, Key, Value projections and causal masking.",
             "ref": "",
-            "title": "Self-Attention &amp; Scaled Dot-Product Attention from Scratch (4.0h)",
+            "title": "Self-Attention & Scaled Dot-Product Attention from Scratch (4.0h)",
             "desc": "Code multi-head self-attention mechanism from scratch in PyTorch with Query, Key, Value projections and causal masking.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Self-Attention &amp; Scaled Dot-Product Attention from Scratch (4.0h)</strong> — Code multi-head self-attention mechanism from scratch in PyTorch with Query, Key, Value projections and causal masking.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Self-Attention & Scaled Dot-Product Attention from Scratch (4.0h)</strong> — Code multi-head self-attention mechanism from scratch in PyTorch with Query, Key, Value projections and causal masking.",
             "is_rest": false
           },
           {
@@ -5528,10 +5528,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M22 & Verbal/Logical** — Quant M22 Probability (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M22 & Verbal/Logical",
-            "title": "Quant M22 Probability (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M22 &amp; Verbal/Logical</strong> — Quant M22 Probability (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M22 & Verbal/Logical",
+            "desc": "Quant M22 Probability (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M22 & Verbal/Logical</strong> — Quant M22 Probability (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -5547,8 +5547,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Correct BST with two nodes swapped; Largest BST in Binary Tree + Contest + **full BST revision**",
             "ref": "",
-            "title": "Correct BST with two nodes swapped; Largest BST in Binary Tree",
-            "desc": "Contest + <strong class=\"text-on-surface font-semibold\">full BST revision</strong>",
+            "title": "Correct BST with two nodes swapped; Largest BST in Binary Tree + Contest + <strong class=\"text-on-surface font-semibold\">full BST revision</strong>",
+            "desc": "",
             "html": "Correct BST with two nodes swapped; Largest BST in Binary Tree + Contest + <strong class=\"text-on-surface font-semibold\">full BST revision</strong>",
             "is_rest": false
           },
@@ -5618,8 +5618,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Research Paper: \"Attention Is All You Need\"** — Read the foundational paper: *\"Attention Is All You Need\"* (Vaswani et al., arxiv.org/abs/1706.03762) — read cold, mapping equations directly to the nanoGPT code you built in Week 22",
             "ref": "",
             "title": "Research Paper: \"Attention Is All You Need\"",
-            "desc": "Read the foundational paper: <em>\"Attention Is All You Need\"</em> (Vaswani et al., <a href=\"https://arxiv.org/abs/1706.03762\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — read cold, mapping equations directly to the nanoGPT code you built in Week 22",
-            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper: \"Attention Is All You Need\"</strong> — Read the foundational paper: <em>\"Attention Is All You Need\"</em> (Vaswani et al., <a href=\"https://arxiv.org/abs/1706.03762\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — read cold, mapping equations directly to the nanoGPT code you built in Week 22",
+            "desc": "Read the foundational paper: <em>\"Attention Is All You Need\"</em> (Vaswani et al., arxiv.org/abs/1706.03762) — read cold, mapping equations directly to the nanoGPT code you built in Week 22",
+            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper: \"Attention Is All You Need\"</strong> — Read the foundational paper: <em>\"Attention Is All You Need\"</em> (Vaswani et al., arxiv.org/abs/1706.03762) — read cold, mapping equations directly to the nanoGPT code you built in Week 22",
             "is_rest": false
           }
         ]
@@ -5736,10 +5736,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Generative AI & LangChain Foundations** — **Krish Naik — \"Complete LangChain Course for Generative AI\"** (YouTube): Text embeddings, Cosine Similarity, Vector Databases (FAISS, ChromaDB), Document Loaders, Recursive Character Text Splitters",
-            "ref": "Krish Naik — \"Complete LangChain Course for Generative AI\"",
-            "title": "Generative AI &amp; LangChain Foundations",
-            "desc": "(YouTube): Text embeddings, Cosine Similarity, Vector Databases (FAISS, ChromaDB), Document Loaders, Recursive Character Text Splitters",
-            "html": "<strong class=\"text-on-surface font-semibold\">Generative AI &amp; LangChain Foundations</strong> — <strong class=\"text-on-surface font-semibold\">Krish Naik — \"Complete LangChain Course for Generative AI\"</strong> (YouTube): Text embeddings, Cosine Similarity, Vector Databases (FAISS, ChromaDB), Document Loaders, Recursive Character Text Splitters",
+            "ref": "",
+            "title": "Generative AI & LangChain Foundations",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Krish Naik — \"Complete LangChain Course for Generative AI\"</strong> (YouTube): Text embeddings, Cosine Similarity, Vector Databases (FAISS, ChromaDB), Document Loaders, Recursive Character Text Splitters",
+            "html": "<strong class=\"text-on-surface font-semibold\">Generative AI & LangChain Foundations</strong> — <strong class=\"text-on-surface font-semibold\">Krish Naik — \"Complete LangChain Course for Generative AI\"</strong> (YouTube): Text embeddings, Cosine Similarity, Vector Databases (FAISS, ChromaDB), Document Loaders, Recursive Character Text Splitters",
             "is_rest": false
           }
         ]
@@ -5778,10 +5778,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M23 & Verbal/Logical** — Quant M23 Geometry (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M23 & Verbal/Logical",
-            "title": "Quant M23 Geometry (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M23 &amp; Verbal/Logical</strong> — Quant M23 Geometry (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M23 & Verbal/Logical",
+            "desc": "Quant M23 Geometry (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M23 & Verbal/Logical</strong> — Quant M23 Geometry (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -5797,7 +5797,7 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Contest + **full Heaps revision**",
             "ref": "",
-            "title": "Contest + full Heaps revision",
+            "title": "Contest + <strong class=\"text-on-surface font-semibold\">full Heaps revision</strong>",
             "desc": "",
             "html": "Contest + <strong class=\"text-on-surface font-semibold\">full Heaps revision</strong>",
             "is_rest": false
@@ -5821,9 +5821,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Structural Patterns Mastery & RAG Intro** — Implement 2 Structural Patterns in Java + build your first local LangChain RetrievalQA chain over a PDF document",
             "ref": "",
-            "title": "Structural Patterns Mastery &amp; RAG Intro",
+            "title": "Structural Patterns Mastery & RAG Intro",
             "desc": "Implement 2 Structural Patterns in Java + build your first local LangChain RetrievalQA chain over a PDF document",
-            "html": "<strong class=\"text-on-surface font-semibold\">Structural Patterns Mastery &amp; RAG Intro</strong> — Implement 2 Structural Patterns in Java + build your first local LangChain RetrievalQA chain over a PDF document",
+            "html": "<strong class=\"text-on-surface font-semibold\">Structural Patterns Mastery & RAG Intro</strong> — Implement 2 Structural Patterns in Java + build your first local LangChain RetrievalQA chain over a PDF document",
             "is_rest": false
           }
         ]
@@ -5927,9 +5927,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**AI Agents & Tool Calling** — Krish Naik: LangChain Agents, ReAct framework (Reason + Act loop), Tools & Toolkits (Search, Calculator, Python REPL, Custom Python functions)",
             "ref": "",
-            "title": "AI Agents &amp; Tool Calling",
-            "desc": "Krish Naik: LangChain Agents, ReAct framework (Reason + Act loop), Tools &amp; Toolkits (Search, Calculator, Python REPL, Custom Python functions)",
-            "html": "<strong class=\"text-on-surface font-semibold\">AI Agents &amp; Tool Calling</strong> — Krish Naik: LangChain Agents, ReAct framework (Reason + Act loop), Tools &amp; Toolkits (Search, Calculator, Python REPL, Custom Python functions)",
+            "title": "AI Agents & Tool Calling",
+            "desc": "Krish Naik: LangChain Agents, ReAct framework (Reason + Act loop), Tools & Toolkits (Search, Calculator, Python REPL, Custom Python functions)",
+            "html": "<strong class=\"text-on-surface font-semibold\">AI Agents & Tool Calling</strong> — Krish Naik: LangChain Agents, ReAct framework (Reason + Act loop), Tools & Toolkits (Search, Calculator, Python REPL, Custom Python functions)",
             "is_rest": false
           }
         ]
@@ -5988,8 +5988,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Flagship AI Capstone Project Kickoff** — Choose your flagship project: (1) Enterprise Document Q&A RAG System over technical manuals/syllabus, OR (2) Custom GPT trained from scratch; initialize repository, setup ingestion pipeline, document chunking & vector indexing",
             "ref": "",
             "title": "Flagship AI Capstone Project Kickoff",
-            "desc": "Choose your flagship project: (1) Enterprise Document Q&amp;A RAG System over technical manuals/syllabus, OR (2) Custom GPT trained from scratch; initialize repository, setup ingestion pipeline, document chunking &amp; vector indexing",
-            "html": "<strong class=\"text-on-surface font-semibold\">Flagship AI Capstone Project Kickoff</strong> — Choose your flagship project: (1) Enterprise Document Q&amp;A RAG System over technical manuals/syllabus, OR (2) Custom GPT trained from scratch; initialize repository, setup ingestion pipeline, document chunking &amp; vector indexing",
+            "desc": "Choose your flagship project: (1) Enterprise Document Q&A RAG System over technical manuals/syllabus, OR (2) Custom GPT trained from scratch; initialize repository, setup ingestion pipeline, document chunking & vector indexing",
+            "html": "<strong class=\"text-on-surface font-semibold\">Flagship AI Capstone Project Kickoff</strong> — Choose your flagship project: (1) Enterprise Document Q&A RAG System over technical manuals/syllabus, OR (2) Custom GPT trained from scratch; initialize repository, setup ingestion pipeline, document chunking & vector indexing",
             "is_rest": false
           }
         ]
@@ -6028,10 +6028,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M24 & Verbal/Logical** — Quant M24 Race (Basic & Advance) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M24 & Verbal/Logical",
-            "title": "Quant M24 Race (Basic &amp; Advance)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M24 &amp; Verbal/Logical</strong> — Quant M24 Race (Basic &amp; Advance) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M24 & Verbal/Logical",
+            "desc": "Quant M24 Race (Basic & Advance) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M24 & Verbal/Logical</strong> — Quant M24 Race (Basic & Advance) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -6047,8 +6047,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Contest + revision: redo 3 BFS/DFS problems cold",
             "ref": "",
-            "title": "Contest + revision: redo 3 BFS/DFS problems cold",
-            "desc": "",
+            "title": "Contest + revision",
+            "desc": "redo 3 BFS/DFS problems cold",
             "html": "Contest + revision: redo 3 BFS/DFS problems cold",
             "is_rest": false
           },
@@ -6059,9 +6059,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**LangChain & Vector Embeddings Lab (4.0h)** — Set up local vector database (ChromaDB / pgvector); generate embeddings with SentenceTransformers; implement similarity search.",
             "ref": "",
-            "title": "LangChain &amp; Vector Embeddings Lab (4.0h)",
+            "title": "LangChain & Vector Embeddings Lab (4.0h)",
             "desc": "Set up local vector database (ChromaDB / pgvector); generate embeddings with SentenceTransformers; implement similarity search.",
-            "html": "<strong class=\"text-on-surface font-semibold\">LangChain &amp; Vector Embeddings Lab (4.0h)</strong> — Set up local vector database (ChromaDB / pgvector); generate embeddings with SentenceTransformers; implement similarity search.",
+            "html": "<strong class=\"text-on-surface font-semibold\">LangChain & Vector Embeddings Lab (4.0h)</strong> — Set up local vector database (ChromaDB / pgvector); generate embeddings with SentenceTransformers; implement similarity search.",
             "is_rest": false
           },
           {
@@ -6071,9 +6071,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Behavioural Patterns Mastery & Capstone Core Demo** — Implement 2 Behavioural Patterns in Java + Capstone checkpoint: working end-to-end retrieval and generation demo",
             "ref": "",
-            "title": "Behavioural Patterns Mastery &amp; Capstone Core Demo",
+            "title": "Behavioural Patterns Mastery & Capstone Core Demo",
             "desc": "Implement 2 Behavioural Patterns in Java + Capstone checkpoint: working end-to-end retrieval and generation demo",
-            "html": "<strong class=\"text-on-surface font-semibold\">Behavioural Patterns Mastery &amp; Capstone Core Demo</strong> — Implement 2 Behavioural Patterns in Java + Capstone checkpoint: working end-to-end retrieval and generation demo",
+            "html": "<strong class=\"text-on-surface font-semibold\">Behavioural Patterns Mastery & Capstone Core Demo</strong> — Implement 2 Behavioural Patterns in Java + Capstone checkpoint: working end-to-end retrieval and generation demo",
             "is_rest": false
           }
         ]
@@ -6117,9 +6117,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Front-End & UI Integration** — Build an interactive web interface (Streamlit / Gradio) for your capstone; wire UI to the retrieval-generation backend pipeline end-to-end",
             "ref": "",
-            "title": "Capstone Front-End &amp; UI Integration",
+            "title": "Capstone Front-End & UI Integration",
             "desc": "Build an interactive web interface (Streamlit / Gradio) for your capstone; wire UI to the retrieval-generation backend pipeline end-to-end",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Front-End &amp; UI Integration</strong> — Build an interactive web interface (Streamlit / Gradio) for your capstone; wire UI to the retrieval-generation backend pipeline end-to-end",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Front-End & UI Integration</strong> — Build an interactive web interface (Streamlit / Gradio) for your capstone; wire UI to the retrieval-generation backend pipeline end-to-end",
             "is_rest": false
           }
         ]
@@ -6147,9 +6147,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**LLD Concurrency & Thread Management** — Multithreading in Java, Creating & Managing Threads, Thread Safety, Reentrancy, Race Conditions, `Thread` vs `Runnable`, Thread Pools & `ExecutorService`, Synchronized blocks, Atomic variables, Locks & Deadlock prevention + Quiz",
             "ref": "",
-            "title": "LLD Concurrency &amp; Thread Management",
-            "desc": "Multithreading in Java, Creating &amp; Managing Threads, Thread Safety, Reentrancy, Race Conditions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Thread</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Runnable</code>, Thread Pools &amp; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ExecutorService</code>, Synchronized blocks, Atomic variables, Locks &amp; Deadlock prevention + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Concurrency &amp; Thread Management</strong> — Multithreading in Java, Creating &amp; Managing Threads, Thread Safety, Reentrancy, Race Conditions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Thread</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Runnable</code>, Thread Pools &amp; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ExecutorService</code>, Synchronized blocks, Atomic variables, Locks &amp; Deadlock prevention + Quiz",
+            "title": "LLD Concurrency & Thread Management",
+            "desc": "Multithreading in Java, Creating & Managing Threads, Thread Safety, Reentrancy, Race Conditions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Thread</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Runnable</code>, Thread Pools & <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ExecutorService</code>, Synchronized blocks, Atomic variables, Locks & Deadlock prevention + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Concurrency & Thread Management</strong> — Multithreading in Java, Creating & Managing Threads, Thread Safety, Reentrancy, Race Conditions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Thread</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Runnable</code>, Thread Pools & <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ExecutorService</code>, Synchronized blocks, Atomic variables, Locks & Deadlock prevention + Quiz",
             "is_rest": false
           }
         ]
@@ -6177,9 +6177,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Evaluation & Prompt Engineering** — Krish Naik GenAI: Prompt Engineering best practices (Few-shot prompting, Chain-of-Thought, System instructions); Add quantitative evaluation (retrieval faithfulness, context relevance, hallucination checking)",
             "ref": "",
-            "title": "Capstone Evaluation &amp; Prompt Engineering",
+            "title": "Capstone Evaluation & Prompt Engineering",
             "desc": "Krish Naik GenAI: Prompt Engineering best practices (Few-shot prompting, Chain-of-Thought, System instructions); Add quantitative evaluation (retrieval faithfulness, context relevance, hallucination checking)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Evaluation &amp; Prompt Engineering</strong> — Krish Naik GenAI: Prompt Engineering best practices (Few-shot prompting, Chain-of-Thought, System instructions); Add quantitative evaluation (retrieval faithfulness, context relevance, hallucination checking)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Evaluation & Prompt Engineering</strong> — Krish Naik GenAI: Prompt Engineering best practices (Few-shot prompting, Chain-of-Thought, System instructions); Add quantitative evaluation (retrieval faithfulness, context relevance, hallucination checking)",
             "is_rest": false
           }
         ]
@@ -6207,9 +6207,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**LLD Dependency Injection & API Design** — Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
             "ref": "",
-            "title": "LLD Dependency Injection &amp; API Design",
+            "title": "LLD Dependency Injection & API Design",
             "desc": "Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Dependency Injection &amp; API Design</strong> — Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Dependency Injection & API Design</strong> — Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
             "is_rest": false
           }
         ]
@@ -6237,9 +6237,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Polish & Portfolio Release** — Refine retrieval parameters (chunk size, overlap, k-neighbors); write comprehensive README with system architecture diagram, design decisions, and tradeoffs; pin on GitHub",
             "ref": "",
-            "title": "Capstone Polish &amp; Portfolio Release",
+            "title": "Capstone Polish & Portfolio Release",
             "desc": "Refine retrieval parameters (chunk size, overlap, k-neighbors); write comprehensive README with system architecture diagram, design decisions, and tradeoffs; pin on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Polish &amp; Portfolio Release</strong> — Refine retrieval parameters (chunk size, overlap, k-neighbors); write comprehensive README with system architecture diagram, design decisions, and tradeoffs; pin on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Polish & Portfolio Release</strong> — Refine retrieval parameters (chunk size, overlap, k-neighbors); write comprehensive README with system architecture diagram, design decisions, and tradeoffs; pin on GitHub",
             "is_rest": false
           }
         ]
@@ -6268,8 +6268,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**End-to-End RAG Architecture Lab (4.0h)** — Build a document Q&A Retrieval-Augmented Generation (RAG) system with semantic chunking, embedding storage, context injection, and LLM prompting.",
             "ref": "",
             "title": "End-to-End RAG Architecture Lab (4.0h)",
-            "desc": "Build a document Q&amp;A Retrieval-Augmented Generation (RAG) system with semantic chunking, embedding storage, context injection, and LLM prompting.",
-            "html": "<strong class=\"text-on-surface font-semibold\">End-to-End RAG Architecture Lab (4.0h)</strong> — Build a document Q&amp;A Retrieval-Augmented Generation (RAG) system with semantic chunking, embedding storage, context injection, and LLM prompting.",
+            "desc": "Build a document Q&A Retrieval-Augmented Generation (RAG) system with semantic chunking, embedding storage, context injection, and LLM prompting.",
+            "html": "<strong class=\"text-on-surface font-semibold\">End-to-End RAG Architecture Lab (4.0h)</strong> — Build a document Q&A Retrieval-Augmented Generation (RAG) system with semantic chunking, embedding storage, context injection, and LLM prompting.",
             "is_rest": false
           },
           {
@@ -6278,10 +6278,10 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant M25 & Verbal/Logical** — Quant M25 Simplification and Approximation (Basic & Advance — **all 25 Quant modules complete!**) + Verbal/Logical Mixed Practice",
-            "ref": "Quant M25 & Verbal/Logical",
-            "title": "Quant M25 Simplification and Approximation (Basic &amp; Advance — all 25 Quant modules complete!)",
-            "desc": "Verbal/Logical Mixed Practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Quant M25 &amp; Verbal/Logical</strong> — Quant M25 Simplification and Approximation (Basic &amp; Advance — <strong class=\"text-on-surface font-semibold\">all 25 Quant modules complete!</strong>) + Verbal/Logical Mixed Practice",
+            "ref": "",
+            "title": "Quant M25 & Verbal/Logical",
+            "desc": "Quant M25 Simplification and Approximation (Basic & Advance — <strong class=\"text-on-surface font-semibold\">all 25 Quant modules complete!</strong>) + Verbal/Logical Mixed Practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Quant M25 & Verbal/Logical</strong> — Quant M25 Simplification and Approximation (Basic & Advance — <strong class=\"text-on-surface font-semibold\">all 25 Quant modules complete!</strong>) + Verbal/Logical Mixed Practice",
             "is_rest": false
           }
         ]
@@ -6297,8 +6297,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Contest + revision: explain topological sort out loud",
             "ref": "",
-            "title": "Contest + revision: explain topological sort out loud",
-            "desc": "",
+            "title": "Contest + revision",
+            "desc": "explain topological sort out loud",
             "html": "Contest + revision: explain topological sort out loud",
             "is_rest": false
           },
@@ -6309,9 +6309,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 5 Transformers Defense & Self-Test (4.0h)** — Explain Q/K/V matrix math, attention complexity $O(N^2)$, BPE tokenization, and RAG hallucinations out loud.",
             "ref": "",
-            "title": "Phase 5 Transformers Defense &amp; Self-Test (4.0h)",
-            "desc": "Explain Q/K/V matrix math, attention complexity $O(N^2)$, BPE tokenization, and RAG hallucinations out loud.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 5 Transformers Defense &amp; Self-Test (4.0h)</strong> — Explain Q/K/V matrix math, attention complexity $O(N^2)$, BPE tokenization, and RAG hallucinations out loud.",
+            "title": "Phase 5 Transformers Defense & Self-Test (4.0h)",
+            "desc": "Explain Q/K/V matrix math, attention complexity <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">O(N<sup>2</sup>)</code>, BPE tokenization, and RAG hallucinations out loud.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 5 Transformers Defense & Self-Test (4.0h)</strong> — Explain Q/K/V matrix math, attention complexity <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">O(N<sup>2</sup>)</code>, BPE tokenization, and RAG hallucinations out loud.",
             "is_rest": false
           },
           {
@@ -6348,7 +6348,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w25_deliv_4",
         "raw_text": "AI/ML: Built a GPT & BPE tokenizer from scratch (Karpathy), read *Attention Is All You Need*, and built a portfolio-ready GenAI capstone with evaluation, UI, and documentation",
-        "html": "AI/ML: Built a GPT &amp; BPE tokenizer from scratch (Karpathy), read <em>Attention Is All You Need</em>, and built a portfolio-ready GenAI capstone with evaluation, UI, and documentation"
+        "html": "AI/ML: Built a GPT & BPE tokenizer from scratch (Karpathy), read <em>Attention Is All You Need</em>, and built a portfolio-ready GenAI capstone with evaluation, UI, and documentation"
       },
       {
         "id": "w25_deliv_5",
@@ -6420,8 +6420,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Interview Problems 1** — How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design & Code: **Parking Lot System** in Java (Multi-floor, vehicle types, ticketing, billing)",
             "ref": "",
             "title": "LLD Interview Problems 1",
-            "desc": "How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Parking Lot System</strong> in Java (Multi-floor, vehicle types, ticketing, billing)",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 1</strong> — How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Parking Lot System</strong> in Java (Multi-floor, vehicle types, ticketing, billing)",
+            "desc": "How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design & Code: <strong class=\"text-on-surface font-semibold\">Parking Lot System</strong> in Java (Multi-floor, vehicle types, ticketing, billing)",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 1</strong> — How to approach an LLD Interview; Requirements gathering, Use-case analysis, Class design, Design & Code: <strong class=\"text-on-surface font-semibold\">Parking Lot System</strong> in Java (Multi-floor, vehicle types, ticketing, billing)",
             "is_rest": false
           }
         ]
@@ -6480,8 +6480,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Interview Problems 2** — Design & Code: **Logging Framework** in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)",
             "ref": "",
             "title": "LLD Interview Problems 2",
-            "desc": "Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Logging Framework</strong> in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 2</strong> — Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Logging Framework</strong> in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)",
+            "desc": "Design & Code: <strong class=\"text-on-surface font-semibold\">Logging Framework</strong> in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 2</strong> — Design & Code: <strong class=\"text-on-surface font-semibold\">Logging Framework</strong> in Java (multiple log levels: INFO/DEBUG/ERROR, custom sinks: console/file, thread-safe asynchronous logging)",
             "is_rest": false
           }
         ]
@@ -6509,9 +6509,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Deployment Pipeline & Docker Compose** — Docker Compose for multi-container orchestration (FastAPI + Vector DB + Frontend UI); push Dockerized capstone to GitHub with clean deployment commands",
             "ref": "",
-            "title": "Deployment Pipeline &amp; Docker Compose",
+            "title": "Deployment Pipeline & Docker Compose",
             "desc": "Docker Compose for multi-container orchestration (FastAPI + Vector DB + Frontend UI); push Dockerized capstone to GitHub with clean deployment commands",
-            "html": "<strong class=\"text-on-surface font-semibold\">Deployment Pipeline &amp; Docker Compose</strong> — Docker Compose for multi-container orchestration (FastAPI + Vector DB + Frontend UI); push Dockerized capstone to GitHub with clean deployment commands",
+            "html": "<strong class=\"text-on-surface font-semibold\">Deployment Pipeline & Docker Compose</strong> — Docker Compose for multi-container orchestration (FastAPI + Vector DB + Frontend UI); push Dockerized capstone to GitHub with clean deployment commands",
             "is_rest": false
           }
         ]
@@ -6539,9 +6539,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**AI+Java Capstone: Domain & Architecture Design (4.0h)** — Define capstone domain (e.g. Enterprise Technical Documentation & Code Intelligence Engine); design layered Java backend and Python AI pipeline.",
             "ref": "",
-            "title": "AI+Java Capstone: Domain &amp; Architecture Design (4.0h)",
-            "desc": "Define capstone domain (e.g. Enterprise Technical Documentation &amp; Code Intelligence Engine); design layered Java backend and Python AI pipeline.",
-            "html": "<strong class=\"text-on-surface font-semibold\">AI+Java Capstone: Domain &amp; Architecture Design (4.0h)</strong> — Define capstone domain (e.g. Enterprise Technical Documentation &amp; Code Intelligence Engine); design layered Java backend and Python AI pipeline.",
+            "title": "AI+Java Capstone: Domain & Architecture Design (4.0h)",
+            "desc": "Define capstone domain (e.g. Enterprise Technical Documentation & Code Intelligence Engine); design layered Java backend and Python AI pipeline.",
+            "html": "<strong class=\"text-on-surface font-semibold\">AI+Java Capstone: Domain & Architecture Design (4.0h)</strong> — Define capstone domain (e.g. Enterprise Technical Documentation & Code Intelligence Engine); design layered Java backend and Python AI pipeline.",
             "is_rest": false
           },
           {
@@ -6550,9 +6550,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant Mocks 1–6** — Timed placement test simulation (6 full Quant mocks)",
-            "ref": "Quant Mocks 1–6",
-            "title": "Timed placement test simulation (6 full Quant mocks)",
-            "desc": "",
+            "ref": "",
+            "title": "Quant Mocks 1–6",
+            "desc": "Timed placement test simulation (6 full Quant mocks)",
             "html": "<strong class=\"text-on-surface font-semibold\">Quant Mocks 1–6</strong> — Timed placement test simulation (6 full Quant mocks)",
             "is_rest": false
           }
@@ -6569,8 +6569,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Bellman ford algorithm; Floyd warshall algorithm; Find the city with smallest number of neighbors + Contest",
             "ref": "",
-            "title": "Bellman ford algorithm; Floyd warshall algorithm; Find the city with smallest number of neighbors",
-            "desc": "Contest",
+            "title": "Bellman ford algorithm; Floyd warshall algorithm; Find the city with smallest number of neighbors + Contest",
+            "desc": "",
             "html": "Bellman ford algorithm; Floyd warshall algorithm; Find the city with smallest number of neighbors + Contest",
             "is_rest": false
           },
@@ -6581,9 +6581,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Data Ingestion & Chunking Pipeline (4.0h)** — Ingest raw technical PDFs / Markdown; benchmark semantic chunking vs recursive character chunking; generate vector embeddings.",
             "ref": "",
-            "title": "Capstone Data Ingestion &amp; Chunking Pipeline (4.0h)",
+            "title": "Capstone Data Ingestion & Chunking Pipeline (4.0h)",
             "desc": "Ingest raw technical PDFs / Markdown; benchmark semantic chunking vs recursive character chunking; generate vector embeddings.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Data Ingestion &amp; Chunking Pipeline (4.0h)</strong> — Ingest raw technical PDFs / Markdown; benchmark semantic chunking vs recursive character chunking; generate vector embeddings.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Data Ingestion & Chunking Pipeline (4.0h)</strong> — Ingest raw technical PDFs / Markdown; benchmark semantic chunking vs recursive character chunking; generate vector embeddings.",
             "is_rest": false
           },
           {
@@ -6592,9 +6592,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant Mocks 7–12** — Timed simulation (6 full Quant mocks) + review incorrect questions and retake weakest areas",
-            "ref": "Quant Mocks 7–12",
-            "title": "Timed simulation (6 full Quant mocks)",
-            "desc": "review incorrect questions and retake weakest areas",
+            "ref": "",
+            "title": "Quant Mocks 7–12",
+            "desc": "Timed simulation (6 full Quant mocks) + review incorrect questions and retake weakest areas",
             "html": "<strong class=\"text-on-surface font-semibold\">Quant Mocks 7–12</strong> — Timed simulation (6 full Quant mocks) + review incorrect questions and retake weakest areas",
             "is_rest": false
           }
@@ -6627,9 +6627,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "MST theory; Disjoint Set (by rank & size)",
             "ref": "",
-            "title": "MST theory; Disjoint Set (by rank &amp; size)",
+            "title": "MST theory; Disjoint Set (by rank & size)",
             "desc": "",
-            "html": "MST theory; Disjoint Set (by rank &amp; size)",
+            "html": "MST theory; Disjoint Set (by rank & size)",
             "is_rest": false
           },
           {
@@ -6670,8 +6670,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Interview Problems 3** — Design & Code: **Traffic Signal System** (state transitions, timer logic) & **Vending Machine System** in Java (state pattern, coin/cash handling, inventory tracking)",
             "ref": "",
             "title": "LLD Interview Problems 3",
-            "desc": "Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Traffic Signal System</strong> (state transitions, timer logic) &amp; <strong class=\"text-on-surface font-semibold\">Vending Machine System</strong> in Java (state pattern, coin/cash handling, inventory tracking)",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 3</strong> — Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Traffic Signal System</strong> (state transitions, timer logic) &amp; <strong class=\"text-on-surface font-semibold\">Vending Machine System</strong> in Java (state pattern, coin/cash handling, inventory tracking)",
+            "desc": "Design & Code: <strong class=\"text-on-surface font-semibold\">Traffic Signal System</strong> (state transitions, timer logic) & <strong class=\"text-on-surface font-semibold\">Vending Machine System</strong> in Java (state pattern, coin/cash handling, inventory tracking)",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 3</strong> — Design & Code: <strong class=\"text-on-surface font-semibold\">Traffic Signal System</strong> (state transitions, timer logic) & <strong class=\"text-on-surface font-semibold\">Vending Machine System</strong> in Java (state pattern, coin/cash handling, inventory tracking)",
             "is_rest": false
           }
         ]
@@ -6730,8 +6730,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Interview Problems 4** — Design & Code: **Task Management System** & **Pub-Sub System** in Java (topics, consumer groups, message delivery, thread-safe queues)",
             "ref": "",
             "title": "LLD Interview Problems 4",
-            "desc": "Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Task Management System</strong> &amp; <strong class=\"text-on-surface font-semibold\">Pub-Sub System</strong> in Java (topics, consumer groups, message delivery, thread-safe queues)",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 4</strong> — Design &amp; Code: <strong class=\"text-on-surface font-semibold\">Task Management System</strong> &amp; <strong class=\"text-on-surface font-semibold\">Pub-Sub System</strong> in Java (topics, consumer groups, message delivery, thread-safe queues)",
+            "desc": "Design & Code: <strong class=\"text-on-surface font-semibold\">Task Management System</strong> & <strong class=\"text-on-surface font-semibold\">Pub-Sub System</strong> in Java (topics, consumer groups, message delivery, thread-safe queues)",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 4</strong> — Design & Code: <strong class=\"text-on-surface font-semibold\">Task Management System</strong> & <strong class=\"text-on-surface font-semibold\">Pub-Sub System</strong> in Java (topics, consumer groups, message delivery, thread-safe queues)",
             "is_rest": false
           }
         ]
@@ -6759,9 +6759,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**AI/ML Interview Bank 3: Transformers & GenAI** — Self-Attention equations, Multi-Head Attention, Positional Encoding, BPE Tokenization, RAG chunking strategies, Context length constraints, Hallucination mitigation",
             "ref": "",
-            "title": "AI/ML Interview Bank 3: Transformers &amp; GenAI",
+            "title": "AI/ML Interview Bank 3: Transformers & GenAI",
             "desc": "Self-Attention equations, Multi-Head Attention, Positional Encoding, BPE Tokenization, RAG chunking strategies, Context length constraints, Hallucination mitigation",
-            "html": "<strong class=\"text-on-surface font-semibold\">AI/ML Interview Bank 3: Transformers &amp; GenAI</strong> — Self-Attention equations, Multi-Head Attention, Positional Encoding, BPE Tokenization, RAG chunking strategies, Context length constraints, Hallucination mitigation",
+            "html": "<strong class=\"text-on-surface font-semibold\">AI/ML Interview Bank 3: Transformers & GenAI</strong> — Self-Attention equations, Multi-Head Attention, Positional Encoding, BPE Tokenization, RAG chunking strategies, Context length constraints, Hallucination mitigation",
             "is_rest": false
           }
         ]
@@ -6789,9 +6789,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone FastAPI Service & Vector Search (4.0h)** — Build FastAPI microservice exposing `/query`, `/embed`, and `/health` endpoints with Pydantic validation and pgvector integration.",
             "ref": "",
-            "title": "Capstone FastAPI Service &amp; Vector Search (4.0h)",
+            "title": "Capstone FastAPI Service & Vector Search (4.0h)",
             "desc": "Build FastAPI microservice exposing <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/query</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/embed</code>, and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code> endpoints with Pydantic validation and pgvector integration.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone FastAPI Service &amp; Vector Search (4.0h)</strong> — Build FastAPI microservice exposing <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/query</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/embed</code>, and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code> endpoints with Pydantic validation and pgvector integration.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone FastAPI Service & Vector Search (4.0h)</strong> — Build FastAPI microservice exposing <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/query</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/embed</code>, and <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code> endpoints with Pydantic validation and pgvector integration.",
             "is_rest": false
           },
           {
@@ -6800,9 +6800,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Quant Mocks 13–20** — **All 20 Quant Mocks complete!**",
-            "ref": "Quant Mocks 13–20",
-            "title": "All 20 Quant Mocks complete!",
-            "desc": "",
+            "ref": "",
+            "title": "Quant Mocks 13–20",
+            "desc": "<strong class=\"text-on-surface font-semibold\">All 20 Quant Mocks complete!</strong>",
             "html": "<strong class=\"text-on-surface font-semibold\">Quant Mocks 13–20</strong> — <strong class=\"text-on-surface font-semibold\">All 20 Quant Mocks complete!</strong>",
             "is_rest": false
           }
@@ -6819,9 +6819,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "House robber I & II + Contest",
             "ref": "",
-            "title": "House robber I &amp; II + Contest",
+            "title": "House robber I & II + Contest",
             "desc": "",
-            "html": "House robber I &amp; II + Contest",
+            "html": "House robber I & II + Contest",
             "is_rest": false
           },
           {
@@ -6831,9 +6831,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Containerization & Docker Deployment (4.0h)** — Containerize the AI service with multi-stage Dockerfile; configure `docker-compose` with Postgres + pgvector; verify local deployment.",
             "ref": "",
-            "title": "Containerization &amp; Docker Deployment (4.0h)",
+            "title": "Containerization & Docker Deployment (4.0h)",
             "desc": "Containerize the AI service with multi-stage Dockerfile; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docker-compose</code> with Postgres + pgvector; verify local deployment.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Containerization &amp; Docker Deployment (4.0h)</strong> — Containerize the AI service with multi-stage Dockerfile; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docker-compose</code> with Postgres + pgvector; verify local deployment.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Containerization & Docker Deployment (4.0h)</strong> — Containerize the AI service with multi-stage Dockerfile; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docker-compose</code> with Postgres + pgvector; verify local deployment.",
             "is_rest": false
           },
           {
@@ -6842,9 +6842,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical Mocks 1–6** — Timed placement test simulation + review incorrect answers",
-            "ref": "Logical Mocks 1–6",
-            "title": "Timed placement test simulation",
-            "desc": "review incorrect answers",
+            "ref": "",
+            "title": "Logical Mocks 1–6",
+            "desc": "Timed placement test simulation + review incorrect answers",
             "html": "<strong class=\"text-on-surface font-semibold\">Logical Mocks 1–6</strong> — Timed placement test simulation + review incorrect answers",
             "is_rest": false
           }
@@ -6855,7 +6855,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w27_deliv_1",
         "raw_text": "**Deliverable:** Graphs **fully done**. Introduction to DP + 1D DP done. **Capstone portfolio-ready.** LLD Interview Problems Parts 1 & 2 complete.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Graphs <strong class=\"text-on-surface font-semibold\">fully done</strong>. Introduction to DP + 1D DP done. <strong class=\"text-on-surface font-semibold\">Capstone portfolio-ready.</strong> LLD Interview Problems Parts 1 &amp; 2 complete."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Graphs <strong class=\"text-on-surface font-semibold\">fully done</strong>. Introduction to DP + 1D DP done. <strong class=\"text-on-surface font-semibold\">Capstone portfolio-ready.</strong> LLD Interview Problems Parts 1 & 2 complete."
       }
     ],
     "notes": []
@@ -6877,9 +6877,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Ninja's training (2D DP intro); Grid unique paths I & II",
             "ref": "",
-            "title": "Ninja's training (2D DP intro); Grid unique paths I &amp; II",
+            "title": "Ninja's training (2D DP intro); Grid unique paths I & II",
             "desc": "",
-            "html": "Ninja's training (2D DP intro); Grid unique paths I &amp; II",
+            "html": "Ninja's training (2D DP intro); Grid unique paths I & II",
             "is_rest": false
           },
           {
@@ -6920,8 +6920,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Interview Problems 5** — Design & Code: **ATM Machine System** (State pattern, card validation, cash dispenser) & **Hotel Management System** — **LLD Interview Problems Parts 1 & 2 complete**",
             "ref": "",
             "title": "LLD Interview Problems 5",
-            "desc": "Design &amp; Code: <strong class=\"text-on-surface font-semibold\">ATM Machine System</strong> (State pattern, card validation, cash dispenser) &amp; <strong class=\"text-on-surface font-semibold\">Hotel Management System</strong> — <strong class=\"text-on-surface font-semibold\">LLD Interview Problems Parts 1 &amp; 2 complete</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 5</strong> — Design &amp; Code: <strong class=\"text-on-surface font-semibold\">ATM Machine System</strong> (State pattern, card validation, cash dispenser) &amp; <strong class=\"text-on-surface font-semibold\">Hotel Management System</strong> — <strong class=\"text-on-surface font-semibold\">LLD Interview Problems Parts 1 &amp; 2 complete</strong>",
+            "desc": "Design & Code: <strong class=\"text-on-surface font-semibold\">ATM Machine System</strong> (State pattern, card validation, cash dispenser) & <strong class=\"text-on-surface font-semibold\">Hotel Management System</strong> — <strong class=\"text-on-surface font-semibold\">LLD Interview Problems Parts 1 & 2 complete</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Interview Problems 5</strong> — Design & Code: <strong class=\"text-on-surface font-semibold\">ATM Machine System</strong> (State pattern, card validation, cash dispenser) & <strong class=\"text-on-surface font-semibold\">Hotel Management System</strong> — <strong class=\"text-on-surface font-semibold\">LLD Interview Problems Parts 1 & 2 complete</strong>",
             "is_rest": false
           }
         ]
@@ -6937,9 +6937,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Cherry pickup II; Best time to buy and sell stock I & II",
             "ref": "",
-            "title": "Cherry pickup II; Best time to buy and sell stock I &amp; II",
+            "title": "Cherry pickup II; Best time to buy and sell stock I & II",
             "desc": "",
-            "html": "Cherry pickup II; Best time to buy and sell stock I &amp; II",
+            "html": "Cherry pickup II; Best time to buy and sell stock I & II",
             "is_rest": false
           },
           {
@@ -6997,8 +6997,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Best time to buy and sell stock with transaction fees + Contest",
             "ref": "",
-            "title": "Best time to buy and sell stock with transaction fees",
-            "desc": "Contest",
+            "title": "Best time to buy and sell stock with transaction fees + Contest",
+            "desc": "",
             "html": "Best time to buy and sell stock with transaction fees + Contest",
             "is_rest": false
           },
@@ -7010,8 +7010,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Mock Interview #3: GenAI Capstone Defense** — Present your Capstone end-to-end: Data Ingestion $\\rightarrow$ Chunking $\\rightarrow$ Embedding $\\rightarrow$ Vector Store $\\rightarrow$ RAG Pipeline $\\rightarrow$ Evaluation $\\rightarrow$ Docker deployment",
             "ref": "",
             "title": "Mock Interview #3: GenAI Capstone Defense",
-            "desc": "Present your Capstone end-to-end: Data Ingestion $\\rightarrow$ Chunking $\\rightarrow$ Embedding $\\rightarrow$ Vector Store $\\rightarrow$ RAG Pipeline $\\rightarrow$ Evaluation $\\rightarrow$ Docker deployment",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock Interview #3: GenAI Capstone Defense</strong> — Present your Capstone end-to-end: Data Ingestion $\\rightarrow$ Chunking $\\rightarrow$ Embedding $\\rightarrow$ Vector Store $\\rightarrow$ RAG Pipeline $\\rightarrow$ Evaluation $\\rightarrow$ Docker deployment",
+            "desc": "Present your Capstone end-to-end: Data Ingestion &rarr; Chunking &rarr; Embedding &rarr; Vector Store &rarr; RAG Pipeline &rarr; Evaluation &rarr; Docker deployment",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock Interview #3: GenAI Capstone Defense</strong> — Present your Capstone end-to-end: Data Ingestion &rarr; Chunking &rarr; Embedding &rarr; Vector Store &rarr; RAG Pipeline &rarr; Evaluation &rarr; Docker deployment",
             "is_rest": false
           }
         ]
@@ -7039,9 +7039,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Prompt Engineering & Tool Calling (4.0h)** — Implement structured JSON outputs, system prompt guardrails, and function calling / tool integration in the AI service.",
             "ref": "",
-            "title": "Prompt Engineering &amp; Tool Calling (4.0h)",
+            "title": "Prompt Engineering & Tool Calling (4.0h)",
             "desc": "Implement structured JSON outputs, system prompt guardrails, and function calling / tool integration in the AI service.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Prompt Engineering &amp; Tool Calling (4.0h)</strong> — Implement structured JSON outputs, system prompt guardrails, and function calling / tool integration in the AI service.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Prompt Engineering & Tool Calling (4.0h)</strong> — Implement structured JSON outputs, system prompt guardrails, and function calling / tool integration in the AI service.",
             "is_rest": false
           },
           {
@@ -7050,9 +7050,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical Mocks 7–14** — Timed simulation",
-            "ref": "Logical Mocks 7–14",
-            "title": "Timed simulation",
-            "desc": "",
+            "ref": "",
+            "title": "Logical Mocks 7–14",
+            "desc": "Timed simulation",
             "html": "<strong class=\"text-on-surface font-semibold\">Logical Mocks 7–14</strong> — Timed simulation",
             "is_rest": false
           }
@@ -7069,9 +7069,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "DP on Grids & Stocks timed review",
             "ref": "",
-            "title": "DP on Grids &amp; Stocks timed review",
+            "title": "DP on Grids & Stocks timed review",
             "desc": "",
-            "html": "DP on Grids &amp; Stocks timed review",
+            "html": "DP on Grids & Stocks timed review",
             "is_rest": false
           },
           {
@@ -7092,9 +7092,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Logical Mocks 15–20** — **All 20 Logical Mocks complete!** + HLD Caching (Read-Through, Write-Through, Write-Back, Cache Eviction: LRU, LFU)",
-            "ref": "Logical Mocks 15–20",
-            "title": "All 20 Logical Mocks complete!",
-            "desc": "HLD Caching (Read-Through, Write-Through, Write-Back, Cache Eviction: LRU, LFU)",
+            "ref": "",
+            "title": "Logical Mocks 15–20",
+            "desc": "<strong class=\"text-on-surface font-semibold\">All 20 Logical Mocks complete!</strong> + HLD Caching (Read-Through, Write-Through, Write-Back, Cache Eviction: LRU, LFU)",
             "html": "<strong class=\"text-on-surface font-semibold\">Logical Mocks 15–20</strong> — <strong class=\"text-on-surface font-semibold\">All 20 Logical Mocks complete!</strong> + HLD Caching (Read-Through, Write-Through, Write-Back, Cache Eviction: LRU, LFU)",
             "is_rest": false
           }
@@ -7168,10 +7168,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD System Components & Security** — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + **API Security & OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)** + Quiz",
-            "ref": "LeetCode #",
-            "title": "HLD System Components &amp; Security",
-            "desc": "Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + <strong class=\"text-on-surface font-semibold\">API Security &amp; OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)</strong> + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD System Components &amp; Security</strong> — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + <strong class=\"text-on-surface font-semibold\">API Security &amp; OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)</strong> + Quiz",
+            "ref": "LC #",
+            "title": "HLD System Components & Security",
+            "desc": "Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + <strong class=\"text-on-surface font-semibold\">API Security & OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)</strong> + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD System Components & Security</strong> — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + <strong class=\"text-on-surface font-semibold\">API Security & OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)</strong> + Quiz",
             "is_rest": false
           }
         ]
@@ -7228,10 +7228,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD System Design 1** — **System Design of Instagram / Photo Sharing Service** & **System Design of WhatsApp / Chat Application** (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)",
-            "ref": "System Design of Instagram / Photo Sharing Service",
+            "ref": "",
             "title": "HLD System Design 1",
-            "desc": "&amp; <strong class=\"text-on-surface font-semibold\">System Design of WhatsApp / Chat Application</strong> (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD System Design 1</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Instagram / Photo Sharing Service</strong> &amp; <strong class=\"text-on-surface font-semibold\">System Design of WhatsApp / Chat Application</strong> (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of Instagram / Photo Sharing Service</strong> & <strong class=\"text-on-surface font-semibold\">System Design of WhatsApp / Chat Application</strong> (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD System Design 1</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Instagram / Photo Sharing Service</strong> & <strong class=\"text-on-surface font-semibold\">System Design of WhatsApp / Chat Application</strong> (Requirements, Capacity estimation, High-level diagram, Data models, Scaling)",
             "is_rest": false
           }
         ]
@@ -7259,9 +7259,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**AI Portfolio Audit & Polish** — Review all 6 GitHub repositories (`ml-from-scratch`, EDA, CNN Classifier, nanoGPT, LangChain RAG, Deployed Capstone); ensure polished READMEs with architecture diagrams and demo GIFs",
             "ref": "",
-            "title": "AI Portfolio Audit &amp; Polish",
+            "title": "AI Portfolio Audit & Polish",
             "desc": "Review all 6 GitHub repositories (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN Classifier, nanoGPT, LangChain RAG, Deployed Capstone); ensure polished READMEs with architecture diagrams and demo GIFs",
-            "html": "<strong class=\"text-on-surface font-semibold\">AI Portfolio Audit &amp; Polish</strong> — Review all 6 GitHub repositories (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN Classifier, nanoGPT, LangChain RAG, Deployed Capstone); ensure polished READMEs with architecture diagrams and demo GIFs",
+            "html": "<strong class=\"text-on-surface font-semibold\">AI Portfolio Audit & Polish</strong> — Review all 6 GitHub repositories (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN Classifier, nanoGPT, LangChain RAG, Deployed Capstone); ensure polished READMEs with architecture diagrams and demo GIFs",
             "is_rest": false
           }
         ]
@@ -7290,8 +7290,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Comprehensive Placement Mock Interview 1 (4.0h)** — 2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL & Transformers (attention, backprop, embeddings).",
             "ref": "",
             "title": "Comprehensive Placement Mock Interview 1 (4.0h)",
-            "desc": "2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL &amp; Transformers (attention, backprop, embeddings).",
-            "html": "<strong class=\"text-on-surface font-semibold\">Comprehensive Placement Mock Interview 1 (4.0h)</strong> — 2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL &amp; Transformers (attention, backprop, embeddings).",
+            "desc": "2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL & Transformers (attention, backprop, embeddings).",
+            "html": "<strong class=\"text-on-surface font-semibold\">Comprehensive Placement Mock Interview 1 (4.0h)</strong> — 2-hour mock interview on ML theory (bias-variance, GD, regularizers, trees vs ensembles) + 2-hour mock on DL & Transformers (attention, backprop, embeddings).",
             "is_rest": false
           },
           {
@@ -7300,9 +7300,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Verbal Mocks 1–8** — Timed simulation",
-            "ref": "Verbal Mocks 1–8",
-            "title": "Timed simulation",
-            "desc": "",
+            "ref": "",
+            "title": "Verbal Mocks 1–8",
+            "desc": "Timed simulation",
             "html": "<strong class=\"text-on-surface font-semibold\">Verbal Mocks 1–8</strong> — Timed simulation",
             "is_rest": false
           }
@@ -7332,8 +7332,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Comprehensive Placement Mock Interview 2 (4.0h)** — 2-hour mock interview on Capstone system architecture & RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).",
             "ref": "",
             "title": "Comprehensive Placement Mock Interview 2 (4.0h)",
-            "desc": "2-hour mock interview on Capstone system architecture &amp; RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).",
-            "html": "<strong class=\"text-on-surface font-semibold\">Comprehensive Placement Mock Interview 2 (4.0h)</strong> — 2-hour mock interview on Capstone system architecture &amp; RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).",
+            "desc": "2-hour mock interview on Capstone system architecture & RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).",
+            "html": "<strong class=\"text-on-surface font-semibold\">Comprehensive Placement Mock Interview 2 (4.0h)</strong> — 2-hour mock interview on Capstone system architecture & RAG trade-offs + 2-hour mock on Core CS (OS, DBMS, CN, OOPs).",
             "is_rest": false
           },
           {
@@ -7342,9 +7342,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Verbal Mocks 9–16** — Timed simulation + **HLD System Design 2**: **System Design of Uber / Ride Hailing Service** (Geohashing, quadtrees, driver matching)",
-            "ref": "Verbal Mocks 9–16",
-            "title": "Timed simulation",
-            "desc": "<strong class=\"text-on-surface font-semibold\">HLD System Design 2</strong>: <strong class=\"text-on-surface font-semibold\">System Design of Uber / Ride Hailing Service</strong> (Geohashing, quadtrees, driver matching)",
+            "ref": "",
+            "title": "Verbal Mocks 9–16",
+            "desc": "Timed simulation + <strong class=\"text-on-surface font-semibold\">HLD System Design 2</strong>: <strong class=\"text-on-surface font-semibold\">System Design of Uber / Ride Hailing Service</strong> (Geohashing, quadtrees, driver matching)",
             "html": "<strong class=\"text-on-surface font-semibold\">Verbal Mocks 9–16</strong> — Timed simulation + <strong class=\"text-on-surface font-semibold\">HLD System Design 2</strong>: <strong class=\"text-on-surface font-semibold\">System Design of Uber / Ride Hailing Service</strong> (Geohashing, quadtrees, driver matching)",
             "is_rest": false
           }
@@ -7419,9 +7419,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**HLD & Core CS Rapid Fire** — 5 questions each from OOPs, DBMS, OS, CN, LLD, and HLD; review system design trade-offs (Pull vs Push, Latency vs Throughput, Consistency vs Availability)",
             "ref": "",
-            "title": "HLD &amp; Core CS Rapid Fire",
+            "title": "HLD & Core CS Rapid Fire",
             "desc": "5 questions each from OOPs, DBMS, OS, CN, LLD, and HLD; review system design trade-offs (Pull vs Push, Latency vs Throughput, Consistency vs Availability)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD &amp; Core CS Rapid Fire</strong> — 5 questions each from OOPs, DBMS, OS, CN, LLD, and HLD; review system design trade-offs (Pull vs Push, Latency vs Throughput, Consistency vs Availability)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD & Core CS Rapid Fire</strong> — 5 questions each from OOPs, DBMS, OS, CN, LLD, and HLD; review system design trade-offs (Pull vs Push, Latency vs Throughput, Consistency vs Availability)",
             "is_rest": false
           }
         ]
@@ -7449,9 +7449,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Placement Interview Behavioral & STAR Prep** — \"Tell me about yourself as an AI&DS student\", answering behavioral questions using the STAR framework (Situation, Task, Action, Result)",
             "ref": "",
-            "title": "Placement Interview Behavioral &amp; STAR Prep",
-            "desc": "\"Tell me about yourself as an AI&amp;DS student\", answering behavioral questions using the STAR framework (Situation, Task, Action, Result)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Placement Interview Behavioral &amp; STAR Prep</strong> — \"Tell me about yourself as an AI&amp;DS student\", answering behavioral questions using the STAR framework (Situation, Task, Action, Result)",
+            "title": "Placement Interview Behavioral & STAR Prep",
+            "desc": "\"Tell me about yourself as an AI&DS student\", answering behavioral questions using the STAR framework (Situation, Task, Action, Result)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Placement Interview Behavioral & STAR Prep</strong> — \"Tell me about yourself as an AI&DS student\", answering behavioral questions using the STAR framework (Situation, Task, Action, Result)",
             "is_rest": false
           }
         ]
@@ -7496,7 +7496,7 @@ window.ROADMAP_DATA = [
             "track_id": "dsa",
             "track_name": "DSA & Java",
             "raw_text": "Mixed Timed Contest (90 mins) — 3 unseen LeetCode Medium/Hard problems",
-            "ref": "LeetCode #",
+            "ref": "LC #",
             "title": "Mixed Timed Contest (90 mins)",
             "desc": "3 unseen LeetCode Medium/Hard problems",
             "html": "Mixed Timed Contest (90 mins) — 3 unseen LeetCode Medium/Hard problems",
@@ -7509,9 +7509,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Full AI & Data Science Technical Mock Interview** — 60-minute grilling on math, ML algorithms, neural nets, transformers, and GenAI",
             "ref": "",
-            "title": "Full AI &amp; Data Science Technical Mock Interview",
+            "title": "Full AI & Data Science Technical Mock Interview",
             "desc": "60-minute grilling on math, ML algorithms, neural nets, transformers, and GenAI",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full AI &amp; Data Science Technical Mock Interview</strong> — 60-minute grilling on math, ML algorithms, neural nets, transformers, and GenAI",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full AI & Data Science Technical Mock Interview</strong> — 60-minute grilling on math, ML algorithms, neural nets, transformers, and GenAI",
             "is_rest": false
           }
         ]
@@ -7527,9 +7527,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "DSA Contest Review & Weak Spot Patching",
             "ref": "",
-            "title": "DSA Contest Review &amp; Weak Spot Patching",
+            "title": "DSA Contest Review & Weak Spot Patching",
             "desc": "",
-            "html": "DSA Contest Review &amp; Weak Spot Patching",
+            "html": "DSA Contest Review & Weak Spot Patching",
             "is_rest": false
           },
           {
@@ -7539,9 +7539,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Placement Mock Interview 3 (Live Coding & Architecture) (4.0h)** — Live end-to-end coding drill: implement linear regression or attention from scratch + explain full RAG architecture on whiteboard.",
             "ref": "",
-            "title": "Placement Mock Interview 3 (Live Coding &amp; Architecture) (4.0h)",
+            "title": "Placement Mock Interview 3 (Live Coding & Architecture) (4.0h)",
             "desc": "Live end-to-end coding drill: implement linear regression or attention from scratch + explain full RAG architecture on whiteboard.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Placement Mock Interview 3 (Live Coding &amp; Architecture) (4.0h)</strong> — Live end-to-end coding drill: implement linear regression or attention from scratch + explain full RAG architecture on whiteboard.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Placement Mock Interview 3 (Live Coding & Architecture) (4.0h)</strong> — Live end-to-end coding drill: implement linear regression or attention from scratch + explain full RAG architecture on whiteboard.",
             "is_rest": false
           },
           {
@@ -7550,9 +7550,9 @@ window.ROADMAP_DATA = [
             "track_id": "aptitude",
             "track_name": "Aptitude",
             "raw_text": "**Verbal Mocks 17–20** — **All 60 TUF+ Mock Tests complete!** + Full Mixed Mock Simulation (Quant + Logical + Verbal back-to-back)",
-            "ref": "Verbal Mocks 17–20",
-            "title": "All 60 TUF+ Mock Tests complete!",
-            "desc": "Full Mixed Mock Simulation (Quant + Logical + Verbal back-to-back)",
+            "ref": "",
+            "title": "Verbal Mocks 17–20",
+            "desc": "<strong class=\"text-on-surface font-semibold\">All 60 TUF+ Mock Tests complete!</strong> + Full Mixed Mock Simulation (Quant + Logical + Verbal back-to-back)",
             "html": "<strong class=\"text-on-surface font-semibold\">Verbal Mocks 17–20</strong> — <strong class=\"text-on-surface font-semibold\">All 60 TUF+ Mock Tests complete!</strong> + Full Mixed Mock Simulation (Quant + Logical + Verbal back-to-back)",
             "is_rest": false
           }
@@ -7569,8 +7569,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Full 30-week DSA self-test:** solve 5 random problems from memory across all phases",
             "ref": "",
-            "title": "Full 30-week DSA self-test: solve 5 random problems from memory across all phases",
-            "desc": "",
+            "title": "Full 30-week DSA self-test",
+            "desc": "solve 5 random problems from memory across all phases",
             "html": "<strong class=\"text-on-surface font-semibold\">Full 30-week DSA self-test:</strong> solve 5 random problems from memory across all phases",
             "is_rest": false
           },
@@ -7580,9 +7580,9 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Week 30 Placement-Ready Checkpoint Defense (4.0h)** — Complete audit of GitHub portfolio, resume review, STAR behavioral stories, and final placement clearance!",
-            "ref": "Week 30 Placement-Ready Checkpoint Defense (4.0h)",
-            "title": "Complete audit of GitHub portfolio, resume review, STAR behavioral stories, and final placement clearance!",
-            "desc": "",
+            "ref": "",
+            "title": "Week 30 Placement-Ready Checkpoint Defense (4.0h)",
+            "desc": "Complete audit of GitHub portfolio, resume review, STAR behavioral stories, and final placement clearance!",
             "html": "<strong class=\"text-on-surface font-semibold\">Week 30 Placement-Ready Checkpoint Defense (4.0h)</strong> — Complete audit of GitHub portfolio, resume review, STAR behavioral stories, and final placement clearance!",
             "is_rest": false
           },
@@ -7593,9 +7593,9 @@ window.ROADMAP_DATA = [
             "track_name": "Aptitude",
             "raw_text": "**Final Checkpoint Audit & Rest** — Review full placement portfolio, verify all 60 TUF+ mocks done; celebrate conquering the 30-week placement core!",
             "ref": "",
-            "title": "Final Checkpoint Audit &amp; Rest",
+            "title": "Final Checkpoint Audit & Rest",
             "desc": "Review full placement portfolio, verify all 60 TUF+ mocks done; celebrate conquering the 30-week placement core!",
-            "html": "<strong class=\"text-on-surface font-semibold\">Final Checkpoint Audit &amp; Rest</strong> — Review full placement portfolio, verify all 60 TUF+ mocks done; celebrate conquering the 30-week placement core!",
+            "html": "<strong class=\"text-on-surface font-semibold\">Final Checkpoint Audit & Rest</strong> — Review full placement portfolio, verify all 60 TUF+ mocks done; celebrate conquering the 30-week placement core!",
             "is_rest": false
           }
         ]
@@ -7615,7 +7615,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w30_deliv_3",
         "raw_text": "Core CS: **LLD fully done** (theory + Interview Problems Parts 1 & 2); **HLD conceptual syllabus fully done** plus 3 major practice problems",
-        "html": "Core CS: <strong class=\"text-on-surface font-semibold\">LLD fully done</strong> (theory + Interview Problems Parts 1 &amp; 2); <strong class=\"text-on-surface font-semibold\">HLD conceptual syllabus fully done</strong> plus 3 major practice problems"
+        "html": "Core CS: <strong class=\"text-on-surface font-semibold\">LLD fully done</strong> (theory + Interview Problems Parts 1 & 2); <strong class=\"text-on-surface font-semibold\">HLD conceptual syllabus fully done</strong> plus 3 major practice problems"
       },
       {
         "id": "w30_deliv_4",
@@ -7630,7 +7630,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w30_deliv_6",
         "raw_text": "Portfolio: CS50P projects, EDA project, `ml-from-scratch` repo, closed Kaggle competition, CNN image classifier, nanoGPT & tokenizer from scratch, and deployed GenAI capstone",
-        "html": "Portfolio: CS50P projects, EDA project, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo, closed Kaggle competition, CNN image classifier, nanoGPT &amp; tokenizer from scratch, and deployed GenAI capstone"
+        "html": "Portfolio: CS50P projects, EDA project, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code> repo, closed Kaggle competition, CNN image classifier, nanoGPT & tokenizer from scratch, and deployed GenAI capstone"
       }
     ],
     "notes": [
@@ -7666,9 +7666,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face LLM Course** (`huggingface.co/learn/llm-course`) — Ch.1: What Transformers can do, the `pipeline()` API & Ch.2: Using pretrained models from the Hub, tokenizers in practice",
             "ref": "",
-            "title": "Hugging Face LLM Course (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/learn/llm-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>)",
-            "desc": "Ch.1: What Transformers can do, the <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pipeline()</code> API &amp; Ch.2: Using pretrained models from the Hub, tokenizers in practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Hugging Face LLM Course</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/learn/llm-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>) — Ch.1: What Transformers can do, the <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pipeline()</code> API &amp; Ch.2: Using pretrained models from the Hub, tokenizers in practice",
+            "title": "<strong class=\"text-on-surface font-semibold\">Hugging Face LLM Course</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/learn/llm-course</code>)",
+            "desc": "Ch.1: What Transformers can do, the <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pipeline()</code> API & Ch.2: Using pretrained models from the Hub, tokenizers in practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Hugging Face LLM Course</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/learn/llm-course</code>) — Ch.1: What Transformers can do, the <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pipeline()</code> API & Ch.2: Using pretrained models from the Hub, tokenizers in practice",
             "is_rest": false
           }
         ]
@@ -7697,8 +7697,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Part 3: Elevator System** — Requirements, Class diagrams, State management, Dispatch algorithms, Design & Code in Java",
             "ref": "",
             "title": "LLD Part 3: Elevator System",
-            "desc": "Requirements, Class diagrams, State management, Dispatch algorithms, Design &amp; Code in Java",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3: Elevator System</strong> — Requirements, Class diagrams, State management, Dispatch algorithms, Design &amp; Code in Java",
+            "desc": "Requirements, Class diagrams, State management, Dispatch algorithms, Design & Code in Java",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3: Elevator System</strong> — Requirements, Class diagrams, State management, Dispatch algorithms, Design & Code in Java",
             "is_rest": false
           }
         ]
@@ -7727,8 +7727,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**HF LLM Course** — Ch.3: Fine-tuning a pretrained model with the Trainer API & Ch.4: Sharing models and tokenizers on the Hub",
             "ref": "",
             "title": "HF LLM Course",
-            "desc": "Ch.3: Fine-tuning a pretrained model with the Trainer API &amp; Ch.4: Sharing models and tokenizers on the Hub",
-            "html": "<strong class=\"text-on-surface font-semibold\">HF LLM Course</strong> — Ch.3: Fine-tuning a pretrained model with the Trainer API &amp; Ch.4: Sharing models and tokenizers on the Hub",
+            "desc": "Ch.3: Fine-tuning a pretrained model with the Trainer API & Ch.4: Sharing models and tokenizers on the Hub",
+            "html": "<strong class=\"text-on-surface font-semibold\">HF LLM Course</strong> — Ch.3: Fine-tuning a pretrained model with the Trainer API & Ch.4: Sharing models and tokenizers on the Hub",
             "is_rest": false
           }
         ]
@@ -7757,8 +7757,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**LLD Part 3: Digital Wallet** — Account models, Ledger entries, Types of Locking Mechanisms (Optimistic vs Pessimistic), Design & Code in Java",
             "ref": "",
             "title": "LLD Part 3: Digital Wallet",
-            "desc": "Account models, Ledger entries, Types of Locking Mechanisms (Optimistic vs Pessimistic), Design &amp; Code in Java",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3: Digital Wallet</strong> — Account models, Ledger entries, Types of Locking Mechanisms (Optimistic vs Pessimistic), Design &amp; Code in Java",
+            "desc": "Account models, Ledger entries, Types of Locking Mechanisms (Optimistic vs Pessimistic), Design & Code in Java",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3: Digital Wallet</strong> — Account models, Ledger entries, Types of Locking Mechanisms (Optimistic vs Pessimistic), Design & Code in Java",
             "is_rest": false
           }
         ]
@@ -7787,8 +7787,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**HF LLM Course** — Ch.5 & 6: Datasets & Tokenizers libraries, memory-mapping, fast tokenizers, byte-level BPE under the hood",
             "ref": "",
             "title": "HF LLM Course",
-            "desc": "Ch.5 &amp; 6: Datasets &amp; Tokenizers libraries, memory-mapping, fast tokenizers, byte-level BPE under the hood",
-            "html": "<strong class=\"text-on-surface font-semibold\">HF LLM Course</strong> — Ch.5 &amp; 6: Datasets &amp; Tokenizers libraries, memory-mapping, fast tokenizers, byte-level BPE under the hood",
+            "desc": "Ch.5 & 6: Datasets & Tokenizers libraries, memory-mapping, fast tokenizers, byte-level BPE under the hood",
+            "html": "<strong class=\"text-on-surface font-semibold\">HF LLM Course</strong> — Ch.5 & 6: Datasets & Tokenizers libraries, memory-mapping, fast tokenizers, byte-level BPE under the hood",
             "is_rest": false
           }
         ]
@@ -7804,8 +7804,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Introduction to Bits and Tricks refresher + **Print all primes till N** (Sieve of Eratosthenes)",
             "ref": "",
-            "title": "Introduction to Bits and Tricks refresher",
-            "desc": "<strong class=\"text-on-surface font-semibold\">Print all primes till N</strong> (Sieve of Eratosthenes)",
+            "title": "Introduction to Bits and Tricks refresher + <strong class=\"text-on-surface font-semibold\">Print all primes till N</strong> (Sieve of Eratosthenes)",
+            "desc": "",
             "html": "Introduction to Bits and Tricks refresher + <strong class=\"text-on-surface font-semibold\">Print all primes till N</strong> (Sieve of Eratosthenes)",
             "is_rest": false
           },
@@ -7828,9 +7828,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Spring Core & IoC/DI** — What Spring is and why it exists; IoC Container & Dependency Injection; Spring Beans: `@Component`, `@Autowired`, `@Configuration`, `@Bean`; Constructor injection vs Field injection (Java Brains / Spring Academy)",
             "ref": "",
-            "title": "Spring Core &amp; IoC/DI",
-            "desc": "What Spring is and why it exists; IoC Container &amp; Dependency Injection; Spring Beans: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Component</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Autowired</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Configuration</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code>; Constructor injection vs Field injection (Java Brains / Spring Academy)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring Core &amp; IoC/DI</strong> — What Spring is and why it exists; IoC Container &amp; Dependency Injection; Spring Beans: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Component</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Autowired</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Configuration</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code>; Constructor injection vs Field injection (Java Brains / Spring Academy)",
+            "title": "Spring Core & IoC/DI",
+            "desc": "What Spring is and why it exists; IoC Container & Dependency Injection; Spring Beans: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Component</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Autowired</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Configuration</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code>; Constructor injection vs Field injection (Java Brains / Spring Academy)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring Core & IoC/DI</strong> — What Spring is and why it exists; IoC Container & Dependency Injection; Spring Beans: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Component</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Autowired</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Configuration</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code>; Constructor injection vs Field injection (Java Brains / Spring Academy)",
             "is_rest": false
           }
         ]
@@ -7858,9 +7858,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**LoRA & QLoRA Fine-Tuning Lab (4.0h)** — Fine-tune a 1B–3B parameter LLM on instruction-following dataset using LoRA adapters; benchmark GPU VRAM utilization.",
             "ref": "",
-            "title": "LoRA &amp; QLoRA Fine-Tuning Lab (4.0h)",
+            "title": "LoRA & QLoRA Fine-Tuning Lab (4.0h)",
             "desc": "Fine-tune a 1B–3B parameter LLM on instruction-following dataset using LoRA adapters; benchmark GPU VRAM utilization.",
-            "html": "<strong class=\"text-on-surface font-semibold\">LoRA &amp; QLoRA Fine-Tuning Lab (4.0h)</strong> — Fine-tune a 1B–3B parameter LLM on instruction-following dataset using LoRA adapters; benchmark GPU VRAM utilization.",
+            "html": "<strong class=\"text-on-surface font-semibold\">LoRA & QLoRA Fine-Tuning Lab (4.0h)</strong> — Fine-tune a 1B–3B parameter LLM on instruction-following dataset using LoRA adapters; benchmark GPU VRAM utilization.",
             "is_rest": false
           },
           {
@@ -7871,8 +7871,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Spring Boot REST API** — Auto-configuration, starters, `start.spring.io`; `@RestController`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, `@PathVariable`, `@RequestBody`, `ResponseEntity<T>`, Postman testing; build an in-memory Todo API on GitHub",
             "ref": "",
             "title": "Spring Boot REST API",
-            "desc": "Auto-configuration, starters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RestController</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GetMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PostMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PutMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@DeleteMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PathVariable</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RequestBody</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ResponseEntity&lt;T&gt;</code>, Postman testing; build an in-memory Todo API on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring Boot REST API</strong> — Auto-configuration, starters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RestController</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GetMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PostMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PutMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@DeleteMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PathVariable</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RequestBody</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ResponseEntity&lt;T&gt;</code>, Postman testing; build an in-memory Todo API on GitHub",
+            "desc": "Auto-configuration, starters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RestController</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GetMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PostMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PutMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@DeleteMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PathVariable</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RequestBody</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ResponseEntity<T></code>, Postman testing; build an in-memory Todo API on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring Boot REST API</strong> — Auto-configuration, starters, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RestController</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GetMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PostMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PutMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@DeleteMapping</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PathVariable</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@RequestBody</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ResponseEntity<T></code>, Postman testing; build an in-memory Todo API on GitHub",
             "is_rest": false
           }
         ]
@@ -7916,9 +7916,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**HF PEFT & LoRA Foundations** (`huggingface.co/docs/peft`) — Parameter-Efficient Fine-Tuning, LoRA concept: freezing base model, low-rank decomposition matrices $W = W_0 + B \\cdot A$, rank $r$, scaling $\\alpha$",
             "ref": "",
-            "title": "HF PEFT &amp; LoRA Foundations (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/docs/peft\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>)",
-            "desc": "Parameter-Efficient Fine-Tuning, LoRA concept: freezing base model, low-rank decomposition matrices $W = W_0 + B \\cdot A$, rank $r$, scaling $\\alpha$",
-            "html": "<strong class=\"text-on-surface font-semibold\">HF PEFT &amp; LoRA Foundations</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/docs/peft\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>) — Parameter-Efficient Fine-Tuning, LoRA concept: freezing base model, low-rank decomposition matrices $W = W_0 + B \\cdot A$, rank $r$, scaling $\\alpha$",
+            "title": "<strong class=\"text-on-surface font-semibold\">HF PEFT & LoRA Foundations</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/docs/peft</code>)",
+            "desc": "Parameter-Efficient Fine-Tuning, LoRA concept: freezing base model, low-rank decomposition matrices <span class=\"font-mono text-[11px] text-primary\">W = W<sub>0</sub> + B &middot; A</span>, rank <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">r</code>, scaling &alpha;",
+            "html": "<strong class=\"text-on-surface font-semibold\">HF PEFT & LoRA Foundations</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/docs/peft</code>) — Parameter-Efficient Fine-Tuning, LoRA concept: freezing base model, low-rank decomposition matrices <span class=\"font-mono text-[11px] text-primary\">W = W<sub>0</sub> + B &middot; A</span>, rank <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">r</code>, scaling &alpha;",
             "is_rest": false
           }
         ]
@@ -7946,9 +7946,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**LLD Part 3 Finish & SQL Access Control** — LLD: **Music Streaming Platform** (Design & Code — **LLD 100% complete!**) + SQL: **Permissions and Transactions Part 1 & 2** (Privileges, Roles, GRANTS, REVOKE, RBAC) + Quiz",
             "ref": "",
-            "title": "LLD Part 3 Finish &amp; SQL Access Control",
-            "desc": "LLD: <strong class=\"text-on-surface font-semibold\">Music Streaming Platform</strong> (Design &amp; Code — <strong class=\"text-on-surface font-semibold\">LLD 100% complete!</strong>) + SQL: <strong class=\"text-on-surface font-semibold\">Permissions and Transactions Part 1 &amp; 2</strong> (Privileges, Roles, GRANTS, REVOKE, RBAC) + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3 Finish &amp; SQL Access Control</strong> — LLD: <strong class=\"text-on-surface font-semibold\">Music Streaming Platform</strong> (Design &amp; Code — <strong class=\"text-on-surface font-semibold\">LLD 100% complete!</strong>) + SQL: <strong class=\"text-on-surface font-semibold\">Permissions and Transactions Part 1 &amp; 2</strong> (Privileges, Roles, GRANTS, REVOKE, RBAC) + Quiz",
+            "title": "LLD Part 3 Finish & SQL Access Control",
+            "desc": "LLD: <strong class=\"text-on-surface font-semibold\">Music Streaming Platform</strong> (Design & Code — <strong class=\"text-on-surface font-semibold\">LLD 100% complete!</strong>) + SQL: <strong class=\"text-on-surface font-semibold\">Permissions and Transactions Part 1 & 2</strong> (Privileges, Roles, GRANTS, REVOKE, RBAC) + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLD Part 3 Finish & SQL Access Control</strong> — LLD: <strong class=\"text-on-surface font-semibold\">Music Streaming Platform</strong> (Design & Code — <strong class=\"text-on-surface font-semibold\">LLD 100% complete!</strong>) + SQL: <strong class=\"text-on-surface font-semibold\">Permissions and Transactions Part 1 & 2</strong> (Privileges, Roles, GRANTS, REVOKE, RBAC) + Quiz",
             "is_rest": false
           }
         ]
@@ -8036,9 +8036,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**LoRA Checkpoint & Model Release** — Push fine-tuned adapter weights and evaluation comparison to GitHub with README explaining LoRA math and parameter savings",
             "ref": "",
-            "title": "LoRA Checkpoint &amp; Model Release",
+            "title": "LoRA Checkpoint & Model Release",
             "desc": "Push fine-tuned adapter weights and evaluation comparison to GitHub with README explaining LoRA math and parameter savings",
-            "html": "<strong class=\"text-on-surface font-semibold\">LoRA Checkpoint &amp; Model Release</strong> — Push fine-tuned adapter weights and evaluation comparison to GitHub with README explaining LoRA math and parameter savings",
+            "html": "<strong class=\"text-on-surface font-semibold\">LoRA Checkpoint & Model Release</strong> — Push fine-tuned adapter weights and evaluation comparison to GitHub with README explaining LoRA math and parameter savings",
             "is_rest": false
           }
         ]
@@ -8078,9 +8078,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Layered Architecture & DTOs** — Controller $\\rightarrow$ Service $\\rightarrow$ Repository separation; DTOs vs Entities; Bean Validation: `@Valid`, `@NotNull`, `@Size`, custom validators; MapStruct overview",
             "ref": "",
-            "title": "Layered Architecture &amp; DTOs",
-            "desc": "Controller $\\rightarrow$ Service $\\rightarrow$ Repository separation; DTOs vs Entities; Bean Validation: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Valid</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@NotNull</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Size</code>, custom validators; MapStruct overview",
-            "html": "<strong class=\"text-on-surface font-semibold\">Layered Architecture &amp; DTOs</strong> — Controller $\\rightarrow$ Service $\\rightarrow$ Repository separation; DTOs vs Entities; Bean Validation: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Valid</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@NotNull</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Size</code>, custom validators; MapStruct overview",
+            "title": "Layered Architecture & DTOs",
+            "desc": "Controller &rarr; Service &rarr; Repository separation; DTOs vs Entities; Bean Validation: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Valid</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@NotNull</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Size</code>, custom validators; MapStruct overview",
+            "html": "<strong class=\"text-on-surface font-semibold\">Layered Architecture & DTOs</strong> — Controller &rarr; Service &rarr; Repository separation; DTOs vs Entities; Bean Validation: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Valid</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@NotNull</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Size</code>, custom validators; MapStruct overview",
             "is_rest": false
           }
         ]
@@ -8096,8 +8096,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Full revision: redo 3 string-algorithm problems cold",
             "ref": "",
-            "title": "Full revision: redo 3 string-algorithm problems cold",
-            "desc": "",
+            "title": "Full revision",
+            "desc": "redo 3 string-algorithm problems cold",
             "html": "Full revision: redo 3 string-algorithm problems cold",
             "is_rest": false
           },
@@ -8108,9 +8108,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Advanced Chunking & Re-ranking Lab (4.0h)** — Implement cross-encoder re-ranking (Cohere / BGE-Reranker) and contextual chunking to boost RAG precision.",
             "ref": "",
-            "title": "Advanced Chunking &amp; Re-ranking Lab (4.0h)",
+            "title": "Advanced Chunking & Re-ranking Lab (4.0h)",
             "desc": "Implement cross-encoder re-ranking (Cohere / BGE-Reranker) and contextual chunking to boost RAG precision.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Chunking &amp; Re-ranking Lab (4.0h)</strong> — Implement cross-encoder re-ranking (Cohere / BGE-Reranker) and contextual chunking to boost RAG precision.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Advanced Chunking & Re-ranking Lab (4.0h)</strong> — Implement cross-encoder re-ranking (Cohere / BGE-Reranker) and contextual chunking to boost RAG precision.",
             "is_rest": false
           },
           {
@@ -8120,9 +8120,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Global Exception Handling & API Envelope** — `@ControllerAdvice`, `@ExceptionHandler`, consistent API error envelope, proper HTTP status codes (200, 201, 204, 400, 404, 409, 500); refactor Todo API into clean layers on GitHub",
             "ref": "",
-            "title": "Global Exception Handling &amp; API Envelope",
+            "title": "Global Exception Handling & API Envelope",
             "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ControllerAdvice</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ExceptionHandler</code>, consistent API error envelope, proper HTTP status codes (200, 201, 204, 400, 404, 409, 500); refactor Todo API into clean layers on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Global Exception Handling &amp; API Envelope</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ControllerAdvice</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ExceptionHandler</code>, consistent API error envelope, proper HTTP status codes (200, 201, 204, 400, 404, 409, 500); refactor Todo API into clean layers on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Global Exception Handling & API Envelope</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ControllerAdvice</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ExceptionHandler</code>, consistent API error envelope, proper HTTP status codes (200, 201, 204, 400, 404, 409, 500); refactor Todo API into clean layers on GitHub",
             "is_rest": false
           }
         ]
@@ -8132,7 +8132,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w32_deliv_1",
         "raw_text": "**Deliverable:** Advanced String Algorithms done. **LLD is 100% complete.** SQL Access Control & Window Functions foundations done. A fine-tuned LoRA model on GitHub. A properly layered, validated Spring Boot REST API.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Advanced String Algorithms done. <strong class=\"text-on-surface font-semibold\">LLD is 100% complete.</strong> SQL Access Control &amp; Window Functions foundations done. A fine-tuned LoRA model on GitHub. A properly layered, validated Spring Boot REST API."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Advanced String Algorithms done. <strong class=\"text-on-surface font-semibold\">LLD is 100% complete.</strong> SQL Access Control & Window Functions foundations done. A fine-tuned LoRA model on GitHub. A properly layered, validated Spring Boot REST API."
       }
     ],
     "notes": []
@@ -8166,9 +8166,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Advanced RAG: Hybrid Search & Re-ranking** — Beyond naive vector search: Keyword (BM25) + Vector hybrid search, Re-ranking models (Cross-Encoders, Cohere Rerank), reciprocal rank fusion (RRF)",
             "ref": "",
-            "title": "Advanced RAG: Hybrid Search &amp; Re-ranking",
+            "title": "Advanced RAG: Hybrid Search & Re-ranking",
             "desc": "Beyond naive vector search: Keyword (BM25) + Vector hybrid search, Re-ranking models (Cross-Encoders, Cohere Rerank), reciprocal rank fusion (RRF)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Advanced RAG: Hybrid Search &amp; Re-ranking</strong> — Beyond naive vector search: Keyword (BM25) + Vector hybrid search, Re-ranking models (Cross-Encoders, Cohere Rerank), reciprocal rank fusion (RRF)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Advanced RAG: Hybrid Search & Re-ranking</strong> — Beyond naive vector search: Keyword (BM25) + Vector hybrid search, Re-ranking models (Cross-Encoders, Cohere Rerank), reciprocal rank fusion (RRF)",
             "is_rest": false
           }
         ]
@@ -8196,9 +8196,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**SQL: Window Functions Mastery & JSON** — Distribution Helpers, Window Frames (`ROWS BETWEEN`), solve: Top 3 Salaries per Department, Track Task Failures + **JSON in SQL** (Insertion, querying, JSON arrays/search) + Quiz",
             "ref": "",
-            "title": "SQL: Window Functions Mastery &amp; JSON",
+            "title": "SQL: Window Functions Mastery & JSON",
             "desc": "Distribution Helpers, Window Frames (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ROWS BETWEEN</code>), solve: Top 3 Salaries per Department, Track Task Failures + <strong class=\"text-on-surface font-semibold\">JSON in SQL</strong> (Insertion, querying, JSON arrays/search) + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Window Functions Mastery &amp; JSON</strong> — Distribution Helpers, Window Frames (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ROWS BETWEEN</code>), solve: Top 3 Salaries per Department, Track Task Failures + <strong class=\"text-on-surface font-semibold\">JSON in SQL</strong> (Insertion, querying, JSON arrays/search) + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Window Functions Mastery & JSON</strong> — Distribution Helpers, Window Frames (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ROWS BETWEEN</code>), solve: Top 3 Salaries per Department, Track Task Failures + <strong class=\"text-on-surface font-semibold\">JSON in SQL</strong> (Insertion, querying, JSON arrays/search) + Quiz",
             "is_rest": false
           }
         ]
@@ -8226,9 +8226,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**RAG Evaluation with RAGAS** (`docs.ragas.io`) — Automated evaluation metrics: Faithfulness, Answer Relevance, Context Precision, Context Recall; apply RAGAS to your Phase 5–6 Capstone",
             "ref": "",
-            "title": "RAG Evaluation with RAGAS (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.ragas.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>)",
+            "title": "<strong class=\"text-on-surface font-semibold\">RAG Evaluation with RAGAS</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.ragas.io</code>)",
             "desc": "Automated evaluation metrics: Faithfulness, Answer Relevance, Context Precision, Context Recall; apply RAGAS to your Phase 5–6 Capstone",
-            "html": "<strong class=\"text-on-surface font-semibold\">RAG Evaluation with RAGAS</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.ragas.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>) — Automated evaluation metrics: Faithfulness, Answer Relevance, Context Precision, Context Recall; apply RAGAS to your Phase 5–6 Capstone",
+            "html": "<strong class=\"text-on-surface font-semibold\">RAG Evaluation with RAGAS</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.ragas.io</code>) — Automated evaluation metrics: Faithfulness, Answer Relevance, Context Precision, Context Recall; apply RAGAS to your Phase 5–6 Capstone",
             "is_rest": false
           }
         ]
@@ -8256,9 +8256,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**SQL: Database Design & Performance** — Database Design Fundamentals (Schema design, Cardinality, Normalization review) + **Performance & Debugging** (Stored Procedures, `EXPLAIN` query plans) + Quiz",
             "ref": "",
-            "title": "SQL: Database Design &amp; Performance",
-            "desc": "Database Design Fundamentals (Schema design, Cardinality, Normalization review) + <strong class=\"text-on-surface font-semibold\">Performance &amp; Debugging</strong> (Stored Procedures, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EXPLAIN</code> query plans) + Quiz",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Database Design &amp; Performance</strong> — Database Design Fundamentals (Schema design, Cardinality, Normalization review) + <strong class=\"text-on-surface font-semibold\">Performance &amp; Debugging</strong> (Stored Procedures, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EXPLAIN</code> query plans) + Quiz",
+            "title": "SQL: Database Design & Performance",
+            "desc": "Database Design Fundamentals (Schema design, Cardinality, Normalization review) + <strong class=\"text-on-surface font-semibold\">Performance & Debugging</strong> (Stored Procedures, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EXPLAIN</code> query plans) + Quiz",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Database Design & Performance</strong> — Database Design Fundamentals (Schema design, Cardinality, Normalization review) + <strong class=\"text-on-surface font-semibold\">Performance & Debugging</strong> (Stored Procedures, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EXPLAIN</code> query plans) + Quiz",
             "is_rest": false
           }
         ]
@@ -8329,8 +8329,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Data Persistence with Spring Data JPA** — JDBC $\\rightarrow$ JPA $\\rightarrow$ Hibernate; spin up Postgres via Docker; `@Entity`, `@Id`, `@GeneratedValue`, `@Column`, `JpaRepository`, custom JPQL and native queries, pagination & sorting",
             "ref": "",
             "title": "Data Persistence with Spring Data JPA",
-            "desc": "JDBC $\\rightarrow$ JPA $\\rightarrow$ Hibernate; spin up Postgres via Docker; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Entity</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Id</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GeneratedValue</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Column</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JpaRepository</code>, custom JPQL and native queries, pagination &amp; sorting",
-            "html": "<strong class=\"text-on-surface font-semibold\">Data Persistence with Spring Data JPA</strong> — JDBC $\\rightarrow$ JPA $\\rightarrow$ Hibernate; spin up Postgres via Docker; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Entity</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Id</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GeneratedValue</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Column</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JpaRepository</code>, custom JPQL and native queries, pagination &amp; sorting",
+            "desc": "JDBC &rarr; JPA &rarr; Hibernate; spin up Postgres via Docker; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Entity</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Id</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GeneratedValue</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Column</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JpaRepository</code>, custom JPQL and native queries, pagination & sorting",
+            "html": "<strong class=\"text-on-surface font-semibold\">Data Persistence with Spring Data JPA</strong> — JDBC &rarr; JPA &rarr; Hibernate; spin up Postgres via Docker; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Entity</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Id</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@GeneratedValue</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Column</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JpaRepository</code>, custom JPQL and native queries, pagination & sorting",
             "is_rest": false
           }
         ]
@@ -8358,9 +8358,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Multi-Agent Systems & Evaluation Lab (4.0h)** — Build multi-agent supervisor pattern (Researcher + Coder + Reviewer); analyze latency and error recovery.",
             "ref": "",
-            "title": "Multi-Agent Systems &amp; Evaluation Lab (4.0h)",
+            "title": "Multi-Agent Systems & Evaluation Lab (4.0h)",
             "desc": "Build multi-agent supervisor pattern (Researcher + Coder + Reviewer); analyze latency and error recovery.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Multi-Agent Systems &amp; Evaluation Lab (4.0h)</strong> — Build multi-agent supervisor pattern (Researcher + Coder + Reviewer); analyze latency and error recovery.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Multi-Agent Systems & Evaluation Lab (4.0h)</strong> — Build multi-agent supervisor pattern (Researcher + Coder + Reviewer); analyze latency and error recovery.",
             "is_rest": false
           },
           {
@@ -8370,9 +8370,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Entity Relationships & Flyway Migrations** — `@ManyToOne`, `@OneToMany`, `FetchType.LAZY` vs `EAGER`, solving the N+1 problem, Flyway database migrations; persist Todo API against real Postgres on GitHub",
             "ref": "",
-            "title": "Entity Relationships &amp; Flyway Migrations",
+            "title": "Entity Relationships & Flyway Migrations",
             "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ManyToOne</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@OneToMany</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">FetchType.LAZY</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EAGER</code>, solving the N+1 problem, Flyway database migrations; persist Todo API against real Postgres on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Entity Relationships &amp; Flyway Migrations</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ManyToOne</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@OneToMany</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">FetchType.LAZY</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EAGER</code>, solving the N+1 problem, Flyway database migrations; persist Todo API against real Postgres on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Entity Relationships & Flyway Migrations</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@ManyToOne</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@OneToMany</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">FetchType.LAZY</code> vs <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">EAGER</code>, solving the N+1 problem, Flyway database migrations; persist Todo API against real Postgres on GitHub",
             "is_rest": false
           }
         ]
@@ -8382,7 +8382,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w33_deliv_1",
         "raw_text": "**Deliverable:** DP on Strings + MCM DP done. SQL JSON, Database Design, and Performance & Debugging done. Your GenAI capstone now has a measured evaluation pass. A persisted, migration-managed backend on GitHub.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> DP on Strings + MCM DP done. SQL JSON, Database Design, and Performance &amp; Debugging done. Your GenAI capstone now has a measured evaluation pass. A persisted, migration-managed backend on GitHub."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> DP on Strings + MCM DP done. SQL JSON, Database Design, and Performance & Debugging done. Your GenAI capstone now has a measured evaluation pass. A persisted, migration-managed backend on GitHub."
       }
     ],
     "notes": []
@@ -8416,9 +8416,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Hugging Face Agents Course 1** (`huggingface.co/learn/agents-course`) — Unit 1: What is an agent? The ReAct loop, thought-action-observation cycle & Unit 2: Agent frameworks in practice",
             "ref": "",
-            "title": "Hugging Face Agents Course 1 (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/learn/agents-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>)",
-            "desc": "Unit 1: What is an agent? The ReAct loop, thought-action-observation cycle &amp; Unit 2: Agent frameworks in practice",
-            "html": "<strong class=\"text-on-surface font-semibold\">Hugging Face Agents Course 1</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://huggingface.co/learn/agents-course\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>) — Unit 1: What is an agent? The ReAct loop, thought-action-observation cycle &amp; Unit 2: Agent frameworks in practice",
+            "title": "<strong class=\"text-on-surface font-semibold\">Hugging Face Agents Course 1</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/learn/agents-course</code>)",
+            "desc": "Unit 1: What is an agent? The ReAct loop, thought-action-observation cycle & Unit 2: Agent frameworks in practice",
+            "html": "<strong class=\"text-on-surface font-semibold\">Hugging Face Agents Course 1</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">huggingface.co/learn/agents-course</code>) — Unit 1: What is an agent? The ReAct loop, thought-action-observation cycle & Unit 2: Agent frameworks in practice",
             "is_rest": false
           }
         ]
@@ -8447,8 +8447,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**SQL: Storage, Keys and Query Performance** — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (**Why the Wrong Primary Key Can Quietly Destroy You**), Index strategy at scale + Quiz (**Storage & Keys module done**)",
             "ref": "",
             "title": "SQL: Storage, Keys and Query Performance",
-            "desc": "Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (<strong class=\"text-on-surface font-semibold\">Why the Wrong Primary Key Can Quietly Destroy You</strong>), Index strategy at scale + Quiz (<strong class=\"text-on-surface font-semibold\">Storage &amp; Keys module done</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Storage, Keys and Query Performance</strong> — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (<strong class=\"text-on-surface font-semibold\">Why the Wrong Primary Key Can Quietly Destroy You</strong>), Index strategy at scale + Quiz (<strong class=\"text-on-surface font-semibold\">Storage &amp; Keys module done</strong>)",
+            "desc": "Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (<strong class=\"text-on-surface font-semibold\">Why the Wrong Primary Key Can Quietly Destroy You</strong>), Index strategy at scale + Quiz (<strong class=\"text-on-surface font-semibold\">Storage & Keys module done</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Storage, Keys and Query Performance</strong> — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (<strong class=\"text-on-surface font-semibold\">Why the Wrong Primary Key Can Quietly Destroy You</strong>), Index strategy at scale + Quiz (<strong class=\"text-on-surface font-semibold\">Storage & Keys module done</strong>)",
             "is_rest": false
           }
         ]
@@ -8477,8 +8477,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**HF Agents Course 2** — Unit 3: Multi-agent systems, agent communication patterns & Unit 4: Agent evaluation, guardrails, and error handling",
             "ref": "",
             "title": "HF Agents Course 2",
-            "desc": "Unit 3: Multi-agent systems, agent communication patterns &amp; Unit 4: Agent evaluation, guardrails, and error handling",
-            "html": "<strong class=\"text-on-surface font-semibold\">HF Agents Course 2</strong> — Unit 3: Multi-agent systems, agent communication patterns &amp; Unit 4: Agent evaluation, guardrails, and error handling",
+            "desc": "Unit 3: Multi-agent systems, agent communication patterns & Unit 4: Agent evaluation, guardrails, and error handling",
+            "html": "<strong class=\"text-on-surface font-semibold\">HF Agents Course 2</strong> — Unit 3: Multi-agent systems, agent communication patterns & Unit 4: Agent evaluation, guardrails, and error handling",
             "is_rest": false
           }
         ]
@@ -8506,9 +8506,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**SQL: Scaling & Production Systems** — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + **TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)** (**All of `SQL+DE Foundations.md` & `DBMS.md` 100% Complete!**)",
             "ref": "",
-            "title": "SQL: Scaling &amp; Production Systems",
-            "desc": "Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + <strong class=\"text-on-surface font-semibold\">TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)</strong> (<strong class=\"text-on-surface font-semibold\">All of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">SQL+DE Foundations.md</code> &amp; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DBMS.md</code> 100% Complete!</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Scaling &amp; Production Systems</strong> — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + <strong class=\"text-on-surface font-semibold\">TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)</strong> (<strong class=\"text-on-surface font-semibold\">All of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">SQL+DE Foundations.md</code> &amp; <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DBMS.md</code> 100% Complete!</strong>)",
+            "title": "SQL: Scaling & Production Systems",
+            "desc": "Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + <strong class=\"text-on-surface font-semibold\">TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)</strong> (<strong class=\"text-on-surface font-semibold\">All of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">SQL+DE Foundations.md</code> & <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DBMS.md</code> 100% Complete!</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">SQL: Scaling & Production Systems</strong> — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + <strong class=\"text-on-surface font-semibold\">TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)</strong> (<strong class=\"text-on-surface font-semibold\">All of <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">SQL+DE Foundations.md</code> & <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">DBMS.md</code> 100% Complete!</strong>)",
             "is_rest": false
           }
         ]
@@ -8565,10 +8565,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**LLM Serving & Quantization Lab (4.0h)** — Explore model quantization (GGUF, AWQ, GPTQ); run local LLM inference with llama.cpp or vLLM; measure tokens/sec throughput.",
-            "ref": "LLM Serving & Quantization Lab (4.0h)",
-            "title": "Explore model quantization (GGUF, AWQ, GPTQ); run local LLM inference with llama.cpp or vLLM; measure tokens/sec throughput.",
-            "desc": "",
-            "html": "<strong class=\"text-on-surface font-semibold\">LLM Serving &amp; Quantization Lab (4.0h)</strong> — Explore model quantization (GGUF, AWQ, GPTQ); run local LLM inference with llama.cpp or vLLM; measure tokens/sec throughput.",
+            "ref": "",
+            "title": "LLM Serving & Quantization Lab (4.0h)",
+            "desc": "Explore model quantization (GGUF, AWQ, GPTQ); run local LLM inference with llama.cpp or vLLM; measure tokens/sec throughput.",
+            "html": "<strong class=\"text-on-surface font-semibold\">LLM Serving & Quantization Lab (4.0h)</strong> — Explore model quantization (GGUF, AWQ, GPTQ); run local LLM inference with llama.cpp or vLLM; measure tokens/sec throughput.",
             "is_rest": false
           },
           {
@@ -8608,9 +8608,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Production Token Cost & Latency Engineering (4.0h)** — Design caching proxies for LLM calls; benchmark semantic caching (GPTCache); calculate enterprise API cost projections.",
             "ref": "",
-            "title": "Production Token Cost &amp; Latency Engineering (4.0h)",
+            "title": "Production Token Cost & Latency Engineering (4.0h)",
             "desc": "Design caching proxies for LLM calls; benchmark semantic caching (GPTCache); calculate enterprise API cost projections.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Production Token Cost &amp; Latency Engineering (4.0h)</strong> — Design caching proxies for LLM calls; benchmark semantic caching (GPTCache); calculate enterprise API cost projections.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Production Token Cost & Latency Engineering (4.0h)</strong> — Design caching proxies for LLM calls; benchmark semantic caching (GPTCache); calculate enterprise API cost projections.",
             "is_rest": false
           },
           {
@@ -8620,9 +8620,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**JWT Authentication & Role-Based Access Control** — Stateless JWT authentication end-to-end: Token issuance on `/login`, `JwtAuthenticationFilter`, extracting claims, `@PreAuthorize` method security; secure Todo API on GitHub",
             "ref": "",
-            "title": "JWT Authentication &amp; Role-Based Access Control",
+            "title": "JWT Authentication & Role-Based Access Control",
             "desc": "Stateless JWT authentication end-to-end: Token issuance on <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/login</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JwtAuthenticationFilter</code>, extracting claims, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PreAuthorize</code> method security; secure Todo API on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">JWT Authentication &amp; Role-Based Access Control</strong> — Stateless JWT authentication end-to-end: Token issuance on <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/login</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JwtAuthenticationFilter</code>, extracting claims, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PreAuthorize</code> method security; secure Todo API on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">JWT Authentication & Role-Based Access Control</strong> — Stateless JWT authentication end-to-end: Token issuance on <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/login</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">JwtAuthenticationFilter</code>, extracting claims, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@PreAuthorize</code> method security; secure Todo API on GitHub",
             "is_rest": false
           }
         ]
@@ -8654,8 +8654,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Light maintenance: 1 mixed problem, any topic",
             "ref": "",
-            "title": "Light maintenance: 1 mixed problem, any topic",
-            "desc": "",
+            "title": "Light maintenance",
+            "desc": "1 mixed problem, any topic",
             "html": "Light maintenance: 1 mixed problem, any topic",
             "is_rest": false
           },
@@ -8667,8 +8667,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Research Paper: LoRA** — Read the original paper: *\"LoRA: Low-Rank Adaptation of Large Language Models\"* (Hu et al., arxiv.org/abs/2106.09685) — read cold, connecting mathematical rank formulas to PEFT code",
             "ref": "",
             "title": "Research Paper: LoRA",
-            "desc": "Read the original paper: <em>\"LoRA: Low-Rank Adaptation of Large Language Models\"</em> (Hu et al., <a href=\"https://arxiv.org/abs/2106.09685\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — read cold, connecting mathematical rank formulas to PEFT code",
-            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper: LoRA</strong> — Read the original paper: <em>\"LoRA: Low-Rank Adaptation of Large Language Models\"</em> (Hu et al., <a href=\"https://arxiv.org/abs/2106.09685\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Paper]</a>) — read cold, connecting mathematical rank formulas to PEFT code",
+            "desc": "Read the original paper: <em>\"LoRA: Low-Rank Adaptation of Large Language Models\"</em> (Hu et al., arxiv.org/abs/2106.09685) — read cold, connecting mathematical rank formulas to PEFT code",
+            "html": "<strong class=\"text-on-surface font-semibold\">Research Paper: LoRA</strong> — Read the original paper: <em>\"LoRA: Low-Rank Adaptation of Large Language Models\"</em> (Hu et al., arxiv.org/abs/2106.09685) — read cold, connecting mathematical rank formulas to PEFT code",
             "is_rest": false
           }
         ]
@@ -8695,10 +8695,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD Practice Problems 1** — **System Design of Tinder** (Geohashing, matching algorithm, profile caching) & **System Design of TikTok** (Video ingestion, CDN distribution, recommendation feed)",
-            "ref": "System Design of Tinder",
+            "ref": "",
             "title": "HLD Practice Problems 1",
-            "desc": "(Geohashing, matching algorithm, profile caching) &amp; <strong class=\"text-on-surface font-semibold\">System Design of TikTok</strong> (Video ingestion, CDN distribution, recommendation feed)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 1</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Tinder</strong> (Geohashing, matching algorithm, profile caching) &amp; <strong class=\"text-on-surface font-semibold\">System Design of TikTok</strong> (Video ingestion, CDN distribution, recommendation feed)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of Tinder</strong> (Geohashing, matching algorithm, profile caching) & <strong class=\"text-on-surface font-semibold\">System Design of TikTok</strong> (Video ingestion, CDN distribution, recommendation feed)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 1</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Tinder</strong> (Geohashing, matching algorithm, profile caching) & <strong class=\"text-on-surface font-semibold\">System Design of TikTok</strong> (Video ingestion, CDN distribution, recommendation feed)",
             "is_rest": false
           }
         ]
@@ -8726,9 +8726,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**LoRA Paper Breakdown & Reflection** — Connect LoRA's mathematical properties (intrinsic dimensionality, matrix rank $r$, zero inference latency overhead) to your Week 32 fine-tuning results",
             "ref": "",
-            "title": "LoRA Paper Breakdown &amp; Reflection",
-            "desc": "Connect LoRA's mathematical properties (intrinsic dimensionality, matrix rank $r$, zero inference latency overhead) to your Week 32 fine-tuning results",
-            "html": "<strong class=\"text-on-surface font-semibold\">LoRA Paper Breakdown &amp; Reflection</strong> — Connect LoRA's mathematical properties (intrinsic dimensionality, matrix rank $r$, zero inference latency overhead) to your Week 32 fine-tuning results",
+            "title": "LoRA Paper Breakdown & Reflection",
+            "desc": "Connect LoRA's mathematical properties (intrinsic dimensionality, matrix rank <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">r</code>, zero inference latency overhead) to your Week 32 fine-tuning results",
+            "html": "<strong class=\"text-on-surface font-semibold\">LoRA Paper Breakdown & Reflection</strong> — Connect LoRA's mathematical properties (intrinsic dimensionality, matrix rank <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">r</code>, zero inference latency overhead) to your Week 32 fine-tuning results",
             "is_rest": false
           }
         ]
@@ -8755,10 +8755,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD Practice Problems 2** — **System Design of an Online Coding Judge** (Part 1 & 2: Sandboxing, code execution isolation, judge worker queues) & **System Design of UPI Payments**",
-            "ref": "System Design of an Online Coding Judge",
+            "ref": "",
             "title": "HLD Practice Problems 2",
-            "desc": "(Part 1 &amp; 2: Sandboxing, code execution isolation, judge worker queues) &amp; <strong class=\"text-on-surface font-semibold\">System Design of UPI Payments</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 2</strong> — <strong class=\"text-on-surface font-semibold\">System Design of an Online Coding Judge</strong> (Part 1 &amp; 2: Sandboxing, code execution isolation, judge worker queues) &amp; <strong class=\"text-on-surface font-semibold\">System Design of UPI Payments</strong>",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of an Online Coding Judge</strong> (Part 1 & 2: Sandboxing, code execution isolation, judge worker queues) & <strong class=\"text-on-surface font-semibold\">System Design of UPI Payments</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 2</strong> — <strong class=\"text-on-surface font-semibold\">System Design of an Online Coding Judge</strong> (Part 1 & 2: Sandboxing, code execution isolation, judge worker queues) & <strong class=\"text-on-surface font-semibold\">System Design of UPI Payments</strong>",
             "is_rest": false
           }
         ]
@@ -8828,9 +8828,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Testing Fundamentals with JUnit 5 & Mockito** — Why test; JUnit 5 lifecycle (`@Test`, assertions, `@BeforeEach`); Mockito: `@Mock`, `@InjectMocks`, stubbing methods, verifying interactions; unit test the Service layer",
             "ref": "",
-            "title": "Testing Fundamentals with JUnit 5 &amp; Mockito",
+            "title": "Testing Fundamentals with JUnit 5 & Mockito",
             "desc": "Why test; JUnit 5 lifecycle (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Test</code>, assertions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@BeforeEach</code>); Mockito: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Mock</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@InjectMocks</code>, stubbing methods, verifying interactions; unit test the Service layer",
-            "html": "<strong class=\"text-on-surface font-semibold\">Testing Fundamentals with JUnit 5 &amp; Mockito</strong> — Why test; JUnit 5 lifecycle (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Test</code>, assertions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@BeforeEach</code>); Mockito: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Mock</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@InjectMocks</code>, stubbing methods, verifying interactions; unit test the Service layer",
+            "html": "<strong class=\"text-on-surface font-semibold\">Testing Fundamentals with JUnit 5 & Mockito</strong> — Why test; JUnit 5 lifecycle (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Test</code>, assertions, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@BeforeEach</code>); Mockito: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Mock</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@InjectMocks</code>, stubbing methods, verifying interactions; unit test the Service layer",
             "is_rest": false
           }
         ]
@@ -8956,8 +8956,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "The Streams API: `map`, `filter`, `reduce`, `collect`, stream pipeline lifecycle",
             "ref": "",
-            "title": "The Streams API: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">filter</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">reduce</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">collect</code>, stream pipeline lifecycle",
-            "desc": "",
+            "title": "The Streams API",
+            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">filter</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">reduce</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">collect</code>, stream pipeline lifecycle",
             "html": "The Streams API: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">filter</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">reduce</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">collect</code>, stream pipeline lifecycle",
             "is_rest": false
           },
@@ -8967,10 +8967,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD Practice Problems 3** — **System Design of DoorDash** (Order placement, real-time driver tracking) & **System Design of Amazon Online Shop** (Inventory management, cart service)",
-            "ref": "System Design of DoorDash",
+            "ref": "",
             "title": "HLD Practice Problems 3",
-            "desc": "(Order placement, real-time driver tracking) &amp; <strong class=\"text-on-surface font-semibold\">System Design of Amazon Online Shop</strong> (Inventory management, cart service)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 3</strong> — <strong class=\"text-on-surface font-semibold\">System Design of DoorDash</strong> (Order placement, real-time driver tracking) &amp; <strong class=\"text-on-surface font-semibold\">System Design of Amazon Online Shop</strong> (Inventory management, cart service)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of DoorDash</strong> (Order placement, real-time driver tracking) & <strong class=\"text-on-surface font-semibold\">System Design of Amazon Online Shop</strong> (Inventory management, cart service)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 3</strong> — <strong class=\"text-on-surface font-semibold\">System Design of DoorDash</strong> (Order placement, real-time driver tracking) & <strong class=\"text-on-surface font-semibold\">System Design of Amazon Online Shop</strong> (Inventory management, cart service)",
             "is_rest": false
           }
         ]
@@ -8986,8 +8986,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "`Collectors`: `groupingBy`, `partitioningBy`, `toMap`, joining strings, downstream collectors",
             "ref": "",
-            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Collectors</code>: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">groupingBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">partitioningBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">toMap</code>, joining strings, downstream collectors",
-            "desc": "",
+            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Collectors</code>",
+            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">groupingBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">partitioningBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">toMap</code>, joining strings, downstream collectors",
             "html": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Collectors</code>: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">groupingBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">partitioningBy</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">toMap</code>, joining strings, downstream collectors",
             "is_rest": false
           },
@@ -9027,10 +9027,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD Practice Problems 4** — **System Design of Google Maps** (Routing algorithms, spatial indexing) & **System Design of Gmail** (Email storage, search, IMAP/SMTP)",
-            "ref": "System Design of Google Maps",
+            "ref": "",
             "title": "HLD Practice Problems 4",
-            "desc": "(Routing algorithms, spatial indexing) &amp; <strong class=\"text-on-surface font-semibold\">System Design of Gmail</strong> (Email storage, search, IMAP/SMTP)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 4</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Google Maps</strong> (Routing algorithms, spatial indexing) &amp; <strong class=\"text-on-surface font-semibold\">System Design of Gmail</strong> (Email storage, search, IMAP/SMTP)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of Google Maps</strong> (Routing algorithms, spatial indexing) & <strong class=\"text-on-surface font-semibold\">System Design of Gmail</strong> (Email storage, search, IMAP/SMTP)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 4</strong> — <strong class=\"text-on-surface font-semibold\">System Design of Google Maps</strong> (Routing algorithms, spatial indexing) & <strong class=\"text-on-surface font-semibold\">System Design of Gmail</strong> (Email storage, search, IMAP/SMTP)",
             "is_rest": false
           }
         ]
@@ -9058,9 +9058,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Kaggle Iteration & Leaderboard Feedback** — Explore top public notebooks; experiment with feature additions and evaluate CV score",
             "ref": "",
-            "title": "Kaggle Iteration &amp; Leaderboard Feedback",
+            "title": "Kaggle Iteration & Leaderboard Feedback",
             "desc": "Explore top public notebooks; experiment with feature additions and evaluate CV score",
-            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Iteration &amp; Leaderboard Feedback</strong> — Explore top public notebooks; experiment with feature additions and evaluate CV score",
+            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Iteration & Leaderboard Feedback</strong> — Explore top public notebooks; experiment with feature additions and evaluate CV score",
             "is_rest": false
           }
         ]
@@ -9118,8 +9118,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Full revision: explain the Streams pipeline model (lazy evaluation, terminal vs. intermediate ops) out loud",
             "ref": "",
-            "title": "Full revision: explain the Streams pipeline model (lazy evaluation, terminal vs. intermediate ops) out loud",
-            "desc": "",
+            "title": "Full revision",
+            "desc": "explain the Streams pipeline model (lazy evaluation, terminal vs. intermediate ops) out loud",
             "html": "Full revision: explain the Streams pipeline model (lazy evaluation, terminal vs. intermediate ops) out loud",
             "is_rest": false
           },
@@ -9130,9 +9130,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Kaggle Model Stacking & Blending (4.0h)** — Train level-2 meta-learners; analyze out-of-fold validation predictions; submit competitive ensemble.",
             "ref": "",
-            "title": "Kaggle Model Stacking &amp; Blending (4.0h)",
+            "title": "Kaggle Model Stacking & Blending (4.0h)",
             "desc": "Train level-2 meta-learners; analyze out-of-fold validation predictions; submit competitive ensemble.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Model Stacking &amp; Blending (4.0h)</strong> — Train level-2 meta-learners; analyze out-of-fold validation predictions; submit competitive ensemble.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Kaggle Model Stacking & Blending (4.0h)</strong> — Train level-2 meta-learners; analyze out-of-fold validation predictions; submit competitive ensemble.",
             "is_rest": false
           },
           {
@@ -9142,9 +9142,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Async Execution & Scheduled Tasks** — `@Async`, thread pool configuration with `ThreadPoolTaskExecutor`, `@Scheduled` cron jobs; build a background cache refresher on GitHub",
             "ref": "",
-            "title": "Async Execution &amp; Scheduled Tasks",
+            "title": "Async Execution & Scheduled Tasks",
             "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Async</code>, thread pool configuration with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ThreadPoolTaskExecutor</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Scheduled</code> cron jobs; build a background cache refresher on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Async Execution &amp; Scheduled Tasks</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Async</code>, thread pool configuration with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ThreadPoolTaskExecutor</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Scheduled</code> cron jobs; build a background cache refresher on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Async Execution & Scheduled Tasks</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Async</code>, thread pool configuration with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ThreadPoolTaskExecutor</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Scheduled</code> cron jobs; build a background cache refresher on GitHub",
             "is_rest": false
           }
         ]
@@ -9154,7 +9154,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w36_deliv_1",
         "raw_text": "**Deliverable:** Java Streams fluency. HLD practice problems 3 & 4 done. A second live Kaggle competition entry. Redis caching and async tasks integrated.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Java Streams fluency. HLD practice problems 3 &amp; 4 done. A second live Kaggle competition entry. Redis caching and async tasks integrated."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> Java Streams fluency. HLD practice problems 3 & 4 done. A second live Kaggle competition entry. Redis caching and async tasks integrated."
       }
     ],
     "notes": []
@@ -9176,9 +9176,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "`Optional<T>` — using it properly (never calling `.get()` blindly), `map`, `flatMap`, `orElseGet`, avoiding \"Optional anti-patterns\"",
             "ref": "",
-            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Optional&lt;T&gt;</code>",
+            "title": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Optional<T></code>",
             "desc": "using it properly (never calling <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.get()</code> blindly), <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">flatMap</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">orElseGet</code>, avoiding \"Optional anti-patterns\"",
-            "html": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Optional&lt;T&gt;</code> — using it properly (never calling <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.get()</code> blindly), <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">flatMap</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">orElseGet</code>, avoiding \"Optional anti-patterns\"",
+            "html": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">Optional<T></code> — using it properly (never calling <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.get()</code> blindly), <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">map</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">flatMap</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">orElseGet</code>, avoiding \"Optional anti-patterns\"",
             "is_rest": false
           },
           {
@@ -9207,8 +9207,8 @@ window.ROADMAP_DATA = [
             "raw_text": "Records (Java 16+) — replacing boilerplate DTOs/value objects, canonical & compact constructors, record patterns",
             "ref": "",
             "title": "Records (Java 16+)",
-            "desc": "replacing boilerplate DTOs/value objects, canonical &amp; compact constructors, record patterns",
-            "html": "Records (Java 16+) — replacing boilerplate DTOs/value objects, canonical &amp; compact constructors, record patterns",
+            "desc": "replacing boilerplate DTOs/value objects, canonical & compact constructors, record patterns",
+            "html": "Records (Java 16+) — replacing boilerplate DTOs/value objects, canonical & compact constructors, record patterns",
             "is_rest": false
           },
           {
@@ -9219,8 +9219,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**DDIA Part 1: Foundations** — *Designing Data-Intensive Applications* (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications & Ch. 2: Data Models (Relational vs Document vs Graph)",
             "ref": "",
             "title": "DDIA Part 1: Foundations",
-            "desc": "<em>Designing Data-Intensive Applications</em> (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications &amp; Ch. 2: Data Models (Relational vs Document vs Graph)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 1: Foundations</strong> — <em>Designing Data-Intensive Applications</em> (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications &amp; Ch. 2: Data Models (Relational vs Document vs Graph)",
+            "desc": "<em>Designing Data-Intensive Applications</em> (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications & Ch. 2: Data Models (Relational vs Document vs Graph)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 1: Foundations</strong> — <em>Designing Data-Intensive Applications</em> (Kleppmann) Ch. 1: Reliable, Scalable, Maintainable Applications & Ch. 2: Data Models (Relational vs Document vs Graph)",
             "is_rest": false
           }
         ]
@@ -9278,9 +9278,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**DDIA Part 1: Storage & Evolution** — DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) & Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)",
             "ref": "",
-            "title": "DDIA Part 1: Storage &amp; Evolution",
-            "desc": "DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) &amp; Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 1: Storage &amp; Evolution</strong> — DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) &amp; Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)",
+            "title": "DDIA Part 1: Storage & Evolution",
+            "desc": "DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) & Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 1: Storage & Evolution</strong> — DDIA Ch. 3: Storage and Retrieval (LSM-Trees vs B-Trees, SSTables, Bloom filters) & Ch. 4: Encoding and Evolution (Schema evolution, Protobuf, Avro)",
             "is_rest": false
           }
         ]
@@ -9338,9 +9338,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**MLOps & Model Monitoring Lab (4.0h)** — Set up MLflow for experiment tracking; log hyperparameters, metrics, and model artifacts.",
             "ref": "",
-            "title": "MLOps &amp; Model Monitoring Lab (4.0h)",
+            "title": "MLOps & Model Monitoring Lab (4.0h)",
             "desc": "Set up MLflow for experiment tracking; log hyperparameters, metrics, and model artifacts.",
-            "html": "<strong class=\"text-on-surface font-semibold\">MLOps &amp; Model Monitoring Lab (4.0h)</strong> — Set up MLflow for experiment tracking; log hyperparameters, metrics, and model artifacts.",
+            "html": "<strong class=\"text-on-surface font-semibold\">MLOps & Model Monitoring Lab (4.0h)</strong> — Set up MLflow for experiment tracking; log hyperparameters, metrics, and model artifacts.",
             "is_rest": false
           },
           {
@@ -9350,9 +9350,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Structured Logging with SLF4J & Logback** — SLF4J + Logback: Structured JSON logging, log levels (INFO/WARN/ERROR), masking secrets and PII; trace requests through layers",
             "ref": "",
-            "title": "Structured Logging with SLF4J &amp; Logback",
+            "title": "Structured Logging with SLF4J & Logback",
             "desc": "SLF4J + Logback: Structured JSON logging, log levels (INFO/WARN/ERROR), masking secrets and PII; trace requests through layers",
-            "html": "<strong class=\"text-on-surface font-semibold\">Structured Logging with SLF4J &amp; Logback</strong> — SLF4J + Logback: Structured JSON logging, log levels (INFO/WARN/ERROR), masking secrets and PII; trace requests through layers",
+            "html": "<strong class=\"text-on-surface font-semibold\">Structured Logging with SLF4J & Logback</strong> — SLF4J + Logback: Structured JSON logging, log levels (INFO/WARN/ERROR), masking secrets and PII; trace requests through layers",
             "is_rest": false
           }
         ]
@@ -9368,8 +9368,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Full revision: modern Java features self-test",
             "ref": "",
-            "title": "Full revision: modern Java features self-test",
-            "desc": "",
+            "title": "Full revision",
+            "desc": "modern Java features self-test",
             "html": "Full revision: modern Java features self-test",
             "is_rest": false
           },
@@ -9380,9 +9380,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Data Drift & Concept Drift Detection (4.0h)** — Implement Evidently AI or custom statistical drift tests (KS-test, PSI) on incoming inference data.",
             "ref": "",
-            "title": "Data Drift &amp; Concept Drift Detection (4.0h)",
+            "title": "Data Drift & Concept Drift Detection (4.0h)",
             "desc": "Implement Evidently AI or custom statistical drift tests (KS-test, PSI) on incoming inference data.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Data Drift &amp; Concept Drift Detection (4.0h)</strong> — Implement Evidently AI or custom statistical drift tests (KS-test, PSI) on incoming inference data.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Data Drift & Concept Drift Detection (4.0h)</strong> — Implement Evidently AI or custom statistical drift tests (KS-test, PSI) on incoming inference data.",
             "is_rest": false
           },
           {
@@ -9392,9 +9392,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Production Metrics with Actuator & Micrometer** — Spring Boot Actuator endpoints (`/health`, `/metrics`), custom Health Indicators, Micrometer metrics collection; push observable backend to GitHub",
             "ref": "",
-            "title": "Production Metrics with Actuator &amp; Micrometer",
+            "title": "Production Metrics with Actuator & Micrometer",
             "desc": "Spring Boot Actuator endpoints (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/metrics</code>), custom Health Indicators, Micrometer metrics collection; push observable backend to GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Production Metrics with Actuator &amp; Micrometer</strong> — Spring Boot Actuator endpoints (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/metrics</code>), custom Health Indicators, Micrometer metrics collection; push observable backend to GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Production Metrics with Actuator & Micrometer</strong> — Spring Boot Actuator endpoints (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/health</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">/metrics</code>), custom Health Indicators, Micrometer metrics collection; push observable backend to GitHub",
             "is_rest": false
           }
         ]
@@ -9438,9 +9438,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**MLOps 1: Model Monitoring & Drift** — What model drift is (Concept Drift vs Data Drift), covariate shift, silent production failure, drift detection metrics (PSI, KS-test)",
             "ref": "",
-            "title": "MLOps 1: Model Monitoring &amp; Drift",
+            "title": "MLOps 1: Model Monitoring & Drift",
             "desc": "What model drift is (Concept Drift vs Data Drift), covariate shift, silent production failure, drift detection metrics (PSI, KS-test)",
-            "html": "<strong class=\"text-on-surface font-semibold\">MLOps 1: Model Monitoring &amp; Drift</strong> — What model drift is (Concept Drift vs Data Drift), covariate shift, silent production failure, drift detection metrics (PSI, KS-test)",
+            "html": "<strong class=\"text-on-surface font-semibold\">MLOps 1: Model Monitoring & Drift</strong> — What model drift is (Concept Drift vs Data Drift), covariate shift, silent production failure, drift detection metrics (PSI, KS-test)",
             "is_rest": false
           }
         ]
@@ -9468,9 +9468,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**DDIA Part 2: Replication & Partitioning** — DDIA Ch. 5: Replication (Leader-Follower, Multi-Leader, Quorum-based Leaderless, replication lag) & Ch. 6: Partitioning (Range vs Hash, secondary indexes)",
             "ref": "",
-            "title": "DDIA Part 2: Replication &amp; Partitioning",
-            "desc": "DDIA Ch. 5: Replication (Leader-Follower, Multi-Leader, Quorum-based Leaderless, replication lag) &amp; Ch. 6: Partitioning (Range vs Hash, secondary indexes)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Replication &amp; Partitioning</strong> — DDIA Ch. 5: Replication (Leader-Follower, Multi-Leader, Quorum-based Leaderless, replication lag) &amp; Ch. 6: Partitioning (Range vs Hash, secondary indexes)",
+            "title": "DDIA Part 2: Replication & Partitioning",
+            "desc": "DDIA Ch. 5: Replication (Leader-Follower, Multi-Leader, Quorum-based Leaderless, replication lag) & Ch. 6: Partitioning (Range vs Hash, secondary indexes)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Replication & Partitioning</strong> — DDIA Ch. 5: Replication (Leader-Follower, Multi-Leader, Quorum-based Leaderless, replication lag) & Ch. 6: Partitioning (Range vs Hash, secondary indexes)",
             "is_rest": false
           }
         ]
@@ -9528,9 +9528,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**DDIA Part 2: Transactions & Distributed Problems** — DDIA Ch. 7: Transactions (ACID, Weak isolation levels: Read Committed, Snapshot Isolation, Serializable) & Ch. 8: Trouble with Distributed Systems (Unreliable networks, clock skew)",
             "ref": "",
-            "title": "DDIA Part 2: Transactions &amp; Distributed Problems",
-            "desc": "DDIA Ch. 7: Transactions (ACID, Weak isolation levels: Read Committed, Snapshot Isolation, Serializable) &amp; Ch. 8: Trouble with Distributed Systems (Unreliable networks, clock skew)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Transactions &amp; Distributed Problems</strong> — DDIA Ch. 7: Transactions (ACID, Weak isolation levels: Read Committed, Snapshot Isolation, Serializable) &amp; Ch. 8: Trouble with Distributed Systems (Unreliable networks, clock skew)",
+            "title": "DDIA Part 2: Transactions & Distributed Problems",
+            "desc": "DDIA Ch. 7: Transactions (ACID, Weak isolation levels: Read Committed, Snapshot Isolation, Serializable) & Ch. 8: Trouble with Distributed Systems (Unreliable networks, clock skew)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Transactions & Distributed Problems</strong> — DDIA Ch. 7: Transactions (ACID, Weak isolation levels: Read Committed, Snapshot Isolation, Serializable) & Ch. 8: Trouble with Distributed Systems (Unreliable networks, clock skew)",
             "is_rest": false
           }
         ]
@@ -9618,8 +9618,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Full revision: explain concurrency vs parallelism with your own Java code examples",
             "ref": "",
-            "title": "Full revision: explain concurrency vs parallelism with your own Java code examples",
-            "desc": "",
+            "title": "Full revision",
+            "desc": "explain concurrency vs parallelism with your own Java code examples",
             "html": "Full revision: explain concurrency vs parallelism with your own Java code examples",
             "is_rest": false
           },
@@ -9718,9 +9718,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**DDIA Part 2: Consistency & Consensus** — DDIA Ch. 9: Consistency and Consensus (Linearizability, Total Order Broadcast, 2-Phase Commit vs Raft / Paxos conceptual understanding)",
             "ref": "",
-            "title": "DDIA Part 2: Consistency &amp; Consensus",
+            "title": "DDIA Part 2: Consistency & Consensus",
             "desc": "DDIA Ch. 9: Consistency and Consensus (Linearizability, Total Order Broadcast, 2-Phase Commit vs Raft / Paxos conceptual understanding)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Consistency &amp; Consensus</strong> — DDIA Ch. 9: Consistency and Consensus (Linearizability, Total Order Broadcast, 2-Phase Commit vs Raft / Paxos conceptual understanding)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 2: Consistency & Consensus</strong> — DDIA Ch. 9: Consistency and Consensus (Linearizability, Total Order Broadcast, 2-Phase Commit vs Raft / Paxos conceptual understanding)",
             "is_rest": false
           }
         ]
@@ -9777,10 +9777,10 @@ window.ROADMAP_DATA = [
             "track_id": "corecs",
             "track_name": "Core CS",
             "raw_text": "**HLD Practice Problems 5 (HLD 100% Done!)** — **System Design of a Chess Website** & **System Design of Google Docs** (**All 17 HLD Practice Problems Complete!**)",
-            "ref": "System Design of a Chess Website",
+            "ref": "",
             "title": "HLD Practice Problems 5 (HLD 100% Done!)",
-            "desc": "&amp; <strong class=\"text-on-surface font-semibold\">System Design of Google Docs</strong> (<strong class=\"text-on-surface font-semibold\">All 17 HLD Practice Problems Complete!</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 5 (HLD 100% Done!)</strong> — <strong class=\"text-on-surface font-semibold\">System Design of a Chess Website</strong> &amp; <strong class=\"text-on-surface font-semibold\">System Design of Google Docs</strong> (<strong class=\"text-on-surface font-semibold\">All 17 HLD Practice Problems Complete!</strong>)",
+            "desc": "<strong class=\"text-on-surface font-semibold\">System Design of a Chess Website</strong> & <strong class=\"text-on-surface font-semibold\">System Design of Google Docs</strong> (<strong class=\"text-on-surface font-semibold\">All 17 HLD Practice Problems Complete!</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">HLD Practice Problems 5 (HLD 100% Done!)</strong> — <strong class=\"text-on-surface font-semibold\">System Design of a Chess Website</strong> & <strong class=\"text-on-surface font-semibold\">System Design of Google Docs</strong> (<strong class=\"text-on-surface font-semibold\">All 17 HLD Practice Problems Complete!</strong>)",
             "is_rest": false
           }
         ]
@@ -9808,9 +9808,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**MLOps Synthesis & System Design** — Write up notes on production ML systems: monitoring dashboards, serving optimization, and cost tradeoffs",
             "ref": "",
-            "title": "MLOps Synthesis &amp; System Design",
+            "title": "MLOps Synthesis & System Design",
             "desc": "Write up notes on production ML systems: monitoring dashboards, serving optimization, and cost tradeoffs",
-            "html": "<strong class=\"text-on-surface font-semibold\">MLOps Synthesis &amp; System Design</strong> — Write up notes on production ML systems: monitoring dashboards, serving optimization, and cost tradeoffs",
+            "html": "<strong class=\"text-on-surface font-semibold\">MLOps Synthesis & System Design</strong> — Write up notes on production ML systems: monitoring dashboards, serving optimization, and cost tradeoffs",
             "is_rest": false
           }
         ]
@@ -9838,9 +9838,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**DDIA Distributed Storage & Replication Synthesis (4.0h)** — Deep architectural synthesis of DDIA Part 2: replication lag, leaderless consensus, and vector index persistence.",
             "ref": "",
-            "title": "DDIA Distributed Storage &amp; Replication Synthesis (4.0h)",
+            "title": "DDIA Distributed Storage & Replication Synthesis (4.0h)",
             "desc": "Deep architectural synthesis of DDIA Part 2: replication lag, leaderless consensus, and vector index persistence.",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Distributed Storage &amp; Replication Synthesis (4.0h)</strong> — Deep architectural synthesis of DDIA Part 2: replication lag, leaderless consensus, and vector index persistence.",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Distributed Storage & Replication Synthesis (4.0h)</strong> — Deep architectural synthesis of DDIA Part 2: replication lag, leaderless consensus, and vector index persistence.",
             "is_rest": false
           },
           {
@@ -9868,8 +9868,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Full revision: redo 2 concurrency exercises cold",
             "ref": "",
-            "title": "Full revision: redo 2 concurrency exercises cold",
-            "desc": "",
+            "title": "Full revision",
+            "desc": "redo 2 concurrency exercises cold",
             "html": "Full revision: redo 2 concurrency exercises cold",
             "is_rest": false
           },
@@ -9880,9 +9880,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Distributed Cache & Vector Index Benchmarking (4.0h)** — Benchmark Redis cache hit ratios vs PostgreSQL pgvector similarity query latencies under load.",
             "ref": "",
-            "title": "Distributed Cache &amp; Vector Index Benchmarking (4.0h)",
+            "title": "Distributed Cache & Vector Index Benchmarking (4.0h)",
             "desc": "Benchmark Redis cache hit ratios vs PostgreSQL pgvector similarity query latencies under load.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Distributed Cache &amp; Vector Index Benchmarking (4.0h)</strong> — Benchmark Redis cache hit ratios vs PostgreSQL pgvector similarity query latencies under load.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Distributed Cache & Vector Index Benchmarking (4.0h)</strong> — Benchmark Redis cache hit ratios vs PostgreSQL pgvector similarity query latencies under load.",
             "is_rest": false
           },
           {
@@ -9904,7 +9904,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w39_deliv_1",
         "raw_text": "**Deliverable:** `CompletableFuture`, concurrent collections, and explicit locks done. DDIA consistency & consensus done. **All 17 HLD practice problems 100% complete.** Resilient, gateway-fronted microservices.",
-        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">CompletableFuture</code>, concurrent collections, and explicit locks done. DDIA consistency &amp; consensus done. <strong class=\"text-on-surface font-semibold\">All 17 HLD practice problems 100% complete.</strong> Resilient, gateway-fronted microservices."
+        "html": "<strong class=\"text-on-surface font-semibold\">Deliverable:</strong> <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">CompletableFuture</code>, concurrent collections, and explicit locks done. DDIA consistency & consensus done. <strong class=\"text-on-surface font-semibold\">All 17 HLD practice problems 100% complete.</strong> Resilient, gateway-fronted microservices."
       }
     ],
     "notes": []
@@ -9937,10 +9937,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Kafka Fundamentals 1** — **Confluent Developer: \"Kafka 101\"** (`developer.confluent.io`): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups",
-            "ref": "Confluent Developer: \"Kafka 101\"",
+            "ref": "",
             "title": "Kafka Fundamentals 1",
-            "desc": "(<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://developer.confluent.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups",
-            "html": "<strong class=\"text-on-surface font-semibold\">Kafka Fundamentals 1</strong> — <strong class=\"text-on-surface font-semibold\">Confluent Developer: \"Kafka 101\"</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://developer.confluent.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups",
+            "desc": "<strong class=\"text-on-surface font-semibold\">Confluent Developer: \"Kafka 101\"</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">developer.confluent.io</code>): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups",
+            "html": "<strong class=\"text-on-surface font-semibold\">Kafka Fundamentals 1</strong> — <strong class=\"text-on-surface font-semibold\">Confluent Developer: \"Kafka 101\"</strong> (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">developer.confluent.io</code>): Topics, Partitions, Offsets, Producers, Consumers, Consumer Groups",
             "is_rest": false
           }
         ]
@@ -9956,8 +9956,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Garbage Collection Foundations: Generational hypothesis, Young Gen (Eden, Survivor), Old Gen, Stop-the-World pauses",
             "ref": "",
-            "title": "Garbage Collection Foundations: Generational hypothesis, Young Gen (Eden, Survivor), Old Gen, Stop-the-World pauses",
-            "desc": "",
+            "title": "Garbage Collection Foundations",
+            "desc": "Generational hypothesis, Young Gen (Eden, Survivor), Old Gen, Stop-the-World pauses",
             "html": "Garbage Collection Foundations: Generational hypothesis, Young Gen (Eden, Survivor), Old Gen, Stop-the-World pauses",
             "is_rest": false
           },
@@ -9969,8 +9969,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**DDIA Part 3: Derived Data (Book Complete!)** — DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) & Ch. 11: Stream Processing (Event streams, messaging systems) & Ch. 12: Summary (**DDIA 100% Done!**)",
             "ref": "",
             "title": "DDIA Part 3: Derived Data (Book Complete!)",
-            "desc": "DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) &amp; Ch. 11: Stream Processing (Event streams, messaging systems) &amp; Ch. 12: Summary (<strong class=\"text-on-surface font-semibold\">DDIA 100% Done!</strong>)",
-            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 3: Derived Data (Book Complete!)</strong> — DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) &amp; Ch. 11: Stream Processing (Event streams, messaging systems) &amp; Ch. 12: Summary (<strong class=\"text-on-surface font-semibold\">DDIA 100% Done!</strong>)",
+            "desc": "DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) & Ch. 11: Stream Processing (Event streams, messaging systems) & Ch. 12: Summary (<strong class=\"text-on-surface font-semibold\">DDIA 100% Done!</strong>)",
+            "html": "<strong class=\"text-on-surface font-semibold\">DDIA Part 3: Derived Data (Book Complete!)</strong> — DDIA Ch. 10: Batch Processing (MapReduce, Dataflow engines) & Ch. 11: Stream Processing (Event streams, messaging systems) & Ch. 12: Summary (<strong class=\"text-on-surface font-semibold\">DDIA 100% Done!</strong>)",
             "is_rest": false
           }
         ]
@@ -10016,8 +10016,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Classloading Subsystem: Bootstrap, Platform, Application classloaders, Delegation hierarchy, Custom classloaders",
             "ref": "",
-            "title": "Classloading Subsystem: Bootstrap, Platform, Application classloaders, Delegation hierarchy, Custom classloaders",
-            "desc": "",
+            "title": "Classloading Subsystem",
+            "desc": "Bootstrap, Platform, Application classloaders, Delegation hierarchy, Custom classloaders",
             "html": "Classloading Subsystem: Bootstrap, Platform, Application classloaders, Delegation hierarchy, Custom classloaders",
             "is_rest": false
           },
@@ -10046,9 +10046,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Java Program Lifecycle: `.java` $\\rightarrow$ bytecode $\\rightarrow$ JIT compilation (C1/C2 compilers) $\\rightarrow$ native machine execution",
             "ref": "",
-            "title": "Java Program Lifecycle: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.java</code> $\\rightarrow$ bytecode $\\rightarrow$ JIT compilation (C1/C2 compilers) $\\rightarrow$ native machine execution",
-            "desc": "",
-            "html": "Java Program Lifecycle: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.java</code> $\\rightarrow$ bytecode $\\rightarrow$ JIT compilation (C1/C2 compilers) $\\rightarrow$ native machine execution",
+            "title": "Java Program Lifecycle",
+            "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.java</code> &rarr; bytecode &rarr; JIT compilation (C1/C2 compilers) &rarr; native machine execution",
+            "html": "Java Program Lifecycle: <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">.java</code> &rarr; bytecode &rarr; JIT compilation (C1/C2 compilers) &rarr; native machine execution",
             "is_rest": false
           },
           {
@@ -10059,8 +10059,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Event-Driven AI Pipelines** — Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking & embedding",
             "ref": "",
             "title": "Event-Driven AI Pipelines",
-            "desc": "Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking &amp; embedding",
-            "html": "<strong class=\"text-on-surface font-semibold\">Event-Driven AI Pipelines</strong> — Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking &amp; embedding",
+            "desc": "Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking & embedding",
+            "html": "<strong class=\"text-on-surface font-semibold\">Event-Driven AI Pipelines</strong> — Architect an event-driven AI ingestion pipeline: producing incoming documents to Kafka, streaming them to consumers for chunking & embedding",
             "is_rest": false
           }
         ]
@@ -10088,9 +10088,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 8 Modern Java & MLOps Defense (4.0h)** — Explain JVM memory layout, garbage collection pauses, Kafka partition rebalancing, and DDIA linearizability out loud.",
             "ref": "",
-            "title": "Phase 8 Modern Java &amp; MLOps Defense (4.0h)",
+            "title": "Phase 8 Modern Java & MLOps Defense (4.0h)",
             "desc": "Explain JVM memory layout, garbage collection pauses, Kafka partition rebalancing, and DDIA linearizability out loud.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 8 Modern Java &amp; MLOps Defense (4.0h)</strong> — Explain JVM memory layout, garbage collection pauses, Kafka partition rebalancing, and DDIA linearizability out loud.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 8 Modern Java & MLOps Defense (4.0h)</strong> — Explain JVM memory layout, garbage collection pauses, Kafka partition rebalancing, and DDIA linearizability out loud.",
             "is_rest": false
           },
           {
@@ -10101,8 +10101,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Spring Kafka Producer Integration** — Spin up Kafka & KRaft in Docker; add `spring-kafka`, configure `KafkaTemplate`, publish structured JSON events from `todo-service`",
             "ref": "",
             "title": "Spring Kafka Producer Integration",
-            "desc": "Spin up Kafka &amp; KRaft in Docker; add <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">spring-kafka</code>, configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">KafkaTemplate</code>, publish structured JSON events from <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">todo-service</code>",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring Kafka Producer Integration</strong> — Spin up Kafka &amp; KRaft in Docker; add <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">spring-kafka</code>, configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">KafkaTemplate</code>, publish structured JSON events from <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">todo-service</code>",
+            "desc": "Spin up Kafka & KRaft in Docker; add <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">spring-kafka</code>, configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">KafkaTemplate</code>, publish structured JSON events from <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">todo-service</code>",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring Kafka Producer Integration</strong> — Spin up Kafka & KRaft in Docker; add <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">spring-kafka</code>, configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">KafkaTemplate</code>, publish structured JSON events from <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">todo-service</code>",
             "is_rest": false
           }
         ]
@@ -10118,8 +10118,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Phase 8 Master Review:** write README synthesizing Streams, Modern Java, Concurrency, and JVM internals",
             "ref": "",
-            "title": "Phase 8 Master Review: write README synthesizing Streams, Modern Java, Concurrency, and JVM internals",
-            "desc": "",
+            "title": "Phase 8 Master Review",
+            "desc": "write README synthesizing Streams, Modern Java, Concurrency, and JVM internals",
             "html": "<strong class=\"text-on-surface font-semibold\">Phase 8 Master Review:</strong> write README synthesizing Streams, Modern Java, Concurrency, and JVM internals",
             "is_rest": false
           },
@@ -10142,9 +10142,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Spring Kafka Consumer & Resilient Processing** — `@KafkaListener`, consumer groups, error handling with Dead Letter Topics (DLT); complete event-driven microservices on GitHub",
             "ref": "",
-            "title": "Spring Kafka Consumer &amp; Resilient Processing",
+            "title": "Spring Kafka Consumer & Resilient Processing",
             "desc": "<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@KafkaListener</code>, consumer groups, error handling with Dead Letter Topics (DLT); complete event-driven microservices on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring Kafka Consumer &amp; Resilient Processing</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@KafkaListener</code>, consumer groups, error handling with Dead Letter Topics (DLT); complete event-driven microservices on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring Kafka Consumer & Resilient Processing</strong> — <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@KafkaListener</code>, consumer groups, error handling with Dead Letter Topics (DLT); complete event-driven microservices on GitHub",
             "is_rest": false
           }
         ]
@@ -10211,8 +10211,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Spring AI vs LangChain4j Evaluation** — Read docs (`docs.spring.io/spring-ai`, `docs.langchain4j.dev`), decide architecture: Spring AI 2.0 (Spring-native, first-class Model Context Protocol support)",
             "ref": "",
             "title": "Spring AI vs LangChain4j Evaluation",
-            "desc": "Read docs (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.spring.io/spring-ai\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.langchain4j.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>), decide architecture: Spring AI 2.0 (Spring-native, first-class Model Context Protocol support)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI vs LangChain4j Evaluation</strong> — Read docs (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.spring.io/spring-ai\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://docs.langchain4j.dev\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>), decide architecture: Spring AI 2.0 (Spring-native, first-class Model Context Protocol support)",
+            "desc": "Read docs (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.spring.io/spring-ai</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.langchain4j.dev</code>), decide architecture: Spring AI 2.0 (Spring-native, first-class Model Context Protocol support)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI vs LangChain4j Evaluation</strong> — Read docs (<code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.spring.io/spring-ai</code>, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">docs.langchain4j.dev</code>), decide architecture: Spring AI 2.0 (Spring-native, first-class Model Context Protocol support)",
             "is_rest": false
           }
         ]
@@ -10240,9 +10240,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Fresh HLD Practice: System Design of a URL Shortener & Live-Streaming App** — URL Shortener requirements & Base62/KGS design + **System Design of a Live-Streaming App** (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
             "ref": "",
-            "title": "Fresh HLD Practice: System Design of a URL Shortener &amp; Live-Streaming App",
-            "desc": "URL Shortener requirements &amp; Base62/KGS design + <strong class=\"text-on-surface font-semibold\">System Design of a Live-Streaming App</strong> (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Practice: System Design of a URL Shortener &amp; Live-Streaming App</strong> — URL Shortener requirements &amp; Base62/KGS design + <strong class=\"text-on-surface font-semibold\">System Design of a Live-Streaming App</strong> (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
+            "title": "Fresh HLD Practice: System Design of a URL Shortener & Live-Streaming App",
+            "desc": "URL Shortener requirements & Base62/KGS design + <strong class=\"text-on-surface font-semibold\">System Design of a Live-Streaming App</strong> (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Practice: System Design of a URL Shortener & Live-Streaming App</strong> — URL Shortener requirements & Base62/KGS design + <strong class=\"text-on-surface font-semibold\">System Design of a Live-Streaming App</strong> (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
             "is_rest": false
           }
         ]
@@ -10270,9 +10270,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Spring AI ChatClient & Prompt Architecture** — Read Spring AI's `ChatClient` fluent API, `PromptTemplate` parameterization, system messages, streaming responses via Server-Sent Events",
             "ref": "",
-            "title": "Spring AI ChatClient &amp; Prompt Architecture",
+            "title": "Spring AI ChatClient & Prompt Architecture",
             "desc": "Read Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> fluent API, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PromptTemplate</code> parameterization, system messages, streaming responses via Server-Sent Events",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI ChatClient &amp; Prompt Architecture</strong> — Read Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> fluent API, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PromptTemplate</code> parameterization, system messages, streaming responses via Server-Sent Events",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI ChatClient & Prompt Architecture</strong> — Read Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> fluent API, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PromptTemplate</code> parameterization, system messages, streaming responses via Server-Sent Events",
             "is_rest": false
           }
         ]
@@ -10330,9 +10330,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Corpus & Knowledge Base Definition** — Curate technical corpus (your study notes, engineering docs, TSEC syllabus); sketch ingestion, chunking, and embedding strategy",
             "ref": "",
-            "title": "Capstone Corpus &amp; Knowledge Base Definition",
+            "title": "Capstone Corpus & Knowledge Base Definition",
             "desc": "Curate technical corpus (your study notes, engineering docs, TSEC syllabus); sketch ingestion, chunking, and embedding strategy",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Corpus &amp; Knowledge Base Definition</strong> — Curate technical corpus (your study notes, engineering docs, TSEC syllabus); sketch ingestion, chunking, and embedding strategy",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Corpus & Knowledge Base Definition</strong> — Curate technical corpus (your study notes, engineering docs, TSEC syllabus); sketch ingestion, chunking, and embedding strategy",
             "is_rest": false
           }
         ]
@@ -10360,9 +10360,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Spring AI Setup & Prompt Template Lab (4.0h)** — Set up Spring AI 2.0 starter; configure `ChatClient` with custom system prompts, fluent API, and temperature tuning.",
             "ref": "",
-            "title": "Spring AI Setup &amp; Prompt Template Lab (4.0h)",
+            "title": "Spring AI Setup & Prompt Template Lab (4.0h)",
             "desc": "Set up Spring AI 2.0 starter; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> with custom system prompts, fluent API, and temperature tuning.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Setup &amp; Prompt Template Lab (4.0h)</strong> — Set up Spring AI 2.0 starter; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> with custom system prompts, fluent API, and temperature tuning.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Setup & Prompt Template Lab (4.0h)</strong> — Set up Spring AI 2.0 starter; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> with custom system prompts, fluent API, and temperature tuning.",
             "is_rest": false
           },
           {
@@ -10372,9 +10372,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Spring AI Setup & First Endpoint** — Add Spring AI starter via `start.spring.io`; configure provider API keys; build a \"Hello World\" `ChatClient` endpoint in Spring Boot",
             "ref": "",
-            "title": "Spring AI Setup &amp; First Endpoint",
+            "title": "Spring AI Setup & First Endpoint",
             "desc": "Add Spring AI starter via <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; configure provider API keys; build a \"Hello World\" <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> endpoint in Spring Boot",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Setup &amp; First Endpoint</strong> — Add Spring AI starter via <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; configure provider API keys; build a \"Hello World\" <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> endpoint in Spring Boot",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Setup & First Endpoint</strong> — Add Spring AI starter via <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">start.spring.io</code>; configure provider API keys; build a \"Hello World\" <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ChatClient</code> endpoint in Spring Boot",
             "is_rest": false
           }
         ]
@@ -10402,9 +10402,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Streaming Tokens & Reactive Endpoints Lab (4.0h)** — Stream LLM responses via Spring WebFlux / Server-Sent Events (SSE) to frontend; handle client disconnects.",
             "ref": "",
-            "title": "Streaming Tokens &amp; Reactive Endpoints Lab (4.0h)",
+            "title": "Streaming Tokens & Reactive Endpoints Lab (4.0h)",
             "desc": "Stream LLM responses via Spring WebFlux / Server-Sent Events (SSE) to frontend; handle client disconnects.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Streaming Tokens &amp; Reactive Endpoints Lab (4.0h)</strong> — Stream LLM responses via Spring WebFlux / Server-Sent Events (SSE) to frontend; handle client disconnects.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Streaming Tokens & Reactive Endpoints Lab (4.0h)</strong> — Stream LLM responses via Spring WebFlux / Server-Sent Events (SSE) to frontend; handle client disconnects.",
             "is_rest": false
           },
           {
@@ -10414,9 +10414,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Streaming & Structured Error Handling** — Stream tokens via SSE; implement error handling for timeouts, rate limits, and fallback responses; push scaffold to GitHub",
             "ref": "",
-            "title": "Streaming &amp; Structured Error Handling",
+            "title": "Streaming & Structured Error Handling",
             "desc": "Stream tokens via SSE; implement error handling for timeouts, rate limits, and fallback responses; push scaffold to GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Streaming &amp; Structured Error Handling</strong> — Stream tokens via SSE; implement error handling for timeouts, rate limits, and fallback responses; push scaffold to GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Streaming & Structured Error Handling</strong> — Stream tokens via SSE; implement error handling for timeouts, rate limits, and fallback responses; push scaffold to GitHub",
             "is_rest": false
           }
         ]
@@ -10460,9 +10460,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Vector Store Architecture & Embedding Design** — Revisit text embeddings through Spring AI's `VectorStore` abstraction; evaluate embedding dimension size, distance metrics (Cosine vs Euclidean)",
             "ref": "",
-            "title": "Vector Store Architecture &amp; Embedding Design",
+            "title": "Vector Store Architecture & Embedding Design",
             "desc": "Revisit text embeddings through Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">VectorStore</code> abstraction; evaluate embedding dimension size, distance metrics (Cosine vs Euclidean)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Vector Store Architecture &amp; Embedding Design</strong> — Revisit text embeddings through Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">VectorStore</code> abstraction; evaluate embedding dimension size, distance metrics (Cosine vs Euclidean)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Vector Store Architecture & Embedding Design</strong> — Revisit text embeddings through Spring AI's <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">VectorStore</code> abstraction; evaluate embedding dimension size, distance metrics (Cosine vs Euclidean)",
             "is_rest": false
           }
         ]
@@ -10490,9 +10490,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**URL Shortener Scaling & IRCTC High-Concurrency Booking** — Caching, database sharding, rate limiting + **System Design of IRCTC Railway Booking System** (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
             "ref": "",
-            "title": "URL Shortener Scaling &amp; IRCTC High-Concurrency Booking",
+            "title": "URL Shortener Scaling & IRCTC High-Concurrency Booking",
             "desc": "Caching, database sharding, rate limiting + <strong class=\"text-on-surface font-semibold\">System Design of IRCTC Railway Booking System</strong> (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
-            "html": "<strong class=\"text-on-surface font-semibold\">URL Shortener Scaling &amp; IRCTC High-Concurrency Booking</strong> — Caching, database sharding, rate limiting + <strong class=\"text-on-surface font-semibold\">System Design of IRCTC Railway Booking System</strong> (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
+            "html": "<strong class=\"text-on-surface font-semibold\">URL Shortener Scaling & IRCTC High-Concurrency Booking</strong> — Caching, database sharding, rate limiting + <strong class=\"text-on-surface font-semibold\">System Design of IRCTC Railway Booking System</strong> (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
             "is_rest": false
           }
         ]
@@ -10520,9 +10520,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Chunking Strategy & Top-K Experiments** — Experiment with chunk size (500 vs 1000 tokens), overlap (100 tokens), and top-k retrieval on your actual corpus",
             "ref": "",
-            "title": "Chunking Strategy &amp; Top-K Experiments",
+            "title": "Chunking Strategy & Top-K Experiments",
             "desc": "Experiment with chunk size (500 vs 1000 tokens), overlap (100 tokens), and top-k retrieval on your actual corpus",
-            "html": "<strong class=\"text-on-surface font-semibold\">Chunking Strategy &amp; Top-K Experiments</strong> — Experiment with chunk size (500 vs 1000 tokens), overlap (100 tokens), and top-k retrieval on your actual corpus",
+            "html": "<strong class=\"text-on-surface font-semibold\">Chunking Strategy & Top-K Experiments</strong> — Experiment with chunk size (500 vs 1000 tokens), overlap (100 tokens), and top-k retrieval on your actual corpus",
             "is_rest": false
           }
         ]
@@ -10580,9 +10580,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Citation & Grounding Pipeline Design** — Design prompt templates that force the model to return citations and source snippets rather than ungrounded assertions",
             "ref": "",
-            "title": "Citation &amp; Grounding Pipeline Design",
+            "title": "Citation & Grounding Pipeline Design",
             "desc": "Design prompt templates that force the model to return citations and source snippets rather than ungrounded assertions",
-            "html": "<strong class=\"text-on-surface font-semibold\">Citation &amp; Grounding Pipeline Design</strong> — Design prompt templates that force the model to return citations and source snippets rather than ungrounded assertions",
+            "html": "<strong class=\"text-on-surface font-semibold\">Citation & Grounding Pipeline Design</strong> — Design prompt templates that force the model to return citations and source snippets rather than ungrounded assertions",
             "is_rest": false
           }
         ]
@@ -10623,8 +10623,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Spring AI Vector Store with pgvector** — Spin up PostgreSQL with `pgvector` in Docker; configure `PgVectorStore` in Spring Boot; build automated document ingestion pipeline (load $\\rightarrow$ split $\\rightarrow$ embed $\\rightarrow$ store)",
             "ref": "",
             "title": "Spring AI Vector Store with pgvector",
-            "desc": "Spin up PostgreSQL with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pgvector</code> in Docker; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PgVectorStore</code> in Spring Boot; build automated document ingestion pipeline (load $\\rightarrow$ split $\\rightarrow$ embed $\\rightarrow$ store)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Vector Store with pgvector</strong> — Spin up PostgreSQL with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pgvector</code> in Docker; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PgVectorStore</code> in Spring Boot; build automated document ingestion pipeline (load $\\rightarrow$ split $\\rightarrow$ embed $\\rightarrow$ store)",
+            "desc": "Spin up PostgreSQL with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pgvector</code> in Docker; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PgVectorStore</code> in Spring Boot; build automated document ingestion pipeline (load &rarr; split &rarr; embed &rarr; store)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Vector Store with pgvector</strong> — Spin up PostgreSQL with <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">pgvector</code> in Docker; configure <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">PgVectorStore</code> in Spring Boot; build automated document ingestion pipeline (load &rarr; split &rarr; embed &rarr; store)",
             "is_rest": false
           }
         ]
@@ -10652,9 +10652,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Spring AI RAG Pipeline & Advisor Chain (4.0h)** — Implement `QuestionAnswerAdvisor` and custom similarity threshold filters for enterprise RAG in Java.",
             "ref": "",
-            "title": "Spring AI RAG Pipeline &amp; Advisor Chain (4.0h)",
+            "title": "Spring AI RAG Pipeline & Advisor Chain (4.0h)",
             "desc": "Implement <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">QuestionAnswerAdvisor</code> and custom similarity threshold filters for enterprise RAG in Java.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI RAG Pipeline &amp; Advisor Chain (4.0h)</strong> — Implement <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">QuestionAnswerAdvisor</code> and custom similarity threshold filters for enterprise RAG in Java.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI RAG Pipeline & Advisor Chain (4.0h)</strong> — Implement <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">QuestionAnswerAdvisor</code> and custom similarity threshold filters for enterprise RAG in Java.",
             "is_rest": false
           },
           {
@@ -10740,9 +10740,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Fresh HLD Practice: Distributed Rate Limiter & Netflix Video Pipeline** — Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + **System Design of Netflix Video Onboarding Pipeline** (Transcoding, chunking, manifest generation, multi-CDN caching)",
             "ref": "",
-            "title": "Fresh HLD Practice: Distributed Rate Limiter &amp; Netflix Video Pipeline",
+            "title": "Fresh HLD Practice: Distributed Rate Limiter & Netflix Video Pipeline",
             "desc": "Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + <strong class=\"text-on-surface font-semibold\">System Design of Netflix Video Onboarding Pipeline</strong> (Transcoding, chunking, manifest generation, multi-CDN caching)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Practice: Distributed Rate Limiter &amp; Netflix Video Pipeline</strong> — Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + <strong class=\"text-on-surface font-semibold\">System Design of Netflix Video Onboarding Pipeline</strong> (Transcoding, chunking, manifest generation, multi-CDN caching)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Practice: Distributed Rate Limiter & Netflix Video Pipeline</strong> — Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + <strong class=\"text-on-surface font-semibold\">System Design of Netflix Video Onboarding Pipeline</strong> (Transcoding, chunking, manifest generation, multi-CDN caching)",
             "is_rest": false
           }
         ]
@@ -10771,8 +10771,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Model Context Protocol (MCP) Foundations** — Read `modelcontextprotocol.io`: What problem MCP solves, MCP Clients vs Servers, standardizing context and tool access across enterprise agents",
             "ref": "",
             "title": "Model Context Protocol (MCP) Foundations",
-            "desc": "Read <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>: What problem MCP solves, MCP Clients vs Servers, standardizing context and tool access across enterprise agents",
-            "html": "<strong class=\"text-on-surface font-semibold\">Model Context Protocol (MCP) Foundations</strong> — Read <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\"><a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-primary hover:underline font-medium\">[Resource]</a></code>: What problem MCP solves, MCP Clients vs Servers, standardizing context and tool access across enterprise agents",
+            "desc": "Read <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">modelcontextprotocol.io</code>: What problem MCP solves, MCP Clients vs Servers, standardizing context and tool access across enterprise agents",
+            "html": "<strong class=\"text-on-surface font-semibold\">Model Context Protocol (MCP) Foundations</strong> — Read <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">modelcontextprotocol.io</code>: What problem MCP solves, MCP Clients vs Servers, standardizing context and tool access across enterprise agents",
             "is_rest": false
           }
         ]
@@ -10860,9 +10860,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Spring AI Function Calling & Tool Execution (4.0h)** — Register Java `@Bean` functions for tool-calling (database queries, weather, calculator); observe LLM tool orchestration.",
             "ref": "",
-            "title": "Spring AI Function Calling &amp; Tool Execution (4.0h)",
+            "title": "Spring AI Function Calling & Tool Execution (4.0h)",
             "desc": "Register Java <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code> functions for tool-calling (database queries, weather, calculator); observe LLM tool orchestration.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Function Calling &amp; Tool Execution (4.0h)</strong> — Register Java <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code> functions for tool-calling (database queries, weather, calculator); observe LLM tool orchestration.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Function Calling & Tool Execution (4.0h)</strong> — Register Java <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Bean</code> functions for tool-calling (database queries, weather, calculator); observe LLM tool orchestration.",
             "is_rest": false
           },
           {
@@ -10990,9 +10990,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Capstone Architecture Document & Real-Time Chess Website** — Full component diagram of your Spring AI capstone + **System Design of an Online Chess Website** (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
             "ref": "",
-            "title": "Capstone Architecture Document &amp; Real-Time Chess Website",
+            "title": "Capstone Architecture Document & Real-Time Chess Website",
             "desc": "Full component diagram of your Spring AI capstone + <strong class=\"text-on-surface font-semibold\">System Design of an Online Chess Website</strong> (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Architecture Document &amp; Real-Time Chess Website</strong> — Full component diagram of your Spring AI capstone + <strong class=\"text-on-surface font-semibold\">System Design of an Online Chess Website</strong> (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Architecture Document & Real-Time Chess Website</strong> — Full component diagram of your Spring AI capstone + <strong class=\"text-on-surface font-semibold\">System Design of an Online Chess Website</strong> (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
             "is_rest": false
           }
         ]
@@ -11020,9 +11020,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Edge Case Analysis & Guardrails** — Design handling for: empty vector retrieval results, tool execution failure, prompt injection attempts, context window overflow",
             "ref": "",
-            "title": "Edge Case Analysis &amp; Guardrails",
+            "title": "Edge Case Analysis & Guardrails",
             "desc": "Design handling for: empty vector retrieval results, tool execution failure, prompt injection attempts, context window overflow",
-            "html": "<strong class=\"text-on-surface font-semibold\">Edge Case Analysis &amp; Guardrails</strong> — Design handling for: empty vector retrieval results, tool execution failure, prompt injection attempts, context window overflow",
+            "html": "<strong class=\"text-on-surface font-semibold\">Edge Case Analysis & Guardrails</strong> — Design handling for: empty vector retrieval results, tool execution failure, prompt injection attempts, context window overflow",
             "is_rest": false
           }
         ]
@@ -11050,9 +11050,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Capstone Architecture Document 2: Data Flow & Failure Modes** — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + **System Design of Google Docs Collaborative Real-Time Editor** (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
             "ref": "",
-            "title": "Capstone Architecture Document 2: Data Flow &amp; Failure Modes",
+            "title": "Capstone Architecture Document 2: Data Flow & Failure Modes",
             "desc": "Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + <strong class=\"text-on-surface font-semibold\">System Design of Google Docs Collaborative Real-Time Editor</strong> (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Architecture Document 2: Data Flow &amp; Failure Modes</strong> — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + <strong class=\"text-on-surface font-semibold\">System Design of Google Docs Collaborative Real-Time Editor</strong> (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Architecture Document 2: Data Flow & Failure Modes</strong> — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + <strong class=\"text-on-surface font-semibold\">System Design of Google Docs Collaborative Real-Time Editor</strong> (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
             "is_rest": false
           }
         ]
@@ -11122,9 +11122,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Security, Memory & Rate Limiting Integration** — Integrate JWT authentication into AI endpoints; persist conversation memory in PostgreSQL; add Spring Cloud Gateway rate limiting",
             "ref": "",
-            "title": "Security, Memory &amp; Rate Limiting Integration",
+            "title": "Security, Memory & Rate Limiting Integration",
             "desc": "Integrate JWT authentication into AI endpoints; persist conversation memory in PostgreSQL; add Spring Cloud Gateway rate limiting",
-            "html": "<strong class=\"text-on-surface font-semibold\">Security, Memory &amp; Rate Limiting Integration</strong> — Integrate JWT authentication into AI endpoints; persist conversation memory in PostgreSQL; add Spring Cloud Gateway rate limiting",
+            "html": "<strong class=\"text-on-surface font-semibold\">Security, Memory & Rate Limiting Integration</strong> — Integrate JWT authentication into AI endpoints; persist conversation memory in PostgreSQL; add Spring Cloud Gateway rate limiting",
             "is_rest": false
           }
         ]
@@ -11152,9 +11152,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Spring AI Observability & Tracing (4.0h)** — Integrate Micrometer and OpenTelemetry for LLM token usage tracking, latency spans, and error monitoring.",
             "ref": "",
-            "title": "Spring AI Observability &amp; Tracing (4.0h)",
+            "title": "Spring AI Observability & Tracing (4.0h)",
             "desc": "Integrate Micrometer and OpenTelemetry for LLM token usage tracking, latency spans, and error monitoring.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Observability &amp; Tracing (4.0h)</strong> — Integrate Micrometer and OpenTelemetry for LLM token usage tracking, latency spans, and error monitoring.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Spring AI Observability & Tracing (4.0h)</strong> — Integrate Micrometer and OpenTelemetry for LLM token usage tracking, latency spans, and error monitoring.",
             "is_rest": false
           },
           {
@@ -11164,9 +11164,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Full End-to-End Build & Integration** — Wire all components together: Auth + Memory + RAG + Tool Calling + MCP Server; run automated end-to-end integration tests on GitHub",
             "ref": "",
-            "title": "Full End-to-End Build &amp; Integration",
+            "title": "Full End-to-End Build & Integration",
             "desc": "Wire all components together: Auth + Memory + RAG + Tool Calling + MCP Server; run automated end-to-end integration tests on GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full End-to-End Build &amp; Integration</strong> — Wire all components together: Auth + Memory + RAG + Tool Calling + MCP Server; run automated end-to-end integration tests on GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full End-to-End Build & Integration</strong> — Wire all components together: Auth + Memory + RAG + Tool Calling + MCP Server; run automated end-to-end integration tests on GitHub",
             "is_rest": false
           }
         ]
@@ -11210,9 +11210,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Capstone Evaluation & Metric Benchmarking** — Run 50 real queries through evaluation rubric; benchmark latency, token cost per query, and answer accuracy",
             "ref": "",
-            "title": "Capstone Evaluation &amp; Metric Benchmarking",
+            "title": "Capstone Evaluation & Metric Benchmarking",
             "desc": "Run 50 real queries through evaluation rubric; benchmark latency, token cost per query, and answer accuracy",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Evaluation &amp; Metric Benchmarking</strong> — Run 50 real queries through evaluation rubric; benchmark latency, token cost per query, and answer accuracy",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Evaluation & Metric Benchmarking</strong> — Run 50 real queries through evaluation rubric; benchmark latency, token cost per query, and answer accuracy",
             "is_rest": false
           }
         ]
@@ -11300,9 +11300,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Mock Project Defense #2: Failure & Scaling Grilling** — Get grilled specifically on scaling to 10k RPS, pgvector indexing performance (HNSW vs IVFFlat), and circuit breaking",
             "ref": "",
-            "title": "Mock Project Defense #2: Failure &amp; Scaling Grilling",
+            "title": "Mock Project Defense #2: Failure & Scaling Grilling",
             "desc": "Get grilled specifically on scaling to 10k RPS, pgvector indexing performance (HNSW vs IVFFlat), and circuit breaking",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock Project Defense #2: Failure &amp; Scaling Grilling</strong> — Get grilled specifically on scaling to 10k RPS, pgvector indexing performance (HNSW vs IVFFlat), and circuit breaking",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock Project Defense #2: Failure & Scaling Grilling</strong> — Get grilled specifically on scaling to 10k RPS, pgvector indexing performance (HNSW vs IVFFlat), and circuit breaking",
             "is_rest": false
           }
         ]
@@ -11330,9 +11330,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Final Prompt & Advisor Tuning** — Fix the top weaknesses exposed by evaluation; optimize system prompts to reduce token usage",
             "ref": "",
-            "title": "Final Prompt &amp; Advisor Tuning",
+            "title": "Final Prompt & Advisor Tuning",
             "desc": "Fix the top weaknesses exposed by evaluation; optimize system prompts to reduce token usage",
-            "html": "<strong class=\"text-on-surface font-semibold\">Final Prompt &amp; Advisor Tuning</strong> — Fix the top weaknesses exposed by evaluation; optimize system prompts to reduce token usage",
+            "html": "<strong class=\"text-on-surface font-semibold\">Final Prompt & Advisor Tuning</strong> — Fix the top weaknesses exposed by evaluation; optimize system prompts to reduce token usage",
             "is_rest": false
           }
         ]
@@ -11372,9 +11372,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Containerization & Cloud Deployment** — Multi-service Docker Compose (Spring Boot app, PostgreSQL with pgvector, Redis, MCP server); deploy to cloud (Render / Railway / AWS EC2)",
             "ref": "",
-            "title": "Containerization &amp; Cloud Deployment",
+            "title": "Containerization & Cloud Deployment",
             "desc": "Multi-service Docker Compose (Spring Boot app, PostgreSQL with pgvector, Redis, MCP server); deploy to cloud (Render / Railway / AWS EC2)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Containerization &amp; Cloud Deployment</strong> — Multi-service Docker Compose (Spring Boot app, PostgreSQL with pgvector, Redis, MCP server); deploy to cloud (Render / Railway / AWS EC2)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Containerization & Cloud Deployment</strong> — Multi-service Docker Compose (Spring Boot app, PostgreSQL with pgvector, Redis, MCP server); deploy to cloud (Render / Railway / AWS EC2)",
             "is_rest": false
           }
         ]
@@ -11402,9 +11402,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Phase 9 Flagship Capstone Walkthrough & Demo (4.0h)** — Record a 5-minute video walkthrough demonstrating RAG, tool-calling, and MCP in action; polish GitHub repository.",
             "ref": "",
-            "title": "Phase 9 Flagship Capstone Walkthrough &amp; Demo (4.0h)",
+            "title": "Phase 9 Flagship Capstone Walkthrough & Demo (4.0h)",
             "desc": "Record a 5-minute video walkthrough demonstrating RAG, tool-calling, and MCP in action; polish GitHub repository.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Phase 9 Flagship Capstone Walkthrough &amp; Demo (4.0h)</strong> — Record a 5-minute video walkthrough demonstrating RAG, tool-calling, and MCP in action; polish GitHub repository.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Phase 9 Flagship Capstone Walkthrough & Demo (4.0h)</strong> — Record a 5-minute video walkthrough demonstrating RAG, tool-calling, and MCP in action; polish GitHub repository.",
             "is_rest": false
           },
           {
@@ -11414,9 +11414,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Capstone Shipped & Portfolio Finalization** — Complete OpenAPI/Swagger documentation; push final code to GitHub; record video demo; pin repository on GitHub profile!",
             "ref": "",
-            "title": "Capstone Shipped &amp; Portfolio Finalization",
+            "title": "Capstone Shipped & Portfolio Finalization",
             "desc": "Complete OpenAPI/Swagger documentation; push final code to GitHub; record video demo; pin repository on GitHub profile!",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Shipped &amp; Portfolio Finalization</strong> — Complete OpenAPI/Swagger documentation; push final code to GitHub; record video demo; pin repository on GitHub profile!",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstone Shipped & Portfolio Finalization</strong> — Complete OpenAPI/Swagger documentation; push final code to GitHub; record video demo; pin repository on GitHub profile!",
             "is_rest": false
           }
         ]
@@ -11483,8 +11483,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Mock-Explain: Optimization Foundations** — Explain out loud from scratch: Gradient descent $\\rightarrow$ backpropagation $\\rightarrow$ autograd engines $\\rightarrow$ learning rate schedules $\\rightarrow$ optimizers (Adam)",
             "ref": "",
             "title": "Mock-Explain: Optimization Foundations",
-            "desc": "Explain out loud from scratch: Gradient descent $\\rightarrow$ backpropagation $\\rightarrow$ autograd engines $\\rightarrow$ learning rate schedules $\\rightarrow$ optimizers (Adam)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Optimization Foundations</strong> — Explain out loud from scratch: Gradient descent $\\rightarrow$ backpropagation $\\rightarrow$ autograd engines $\\rightarrow$ learning rate schedules $\\rightarrow$ optimizers (Adam)",
+            "desc": "Explain out loud from scratch: Gradient descent &rarr; backpropagation &rarr; autograd engines &rarr; learning rate schedules &rarr; optimizers (Adam)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Optimization Foundations</strong> — Explain out loud from scratch: Gradient descent &rarr; backpropagation &rarr; autograd engines &rarr; learning rate schedules &rarr; optimizers (Adam)",
             "is_rest": false
           }
         ]
@@ -11513,8 +11513,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Fresh HLD Problem: Design a Web Crawler** — Requirements & capacity estimation (1 billion pages/month, storage calculations, politeness policies, deduplication strategies)",
             "ref": "",
             "title": "Fresh HLD Problem: Design a Web Crawler",
-            "desc": "Requirements &amp; capacity estimation (1 billion pages/month, storage calculations, politeness policies, deduplication strategies)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Problem: Design a Web Crawler</strong> — Requirements &amp; capacity estimation (1 billion pages/month, storage calculations, politeness policies, deduplication strategies)",
+            "desc": "Requirements & capacity estimation (1 billion pages/month, storage calculations, politeness policies, deduplication strategies)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Problem: Design a Web Crawler</strong> — Requirements & capacity estimation (1 billion pages/month, storage calculations, politeness policies, deduplication strategies)",
             "is_rest": false
           }
         ]
@@ -11543,8 +11543,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Mock-Explain: Neural Architectures** — Explain out loud: Convolutions $\\rightarrow$ ResNet residual connections $\\rightarrow$ Self-Attention math $\\rightarrow$ Transformer blocks $\\rightarrow$ nanoGPT architecture",
             "ref": "",
             "title": "Mock-Explain: Neural Architectures",
-            "desc": "Explain out loud: Convolutions $\\rightarrow$ ResNet residual connections $\\rightarrow$ Self-Attention math $\\rightarrow$ Transformer blocks $\\rightarrow$ nanoGPT architecture",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Neural Architectures</strong> — Explain out loud: Convolutions $\\rightarrow$ ResNet residual connections $\\rightarrow$ Self-Attention math $\\rightarrow$ Transformer blocks $\\rightarrow$ nanoGPT architecture",
+            "desc": "Explain out loud: Convolutions &rarr; ResNet residual connections &rarr; Self-Attention math &rarr; Transformer blocks &rarr; nanoGPT architecture",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Neural Architectures</strong> — Explain out loud: Convolutions &rarr; ResNet residual connections &rarr; Self-Attention math &rarr; Transformer blocks &rarr; nanoGPT architecture",
             "is_rest": false
           }
         ]
@@ -11572,9 +11572,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Web Crawler Architecture & Distributed Queue** — URL Frontier, DNS resolution cache, deduplication with Bloom Filters, storage architecture, fault tolerance",
             "ref": "",
-            "title": "Web Crawler Architecture &amp; Distributed Queue",
+            "title": "Web Crawler Architecture & Distributed Queue",
             "desc": "URL Frontier, DNS resolution cache, deduplication with Bloom Filters, storage architecture, fault tolerance",
-            "html": "<strong class=\"text-on-surface font-semibold\">Web Crawler Architecture &amp; Distributed Queue</strong> — URL Frontier, DNS resolution cache, deduplication with Bloom Filters, storage architecture, fault tolerance",
+            "html": "<strong class=\"text-on-surface font-semibold\">Web Crawler Architecture & Distributed Queue</strong> — URL Frontier, DNS resolution cache, deduplication with Bloom Filters, storage architecture, fault tolerance",
             "is_rest": false
           }
         ]
@@ -11603,8 +11603,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Mock-Explain: Enterprise GenAI** — Explain out loud: Vector embeddings $\\rightarrow$ Hybrid search $\\rightarrow$ RAGAS metrics $\\rightarrow$ Tool calling & MCP protocol $\\rightarrow$ Spring AI production integration",
             "ref": "",
             "title": "Mock-Explain: Enterprise GenAI",
-            "desc": "Explain out loud: Vector embeddings $\\rightarrow$ Hybrid search $\\rightarrow$ RAGAS metrics $\\rightarrow$ Tool calling &amp; MCP protocol $\\rightarrow$ Spring AI production integration",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Enterprise GenAI</strong> — Explain out loud: Vector embeddings $\\rightarrow$ Hybrid search $\\rightarrow$ RAGAS metrics $\\rightarrow$ Tool calling &amp; MCP protocol $\\rightarrow$ Spring AI production integration",
+            "desc": "Explain out loud: Vector embeddings &rarr; Hybrid search &rarr; RAGAS metrics &rarr; Tool calling & MCP protocol &rarr; Spring AI production integration",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock-Explain: Enterprise GenAI</strong> — Explain out loud: Vector embeddings &rarr; Hybrid search &rarr; RAGAS metrics &rarr; Tool calling & MCP protocol &rarr; Spring AI production integration",
             "is_rest": false
           }
         ]
@@ -11631,10 +11631,10 @@ window.ROADMAP_DATA = [
             "track_id": "aiml",
             "track_name": "AI / ML",
             "raw_text": "**Full-Stack Placement Mock 1: Live Coding & DSA Blitz (4.0h)** — 4-hour live coding simulation: solve 3 unseen LeetCode medium/hard problems under timed pressure with whiteboard explanation.",
-            "ref": "LeetCode #",
-            "title": "Full-Stack Placement Mock 1: Live Coding &amp; DSA Blitz (4.0h)",
+            "ref": "LC #",
+            "title": "Full-Stack Placement Mock 1: Live Coding & DSA Blitz (4.0h)",
             "desc": "4-hour live coding simulation: solve 3 unseen LeetCode medium/hard problems under timed pressure with whiteboard explanation.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 1: Live Coding &amp; DSA Blitz (4.0h)</strong> — 4-hour live coding simulation: solve 3 unseen LeetCode medium/hard problems under timed pressure with whiteboard explanation.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 1: Live Coding & DSA Blitz (4.0h)</strong> — 4-hour live coding simulation: solve 3 unseen LeetCode medium/hard problems under timed pressure with whiteboard explanation.",
             "is_rest": false
           },
           {
@@ -11644,9 +11644,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Backend Interview Question Bank 1: Core Java, Concurrency & Spring** — Write detailed answers to: Java Memory Model, Garbage Collection algorithms, ConcurrentHashMap internals, `@Transactional` propagation levels, Spring Bean lifecycle",
             "ref": "",
-            "title": "Backend Interview Question Bank 1: Core Java, Concurrency &amp; Spring",
+            "title": "Backend Interview Question Bank 1: Core Java, Concurrency & Spring",
             "desc": "Write detailed answers to: Java Memory Model, Garbage Collection algorithms, ConcurrentHashMap internals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Transactional</code> propagation levels, Spring Bean lifecycle",
-            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 1: Core Java, Concurrency &amp; Spring</strong> — Write detailed answers to: Java Memory Model, Garbage Collection algorithms, ConcurrentHashMap internals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Transactional</code> propagation levels, Spring Bean lifecycle",
+            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 1: Core Java, Concurrency & Spring</strong> — Write detailed answers to: Java Memory Model, Garbage Collection algorithms, ConcurrentHashMap internals, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">@Transactional</code> propagation levels, Spring Bean lifecycle",
             "is_rest": false
           }
         ]
@@ -11674,9 +11674,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Full-Stack Placement Mock 2: Core CS & System Design (4.0h)** — 4-hour mock grill: OS internals (concurrency, paging), DBMS (transactions, indexing), CN (TCP/IP, HTTP/3), and URL shortener HLD.",
             "ref": "",
-            "title": "Full-Stack Placement Mock 2: Core CS &amp; System Design (4.0h)",
+            "title": "Full-Stack Placement Mock 2: Core CS & System Design (4.0h)",
             "desc": "4-hour mock grill: OS internals (concurrency, paging), DBMS (transactions, indexing), CN (TCP/IP, HTTP/3), and URL shortener HLD.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 2: Core CS &amp; System Design (4.0h)</strong> — 4-hour mock grill: OS internals (concurrency, paging), DBMS (transactions, indexing), CN (TCP/IP, HTTP/3), and URL shortener HLD.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 2: Core CS & System Design (4.0h)</strong> — 4-hour mock grill: OS internals (concurrency, paging), DBMS (transactions, indexing), CN (TCP/IP, HTTP/3), and URL shortener HLD.",
             "is_rest": false
           },
           {
@@ -11686,9 +11686,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Backend Interview Question Bank 2: Microservices & Kafka** — Write detailed answers to: Eureka discovery, Gateway routing, Resilience4j circuit breaking, Kafka delivery semantics & partition rebalancing; push Q&A bank to GitHub",
             "ref": "",
-            "title": "Backend Interview Question Bank 2: Microservices &amp; Kafka",
-            "desc": "Write detailed answers to: Eureka discovery, Gateway routing, Resilience4j circuit breaking, Kafka delivery semantics &amp; partition rebalancing; push Q&amp;A bank to GitHub",
-            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 2: Microservices &amp; Kafka</strong> — Write detailed answers to: Eureka discovery, Gateway routing, Resilience4j circuit breaking, Kafka delivery semantics &amp; partition rebalancing; push Q&amp;A bank to GitHub",
+            "title": "Backend Interview Question Bank 2: Microservices & Kafka",
+            "desc": "Write detailed answers to: Eureka discovery, Gateway routing, Resilience4j circuit breaking, Kafka delivery semantics & partition rebalancing; push Q&A bank to GitHub",
+            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 2: Microservices & Kafka</strong> — Write detailed answers to: Eureka discovery, Gateway routing, Resilience4j circuit breaking, Kafka delivery semantics & partition rebalancing; push Q&A bank to GitHub",
             "is_rest": false
           }
         ]
@@ -11733,8 +11733,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Capstones Re-examination** — Re-read and review code for both capstones (Python GenAI capstone & Java Spring AI capstone) to prepare for defense rounds",
             "ref": "",
             "title": "Capstones Re-examination",
-            "desc": "Re-read and review code for both capstones (Python GenAI capstone &amp; Java Spring AI capstone) to prepare for defense rounds",
-            "html": "<strong class=\"text-on-surface font-semibold\">Capstones Re-examination</strong> — Re-read and review code for both capstones (Python GenAI capstone &amp; Java Spring AI capstone) to prepare for defense rounds",
+            "desc": "Re-read and review code for both capstones (Python GenAI capstone & Java Spring AI capstone) to prepare for defense rounds",
+            "html": "<strong class=\"text-on-surface font-semibold\">Capstones Re-examination</strong> — Re-read and review code for both capstones (Python GenAI capstone & Java Spring AI capstone) to prepare for defense rounds",
             "is_rest": false
           }
         ]
@@ -11823,8 +11823,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Fresh HLD Problem: Design a Distributed Cache** — Cache eviction policies (LRU, LFU), consistent hashing with virtual nodes, cache coherence, replication & master-slave failover",
             "ref": "",
             "title": "Fresh HLD Problem: Design a Distributed Cache",
-            "desc": "Cache eviction policies (LRU, LFU), consistent hashing with virtual nodes, cache coherence, replication &amp; master-slave failover",
-            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Problem: Design a Distributed Cache</strong> — Cache eviction policies (LRU, LFU), consistent hashing with virtual nodes, cache coherence, replication &amp; master-slave failover",
+            "desc": "Cache eviction policies (LRU, LFU), consistent hashing with virtual nodes, cache coherence, replication & master-slave failover",
+            "html": "<strong class=\"text-on-surface font-semibold\">Fresh HLD Problem: Design a Distributed Cache</strong> — Cache eviction policies (LRU, LFU), consistent hashing with virtual nodes, cache coherence, replication & master-slave failover",
             "is_rest": false
           }
         ]
@@ -11853,8 +11853,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**AI Fundamentals Grilling**: Defense on bias-variance, regularization techniques, attention complexity $O(N^2)$, KV-cache memory calculation",
             "ref": "",
             "title": "AI Fundamentals Grilling",
-            "desc": "Defense on bias-variance, regularization techniques, attention complexity $O(N^2)$, KV-cache memory calculation",
-            "html": "<strong class=\"text-on-surface font-semibold\">AI Fundamentals Grilling</strong>: Defense on bias-variance, regularization techniques, attention complexity $O(N^2)$, KV-cache memory calculation",
+            "desc": "Defense on bias-variance, regularization techniques, attention complexity <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">O(N<sup>2</sup>)</code>, KV-cache memory calculation",
+            "html": "<strong class=\"text-on-surface font-semibold\">AI Fundamentals Grilling</strong>: Defense on bias-variance, regularization techniques, attention complexity <code class=\"px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5\">O(N<sup>2</sup>)</code>, KV-cache memory calculation",
             "is_rest": false
           }
         ]
@@ -11882,9 +11882,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Full-Stack Placement Mock 3: Machine Learning & Math (4.0h)** — 4-hour mock drill: derive backprop on whiteboard, explain transformer attention math, and defend bias-variance trade-offs.",
             "ref": "",
-            "title": "Full-Stack Placement Mock 3: Machine Learning &amp; Math (4.0h)",
+            "title": "Full-Stack Placement Mock 3: Machine Learning & Math (4.0h)",
             "desc": "4-hour mock drill: derive backprop on whiteboard, explain transformer attention math, and defend bias-variance trade-offs.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 3: Machine Learning &amp; Math (4.0h)</strong> — 4-hour mock drill: derive backprop on whiteboard, explain transformer attention math, and defend bias-variance trade-offs.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 3: Machine Learning & Math (4.0h)</strong> — 4-hour mock drill: derive backprop on whiteboard, explain transformer attention math, and defend bias-variance trade-offs.",
             "is_rest": false
           },
           {
@@ -11924,9 +11924,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Full-Stack Placement Mock 4: Spring Boot & Microservices (4.0h)** — 4-hour mock defense: explain Spring IoC, JPA N+1 resolution, Kafka consumer groups, and Redis distributed caching.",
             "ref": "",
-            "title": "Full-Stack Placement Mock 4: Spring Boot &amp; Microservices (4.0h)",
+            "title": "Full-Stack Placement Mock 4: Spring Boot & Microservices (4.0h)",
             "desc": "4-hour mock defense: explain Spring IoC, JPA N+1 resolution, Kafka consumer groups, and Redis distributed caching.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 4: Spring Boot &amp; Microservices (4.0h)</strong> — 4-hour mock defense: explain Spring IoC, JPA N+1 resolution, Kafka consumer groups, and Redis distributed caching.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 4: Spring Boot & Microservices (4.0h)</strong> — 4-hour mock defense: explain Spring IoC, JPA N+1 resolution, Kafka consumer groups, and Redis distributed caching.",
             "is_rest": false
           },
           {
@@ -11936,9 +11936,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Gap Analysis & Feedback Action Plan**: Document every gap and stumbling block exposed during this week's 4 mock interviews; create Week 48 remediation checklist",
             "ref": "",
-            "title": "Gap Analysis &amp; Feedback Action Plan",
+            "title": "Gap Analysis & Feedback Action Plan",
             "desc": "Document every gap and stumbling block exposed during this week's 4 mock interviews; create Week 48 remediation checklist",
-            "html": "<strong class=\"text-on-surface font-semibold\">Gap Analysis &amp; Feedback Action Plan</strong>: Document every gap and stumbling block exposed during this week's 4 mock interviews; create Week 48 remediation checklist",
+            "html": "<strong class=\"text-on-surface font-semibold\">Gap Analysis & Feedback Action Plan</strong>: Document every gap and stumbling block exposed during this week's 4 mock interviews; create Week 48 remediation checklist",
             "is_rest": false
           }
         ]
@@ -11970,8 +11970,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Redo hardest problem per topic: Arrays, Hashing, Binary Search",
             "ref": "",
-            "title": "Redo hardest problem per topic: Arrays, Hashing, Binary Search",
-            "desc": "",
+            "title": "Redo hardest problem per topic",
+            "desc": "Arrays, Hashing, Binary Search",
             "html": "Redo hardest problem per topic: Arrays, Hashing, Binary Search",
             "is_rest": false
           },
@@ -12000,8 +12000,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Redo hardest problem per topic: Linked List, Recursion, Bit Manipulation",
             "ref": "",
-            "title": "Redo hardest problem per topic: Linked List, Recursion, Bit Manipulation",
-            "desc": "",
+            "title": "Redo hardest problem per topic",
+            "desc": "Linked List, Recursion, Bit Manipulation",
             "html": "Redo hardest problem per topic: Linked List, Recursion, Bit Manipulation",
             "is_rest": false
           },
@@ -12012,9 +12012,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Core CS Rapid-Fire Blitz 1: LLD & HLD** — 5 rapid-fire questions from LLD (SOLID, Design patterns) & 5 from HLD (Scaling, caching, consistency, message queues) without notes",
             "ref": "",
-            "title": "Core CS Rapid-Fire Blitz 1: LLD &amp; HLD",
-            "desc": "5 rapid-fire questions from LLD (SOLID, Design patterns) &amp; 5 from HLD (Scaling, caching, consistency, message queues) without notes",
-            "html": "<strong class=\"text-on-surface font-semibold\">Core CS Rapid-Fire Blitz 1: LLD &amp; HLD</strong> — 5 rapid-fire questions from LLD (SOLID, Design patterns) &amp; 5 from HLD (Scaling, caching, consistency, message queues) without notes",
+            "title": "Core CS Rapid-Fire Blitz 1: LLD & HLD",
+            "desc": "5 rapid-fire questions from LLD (SOLID, Design patterns) & 5 from HLD (Scaling, caching, consistency, message queues) without notes",
+            "html": "<strong class=\"text-on-surface font-semibold\">Core CS Rapid-Fire Blitz 1: LLD & HLD</strong> — 5 rapid-fire questions from LLD (SOLID, Design patterns) & 5 from HLD (Scaling, caching, consistency, message queues) without notes",
             "is_rest": false
           }
         ]
@@ -12030,8 +12030,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Redo hardest problem per topic: Greedy, Sliding Window, Stack/Queue",
             "ref": "",
-            "title": "Redo hardest problem per topic: Greedy, Sliding Window, Stack/Queue",
-            "desc": "",
+            "title": "Redo hardest problem per topic",
+            "desc": "Greedy, Sliding Window, Stack/Queue",
             "html": "Redo hardest problem per topic: Greedy, Sliding Window, Stack/Queue",
             "is_rest": false
           },
@@ -12042,9 +12042,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Paper Synthesis & Architecture Enhancement** — Write up technical takeaways from paper; evaluate whether techniques can optimize capstone",
             "ref": "",
-            "title": "Paper Synthesis &amp; Architecture Enhancement",
+            "title": "Paper Synthesis & Architecture Enhancement",
             "desc": "Write up technical takeaways from paper; evaluate whether techniques can optimize capstone",
-            "html": "<strong class=\"text-on-surface font-semibold\">Paper Synthesis &amp; Architecture Enhancement</strong> — Write up technical takeaways from paper; evaluate whether techniques can optimize capstone",
+            "html": "<strong class=\"text-on-surface font-semibold\">Paper Synthesis & Architecture Enhancement</strong> — Write up technical takeaways from paper; evaluate whether techniques can optimize capstone",
             "is_rest": false
           }
         ]
@@ -12060,8 +12060,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Redo hardest problem per topic: Binary Trees, BST, Heaps",
             "ref": "",
-            "title": "Redo hardest problem per topic: Binary Trees, BST, Heaps",
-            "desc": "",
+            "title": "Redo hardest problem per topic",
+            "desc": "Binary Trees, BST, Heaps",
             "html": "Redo hardest problem per topic: Binary Trees, BST, Heaps",
             "is_rest": false
           },
@@ -12072,9 +12072,9 @@ window.ROADMAP_DATA = [
             "track_name": "Core CS",
             "raw_text": "**Core CS Rapid-Fire Blitz 2: OOPs & DBMS/SQL** — 5 questions from OOPs & 5 questions from DBMS/SQL + solve 5 SQL Situational Questions cold",
             "ref": "",
-            "title": "Core CS Rapid-Fire Blitz 2: OOPs &amp; DBMS/SQL",
-            "desc": "5 questions from OOPs &amp; 5 questions from DBMS/SQL + solve 5 SQL Situational Questions cold",
-            "html": "<strong class=\"text-on-surface font-semibold\">Core CS Rapid-Fire Blitz 2: OOPs &amp; DBMS/SQL</strong> — 5 questions from OOPs &amp; 5 questions from DBMS/SQL + solve 5 SQL Situational Questions cold",
+            "title": "Core CS Rapid-Fire Blitz 2: OOPs & DBMS/SQL",
+            "desc": "5 questions from OOPs & 5 questions from DBMS/SQL + solve 5 SQL Situational Questions cold",
+            "html": "<strong class=\"text-on-surface font-semibold\">Core CS Rapid-Fire Blitz 2: OOPs & DBMS/SQL</strong> — 5 questions from OOPs & 5 questions from DBMS/SQL + solve 5 SQL Situational Questions cold",
             "is_rest": false
           }
         ]
@@ -12090,8 +12090,8 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "Redo hardest problem per topic: Graphs, DP",
             "ref": "",
-            "title": "Redo hardest problem per topic: Graphs, DP",
-            "desc": "",
+            "title": "Redo hardest problem per topic",
+            "desc": "Graphs, DP",
             "html": "Redo hardest problem per topic: Graphs, DP",
             "is_rest": false
           },
@@ -12132,9 +12132,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Full-Stack Placement Mock 5: Capstone & GenAI Architecture (4.0h)** — 4-hour deep defense of your Spring AI Capstone: RAGAS evaluation metrics, pgvector indexing, and MCP server security.",
             "ref": "",
-            "title": "Full-Stack Placement Mock 5: Capstone &amp; GenAI Architecture (4.0h)",
+            "title": "Full-Stack Placement Mock 5: Capstone & GenAI Architecture (4.0h)",
             "desc": "4-hour deep defense of your Spring AI Capstone: RAGAS evaluation metrics, pgvector indexing, and MCP server security.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 5: Capstone &amp; GenAI Architecture (4.0h)</strong> — 4-hour deep defense of your Spring AI Capstone: RAGAS evaluation metrics, pgvector indexing, and MCP server security.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full-Stack Placement Mock 5: Capstone & GenAI Architecture (4.0h)</strong> — 4-hour deep defense of your Spring AI Capstone: RAGAS evaluation metrics, pgvector indexing, and MCP server security.",
             "is_rest": false
           },
           {
@@ -12144,9 +12144,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Backend Remediation 1: Persistence & Concurrency** — Fix gaps identified in Week 47 mock: refine JPA repository queries, thread safety in services, Docker setup",
             "ref": "",
-            "title": "Backend Remediation 1: Persistence &amp; Concurrency",
+            "title": "Backend Remediation 1: Persistence & Concurrency",
             "desc": "Fix gaps identified in Week 47 mock: refine JPA repository queries, thread safety in services, Docker setup",
-            "html": "<strong class=\"text-on-surface font-semibold\">Backend Remediation 1: Persistence &amp; Concurrency</strong> — Fix gaps identified in Week 47 mock: refine JPA repository queries, thread safety in services, Docker setup",
+            "html": "<strong class=\"text-on-surface font-semibold\">Backend Remediation 1: Persistence & Concurrency</strong> — Fix gaps identified in Week 47 mock: refine JPA repository queries, thread safety in services, Docker setup",
             "is_rest": false
           }
         ]
@@ -12174,9 +12174,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Gap Closing & Weakness Elimination Drill (4.0h)** — Spaced repetition on any questions stumbled on during Mocks 1–5; refine mental models and rapid recall.",
             "ref": "",
-            "title": "Gap Closing &amp; Weakness Elimination Drill (4.0h)",
+            "title": "Gap Closing & Weakness Elimination Drill (4.0h)",
             "desc": "Spaced repetition on any questions stumbled on during Mocks 1–5; refine mental models and rapid recall.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Gap Closing &amp; Weakness Elimination Drill (4.0h)</strong> — Spaced repetition on any questions stumbled on during Mocks 1–5; refine mental models and rapid recall.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Gap Closing & Weakness Elimination Drill (4.0h)</strong> — Spaced repetition on any questions stumbled on during Mocks 1–5; refine mental models and rapid recall.",
             "is_rest": false
           },
           {
@@ -12186,9 +12186,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Backend Remediation 2: Microservices & Documentation** — Polish Phase 8 Kafka microservice setup; ensure all 3 backend projects have clean, professional READMEs",
             "ref": "",
-            "title": "Backend Remediation 2: Microservices &amp; Documentation",
+            "title": "Backend Remediation 2: Microservices & Documentation",
             "desc": "Polish Phase 8 Kafka microservice setup; ensure all 3 backend projects have clean, professional READMEs",
-            "html": "<strong class=\"text-on-surface font-semibold\">Backend Remediation 2: Microservices &amp; Documentation</strong> — Polish Phase 8 Kafka microservice setup; ensure all 3 backend projects have clean, professional READMEs",
+            "html": "<strong class=\"text-on-surface font-semibold\">Backend Remediation 2: Microservices & Documentation</strong> — Polish Phase 8 Kafka microservice setup; ensure all 3 backend projects have clean, professional READMEs",
             "is_rest": false
           }
         ]
@@ -12352,9 +12352,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Behavioral & Leadership Stories**: Formulate answers for: overcoming technical hurdles, making architecture trade-offs under deadlines, staying current with AI developments",
             "ref": "",
-            "title": "Behavioral &amp; Leadership Stories",
+            "title": "Behavioral & Leadership Stories",
             "desc": "Formulate answers for: overcoming technical hurdles, making architecture trade-offs under deadlines, staying current with AI developments",
-            "html": "<strong class=\"text-on-surface font-semibold\">Behavioral &amp; Leadership Stories</strong>: Formulate answers for: overcoming technical hurdles, making architecture trade-offs under deadlines, staying current with AI developments",
+            "html": "<strong class=\"text-on-surface font-semibold\">Behavioral & Leadership Stories</strong>: Formulate answers for: overcoming technical hurdles, making architecture trade-offs under deadlines, staying current with AI developments",
             "is_rest": false
           }
         ]
@@ -12394,9 +12394,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Mock Interview #6 (Live Coding & Architecture)**: Given a feature requirement on the spot, write a production-ready Spring Boot controller, service, repository with validation & error handling",
             "ref": "",
-            "title": "Mock Interview #6 (Live Coding &amp; Architecture)",
-            "desc": "Given a feature requirement on the spot, write a production-ready Spring Boot controller, service, repository with validation &amp; error handling",
-            "html": "<strong class=\"text-on-surface font-semibold\">Mock Interview #6 (Live Coding &amp; Architecture)</strong>: Given a feature requirement on the spot, write a production-ready Spring Boot controller, service, repository with validation &amp; error handling",
+            "title": "Mock Interview #6 (Live Coding & Architecture)",
+            "desc": "Given a feature requirement on the spot, write a production-ready Spring Boot controller, service, repository with validation & error handling",
+            "html": "<strong class=\"text-on-surface font-semibold\">Mock Interview #6 (Live Coding & Architecture)</strong>: Given a feature requirement on the spot, write a production-ready Spring Boot controller, service, repository with validation & error handling",
             "is_rest": false
           }
         ]
@@ -12424,9 +12424,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**STAR Behavioral Stories & Leadership Defense (4.0h)** — Polish 8 STAR stories for engineering challenges, teamwork conflicts, and project impact; simulate behavioral interview rounds.",
             "ref": "",
-            "title": "STAR Behavioral Stories &amp; Leadership Defense (4.0h)",
+            "title": "STAR Behavioral Stories & Leadership Defense (4.0h)",
             "desc": "Polish 8 STAR stories for engineering challenges, teamwork conflicts, and project impact; simulate behavioral interview rounds.",
-            "html": "<strong class=\"text-on-surface font-semibold\">STAR Behavioral Stories &amp; Leadership Defense (4.0h)</strong> — Polish 8 STAR stories for engineering challenges, teamwork conflicts, and project impact; simulate behavioral interview rounds.",
+            "html": "<strong class=\"text-on-surface font-semibold\">STAR Behavioral Stories & Leadership Defense (4.0h)</strong> — Polish 8 STAR stories for engineering challenges, teamwork conflicts, and project impact; simulate behavioral interview rounds.",
             "is_rest": false
           },
           {
@@ -12483,8 +12483,8 @@ window.ROADMAP_DATA = [
             "raw_text": "**Full Pipeline Synthesis**: Rehearse explaining the entire AI lineage back to back without notes: Linear Reg $\\rightarrow$ Decision Trees $\\rightarrow$ CNNs $\\rightarrow$ Transformers $\\rightarrow$ GPT $\\rightarrow$ RAG $\\rightarrow$ Spring AI",
             "ref": "",
             "title": "Full Pipeline Synthesis",
-            "desc": "Rehearse explaining the entire AI lineage back to back without notes: Linear Reg $\\rightarrow$ Decision Trees $\\rightarrow$ CNNs $\\rightarrow$ Transformers $\\rightarrow$ GPT $\\rightarrow$ RAG $\\rightarrow$ Spring AI",
-            "html": "<strong class=\"text-on-surface font-semibold\">Full Pipeline Synthesis</strong>: Rehearse explaining the entire AI lineage back to back without notes: Linear Reg $\\rightarrow$ Decision Trees $\\rightarrow$ CNNs $\\rightarrow$ Transformers $\\rightarrow$ GPT $\\rightarrow$ RAG $\\rightarrow$ Spring AI",
+            "desc": "Rehearse explaining the entire AI lineage back to back without notes: Linear Reg &rarr; Decision Trees &rarr; CNNs &rarr; Transformers &rarr; GPT &rarr; RAG &rarr; Spring AI",
+            "html": "<strong class=\"text-on-surface font-semibold\">Full Pipeline Synthesis</strong>: Rehearse explaining the entire AI lineage back to back without notes: Linear Reg &rarr; Decision Trees &rarr; CNNs &rarr; Transformers &rarr; GPT &rarr; RAG &rarr; Spring AI",
             "is_rest": false
           }
         ]
@@ -12542,9 +12542,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Portfolio Audit & Presentation Prep**: Ensure GitHub repositories tell one unified story: CS50P, `ml-from-scratch`, EDA, CNN, nanoGPT, Spring AI capstone; rehearse 5-minute project pitch",
             "ref": "",
-            "title": "Portfolio Audit &amp; Presentation Prep",
+            "title": "Portfolio Audit & Presentation Prep",
             "desc": "Ensure GitHub repositories tell one unified story: CS50P, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN, nanoGPT, Spring AI capstone; rehearse 5-minute project pitch",
-            "html": "<strong class=\"text-on-surface font-semibold\">Portfolio Audit &amp; Presentation Prep</strong>: Ensure GitHub repositories tell one unified story: CS50P, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN, nanoGPT, Spring AI capstone; rehearse 5-minute project pitch",
+            "html": "<strong class=\"text-on-surface font-semibold\">Portfolio Audit & Presentation Prep</strong>: Ensure GitHub repositories tell one unified story: CS50P, <code class=\"px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5\">ml-from-scratch</code>, EDA, CNN, nanoGPT, Spring AI capstone; rehearse 5-minute project pitch",
             "is_rest": false
           }
         ]
@@ -12590,9 +12590,9 @@ window.ROADMAP_DATA = [
             "track_name": "DSA & Java",
             "raw_text": "**Simulated 4-Round Interview Day (DSA & Core CS)** — (1) Live Coding & Data Structures Round (60 min) + (2) Core CS & System Design Deep-Dive (60 min)",
             "ref": "",
-            "title": "Simulated 4-Round Interview Day (DSA &amp; Core CS)",
-            "desc": "(1) Live Coding &amp; Data Structures Round (60 min) + (2) Core CS &amp; System Design Deep-Dive (60 min)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Simulated 4-Round Interview Day (DSA &amp; Core CS)</strong> — (1) Live Coding &amp; Data Structures Round (60 min) + (2) Core CS &amp; System Design Deep-Dive (60 min)",
+            "title": "Simulated 4-Round Interview Day (DSA & Core CS)",
+            "desc": "(1) Live Coding & Data Structures Round (60 min) + (2) Core CS & System Design Deep-Dive (60 min)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Simulated 4-Round Interview Day (DSA & Core CS)</strong> — (1) Live Coding & Data Structures Round (60 min) + (2) Core CS & System Design Deep-Dive (60 min)",
             "is_rest": false
           },
           {
@@ -12602,9 +12602,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Simulated 4-Round Interview Day (AI/ML & HR)** — (3) Machine Learning & Spring AI Project Architecture Defense (60 min) + (4) Behavioral & HR STAR Leadership Round (30 min)",
             "ref": "",
-            "title": "Simulated 4-Round Interview Day (AI/ML &amp; HR)",
-            "desc": "(3) Machine Learning &amp; Spring AI Project Architecture Defense (60 min) + (4) Behavioral &amp; HR STAR Leadership Round (30 min)",
-            "html": "<strong class=\"text-on-surface font-semibold\">Simulated 4-Round Interview Day (AI/ML &amp; HR)</strong> — (3) Machine Learning &amp; Spring AI Project Architecture Defense (60 min) + (4) Behavioral &amp; HR STAR Leadership Round (30 min)",
+            "title": "Simulated 4-Round Interview Day (AI/ML & HR)",
+            "desc": "(3) Machine Learning & Spring AI Project Architecture Defense (60 min) + (4) Behavioral & HR STAR Leadership Round (30 min)",
+            "html": "<strong class=\"text-on-surface font-semibold\">Simulated 4-Round Interview Day (AI/ML & HR)</strong> — (3) Machine Learning & Spring AI Project Architecture Defense (60 min) + (4) Behavioral & HR STAR Leadership Round (30 min)",
             "is_rest": false
           }
         ]
@@ -12632,9 +12632,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**Portfolio & Resume Final Polish (4.0h)** — Final audit of all GitHub repositories, READMEs, demo links, LinkedIn headline, and resume bullets with quantifiable metrics.",
             "ref": "",
-            "title": "Portfolio &amp; Resume Final Polish (4.0h)",
+            "title": "Portfolio & Resume Final Polish (4.0h)",
             "desc": "Final audit of all GitHub repositories, READMEs, demo links, LinkedIn headline, and resume bullets with quantifiable metrics.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Portfolio &amp; Resume Final Polish (4.0h)</strong> — Final audit of all GitHub repositories, READMEs, demo links, LinkedIn headline, and resume bullets with quantifiable metrics.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Portfolio & Resume Final Polish (4.0h)</strong> — Final audit of all GitHub repositories, READMEs, demo links, LinkedIn headline, and resume bullets with quantifiable metrics.",
             "is_rest": false
           },
           {
@@ -12644,9 +12644,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**Backend Interview Question Bank 3 & Code Review (2.5h)** — Final drill on Spring Boot annotations, JPA performance pitfalls, Kafka partition strategies, and microservices resiliency patterns.",
             "ref": "",
-            "title": "Backend Interview Question Bank 3 &amp; Code Review (2.5h)",
+            "title": "Backend Interview Question Bank 3 & Code Review (2.5h)",
             "desc": "Final drill on Spring Boot annotations, JPA performance pitfalls, Kafka partition strategies, and microservices resiliency patterns.",
-            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 3 &amp; Code Review (2.5h)</strong> — Final drill on Spring Boot annotations, JPA performance pitfalls, Kafka partition strategies, and microservices resiliency patterns.",
+            "html": "<strong class=\"text-on-surface font-semibold\">Backend Interview Question Bank 3 & Code Review (2.5h)</strong> — Final drill on Spring Boot annotations, JPA performance pitfalls, Kafka partition strategies, and microservices resiliency patterns.",
             "is_rest": false
           }
         ]
@@ -12674,9 +12674,9 @@ window.ROADMAP_DATA = [
             "track_name": "AI / ML",
             "raw_text": "**The Final Placement Clearance & Mindset (4.0h)** — Final review of master formula sheets, confidence ritual, and placement season kickoff celebration — **100% Placement Ready!**",
             "ref": "",
-            "title": "The Final Placement Clearance &amp; Mindset (4.0h)",
+            "title": "The Final Placement Clearance & Mindset (4.0h)",
             "desc": "Final review of master formula sheets, confidence ritual, and placement season kickoff celebration — <strong class=\"text-on-surface font-semibold\">100% Placement Ready!</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">The Final Placement Clearance &amp; Mindset (4.0h)</strong> — Final review of master formula sheets, confidence ritual, and placement season kickoff celebration — <strong class=\"text-on-surface font-semibold\">100% Placement Ready!</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">The Final Placement Clearance & Mindset (4.0h)</strong> — Final review of master formula sheets, confidence ritual, and placement season kickoff celebration — <strong class=\"text-on-surface font-semibold\">100% Placement Ready!</strong>",
             "is_rest": false
           },
           {
@@ -12686,9 +12686,9 @@ window.ROADMAP_DATA = [
             "track_name": "Java Backend",
             "raw_text": "**System Architecture & Deployment Playbook (2.5h)** — Final review of production Docker Compose, PgVector indexing configs, and live cloud deployment strategies — **Ready to Crush Campus Placements!**",
             "ref": "",
-            "title": "System Architecture &amp; Deployment Playbook (2.5h)",
+            "title": "System Architecture & Deployment Playbook (2.5h)",
             "desc": "Final review of production Docker Compose, PgVector indexing configs, and live cloud deployment strategies — <strong class=\"text-on-surface font-semibold\">Ready to Crush Campus Placements!</strong>",
-            "html": "<strong class=\"text-on-surface font-semibold\">System Architecture &amp; Deployment Playbook (2.5h)</strong> — Final review of production Docker Compose, PgVector indexing configs, and live cloud deployment strategies — <strong class=\"text-on-surface font-semibold\">Ready to Crush Campus Placements!</strong>",
+            "html": "<strong class=\"text-on-surface font-semibold\">System Architecture & Deployment Playbook (2.5h)</strong> — Final review of production Docker Compose, PgVector indexing configs, and live cloud deployment strategies — <strong class=\"text-on-surface font-semibold\">Ready to Crush Campus Placements!</strong>",
             "is_rest": false
           }
         ]
@@ -12713,7 +12713,7 @@ window.ROADMAP_DATA = [
       {
         "id": "w50_deliv_4",
         "raw_text": "**AI/ML:** Classical ML $\\rightarrow$ Deep Learning $\\rightarrow$ GenAI/LLM fundamentals built from the ground up, an NLP/LLM specialization with fine-tuning, advanced RAG, agents, and evaluation, MLOps fundamentals, 2 closed-out Kaggle competitions, and 2 shipped capstones.",
-        "html": "<strong class=\"text-on-surface font-semibold\">AI/ML:</strong> Classical ML $\\rightarrow$ Deep Learning $\\rightarrow$ GenAI/LLM fundamentals built from the ground up, an NLP/LLM specialization with fine-tuning, advanced RAG, agents, and evaluation, MLOps fundamentals, 2 closed-out Kaggle competitions, and 2 shipped capstones."
+        "html": "<strong class=\"text-on-surface font-semibold\">AI/ML:</strong> Classical ML &rarr; Deep Learning &rarr; GenAI/LLM fundamentals built from the ground up, an NLP/LLM specialization with fine-tuning, advanced RAG, agents, and evaluation, MLOps fundamentals, 2 closed-out Kaggle competitions, and 2 shipped capstones."
       },
       {
         "id": "w50_deliv_5",

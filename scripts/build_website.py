@@ -4,147 +4,160 @@ import json
 import os
 import sys
 
+def clean_latex_and_math(text):
+    if not text:
+        return ""
+    
+    # 1. LaTeX arrows & operators with or without $ wrappers
+    subs = [
+        (r'\$?\\\s*rightarrow\$?', '&rarr;'),
+        (r'\$?\\\s*Rightarrow\$?', '&rArr;'),
+        (r'\$?\\\s*cdot\$?', '&middot;'),
+        (r'\$?\\\s*times\$?', '&times;'),
+        (r'\$?\\\s*approx\$?', '&asymp;'),
+        (r'\$?\\\s*le(?![a-zA-Z])\$?', '&le;'),
+        (r'\$?\\\s*ge(?![a-zA-Z])\$?', '&ge;'),
+        (r'\$?\\\s*alpha\$?', '&alpha;'),
+        (r'\$?\\\s*beta\$?', '&beta;'),
+        (r'\$?\\\s*varepsilon\$?', '&epsilon;'),
+        (r'\$?\\\s*epsilon\$?', '&epsilon;'),
+        (r'\$?\\\s*theta\$?', '&theta;'),
+        (r'\$?\\\s*sigma\$?', '&sigma;'),
+        (r'\$?\\\s*lambda\$?', '&lambda;'),
+    ]
+    for p, r in subs:
+        text = re.sub(p, f' {r} ', text)
+
+    # 2. $math$ expressions
+    def math_repl(m):
+        c = m.group(1).strip()
+        c = re.sub(r'\^2', '<sup>2</sup>', c)
+        c = re.sub(r'\^3', '<sup>3</sup>', c)
+        c = re.sub(r'_0', '<sub>0</sub>', c)
+        c = re.sub(r'_1', '<sub>1</sub>', c)
+        c = re.sub(r'_i', '<sub>i</sub>', c)
+        c = re.sub(r'\\cdot', '&middot;', c)
+        if c.startswith('O(') or c.startswith('R<') or len(c) <= 20:
+            return f'<code class="px-1 py-0.5 rounded bg-surface-container/80 font-mono text-[11px] text-primary border border-white/5">{c}</code>'
+        return f'<span class="font-mono text-[11px] text-primary">{c}</span>'
+
+    text = re.sub(r'\$([^\$]+)\$', math_repl, text)
+    text = re.sub(r'\s{2,}', ' ', text).strip()
+    return text
+
 def format_cell_html(text):
     if not text:
         return ""
     
-    # 1. Escape basic HTML entities first
-    text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    # 1. Clean LaTeX & Math
+    text = clean_latex_and_math(text)
     
-    # 2. Convert markdown links [text](url)
+    # 2. Markdown links [text](url)
     def link_repl(m):
         label = m.group(1)
         url = m.group(2)
         if not url.startswith('http://') and not url.startswith('https://'):
             url = 'https://' + url
-        return f'<a href="{url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-medium">{label}</a>'
+        return f'<a href="{url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium">{label}<span class="material-symbols-outlined text-[11px] inline-block align-middle ml-0.5">open_in_new</span></a>'
     
     text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', link_repl, text)
     
-    # 3. Convert raw URLs not already in href
+    # 3. Parenthesized URLs: (youtube.com/...) or (cs50.harvard.edu/...)
+    def paren_url_repl(m):
+        url = m.group(1).strip()
+        label = "Resource"
+        if "youtube.com" in url or "youtu.be" in url:
+            label = "YouTube"
+        elif "cs50" in url:
+            label = "CS50"
+        elif "khanacademy" in url:
+            label = "Khan Academy"
+        elif "leetcode" in url:
+            label = "LeetCode"
+        elif "huggingface" in url:
+            label = "HuggingFace"
+        elif "arxiv" in url:
+            label = "Paper"
+        elif "fast.ai" in url:
+            label = "Fast.ai"
+        elif "github" in url:
+            label = "GitHub"
+        full_url = url if url.startswith('http') else 'https://' + url
+        return f'(<a href="{full_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium">[{label}]<span class="material-symbols-outlined text-[11px] inline-block align-middle ml-0.5">open_in_new</span></a>)'
+
+    bare_domain_pattern = r'\(((?:https?://)?(?:www\.)?(?:youtube\.com|youtu\.be|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com|github\.com)[^\s\)]*)\)'
+    text = re.sub(bare_domain_pattern, paren_url_repl, text)
+
+    # 4. Bare URLs not in parentheses and not in href
     def raw_url_repl(m):
         url = m.group(0)
         full_url = url if url.startswith('http') else 'https://' + url
-        display_label = "Resource"
-        if "youtube.com" in url or "youtu.be" in url:
-            display_label = "YouTube"
-        elif "cs50.harvard.edu" in url:
-            display_label = "CS50"
-        elif "leetcode.com" in url:
-            display_label = "LeetCode"
-        elif "arxiv.org" in url:
-            display_label = "Paper"
-        trailing = ""
-        while full_url and full_url[-1] in '.,;:)\"`\'':
-            trailing = full_url[-1] + trailing
-            full_url = full_url[:-1]
-            url = url[:-1]
-        return f'<a href="{full_url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-medium">[{display_label}]</a>{trailing}'
+        label = "Link"
+        if "youtube" in url: label = "YouTube"
+        elif "huggingface" in url: label = "Docs"
+        return f'<a href="{full_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-0.5 text-primary hover:text-primary-container underline underline-offset-2 transition-colors font-medium">[{label}]<span class="material-symbols-outlined text-[11px] inline-block align-middle ml-0.5">open_in_new</span></a>'
 
-    bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>`"\)]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com)[^\s<>`"\)]*)'
-    text = re.sub(bare_url_regex, raw_url_repl, text)
+    text = re.sub(r'(?<!href=")(?<!">)(?:https?://[^\s<>`"\)]+)', raw_url_repl, text)
     
-    # 4. Bold: **text**
+    # 5. Bold: **text**
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong class="text-on-surface font-semibold">\1</strong>', text)
     
-    # 5. Italic: *text*
+    # 6. Italic: *text*
     text = re.sub(r'(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)', r'<em>\1</em>', text)
     
-    # 6. Inline code: `code`
+    # 7. Inline code: `code`
     text = re.sub(r'`([^`]+)`', r'<code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">\1</code>', text)
     
     return text
-
-def clean_urls_and_sources(text):
-    if not text:
-        return ""
-    # Replace long youtube links with clean [YouTube] or [Playlist]
-    t = re.sub(r'\(https?://(?:www\.)?youtube\.com/[^\s)]+\)', ' [YouTube]', text)
-    t = re.sub(r'\(https?://(?:www\.)?youtu\.be/[^\s)]+\)', ' [YouTube]', t)
-    t = re.sub(r'\(youtube\.com/[^\s)]+\)', ' [YouTube]', t)
-    # Clean other markdown links: [Text](url) -> [Text]
-    t = re.sub(r'\[([^\]]+)\]\(https?://[^\s)]+\)', r'[\1]', t)
-    # Clean bare urls
-    t = re.sub(r'https?://[^\s)]+', '', t)
-    # Clean up double spaces or awkward punctuation
-    t = re.sub(r'\s{2,}', ' ', t).strip()
-    return t
 
 def parse_task_content(cell_text):
     if not cell_text:
         return {"ref": "", "title": "", "desc": ""}
     
     raw = cell_text.strip()
-    clean = clean_urls_and_sources(raw)
     
+    # 1. Detect LeetCode / LC reference
     ref = ""
+    lc_match = re.search(r'(?:LeetCode|LC)\s*#?([0-9,\s#&and]+)', raw, re.IGNORECASE)
+    if lc_match:
+        ref = f"LC #{lc_match.group(1).strip()}"
+
     title = ""
     desc = ""
-    
-    # 1. Check for LeetCode reference
-    lc_match = re.search(r'(?:LeetCode|LC)\s*#?([0-9,\s#&and]+)', clean, re.IGNORECASE)
-    if lc_match:
-        ref = f"LeetCode #{lc_match.group(1).strip()}"
-    
-    # 2. Check for **Bold Prefix** — Content
-    m_bold = re.match(r'^\*\*([^*]+)\*\*\s*[:—–-]\s*(.+)$', clean)
+
+    # Pattern A: **Bold Prefix** [:—–-] Rest of content
+    m_bold = re.match(r'^\*\*([^*]+)\*\*\s*[:—–-]\s*(.*)$', raw)
     if m_bold:
-        prefix = m_bold.group(1).strip()
-        rest = m_bold.group(2).strip()
-        
-        is_course_ref = bool(re.search(r'(?:CS50P|Corey Schafer|3Blue1Brown|Quant|Verbal|Logical|TUF|Module|PSet|Week|Ep\.)', prefix, re.IGNORECASE))
-        
-        if is_course_ref:
-            if not ref:
-                ref = prefix
-            if ' + ' in rest and len(rest) > 50:
-                parts = rest.split(' + ', 1)
-                title = parts[0].strip()
-                desc = parts[1].strip()
-            elif ' — ' in rest or ' – ' in rest:
-                parts = re.split(r'\s*[—–]\s*', rest, maxsplit=1)
-                title = parts[0].strip()
-                desc = parts[1].strip()
-            else:
-                title = rest
-                desc = ""
+        title = m_bold.group(1).strip()
+        desc = m_bold.group(2).strip()
+    # Pattern B: **Bold Prefix:** Rest of content (colon inside bold)
+    elif re.match(r'^\*\*([^*]+):\*\*\s*(.*)$', raw):
+        m = re.match(r'^\*\*([^*]+):\*\*\s*(.*)$', raw)
+        title = m.group(1).strip()
+        desc = m.group(2).strip()
+    # Pattern C: Standard em-dash/en-dash separator (e.g. "Topic — Details")
+    elif ' — ' in raw or ' – ' in raw:
+        parts = re.split(r'\s*[—–]\s*', raw, maxsplit=1)
+        title = re.sub(r'^\*\*([^*]+)\*\*$', r'\1', parts[0].strip())
+        desc = parts[1].strip()
+    # Pattern D: Short topic prefix before colon (e.g. "Java Program Lifecycle: ...")
+    elif ': ' in raw and not any(k in raw.split(': ', 1)[0] for k in ['http', 'https', 'youtube.com', 'youtu.be', 'e.g', 'i.e']):
+        prefix, rest = raw.split(': ', 1)
+        if len(prefix) <= 40 and not any(ch in prefix for ch in [';', ',', '(', ')']):
+            title = prefix.strip()
+            desc = rest.strip()
         else:
-            title = prefix
-            desc = rest
-            if not ref:
-                m_sub = re.match(r'^\*\*([^*]+)\*\*\s*[:—–-]?\s*(.*)$', rest)
-                if m_sub:
-                    ref = m_sub.group(1).strip()
-                    desc = m_sub.group(2).strip()
-    elif ' — ' in clean or ' – ' in clean:
-        parts = re.split(r'\s*[—–]\s*', clean, maxsplit=1)
-        title = re.sub(r'\*\*([^*]+)\*\*', r'\1', parts[0].strip())
-        desc = parts[1].strip()
-    elif ' + ' in clean and len(clean) > 60:
-        parts = clean.split(' + ', 1)
-        title = re.sub(r'\*\*([^*]+)\*\*', r'\1', parts[0].strip())
-        desc = parts[1].strip()
+            title = raw
+            desc = ""
+    # Pattern E: Standalone text (e.g. "Majority Element-I, Leaders in an Array")
     else:
-        title = re.sub(r'\*\*([^*]+)\*\*', r'\1', clean)
+        title = raw
         desc = ""
-        
-    title = re.sub(r'\*\*([^*]+)\*\*', r'\1', title).strip()
-    
-    yt_m = re.search(r'\((?:freeCodeCamp\.org|YouTube|youtube)[^)]+\)', title)
-    if yt_m:
-        yt_note = yt_m.group(0).strip('()')
-        title = title[:yt_m.start()].strip() + title[yt_m.end():].strip()
-        if desc:
-            desc = f"{desc} • {yt_note}"
-        else:
-            desc = yt_note
-            
-    title = re.sub(r'\s{2,}', ' ', title).strip()
+
+    # Strip any accidental redundant bold tags from title
+    title = re.sub(r'^\*\*([^*]+)\*\*$', r'\1', title).strip()
     title = title.rstrip(' :—–-')
-    
-    if not title:
-        title = clean[:60]
-        
+
     return {
         "ref": ref,
         "title": format_cell_html(title),
@@ -394,9 +407,9 @@ def generate_week_page(week, total_weeks, all_weeks):
 
     # Weekly Deliverable text
     if week['deliverables']:
-        deliv_text = "<br>".join([d['html'] for d in week['deliverables']])
+        deliv_text = '<div class="space-y-2">' + "".join([f'<div class="leading-relaxed">{d["html"]}</div>' for d in week['deliverables']]) + '</div>'
     else:
-        deliv_text = f"Complete all scheduled DSA problem reps, AI/ML theory and implementations, and Core CS modules for Week {w_pad}."
+        deliv_text = f'<div class="leading-relaxed">Complete all scheduled DSA problem reps, AI/ML theory and implementations, and Core CS modules for Week {w_pad}.</div>'
 
     # Days HTML: Weekdays vs Weekend
     weekday_cards = []
@@ -436,23 +449,27 @@ def generate_week_page(week, total_weeks, all_weeks):
                 duration = '2.5h'
                 track_tag = 'CORE'
 
-            clean_title = title.replace('"', '&quot;')
+            clean_title = re.sub(r'<[^>]*>', '', title).replace('"', '&quot;')
             ref_badge = f'<span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">{ref}</span>' if ref else ''
             defer_btn = f'''<button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="{task_id}" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>''' if not is_weekend else ''
+            desc_html = f'<div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">{desc}</div>' if desc else ''
 
             tasks_html.append(f'''
-            <div class="task-card group flex items-start sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
-              <div class="flex items-start sm:items-center gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 sm:mt-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-wrap items-center gap-2 min-w-0 flex-1">
-                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">{track_tag}</span>
-                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150" title="{clean_title}">{title}</span>
-                  {ref_badge}
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">{track_tag}</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="{clean_title}">{title}</span>
+                    {ref_badge}
+                  </div>
+                  {desc_html}
                 </div>
               </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5 sm:pt-0">
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
                 {defer_btn}
                 <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">{duration}</span>
               </div>
