@@ -14,16 +14,18 @@
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
 const THEME_KEY = 'study_roadmap_theme';
 
-// Hardened Roadmap Start Date: Monday, September 14, 2026
-const ROADMAP_START_DATE = new Date(2026, 8, 14); // Month 8 = September (0-indexed)
-ROADMAP_START_DATE.setHours(0, 0, 0, 0);
+// Hardened Roadmap Start Date: Monday, September 14, 2026 at 5:30 AM IST (00:00:00 UTC)
+// The study day rolls over strictly at 5:30 AM IST.
+// Since IST is UTC+5:30, 05:30:00 IST maps precisely to 00:00:00 UTC.
+const ROADMAP_START_UTC = Date.UTC(2026, 8, 14, 0, 0, 0, 0);
+const ROADMAP_START_DATE = new Date('2026-09-14T05:30:00+05:30');
 
 function getRoadmapCalendarInfo(targetDate = new Date()) {
   const cur = new Date(targetDate);
-  cur.setHours(0, 0, 0, 0);
+  const curUtcDay = Date.UTC(cur.getUTCFullYear(), cur.getUTCMonth(), cur.getUTCDate());
   
-  const diffTime = cur.getTime() - ROADMAP_START_DATE.getTime();
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffTime = curUtcDay - ROADMAP_START_UTC;
+  const diffDays = Math.floor(diffTime / 86400000);
   const dayCodes = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   
   if (diffDays < 0) {
@@ -33,7 +35,8 @@ function getRoadmapCalendarInfo(targetDate = new Date()) {
       dayCode: 'Mon',
       dayIndex: 0,
       diffDays: diffDays,
-      isBeforeStart: true
+      isBeforeStart: true,
+      effectiveDateStr: cur.toISOString().slice(0, 10)
     };
   }
   
@@ -46,7 +49,8 @@ function getRoadmapCalendarInfo(targetDate = new Date()) {
     dayCode,
     dayIndex,
     diffDays,
-    isBeforeStart: false
+    isBeforeStart: false,
+    effectiveDateStr: cur.toISOString().slice(0, 10)
   };
 }
 
@@ -873,33 +877,33 @@ const StreakEngine = {
     }
 
     const dateSet = new Set(dates);
-    const today = new Date();
-    const todayStr = today.toISOString().slice(0, 10);
+    const now = new Date();
+    const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    const todayStr = new Date(todayUtc).toISOString().slice(0, 10);
 
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().slice(0, 10);
+    const yesterdayUtc = todayUtc - 86400000;
+    const yesterdayStr = new Date(yesterdayUtc).toISOString().slice(0, 10);
 
     const todayDone = dateSet.has(todayStr);
 
     let currentStreak = 0;
-    let checkDate = new Date(today);
+    let checkUtc = todayUtc;
 
     // If today is not yet done, check if yesterday was done to keep streak alive
     if (!todayDone) {
       if (dateSet.has(yesterdayStr)) {
-        checkDate = yesterday;
+        checkUtc = yesterdayUtc;
       } else {
-        checkDate = null;
+        checkUtc = null;
       }
     }
 
-    if (checkDate) {
+    if (checkUtc !== null) {
       while (true) {
-        const dStr = checkDate.toISOString().slice(0, 10);
+        const dStr = new Date(checkUtc).toISOString().slice(0, 10);
         if (dateSet.has(dStr)) {
           currentStreak++;
-          checkDate.setDate(checkDate.getDate() - 1);
+          checkUtc -= 86400000;
         } else {
           break;
         }
@@ -909,22 +913,25 @@ const StreakEngine = {
     // Longest streak calculation
     let longestStreak = 0;
     let tempStreak = 0;
-    let prevDate = null;
+    let prevDateUtc = null;
 
     dates.forEach(dStr => {
-      const curDate = new Date(dStr + 'T00:00:00');
-      if (!prevDate) {
-        tempStreak = 1;
-      } else {
-        const diffDays = Math.round((curDate - prevDate) / (1000 * 60 * 60 * 24));
-        if (diffDays === 1) {
-          tempStreak++;
-        } else if (diffDays > 1) {
+      const parts = dStr.split('-').map(Number);
+      if (parts.length === 3) {
+        const curUtc = Date.UTC(parts[0], parts[1] - 1, parts[2]);
+        if (prevDateUtc === null) {
           tempStreak = 1;
+        } else {
+          const diffDays = Math.round((curUtc - prevDateUtc) / 86400000);
+          if (diffDays === 1) {
+            tempStreak++;
+          } else if (diffDays > 1) {
+            tempStreak = 1;
+          }
         }
+        if (tempStreak > longestStreak) longestStreak = tempStreak;
+        prevDateUtc = curUtc;
       }
-      if (tempStreak > longestStreak) longestStreak = tempStreak;
-      prevDate = curDate;
     });
 
     return {
@@ -1394,9 +1401,10 @@ function updateWeekProgress() {
   if (progressPercentEl) progressPercentEl.textContent = `${pct}%`;
   if (loggedHoursLabel) loggedHoursLabel.textContent = `${loggedHours.toFixed(1)}h`;
 
-  // Update Countdown & Streak on Week Page
-  const targetDate = new Date(2027, 6, 1);
-  const diffDays = Math.max(0, Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24)));
+  // Update Countdown & Streak on Week Page (5:30 AM IST boundary)
+  const targetDateUtc = Date.UTC(2027, 6, 1);
+  const curDateUtc = Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate());
+  const diffDays = Math.max(0, Math.ceil((targetDateUtc - curDateUtc) / 86400000));
   const countdownBadge = document.getElementById('target-countdown-badge');
   if (countdownBadge) countdownBadge.textContent = `T-${diffDays}d`;
 
@@ -1517,10 +1525,24 @@ function initDashboard(roadmapData) {
     AppState.init();
   }
 
-  // Anchor Today's Command Center strictly to today's date
+  // Anchor Today's Command Center strictly to today's date (5:30 AM IST rollover)
   const calInfo = getRoadmapCalendarInfo();
   let selectedWeekNum = calInfo.weekNum;
   let selectedDayCode = calInfo.dayCode;
+
+  // Auto-rollover day at 5:30 AM IST without requiring page reload
+  let lastKnownDiffDays = calInfo.diffDays;
+  setInterval(() => {
+    const latestCal = getRoadmapCalendarInfo();
+    if (latestCal.diffDays !== lastKnownDiffDays) {
+      lastKnownDiffDays = latestCal.diffDays;
+      selectedWeekNum = latestCal.weekNum;
+      selectedDayCode = latestCal.dayCode;
+      renderTodayCommandCenter();
+      renderBacklogQueue();
+      render50WeekHeatmap();
+    }
+  }, 30000);
 
   function renderTodayCommandCenter() {
     const currentWeek = roadmapData.find(w => w.week_num === selectedWeekNum) || roadmapData[0];
@@ -1759,9 +1781,13 @@ function initDashboard(roadmapData) {
     if (!container) return;
 
     // Today is the strict end point of the 1-year contribution window
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayStr = today.toISOString().slice(0, 10);
+    // Day rolls over strictly at 5:30 AM IST (00:00:00 UTC)
+    const now = new Date();
+    const todayYear = now.getUTCFullYear();
+    const todayMonth = now.getUTCMonth();
+    const todayDate = now.getUTCDate();
+    const todayUtc = Date.UTC(todayYear, todayMonth, todayDate);
+    const todayStr = new Date(todayUtc).toISOString().slice(0, 10);
 
     // Synchronize tasks completed in AppState.data.tasks to activityLog for today if needed
     const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
@@ -1776,19 +1802,18 @@ function initDashboard(roadmapData) {
       }
     }
 
-    // Exactly 12 months ago, starting strictly from the 1st of that month
-    // Each month starts and ends on its authentic calendar weekdays
-    const start = new Date(today.getFullYear() - 1, today.getMonth(), 1);
-    start.setHours(0, 0, 0, 0);
+    // Exactly 12 months ago, starting strictly from the 1st of that month in UTC
+    const startUtc = Date.UTC(todayYear - 1, todayMonth, 1);
 
     // Group days from start to today by Year-Month
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const months = [];
-    let cur = new Date(start);
+    let curUtc = startUtc;
 
-    while (cur <= today) {
-      const y = cur.getFullYear();
-      const m = cur.getMonth();
+    while (curUtc <= todayUtc) {
+      const curDateObj = new Date(curUtc);
+      const y = curDateObj.getUTCFullYear();
+      const m = curDateObj.getUTCMonth();
       const mKey = `${y}-${m}`;
 
       if (months.length === 0 || months[months.length - 1].key !== mKey) {
@@ -1800,19 +1825,19 @@ function initDashboard(roadmapData) {
         });
       }
 
-      const dateStr = cur.toISOString().slice(0, 10);
-      const dayOfWeek = cur.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
-      const isToday = cur.getTime() === today.getTime();
+      const dateStr = curDateObj.toISOString().slice(0, 10);
+      const dayOfWeek = curDateObj.getUTCDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+      const isToday = (curUtc === todayUtc);
 
       months[months.length - 1].days.push({
-        date: new Date(cur),
+        date: curDateObj,
         dateStr: dateStr,
         dayOfWeek: dayOfWeek,
         isToday: isToday,
-        dayNum: cur.getDate()
+        dayNum: curDateObj.getUTCDate()
       });
 
-      cur.setDate(cur.getDate() + 1);
+      curUtc += 86400000;
     }
 
     // Calculate task completion statistics across the past one year
@@ -2055,9 +2080,10 @@ function initDashboard(roadmapData) {
     const elTasksSub = document.getElementById('stat-tasks-done-sub');
     if (elTasksSub) elTasksSub.textContent = `${completedTasksGlobal} tasks completed`;
 
-    // Target Countdown to July 2027
-    const targetDate = new Date(2027, 6, 1);
-    const diffDays = Math.max(0, Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24)));
+    // Target Countdown to July 2027 (5:30 AM IST boundary)
+    const targetDateUtc = Date.UTC(2027, 6, 1);
+    const curDateUtc = Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate());
+    const diffDays = Math.max(0, Math.ceil((targetDateUtc - curDateUtc) / 86400000));
     const elCountdown = document.getElementById('vitals-countdown-val');
     if (elCountdown) elCountdown.textContent = `${diffDays}d`;
 
