@@ -416,81 +416,86 @@ def generate_week_page(week, total_weeks, all_weeks):
             
             if track_class == 'dsa':
                 duration = '1.5h'
-                badge_style = 'bg-primary/10 border-primary/30 text-primary'
+                track_tag = 'DSA'
             elif is_weekend and track_class == 'aiml':
                 duration = '4.0h'
-                badge_style = 'bg-tertiary/15 border-tertiary/30 text-tertiary font-bold'
+                track_tag = 'AI/ML'
             elif track_class == 'aiml':
                 duration = '2.5h'
-                badge_style = 'bg-tertiary/15 border-tertiary/30 text-tertiary'
+                track_tag = 'AI/ML'
             elif track_class == 'corecs':
                 duration = '2.5h'
-                badge_style = 'bg-secondary/15 border-secondary/30 text-secondary'
-            elif track_class in ['aptitude', 'backend']:
+                track_tag = 'CORE'
+            elif track_class == 'backend':
                 duration = '2.5h'
-                badge_style = 'bg-primary-container/15 border-primary-container/30 text-primary-fixed'
+                track_tag = 'JAVA'
+            elif track_class == 'aptitude':
+                duration = '2.5h'
+                track_tag = 'APT'
             else:
                 duration = '2.5h'
-                badge_style = 'bg-surface-container border-outline-variant/30 text-on-surface-variant'
+                track_tag = 'CORE'
 
-            ref_badge = f'<span class="font-mono text-[11px] text-slate-400">{ref}</span>' if ref else ''
-            desc_html = f'<p class="task-desc text-xs text-slate-400 leading-relaxed mt-0.5">{desc}</p>' if desc else ''
-            defer_btn = f'''<button type="button" class="btn-defer shrink-0 p-1 text-slate-500 hover:text-slate-300 transition-colors cursor-pointer" data-task-id="{task_id}" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>''' if not is_weekend else ''
+            clean_title = title.replace('"', '&quot;')
+            ref_badge = f'<span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">{ref}</span>' if ref else ''
+            defer_btn = f'''<button type="button" class="btn-defer shrink-0 p-1 text-on-surface-variant/40 hover:text-on-surface transition-colors cursor-pointer" data-task-id="{task_id}" title="Defer to Weekend Lab"><span class="material-symbols-outlined text-[15px]">more_vert</span></button>''' if not is_weekend else ''
 
             tasks_html.append(f'''
-            <div class="task-card group relative rounded-lg bg-surface-container p-3.5 border border-white/[0.06] hover:border-white/15 transition-all flex items-start justify-between gap-3 {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
-              <div class="flex items-start gap-3 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox mt-0.5 h-5 w-5 rounded border border-white/20 hover:border-white/40 bg-white/5 flex items-center justify-center shrink-0 transition-colors cursor-pointer" data-task-id="{task_id}" type="button">
-                  <span class="material-symbols-outlined text-[14px] opacity-0 text-white font-bold">check</span>
+            <div class="task-card group flex items-center justify-between px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
+              <div class="flex items-center gap-3.5 min-w-0 flex-1">
+                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <span class="px-2 py-0.5 rounded font-mono text-[11px] font-semibold tracking-wide border {badge_style}">{track_name} &bull; {duration}</span>
-                    {ref_badge}
-                  </div>
-                  <p class="task-title text-sm font-medium text-slate-200 transition-all leading-snug">{title}</p>
-                  {desc_html}
+                <div class="flex items-center gap-2.5 min-w-0 truncate">
+                  <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">{track_tag}</span>
+                  <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface truncate transition-all duration-150" title="{clean_title}">{title}</span>
+                  {ref_badge}
                 </div>
               </div>
-              {defer_btn}
+              <div class="flex items-center gap-2.5 shrink-0 pl-3">
+                {defer_btn}
+                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">{duration}</span>
+              </div>
             </div>''')
             
         day_tasks_joined = "\n".join(tasks_html)
         
         if is_weekend:
-            budget_badge = '<span class="px-2.5 py-0.5 rounded bg-primary/15 text-primary font-mono text-[11px] border border-primary/30 font-semibold flex items-center gap-1"><span>⚡</span> 8.0h Deep Focus Lab</span>'
-            deferred_box = f'<div class="weekend-deferred-container" data-day="{day["day_code"]}"></div>'
+            budget_badge = '<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono text-[10px] border border-primary/20 font-semibold flex items-center gap-1"><span>⚡</span> 8.0h Deep Focus</span>'
+            deferred_box = f'<div class="weekend-deferred-container px-5 pt-3" data-day="{day["day_code"]}"></div>'
             card_html = f'''
-            <div class="day-card rounded-xl bg-surface-container-low border border-primary/20 hover:border-primary/35 transition-all p-4 sm:p-5 flex flex-col gap-3.5 shadow-md" data-day="{day['day_code']}">
-              <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="{day['day_code']}">
+              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
                 <div class="flex items-center gap-2.5">
-                  <h3 class="text-base font-bold text-white tracking-tight">{day['day_name']}</h3>
+                  <h3 class="font-headline text-sm font-semibold text-on-surface">{day['day_name']}</h3>
+                  <span class="text-outline-variant/40">&bull;</span>
                   {budget_badge}
                 </div>
                 <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress px-2 py-0.5 rounded font-mono text-xs font-semibold bg-white/[0.05] text-slate-400 border border-white/10">0 / {len(day['tasks'])} done</span>
+                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / {len(day['tasks'])} done</span>
                 </div>
               </div>
               {deferred_box}
-              <div class="flex flex-col gap-2.5">
+              <div class="divide-y divide-outline-variant/10 text-body">
                 {day_tasks_joined}
               </div>
             </div>'''
             weekend_cards.append(card_html)
         else:
-            budget_badge = '<span class="px-2 py-0.5 rounded bg-white/[0.06] text-slate-400 font-mono text-[11px] border border-white/[0.06]">4.0h Budget</span>'
+            budget_badge = '<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-mono text-[10px] border border-outline-variant/20">4.0h Budget</span>'
             card_html = f'''
-            <div class="day-card rounded-xl bg-surface-container-low border border-white/[0.08] hover:border-white/[0.14] transition-all p-4 sm:p-5 flex flex-col gap-3.5 shadow-sm" data-day="{day['day_code']}">
-              <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="{day['day_code']}">
+              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
                 <div class="flex items-center gap-2.5">
-                  <h3 class="text-base font-bold text-white tracking-tight">{day['day_name']}</h3>
+                  <h3 class="font-headline text-sm font-semibold text-on-surface">{day['day_name']}</h3>
+                  <span class="text-outline-variant/40">&bull;</span>
                   {budget_badge}
                 </div>
                 <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress px-2 py-0.5 rounded font-mono text-xs font-semibold bg-white/[0.05] text-slate-400 border border-white/10">0 / {len(day['tasks'])} done</span>
+                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / {len(day['tasks'])} done</span>
                 </div>
               </div>
-              <div class="flex flex-col gap-2.5">
+              <div class="divide-y divide-outline-variant/10 text-body">
                 {day_tasks_joined}
               </div>
             </div>'''
@@ -499,8 +504,8 @@ def generate_week_page(week, total_weeks, all_weeks):
     weekday_cards_html = "\n".join(weekday_cards)
     weekend_cards_html = "\n".join(weekend_cards)
 
-    prev_btn = f'''<a href="{prev_w}" class="h-8 w-8 rounded-lg border border-white/[0.08] hover:border-white/20 bg-surface-container-low flex items-center justify-center text-slate-400 hover:text-white transition-colors shrink-0" title="Previous Week (W{(w_num-1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>''' if prev_w else '<span class="h-8 w-8 rounded-lg border border-white/[0.06] opacity-40 bg-surface-container-low flex items-center justify-center text-slate-600 shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_left</span></span>'
-    next_btn = f'''<a href="{next_w}" class="h-8 w-8 rounded-lg border border-white/[0.08] hover:border-white/20 bg-surface-container-low flex items-center justify-center text-slate-400 hover:text-white transition-colors shrink-0" title="Next Week (W{(w_num+1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>''' if next_w else '<span class="h-8 w-8 rounded-lg border border-white/[0.06] opacity-40 bg-surface-container-low flex items-center justify-center text-slate-600 shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_right</span></span>'
+    prev_btn = f'''<a href="{prev_w}" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Previous Week (W{(w_num-1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>''' if prev_w else '<span class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/10 opacity-30 flex items-center justify-center text-on-surface-variant shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_left</span></span>'
+    next_btn = f'''<a href="{next_w}" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Next Week (W{(w_num+1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>''' if next_w else '<span class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/10 opacity-30 flex items-center justify-center text-on-surface-variant shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_right</span></span>'
 
     html_content = f'''<!DOCTYPE html>
 <html class="dark" data-theme="dark" lang="en">
@@ -510,242 +515,147 @@ def generate_week_page(week, total_weeks, all_weeks):
   <title>Week {w_pad} Execution &bull; SK Cockpit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   {COMMON_TAILWIND_CONFIG}
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-surface font-sans text-slate-200 antialiased min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary">
+<body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
-  <!-- 1. Executive Top Header (Code 2 Exact Architecture) -->
-  <header class="sticky top-0 z-50 w-full bg-[#080B10]/90 backdrop-blur-xl border-b border-white/[0.08]">
-    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-      <!-- Brand & Identity -->
-      <div class="flex items-center gap-4 shrink-0">
-        <a href="../index.html" class="group flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg border border-white/[0.08] hover:border-white/20 bg-surface-container-low hover:bg-surface-container transition-all text-xs font-mono text-slate-300">
-          <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform text-slate-400">arrow_back</span>
-          <span class="font-medium hidden sm:inline">Back to Dashboard</span>
-        </a>
-        <div class="h-4 w-px bg-white/10 hidden md:block"></div>
-        <div class="flex items-center gap-3">
-          <div class="h-8 w-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary font-mono font-bold text-xs tracking-wider shadow-[0_0_12px_rgba(192,193,255,0.2)]">
-            SK
+  <!-- Subtle Ambient Glow Overlay (Matching index.html) -->
+  <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
+  <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
+
+  <!-- Main Executive Console Content -->
+  <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col w-full gap-7">
+
+        <!-- In-Flow Header Navigation (No Sticky Navbar) -->
+        <header class="flex items-center justify-between gap-4 pb-1 select-none">
+          <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
+            <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+            <span>Dashboard</span>
+          </a>
+
+          <div class="flex flex-col items-center text-center min-w-0 flex-1 px-2">
+            <span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Phase {week['phase_num']} &bull; Week {w_pad}</span>
+            <h1 class="font-headline text-base sm:text-lg font-bold text-on-surface tracking-tight truncate max-w-full">{week['title']}</h1>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-white tracking-tight">COCKPIT</span>
-              <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-white/[0.06] text-slate-400 font-semibold border border-white/[0.06]">Phase {week['phase_num']}</span>
+
+          <div class="flex items-center gap-1.5 shrink-0">
+            {prev_btn}
+            {next_btn}
+          </div>
+        </header>
+
+        <!-- Executive Vitals Bar (Hero Metrics: Progress + Deliverable) -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-3.5">
+          <!-- Week Progress Box (1 col) -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 md:col-span-1 flex flex-col justify-between">
+            <div>
+              <div class="text-xs text-on-surface-variant font-medium mb-1">Week Progress</div>
+              <div class="font-mono text-2xl font-bold text-on-surface tracking-tight" id="progress-percent">0%</div>
             </div>
-            <p class="text-[11px] font-mono text-slate-400 hidden sm:block">Swaraj Kanse &bull; B.E. AI&amp;DS</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Telemetry Status Badges -->
-      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
-        <div class="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-low border border-white/[0.08] text-xs font-mono text-slate-300">
-          <span class="text-slate-500">Target:</span>
-          <span class="text-primary font-medium">July 2027</span>
-          <span class="text-slate-600">&bull;</span>
-          <span class="text-slate-400" id="target-countdown-badge">T-Minus</span>
-        </div>
-        <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-low border border-white/[0.08] text-xs font-mono text-amber-300">
-          <span class="text-xs">🔥</span>
-          <span class="font-semibold" id="streak-stat-badge">0d</span>
-          <span class="hidden sm:inline text-amber-400/80 font-normal">Streak</span>
-        </div>
-        <div class="sync-badge saving flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low border border-white/[0.08] text-[11px] font-mono text-emerald-300 cursor-pointer">
-          <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse sync-dot"></span>
-          <span class="hidden md:inline sync-text">Synced to Supabase</span>
-          <span class="md:hidden sync-text">Synced</span>
-        </div>
-        <button type="button" class="p-1.5 rounded-md border border-white/[0.08] bg-surface-container-low hover:bg-surface-container text-slate-400 hover:text-white transition-colors cursor-pointer" onclick="AppState.toggleTheme()" title="Toggle Visual Theme">
-          <span class="material-symbols-outlined text-[18px]">dark_mode</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- 2. Sub-Navigation / Week Switcher & Executive Stats Ribbon -->
-  <div class="w-full bg-[#0B0F16] border-b border-white/[0.08]">
-    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
-      <!-- Week Switcher Strip -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-        {prev_btn}
-        <div class="flex items-center gap-1 bg-surface-container-low/80 p-1 rounded-lg border border-white/[0.06] shrink-0 font-mono text-xs">
-          {phase_tabs_joined}
-        </div>
-        {next_btn}
-        <div class="h-4 w-px bg-white/10 mx-1 hidden sm:block"></div>
-        <div class="flex flex-col shrink-0">
-          <span class="text-xs font-semibold text-white tracking-tight flex items-center gap-1.5">
-            Week {w_pad}: {week['title']}
-          </span>
-          <span class="text-[10px] font-mono text-slate-400">{week['phase_title']}</span>
-        </div>
-      </div>
-
-      <!-- Execution Telemetry Summary & Action -->
-      <div class="flex items-center gap-3 shrink-0 flex-wrap">
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-white/[0.08]">
-          <span class="text-xs font-mono text-slate-400">Tasks:</span>
-          <span class="font-mono text-sm font-bold text-white" id="completed-count">0</span>
-          <span class="font-mono text-xs text-slate-500" id="total-count">/ {total_tasks}</span>
-          <span class="text-xs font-mono font-semibold text-primary ml-0.5" id="progress-percent">(0%)</span>
-          <div class="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden ml-1.5 border border-white/10 hidden sm:block">
-            <div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full transition-all duration-300" id="progress-bar-fill" style="width: 0%;"></div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-white/[0.08] text-xs font-mono">
-          <span class="text-slate-400 hidden sm:inline">Allocated: <strong class="text-slate-200">36.0h</strong></span>
-          <span class="text-slate-600 hidden sm:inline">&bull;</span>
-          <span class="text-emerald-400 font-semibold" id="logged-hours-label">Logged: 0.0h</span>
-        </div>
-        <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono font-medium text-white transition-all shadow-sm active:scale-95 cursor-pointer" id="copy-summary-btn" type="button">
-          <span class="material-symbols-outlined text-[15px]">content_copy</span>
-          <span id="copy-btn-text">Copy Summary</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Workstation Layout -->
-  <main class="flex-1 max-w-[1560px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
-
-    <!-- 3. Weekly Milestone Flight Checkpoint -->
-    <div class="relative overflow-hidden rounded-xl bg-surface-container-low border border-primary/30 p-4 sm:p-5 shadow-lg shadow-black/30">
-      <div class="absolute -right-8 -top-8 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
-        <div class="flex items-start gap-3.5">
-          <div class="h-10 w-10 rounded-xl bg-primary/15 border border-primary/30 text-primary flex items-center justify-center shrink-0 shadow-inner">
-            <span class="text-lg">🎯</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1 flex-wrap">
-              <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary">Flight Checkpoint &bull; W{w_pad} Deliverable</span>
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold">Priority 1 Target</span>
-            </div>
-            <p class="text-sm font-medium text-slate-200 leading-relaxed">
-              {deliv_text}
-            </p>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 shrink-0 self-start md:self-center">
-          <div class="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-white/10 flex items-center gap-2">
-            <span class="material-symbols-outlined text-[16px] text-amber-400">flag</span>
-            <div class="flex flex-col text-left">
-              <span class="text-[9px] font-mono uppercase text-slate-400">Artifact Gate</span>
-              <span class="text-xs font-mono font-bold text-amber-300">Milestone Checkpoint</span>
+            <div class="mt-3">
+              <div class="flex items-center justify-between text-[11px] text-on-surface-variant font-mono mb-1.5">
+                <span><span id="completed-count" class="text-on-surface font-semibold">0</span> of <span id="total-count">{total_tasks}</span> done</span>
+                <span id="logged-hours-label">0.0h</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full bg-primary rounded-full transition-all duration-500" id="progress-bar-fill" style="width: 0%"></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Category Filters & Budget Legend Strip -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none" id="filter-container">
-        <button class="filter-btn active-filter px-3 py-1.5 rounded-lg bg-white/15 text-white font-mono text-xs font-semibold border border-white/20 transition-all cursor-pointer" data-filter="all" type="button">
-          All ({total_tasks})
-        </button>
-        <button class="filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-primary font-mono text-xs font-medium border border-primary/20 transition-all cursor-pointer" data-filter="dsa" type="button">
-          DSA &amp; Java ({dsa_count})
-        </button>
-        <button class="filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-tertiary font-mono text-xs font-medium border border-tertiary/20 transition-all cursor-pointer" data-filter="aiml" type="button">
-          AI / ML ({aiml_count})
-        </button>
-        <button class="filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-secondary font-mono text-xs font-medium border border-secondary/20 transition-all cursor-pointer" data-filter="corecs" type="button">
-          Core CS ({corecs_count})
-        </button>
-        <button class="filter-btn px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-sky-300/90 font-mono text-xs font-medium border border-sky-500/20 transition-all cursor-pointer" data-filter="aptitude" type="button">
-          Aptitude &amp; Backend ({backend_count})
-        </button>
-      </div>
-      <div class="flex items-center gap-2 text-xs font-mono text-slate-400 self-end sm:self-center">
-        <span class="material-symbols-outlined text-[15px] text-slate-500">tune</span>
-        <span>Standard Cycle: Weekdays 4.0h &bull; Weekend 8.0h Lab</span>
-      </div>
-    </div>
-
-    <!-- 4. Ultra-Clean Structured Day Schedule (Code 2 Exact Architecture) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5" id="days-container">
-      {weekday_cards_html}
-
-      <!-- Weekend Section Header / Divider -->
-      <div class="lg:col-span-2 flex items-center gap-3 py-1">
-        <div class="h-px flex-1 bg-white/[0.08]"></div>
-        <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
-          <span>⚡</span>
-          <span class="font-bold">Weekend High-Load Execution</span>
-          <span class="text-primary/80">&bull; 8.0h Daily Deep Focus Lab</span>
-        </div>
-        <div class="h-px flex-1 bg-white/[0.08]"></div>
-      </div>
-
-      {weekend_cards_html}
-    </div>
-
-    <!-- 5. Reflection & Technical Notes Journal -->
-    <div class="rounded-xl bg-surface-container-low border border-white/[0.08] p-5 sm:p-6 flex flex-col gap-4 shadow-sm" id="journal">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.06]">
-        <div class="flex items-center gap-2.5">
-          <div class="h-8 w-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary">
-            <span class="material-symbols-outlined text-[18px]">terminal</span>
+          <!-- Weekly Deliverable / Milestone Box (3 cols elongated) -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 md:col-span-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <div class="text-xs text-on-surface-variant font-medium">Weekly Deliverable</div>
+                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">Priority 1 Target</span>
+              </div>
+              <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text">{deliv_text}</div>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[11px] text-on-surface-variant font-mono pt-2 border-t border-outline-variant/10">
+              <span>Standard Cycle: 4.0h Weekdays &bull; 8.0h Weekend Focus</span>
+              <button type="button" class="text-primary hover:text-on-surface transition-colors cursor-pointer flex items-center gap-1" id="copy-summary-btn">
+                <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                <span id="copy-btn-text">Copy Summary</span>
+              </button>
+            </div>
           </div>
-          <div>
-            <h3 class="text-sm font-bold text-white tracking-tight">Week {w_pad} Reflection &amp; Technical Notes</h3>
-            <p class="text-[11px] font-mono text-slate-400">Persistent markdown workspace for algorithmic edge-cases &amp; training notes</p>
+        </section>
+
+        <!-- Category Filters Strip -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none" id="filter-container">
+          <button class="filter-btn active-filter px-3 py-1.5 rounded-lg bg-white/10 text-white font-mono text-xs font-semibold border border-white/20 transition-all cursor-pointer shrink-0" data-filter="all" type="button">All ({total_tasks})</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-primary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="dsa" type="button">DSA &amp; Java ({dsa_count})</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-tertiary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="aiml" type="button">AI / ML ({aiml_count})</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-secondary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="corecs" type="button">Core CS ({corecs_count})</button>
+          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-amber-300/90 font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="aptitude" type="button">Aptitude &amp; Backend ({backend_count})</button>
+        </div>
+
+        <!-- Structured Day Schedule Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="days-container">
+          {weekday_cards_html}
+
+          <!-- Weekend Section Header / Divider -->
+          <div class="md:col-span-2 flex items-center gap-3 py-1">
+            <div class="h-px flex-1 bg-outline-variant/15"></div>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
+              <span>⚡</span>
+              <span class="font-semibold">Weekend High-Load Execution</span>
+              <span class="text-primary/70">&bull; 8.0h Daily Deep Focus Lab</span>
+            </div>
+            <div class="h-px flex-1 bg-outline-variant/15"></div>
           </div>
+
+          {weekend_cards_html}
         </div>
-        <div class="flex items-center gap-2">
-          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-white/[0.06] text-xs font-mono text-slate-300">
-            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span id="save-status">Auto-saved to Supabase &bull; Live</span>
+
+        <!-- Reflection & Technical Notes Journal -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 p-5 sm:p-6 flex flex-col gap-4" id="journal">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+              <h3 class="text-sm font-semibold text-on-surface tracking-tight">Week {w_pad} Technical Notes &amp; Journal</h3>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-mono text-on-surface-variant">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span id="save-status">Auto-saved to Supabase &bull; Live</span>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="relative rounded-lg bg-surface-container-lowest border border-white/[0.08] focus-within:border-primary/50 transition-colors p-3.5">
-        <textarea class="w-full bg-transparent font-mono text-xs text-slate-200 leading-relaxed placeholder:text-slate-600 focus:outline-none resize-none" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="8"></textarea>
-      </div>
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-        <div class="flex flex-wrap items-center gap-1.5">
-          <span class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] font-mono text-[11px] text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">#LeetCode</span>
-          <span class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] font-mono text-[11px] text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">#Java</span>
-          <span class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] font-mono text-[11px] text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">#DSA</span>
-          <span class="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] font-mono text-[11px] text-slate-400 hover:text-slate-200 transition-colors cursor-pointer">#Week{w_pad}</span>
-        </div>
-        <button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-white/[0.08] hover:border-white/20 text-xs font-mono text-slate-200 transition-all self-end sm:self-auto cursor-pointer" id="export-notes-btn" type="button">
-          <span class="material-symbols-outlined text-[15px] text-primary">download</span>
-          <span>Export Markdown (.md)</span>
-        </button>
+          <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/50 transition-colors p-3.5">
+            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 focus:outline-none resize-none" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="6"></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Java</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#DSA</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Week{w_pad}</span>
+            </div>
+            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container border border-outline-variant/20 text-xs font-mono text-on-surface transition-all cursor-pointer" id="export-notes-btn" type="button">
+              <span class="material-symbols-outlined text-[15px] text-primary">download</span>
+              <span>Export Markdown (.md)</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Clean Bottom Navigation -->
+        <nav class="flex items-center justify-between pt-2 pb-4">
+          {prev_btn}
+          <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150">
+            <span>&uarr; Back to Dashboard</span>
+          </a>
+          {next_btn}
+        </nav>
+
       </div>
     </div>
-
-    <!-- Bottom Navigation -->
-    <nav class="flex items-center justify-between pt-2 pb-4">
-      {prev_btn}
-      <a href="../index.html" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container border border-white/[0.08] text-xs font-mono text-slate-300 transition-all">
-        <span>&uarr; Back to Dashboard</span>
-      </a>
-      {next_btn}
-    </nav>
   </main>
-
-  <!-- 6. Footer -->
-  <footer class="w-full bg-[#080B10] border-t border-white/[0.08] py-4 mt-8">
-    <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-slate-400">
-      <div class="flex items-center gap-2">
-        <span class="font-semibold text-slate-300">Swaraj Kanse</span>
-        <span class="text-slate-600">&bull;</span>
-        <span>Week {w_pad} Execution Protocol</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Supabase Synchronized</span>
-      </div>
-    </div>
-  </footer>
 
   <script src="../js/app.js"></script>
   <script>

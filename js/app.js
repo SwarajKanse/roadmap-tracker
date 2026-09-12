@@ -754,11 +754,11 @@ function initWeekPage(weekNum) {
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => {
-        b.classList.remove('active-filter', 'active', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
-        b.classList.add('bg-surface-container-low', 'hover:bg-surface-container', 'font-medium');
+        b.classList.remove('active-filter', 'active', 'bg-white/10', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
+        b.classList.add('cockpit-glass', 'font-medium');
       });
-      btn.classList.add('active-filter', 'active', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
-      btn.classList.remove('bg-surface-container-low', 'hover:bg-surface-container', 'font-medium');
+      btn.classList.add('active-filter', 'active', 'bg-white/10', 'text-white', 'border-white/20', 'font-semibold');
+      btn.classList.remove('cockpit-glass', 'font-medium');
       applyFilters();
     });
   });
@@ -915,29 +915,25 @@ function updateTaskCardVisual(card, isDone) {
     card.classList.add('completed');
     card.setAttribute('data-completed', 'true');
     if (btn) {
-      btn.className = 'task-toggle-btn task-checkbox checkbox-spring mt-0.5 h-5 w-5 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0 transition-colors cursor-pointer shadow-sm';
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-primary border-primary flex items-center justify-center shadow-sm cursor-pointer';
     }
     if (icon) {
-      icon.classList.remove('opacity-0');
-      icon.classList.add('opacity-100', 'text-emerald-400');
+      icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-100 transition-opacity';
     }
     if (title) {
-      title.classList.add('line-through', 'text-slate-400');
-      title.classList.remove('text-slate-200');
+      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface-variant/60 line-through truncate transition-all duration-150';
     }
   } else {
     card.classList.remove('completed');
     card.setAttribute('data-completed', 'false');
     if (btn) {
-      btn.className = 'task-toggle-btn task-checkbox checkbox-spring mt-0.5 h-5 w-5 rounded border border-white/20 hover:border-white/40 bg-white/5 flex items-center justify-center shrink-0 transition-colors cursor-pointer';
+      btn.className = 'task-toggle-btn task-checkbox checkbox-spring shrink-0 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer';
     }
     if (icon) {
-      icon.classList.add('opacity-0');
-      icon.classList.remove('opacity-100', 'text-emerald-400');
+      icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity';
     }
     if (title) {
-      title.classList.remove('line-through', 'text-slate-400');
-      title.classList.add('text-slate-200');
+      title.className = 'task-title font-body-md text-xs sm:text-[13px] text-on-surface truncate transition-all duration-150';
     }
   }
 }
@@ -972,8 +968,8 @@ function updateWeekProgress() {
   
   if (fill) fill.style.width = pct + '%';
   if (completedCountEl) completedCountEl.textContent = done;
-  if (progressPercentEl) progressPercentEl.textContent = `(${pct}%)`;
-  if (loggedHoursLabel) loggedHoursLabel.textContent = `Logged: ${loggedHours.toFixed(1)}h`;
+  if (progressPercentEl) progressPercentEl.textContent = `${pct}%`;
+  if (loggedHoursLabel) loggedHoursLabel.textContent = `${loggedHours.toFixed(1)}h`;
 
   // Update Countdown & Streak on Week Page
   const targetDate = new Date(2027, 6, 1);
@@ -1007,11 +1003,11 @@ function updateDayProgress() {
       });
       badge.textContent = `${done} / ${tasks.length} done`;
       if (done === tasks.length && done > 0) {
-        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+        badge.className = 'day-badge day-progress font-mono text-xs font-semibold text-primary';
       } else if (done > 0) {
-        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-primary/15 text-primary border border-primary/30';
+        badge.className = 'day-badge day-progress font-mono text-xs font-medium text-primary/80';
       } else {
-        badge.className = 'day-badge px-2 py-0.5 rounded font-mono text-xs font-semibold bg-white/[0.05] text-slate-400 border border-white/10';
+        badge.className = 'day-badge day-progress font-mono text-xs text-on-surface-variant';
       }
     }
   });
@@ -1028,7 +1024,7 @@ function applyFilters() {
     taskCards.forEach(item => {
       const trackId = item.getAttribute('data-track');
       const trackMatch = (activeTrack === 'all' || activeTrack === trackId || 
-                         (activeTrack === 'backend' && ['aptitude', 'backend'].includes(trackId)));
+                         (['backend', 'aptitude'].includes(activeTrack) && ['aptitude', 'backend'].includes(trackId)));
       if (trackMatch) {
         item.style.display = 'flex';
         visibleTasksInDay++;
