@@ -70,57 +70,95 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-[data-theme="dark"] {
-  /* Deep Obsidian & Slate Dark Theme (Linear / Vercel Grade) */
-  --bg-canvas: #090a0f;
-  --bg-surface: #10131a;
-  --bg-surface-elevated: #151922;
-  --bg-surface-subtle: #12151e;
-  --bg-hover: #1c222e;
+[data-theme="dark"], html.dark {
+  /* Executive Cockpit Palette (Matching Inspiration 1) */
+  --bg-canvas: #121316;
+  --bg-surface: #1b1b1f;
+  --bg-surface-elevated: #292a2d;
+  --bg-surface-subtle: #1f1f23;
+  --bg-hover: #292a2d;
   
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-accent: rgba(99, 102, 241, 0.4);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(192, 193, 255, 0.35);
   
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-faint: #475569;
+  --text-primary: #e3e2e6;
+  --text-secondary: #c7c4d7;
+  --text-muted: #908fa0;
+  --text-faint: #464554;
   
-  --accent-primary: #6366f1;
-  --accent-hover: #818cf8;
-  --accent-light: rgba(99, 102, 241, 0.14);
-  --accent-ring: rgba(99, 102, 241, 0.35);
+  --accent-primary: #c0c1ff;
+  --accent-hover: #e1e0ff;
+  --accent-light: rgba(192, 193, 255, 0.12);
+  --accent-ring: rgba(192, 193, 255, 0.25);
   
   --success: #10b981;
   --success-bg: rgba(16, 185, 129, 0.14);
   --success-border: rgba(16, 185, 129, 0.28);
-  --streak-flame: #f97316;
+  --streak-flame: #ea580c;
   
   --warning: #f59e0b;
   --warning-bg: rgba(245, 158, 11, 0.14);
   
   /* Track Badges (Dark) */
-  --tag-dsa-bg: rgba(99, 102, 241, 0.18);
-  --tag-dsa-text: #a5b4fc;
-  --tag-aiml-bg: rgba(16, 185, 129, 0.18);
-  --tag-aiml-text: #6ee7b7;
-  --tag-corecs-bg: rgba(14, 165, 233, 0.18);
-  --tag-corecs-text: #7dd3fc;
-  --tag-backend-bg: rgba(139, 92, 246, 0.18);
-  --tag-backend-text: #c4b5fd;
-  --tag-aptitude-bg: rgba(245, 158, 11, 0.18);
+  --tag-dsa-bg: rgba(192, 193, 255, 0.14);
+  --tag-dsa-text: #c0c1ff;
+  --tag-aiml-bg: rgba(185, 200, 222, 0.14);
+  --tag-aiml-text: #b9c8de;
+  --tag-corecs-bg: rgba(193, 199, 207, 0.14);
+  --tag-corecs-text: #c1c7cf;
+  --tag-backend-bg: rgba(128, 131, 255, 0.14);
+  --tag-backend-text: #c0c1ff;
+  --tag-aptitude-bg: rgba(245, 158, 11, 0.14);
   --tag-aptitude-text: #fde68a;
 
   /* Heatmap Levels (Dark) */
-  --heat-lvl-0: #161b24;
-  --heat-lvl-1: rgba(16, 185, 129, 0.3);
-  --heat-lvl-2: #10b981;
-  --heat-lvl-3: #34d399;
+  --heat-lvl-0: #1f1f23;
+  --heat-lvl-1: rgba(192, 193, 255, 0.25);
+  --heat-lvl-2: rgba(192, 193, 255, 0.6);
+  --heat-lvl-3: #c0c1ff;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 6px 16px -2px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 14px 28px -4px rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.6);
+}
+
+/* Tactile Glass & Micro Border utility */
+.cockpit-glass {
+  background: rgba(18, 19, 22, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+.light .cockpit-glass, [data-theme="light"] .cockpit-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.cockpit-subglass {
+  background: rgba(27, 27, 31, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+}
+.light .cockpit-subglass, [data-theme="light"] .cockpit-subglass {
+  background: rgba(243, 244, 246, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Spring-like checkbox animations */
+.checkbox-spring {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease, border-color 0.15s ease;
+}
+.checkbox-spring:active {
+  transform: scale(0.85);
+}
+
+/* Phase accordion smooth transition */
+.accordion-content {
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  overflow: hidden;
 }
 
 /* Base Reset */
