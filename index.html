@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI + Java Roadmap Checklist &bull; 50-Week Placement Hub</title>
+  <title>AI + Java Roadmap Checklist &bull; 50-Week Placement Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Top Sticky Bar -->
+  <!-- Top Sticky Navigation Bar -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="nav-left">
         <a href="index.html" class="brand-link">
           <span class="brand-badge">50 WEEKS</span>
-          <span>Placement Roadmap Hub</span>
+          <span>Placement Engineering Cockpit</span>
         </a>
       </div>
 
@@ -37,22 +40,104 @@
   <!-- Container -->
   <main class="container">
     <section class="dashboard-hero">
+      <div class="cockpit-identity-badge">
+        <span class="dot"></span>
+        <span>Swaraj Kanse &bull; B.E. AI&amp;DS, TSEC &bull; Placement Target: July 2027</span>
+      </div>
       <h1 class="dashboard-title">50-Week Placement Checklist</h1>
       <p class="dashboard-desc">
-        A minimalist daily tracker for your complete AI + Java placement roadmap. All 10 phases and 50 weeks with dedicated daily tasks across DSA, AI/ML, Core CS, and Backend tracks.
+        Your daily execution cockpit for mastering DSA in Java, modern AI &amp; GenAI engineering, Core CS, and production Spring Boot systems. 36 hours a week structured with strict time frames and continuous momentum.
       </p>
-      
-      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
-        <a href="weeks/week-01.html" class="nav-btn" id="btn-resume-week" style="background: var(--accent-primary); color: white; border-color: var(--accent-primary); font-weight: 600; padding: 0.5rem 1.1rem;">
-          Continue Week 1 &rarr;
-        </a>
+    </section>
+
+    <!-- TODAY'S MISSION / ACTIVE COMMAND CENTER (Zero Friction) -->
+    <section class="today-focus-card" id="today-focus-card">
+      <div class="today-focus-header">
+        <div class="today-badge-group">
+          <span class="pulse-indicator"></span>
+          <span class="today-badge">Today's Focus</span>
+          <span class="today-day-title" id="today-day-title">Loading today's schedule...</span>
+          <span class="day-budget-pill weekday" id="today-budget-pill">⏱️ 4h Budget</span>
+        </div>
+        <div class="today-nav-actions">
+          <select id="today-day-picker" class="today-day-picker" aria-label="Switch Active Day"></select>
+          <a href="weeks/week-01.html" id="today-open-week-link" class="today-open-week-btn">
+            <span>Open Week Checklist</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="today-tasks-list" id="today-tasks-list">
+        <!-- Injected dynamically by app.js with real checkboxes & defer buttons -->
+      </div>
+
+      <div class="today-focus-footer">
+        <div class="today-progress-bar-wrap">
+          <div class="today-progress-bar-fill" id="today-progress-bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="today-footer-meta">
+          <span id="today-progress-text">0 of 0 tasks completed</span>
+          <span class="today-hint">Changes sync to Supabase &amp; update your streak instantly</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STREAK ENGINE & ACTIVITY HEATMAP -->
+    <section class="streak-heatmap-section" id="streak-heatmap-section">
+      <div class="streak-strip-grid">
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Active Streak</span>
+          <div class="streak-stat-val flame">
+            <span>🔥</span>
+            <span id="streak-current-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Longest Streak</span>
+          <div class="streak-stat-val">
+            <span>🏆</span>
+            <span id="streak-longest-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Total Days Active</span>
+          <div class="streak-stat-val">
+            <span>📅</span>
+            <span id="streak-total-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Today's Status</span>
+          <div id="streak-today-status" style="margin-top: 0.25rem;">
+            <span class="status-badge-pending">⏳ Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="heatmap-header">
+        <div class="heatmap-title">
+          <span>⚡</span>
+          <span>Rolling Activity Matrix (Past 16 Weeks)</span>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <span class="legend-cell" style="background: var(--heat-lvl-0);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-1);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-2);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-3);"></span>
+          <span>More</span>
+        </div>
+      </div>
+
+      <div class="activity-heatmap-grid" id="activity-heatmap-grid">
+        <!-- Populated dynamically by app.js -->
       </div>
     </section>
 
     <!-- Global Progress Bar -->
-    <section class="progress-card" style="margin-bottom: 2rem;">
+    <section class="progress-card" style="margin-bottom: 1.75rem;">
       <div class="progress-header">
-        <span class="progress-label">Overall 50-Week Completion</span>
+        <span class="progress-label">Overall 50-Week Placement Roadmap Completion</span>
         <span class="progress-stats" id="stat-pct-done">0%</span>
       </div>
       <div class="progress-bar-bg" style="height: 10px;">
@@ -71,8 +156,8 @@
         <div class="stat-label">Weeks Finished</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">10</div>
-        <div class="stat-label">Total Phases</div>
+        <div class="stat-val">10 Phases</div>
+        <div class="stat-label">Full Curriculum</div>
       </div>
       <div class="stat-card">
         <div class="stat-val">July 2027</div>

@@ -35,10 +35,10 @@ def format_cell_html(text):
     bare_url_regex = r'(?<!href=")(?<!">)(?:https?://[^\s<>`"\)]+|(?:youtube\.com|cs50\.harvard\.edu|khanacademy\.org|arxiv\.org|immersivemath\.com|course\.fast\.ai|modelcontextprotocol\.io|docs\.spring\.io|docs\.langchain4j\.dev|developer\.confluent\.io|testcontainers\.com|docs\.ragas\.io|huggingface\.co|baeldung\.com)[^\s<>`"\)]*)'
     text = re.sub(bare_url_regex, raw_url_repl, text)
     
-    # 4. Bold: **text** (non-greedy, matches even if containing nested italics or code)
+    # 4. Bold: **text**
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     
-    # 5. Italic: *text* (avoiding matching double asterisks)
+    # 5. Italic: *text*
     text = re.sub(r'(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)', r'<em>\1</em>', text)
     
     # 6. Inline code: `code`
@@ -118,33 +118,26 @@ def parse_roadmap():
                 })
                 
             days_data = []
-            for row_line in table_lines[2:]:
-                cells = [c.strip() for c in row_line.split('|')[1:-1]]
-                if len(cells) < len(col_headers):
+            for r in table_lines[2:]:
+                cells = [c.strip() for c in r.split('|')[1:-1]]
+                if not cells or len(cells) < len(col_headers):
                     continue
-                day_code = cells[0].strip()
-                if day_code not in day_full_names:
-                    found_day = None
-                    for d in day_order:
-                        if day_code.startswith(d):
-                            found_day = d
-                            break
-                    if found_day:
-                        day_code = found_day
-                    else:
-                        continue
-                        
+                day_code = cells[0]
+                if day_code not in day_order:
+                    continue
+                    
                 day_tasks = []
-                for idx, cell_content in enumerate(cells[1:]):
+                for idx, cell in enumerate(cells[1:]):
                     if idx >= len(col_meta):
                         break
-                    cell_trimmed = cell_content.strip()
+                    cell_trimmed = cell.strip()
                     if not cell_trimmed or cell_trimmed == '-':
                         continue
-                    is_rest = 'open — catch up or rest' in cell_trimmed.lower()
-                    task_id = f"w{w_num}_{day_code.lower()}_{col_meta[idx]['cat_id']}"
                     
-                    if is_rest:
+                    track_code = col_meta[idx]['cat_id']
+                    task_id = f"w{w_num}_{day_code.lower()}_{track_code}"
+                    
+                    if cell_trimmed.lower() in ['rest', 'catch up', 'rest / catch up', 'open — catch up']:
                         day_tasks.append({
                             'id': task_id,
                             'track_original': col_meta[idx]['original'],
@@ -223,7 +216,6 @@ def generate_week_page(week, total_weeks, all_weeks):
     prev_w = f"week-{(w_num - 1):02d}.html" if w_num > 1 else None
     next_w = f"week-{(w_num + 1):02d}.html" if w_num < total_weeks else None
     
-    # Options for dropdown
     select_options = []
     for ow in all_weeks:
         num = ow['week_num']
@@ -231,7 +223,6 @@ def generate_week_page(week, total_weeks, all_weeks):
         select_options.append(f'<option value="week-{num:02d}.html" {selected}>Week {num}: {ow["title"][:35]}</option>')
     select_html = "\n".join(select_options)
 
-    # Days HTML
     days_html = []
     for day in week['days']:
         tasks_html = []
@@ -243,7 +234,6 @@ def generate_week_page(week, total_weeks, all_weeks):
             content_html = t['html']
             rest_class = 'is-rest' if t['is_rest'] else ''
             
-            # Duration estimation
             if track_class == 'dsa':
                 duration = '1.5h'
             elif is_weekend and track_class == 'aiml':
@@ -253,6 +243,8 @@ def generate_week_page(week, total_weeks, all_weeks):
             else:
                 duration = '2.5h'
             
+            defer_btn = f'<button type="button" class="btn-defer" data-task-id="{task_id}" title="Defer to Weekend Lab (Preserves 4h limit)">⏳ Defer</button>' if not is_weekend else ''
+
             tasks_html.append(f'''
             <div class="task-item {rest_class}" data-task-id="{task_id}" data-track="{track_class}">
               <label class="custom-checkbox">
@@ -265,6 +257,7 @@ def generate_week_page(week, total_weeks, all_weeks):
                 <div class="task-meta">
                   <span class="track-tag {track_class}">{track_name}</span>
                   <span class="time-estimate-pill">⏱️ {duration}</span>
+                  {defer_btn}
                 </div>
                 <div class="task-text">{content_html}</div>
               </div>
@@ -272,6 +265,7 @@ def generate_week_page(week, total_weeks, all_weeks):
             
         day_tasks_joined = "\n".join(tasks_html)
         budget_badge = '<span class="day-budget-pill weekend">⚡ 8h Deep Focus</span>' if is_weekend else '<span class="day-budget-pill weekday">⏱️ 4h Budget</span>'
+        weekend_deferred_box = f'<div class="weekend-deferred-container" data-day="{day["day_code"]}"></div>' if is_weekend else ''
         
         days_html.append(f'''
         <div class="day-card" data-day="{day['day_code']}">
@@ -282,6 +276,7 @@ def generate_week_page(week, total_weeks, all_weeks):
             </div>
             <span class="day-progress">0/{len(day['tasks'])} done</span>
           </div>
+          {weekend_deferred_box}
           <div class="tasks-list">
             {day_tasks_joined}
           </div>
@@ -289,7 +284,6 @@ def generate_week_page(week, total_weeks, all_weeks):
 
     all_days_html = "\n".join(days_html)
 
-    # Deliverables HTML
     deliverables_html = ""
     if week['deliverables']:
         deliv_items = []
@@ -310,21 +304,21 @@ def generate_week_page(week, total_weeks, all_weeks):
         <div class="deliverables-section">
           <div class="deliverables-header">
             <span class="deliverables-icon">🎯</span>
-            <span>Weekly Deliverables &amp; Checkpoints</span>
+            <span class="deliverables-title">Weekly Deliverables &amp; Checkpoints</span>
+            <span class="deliverables-badge">Milestone</span>
           </div>
           <div class="deliverables-list">
             {deliv_joined}
           </div>
         </div>'''
 
-    # Notes section
     notes_html = f'''
     <div class="notes-section">
       <div class="notes-header">
-        <span class="notes-title">📝 Week {w_num} Notes &amp; Reflections</span>
-        <span class="save-indicator" id="notes-save-status">Auto-saved to browser</span>
+        <span class="notes-title">📝 Week {w_num} Notes &amp; Reflection</span>
+        <span class="notes-save-status" id="notes-save-status">Auto-saved to browser</span>
       </div>
-      <textarea id="week-notes" class="notes-textarea" placeholder="Record key takeaways, tricky problems, or reminders for this week..."></textarea>
+      <textarea id="week-notes" class="notes-textarea" placeholder="Record tricky problem gotchas, math derivations, or Spring AI architecture takeaways for this week..."></textarea>
     </div>'''
 
     prev_link = f'<a href="{prev_w}" class="nav-btn" id="nav-prev">&larr; Week {w_num - 1}</a>' if prev_w else '<span class="nav-btn disabled">&larr; First</span>'
@@ -336,6 +330,9 @@ def generate_week_page(week, total_weeks, all_weeks):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Week {w_pad} Checklist &bull; {week['title']}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -346,7 +343,7 @@ def generate_week_page(week, total_weeks, all_weeks):
       <div class="nav-left">
         <a href="../index.html" class="brand-link">
           <span>&larr;</span>
-          <span>Roadmap Hub</span>
+          <span>Cockpit Dashboard</span>
         </a>
       </div>
 
@@ -379,7 +376,7 @@ def generate_week_page(week, total_weeks, all_weeks):
     <header class="week-header">
       <div class="phase-pill">{week['phase_title']}</div>
       <h1 class="week-title">Week {w_pad} &mdash; {week['title']}</h1>
-      <p class="week-subtitle">Complete daily tasks across DSA, AI/ML, Core CS, and Aptitude/Backend tracks.</p>
+      <p class="week-subtitle">Structured 36-hour weekly plan: Weekdays 4.0h (2 subjects) &bull; Weekends 8.0h (3 subjects).</p>
     </header>
 
     <!-- Progress Card -->
@@ -487,18 +484,21 @@ def generate_dashboard(roadmap):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI + Java Roadmap Checklist &bull; 50-Week Placement Hub</title>
+  <title>AI + Java Roadmap Checklist &bull; 50-Week Placement Cockpit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Top Sticky Bar -->
+  <!-- Top Sticky Navigation Bar -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="nav-left">
         <a href="index.html" class="brand-link">
           <span class="brand-badge">50 WEEKS</span>
-          <span>Placement Roadmap Hub</span>
+          <span>Placement Engineering Cockpit</span>
         </a>
       </div>
 
@@ -521,22 +521,104 @@ def generate_dashboard(roadmap):
   <!-- Container -->
   <main class="container">
     <section class="dashboard-hero">
+      <div class="cockpit-identity-badge">
+        <span class="dot"></span>
+        <span>Swaraj Kanse &bull; B.E. AI&amp;DS, TSEC &bull; Placement Target: July 2027</span>
+      </div>
       <h1 class="dashboard-title">50-Week Placement Checklist</h1>
       <p class="dashboard-desc">
-        A minimalist daily tracker for your complete AI + Java placement roadmap. All 10 phases and 50 weeks with dedicated daily tasks across DSA, AI/ML, Core CS, and Backend tracks.
+        Your daily execution cockpit for mastering DSA in Java, modern AI &amp; GenAI engineering, Core CS, and production Spring Boot systems. 36 hours a week structured with strict time frames and continuous momentum.
       </p>
-      
-      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
-        <a href="weeks/week-01.html" class="nav-btn" id="btn-resume-week" style="background: var(--accent-primary); color: white; border-color: var(--accent-primary); font-weight: 600; padding: 0.5rem 1.1rem;">
-          Continue Week 1 &rarr;
-        </a>
+    </section>
+
+    <!-- TODAY'S MISSION / ACTIVE COMMAND CENTER (Zero Friction) -->
+    <section class="today-focus-card" id="today-focus-card">
+      <div class="today-focus-header">
+        <div class="today-badge-group">
+          <span class="pulse-indicator"></span>
+          <span class="today-badge">Today's Focus</span>
+          <span class="today-day-title" id="today-day-title">Loading today's schedule...</span>
+          <span class="day-budget-pill weekday" id="today-budget-pill">⏱️ 4h Budget</span>
+        </div>
+        <div class="today-nav-actions">
+          <select id="today-day-picker" class="today-day-picker" aria-label="Switch Active Day"></select>
+          <a href="weeks/week-01.html" id="today-open-week-link" class="today-open-week-btn">
+            <span>Open Week Checklist</span> &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="today-tasks-list" id="today-tasks-list">
+        <!-- Injected dynamically by app.js with real checkboxes & defer buttons -->
+      </div>
+
+      <div class="today-focus-footer">
+        <div class="today-progress-bar-wrap">
+          <div class="today-progress-bar-fill" id="today-progress-bar-fill" style="width: 0%;"></div>
+        </div>
+        <div class="today-footer-meta">
+          <span id="today-progress-text">0 of 0 tasks completed</span>
+          <span class="today-hint">Changes sync to Supabase &amp; update your streak instantly</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STREAK ENGINE & ACTIVITY HEATMAP -->
+    <section class="streak-heatmap-section" id="streak-heatmap-section">
+      <div class="streak-strip-grid">
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Active Streak</span>
+          <div class="streak-stat-val flame">
+            <span>🔥</span>
+            <span id="streak-current-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Longest Streak</span>
+          <div class="streak-stat-val">
+            <span>🏆</span>
+            <span id="streak-longest-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Total Days Active</span>
+          <div class="streak-stat-val">
+            <span>📅</span>
+            <span id="streak-total-val">0 Days</span>
+          </div>
+        </div>
+        <div class="streak-stat-card">
+          <span class="streak-stat-label">Today's Status</span>
+          <div id="streak-today-status" style="margin-top: 0.25rem;">
+            <span class="status-badge-pending">⏳ Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="heatmap-header">
+        <div class="heatmap-title">
+          <span>⚡</span>
+          <span>Rolling Activity Matrix (Past 16 Weeks)</span>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <span class="legend-cell" style="background: var(--heat-lvl-0);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-1);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-2);"></span>
+          <span class="legend-cell" style="background: var(--heat-lvl-3);"></span>
+          <span>More</span>
+        </div>
+      </div>
+
+      <div class="activity-heatmap-grid" id="activity-heatmap-grid">
+        <!-- Populated dynamically by app.js -->
       </div>
     </section>
 
     <!-- Global Progress Bar -->
-    <section class="progress-card" style="margin-bottom: 2rem;">
+    <section class="progress-card" style="margin-bottom: 1.75rem;">
       <div class="progress-header">
-        <span class="progress-label">Overall 50-Week Completion</span>
+        <span class="progress-label">Overall 50-Week Placement Roadmap Completion</span>
         <span class="progress-stats" id="stat-pct-done">0%</span>
       </div>
       <div class="progress-bar-bg" style="height: 10px;">
@@ -555,8 +637,8 @@ def generate_dashboard(roadmap):
         <div class="stat-label">Weeks Finished</div>
       </div>
       <div class="stat-card">
-        <div class="stat-val">{len(phases_dict)}</div>
-        <div class="stat-label">Total Phases</div>
+        <div class="stat-val">{len(phases_dict)} Phases</div>
+        <div class="stat-label">Full Curriculum</div>
       </div>
       <div class="stat-card">
         <div class="stat-val">July 2027</div>
@@ -634,7 +716,7 @@ def main():
         f.write(dash_html)
     print("Written index.html")
 
-    # 3. Output individual week pages: weeks/week-01.html ... weeks/week-45.html
+    # 3. Output individual week pages: weeks/week-01.html ... weeks/week-50.html
     for w in roadmap:
         pad = f"{w['week_num']:02d}"
         filepath = f"weeks/week-{pad}.html"

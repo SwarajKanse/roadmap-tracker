@@ -3,10 +3,12 @@
  * Domain: track.swarajkanse.me
  * 
  * Features:
- * 1. OAuth / Dynamic Rotating PIN Authentication Gatekeeper (30-day session)
+ * 1. Cryptographic Master Password Gatekeeper (30-day session)
  * 2. Instant local persistence in browser (localStorage)
  * 3. Automatic Cloud Sync via Supabase across all devices
- * 4. Track filtering, auto-saving notes, keyboard shortcuts
+ * 4. Zero-Click Today's Focus Command Center
+ * 5. Unbroken Daily Streak Engine & Activity Heatmap
+ * 6. Anti-Guilt "Defer to Weekend" Protocol
  */
 
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
@@ -135,7 +137,6 @@ const AuthManager = {
       statusEl.textContent = 'Verifying cryptographic credentials...';
     }
 
-    // 1. If email is provided, verify against authorized email hash
     if (cleanEmail) {
       const emailHash = await _hashEmail(cleanEmail);
       if (emailHash !== _SEC.eH) {
@@ -148,7 +149,6 @@ const AuthManager = {
       }
     }
 
-    // 2. Cryptographic password verification (Salted SHA-256)
     const passHash = await _hashPassword(cleanPass);
     if (passHash === _SEC.pH) {
       this.saveSession('master_password');
@@ -220,10 +220,10 @@ const AuthManager = {
           <div class="auth-icon-circle">🔐</div>
         </div>
         <h2 class="auth-title">Private Workspace</h2>
-        <p class="auth-subtitle">Swaraj Kanse &bull; 50-Week Placement Roadmap</p>
+        <p class="auth-subtitle">Swaraj Kanse &bull; B.E. AI&amp;DS, TSEC &bull; 2027 Placements</p>
         
         <p class="auth-desc">
-          Authorized access only. Enter your Master Password to unlock your roadmap and sync your progress.
+          Authorized access only. Enter your Master Password to unlock your placement roadmap and sync your progress.
         </p>
 
         <form id="auth-login-form" onsubmit="event.preventDefault(); AuthManager.verifyCredentials(document.getElementById('auth-email-input').value, document.getElementById('auth-password-input').value);">
@@ -265,6 +265,8 @@ const AppState = {
   data: {
     tasks: {},
     notes: {},
+    activityLog: {},    // { "YYYY-MM-DD": taskCount }
+    deferredTasks: {},  // { [taskId]: "YYYY-MM-DD" }
     lastModified: null
   },
   cloudConnected: false,
@@ -283,6 +285,8 @@ const AppState = {
         const parsed = JSON.parse(stored);
         this.data.tasks = parsed.tasks || {};
         this.data.notes = parsed.notes || {};
+        this.data.activityLog = parsed.activityLog || {};
+        this.data.deferredTasks = parsed.deferredTasks || {};
         this.data.lastModified = parsed.lastModified || null;
       }
     } catch (e) {
@@ -329,7 +333,6 @@ const AppState = {
           this.updateSyncBadge('online', 'Cloud Synced (Live)');
           return;
         } else {
-          // Document does not exist yet: push current local state to cloud if authenticated
           if (AuthManager.isAuthenticated()) {
             await this.pushToCloud();
           }
@@ -340,7 +343,6 @@ const AppState = {
       console.warn('Cloud fetch notice:', e);
     }
     
-    // Offline or network unreachable
     if (!this.cloudConnected) {
       this.updateSyncBadge('offline', 'Saved Locally (Offline)');
     } else {
@@ -348,31 +350,31 @@ const AppState = {
     }
   },
 
-  reconcileData(incoming) {
-    if (!incoming) return;
-    const localTime = this.data.lastModified ? new Date(this.data.lastModified).getTime() : 0;
-    const cloudTime = incoming.lastModified ? new Date(incoming.lastModified).getTime() : 0;
+  reconcileData(cloudData) {
+    const localTasks = this.data.tasks || {};
+    const cloudTasks = cloudData.tasks || {};
+    const localNotes = this.data.notes || {};
+    const cloudNotes = cloudData.notes || {};
+    const localActivity = this.data.activityLog || {};
+    const cloudActivity = cloudData.activityLog || {};
+    const localDeferred = this.data.deferredTasks || {};
+    const cloudDeferred = cloudData.deferredTasks || {};
 
-    if (cloudTime >= localTime) {
-      // Cloud is newer or equal: adopt cloud state
-      this.data.tasks = incoming.tasks || {};
-      this.data.notes = incoming.notes || {};
-      this.data.lastModified = incoming.lastModified;
-    } else {
-      // Local has newer changes made offline: push local changes to cloud
-      this.scheduleCloudSync();
-    }
-  },
-
-  updateSyncBadge(status, text) {
-    const badges = document.querySelectorAll('.sync-badge');
-    badges.forEach(badge => {
-      badge.className = `sync-badge ${status}`;
-      const label = badge.querySelector('.sync-text');
-      if (label) label.textContent = text;
-      badge.onclick = () => openCloudSyncModal();
-      badge.style.cursor = 'pointer';
+    const mergedTasks = { ...cloudTasks, ...localTasks };
+    const mergedNotes = { ...cloudNotes, ...localNotes };
+    const mergedDeferred = { ...cloudDeferred, ...localDeferred };
+    
+    // Merge activity counts
+    const mergedActivity = { ...cloudActivity };
+    Object.keys(localActivity).forEach(date => {
+      mergedActivity[date] = Math.max(mergedActivity[date] || 0, localActivity[date] || 0);
     });
+
+    this.data.tasks = mergedTasks;
+    this.data.notes = mergedNotes;
+    this.data.activityLog = mergedActivity;
+    this.data.deferredTasks = mergedDeferred;
+    this.data.lastModified = cloudData.lastModified || this.data.lastModified;
   },
 
   saveLocal() {
@@ -387,20 +389,56 @@ const AppState = {
     return !!this.data.tasks[id];
   },
 
+  isTaskDeferred(id) {
+    return !!(this.data.deferredTasks && this.data.deferredTasks[id]);
+  },
+
   setTask(id, done) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+      showToast('⚠️ Workspace is locked. Unlock to edit.');
       AuthManager.updateUIState();
       return;
     }
+    const todayStr = new Date().toISOString().slice(0, 10);
+    if (!this.data.activityLog) this.data.activityLog = {};
+
     if (done) {
       this.data.tasks[id] = true;
+      this.data.activityLog[todayStr] = (this.data.activityLog[todayStr] || 0) + 1;
+      // If task was deferred, remove deferral once completed
+      if (this.data.deferredTasks && this.data.deferredTasks[id]) {
+        delete this.data.deferredTasks[id];
+      }
     } else {
       delete this.data.tasks[id];
+      if (this.data.activityLog[todayStr]) {
+        this.data.activityLog[todayStr] = Math.max(0, this.data.activityLog[todayStr] - 1);
+      }
     }
     this.data.lastModified = new Date().toISOString();
     this.saveLocal();
     this.scheduleCloudSync();
+    this.notifyDataUpdated();
+  },
+
+  deferTask(id, defer = true) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('⚠️ Workspace is locked. Unlock to edit.');
+      AuthManager.updateUIState();
+      return;
+    }
+    if (!this.data.deferredTasks) this.data.deferredTasks = {};
+    if (defer) {
+      this.data.deferredTasks[id] = new Date().toISOString().slice(0, 10);
+      showToast('⏳ Task deferred to Weekend Lab block (Zero guilt!)');
+    } else {
+      delete this.data.deferredTasks[id];
+      showToast('Task returned to regular weekday schedule');
+    }
+    this.data.lastModified = new Date().toISOString();
+    this.saveLocal();
+    this.scheduleCloudSync();
+    this.notifyDataUpdated();
   },
 
   getNote(weekNum) {
@@ -409,7 +447,7 @@ const AppState = {
 
   setNote(weekNum, text) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+      showToast('⚠️ Workspace is locked. Unlock to edit.');
       AuthManager.updateUIState();
       return;
     }
@@ -451,13 +489,25 @@ const AppState = {
         this.cloudConnected = true;
         this.lastSyncTime = new Date();
         this.updateSyncBadge('online', 'Cloud Synced (Live)');
+      } else {
+        this.updateSyncBadge('offline', 'Saved Locally');
       }
     } catch (e) {
-      console.warn('Push to cloud notice:', e);
-      this.updateSyncBadge('offline', 'Saved Locally (Offline)');
+      console.warn('Cloud sync error:', e);
+      this.updateSyncBadge('offline', 'Saved Locally');
     } finally {
       this.isSyncing = false;
     }
+  },
+
+  updateSyncBadge(status, text) {
+    const badges = document.querySelectorAll('.sync-badge');
+    badges.forEach(badge => {
+      badge.className = `sync-badge ${status}`;
+      const textEl = badge.querySelector('.sync-text');
+      if (textEl) textEl.textContent = text;
+      badge.onclick = () => openCloudSyncModal();
+    });
   },
 
   initCloudSyncModal() {
@@ -465,27 +515,36 @@ const AppState = {
 
     const modal = document.createElement('div');
     modal.id = 'cloud-sync-modal';
-    modal.className = 'modal-overlay';
+    modal.className = 'cloud-modal';
     modal.innerHTML = `
-      <div class="modal-card">
-        <h2 class="modal-title">☁️ Live Cloud Sync</h2>
-        <p class="modal-desc">
-          Your progress is automatically saved to your cloud database in real time across phone, laptop, and tablet.
-        </p>
-
-        <div style="background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:1rem; margin-bottom:1.25rem;">
-          <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
-            <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--success); box-shadow:0 0 8px var(--success);"></span>
-            <strong style="font-size:0.9rem; color:var(--text-primary);">Automatic Cloud Sync Active</strong>
-          </div>
-          <p style="font-size:0.8rem; color:var(--text-secondary); margin:0;" id="cloud-last-sync-text">
-            Continuous background sync enabled across all devices.
-          </p>
+      <div class="cloud-modal-content">
+        <div class="cloud-modal-header">
+          <span class="cloud-modal-title">☁️ Live Cloud Sync &amp; Backup</span>
+          <button class="cloud-modal-close" onclick="closeCloudSyncModal()">&times;</button>
         </div>
-
-        <div class="modal-actions" style="justify-content:space-between;">
-          <button class="nav-btn" style="background:var(--accent-primary); color:white; border-color:var(--accent-primary);" onclick="manualForceSync()">Sync Now</button>
-          <button class="nav-btn" onclick="closeCloudSyncModal()">Close</button>
+        <div class="cloud-modal-body">
+          <p>Your checklist and streak automatically synchronize with your encrypted cloud database on every change.</p>
+          <div class="cloud-status-box">
+            <div class="cloud-status-row">
+              <span>Status:</span>
+              <span id="cloud-status-val" style="color: var(--success); font-weight: 600;">Active &bull; Real-Time</span>
+            </div>
+            <div class="cloud-status-row">
+              <span>Database:</span>
+              <span>Supabase REST API (SSL)</span>
+            </div>
+            <div class="cloud-status-row">
+              <span>Device Key:</span>
+              <span><code>swaraj_placement_roadmap</code></span>
+            </div>
+          </div>
+          <p id="cloud-last-sync-text" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Last synced with cloud: Just now
+          </p>
+          <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+            <button class="nav-btn" onclick="closeCloudSyncModal()">Close</button>
+            <button class="nav-btn" style="background: var(--accent-primary); color: white;" onclick="manualForceSync()">Sync Now &rarr;</button>
+          </div>
         </div>
       </div>
     `;
@@ -522,56 +581,88 @@ const AppState = {
   }
 };
 
-// Modal helpers
-function openCloudSyncModal() {
-  const modal = document.getElementById('cloud-sync-modal');
-  if (!modal) return;
-  const syncText = document.getElementById('cloud-last-sync-text');
-  if (syncText && AppState.lastSyncTime) {
-    syncText.textContent = `Last synced with cloud: ${AppState.lastSyncTime.toLocaleTimeString()}`;
+// ==========================================================================
+// Streak Engine & Analytics
+// ==========================================================================
+const StreakEngine = {
+  getStats(activityLog = {}) {
+    const dates = Object.keys(activityLog).filter(d => (activityLog[d] || 0) > 0).sort();
+    if (dates.length === 0) {
+      // Seed streak if tasks are already done
+      const completedCount = Object.keys(AppState.data.tasks || {}).length;
+      if (completedCount > 0) {
+        return { current: 1, longest: 1, totalDays: 1, todayDone: false };
+      }
+      return { current: 0, longest: 0, totalDays: 0, todayDone: false };
+    }
+
+    const dateSet = new Set(dates);
+    const today = new Date();
+    const todayStr = today.toISOString().slice(0, 10);
+
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().slice(0, 10);
+
+    const todayDone = dateSet.has(todayStr);
+
+    let currentStreak = 0;
+    let checkDate = new Date(today);
+
+    // If today is not yet done, check if yesterday was done to keep streak alive
+    if (!todayDone) {
+      if (dateSet.has(yesterdayStr)) {
+        checkDate = yesterday;
+      } else {
+        checkDate = null;
+      }
+    }
+
+    if (checkDate) {
+      while (true) {
+        const dStr = checkDate.toISOString().slice(0, 10);
+        if (dateSet.has(dStr)) {
+          currentStreak++;
+          checkDate.setDate(checkDate.getDate() - 1);
+        } else {
+          break;
+        }
+      }
+    }
+
+    // Longest streak calculation
+    let longestStreak = 0;
+    let tempStreak = 0;
+    let prevDate = null;
+
+    dates.forEach(dStr => {
+      const curDate = new Date(dStr + 'T00:00:00');
+      if (!prevDate) {
+        tempStreak = 1;
+      } else {
+        const diffDays = Math.round((curDate - prevDate) / (1000 * 60 * 60 * 24));
+        if (diffDays === 1) {
+          tempStreak++;
+        } else if (diffDays > 1) {
+          tempStreak = 1;
+        }
+      }
+      if (tempStreak > longestStreak) longestStreak = tempStreak;
+      prevDate = curDate;
+    });
+
+    return {
+      current: currentStreak,
+      longest: Math.max(longestStreak, currentStreak),
+      totalDays: dates.length,
+      todayDone: todayDone
+    };
   }
-  modal.classList.add('open');
-}
+};
 
-function closeCloudSyncModal() {
-  const modal = document.getElementById('cloud-sync-modal');
-  if (modal) modal.classList.remove('open');
-}
-
-async function manualForceSync() {
-  if (!AuthManager.isAuthenticated()) {
-    showToast('Please unlock with PIN first');
-    AuthManager.updateUIState();
-    return;
-  }
-  showToast('Syncing with cloud...');
-  await AppState.fetchFromCloud();
-  await AppState.pushToCloud();
-  showToast('✓ Synced with cloud!');
-  closeCloudSyncModal();
-}
-
-// Auto-start AppState
-AppState.init();
-
-// --- Toast Notification ---
-function showToast(msg) {
-  let toast = document.getElementById('app-toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'app-toast';
-    toast.className = 'toast';
-    document.body.appendChild(toast);
-  }
-  toast.textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toast._timer);
-  toast._timer = setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2400);
-}
-
-// --- Week Page Controller ---
+// ==========================================================================
+// Week Page Controller
+// ==========================================================================
 function initWeekPage(weekNum) {
   function syncUI() {
     const checkboxes = document.querySelectorAll('.task-checkbox');
@@ -580,6 +671,7 @@ function initWeekPage(weekNum) {
       const isDone = AppState.isTaskDone(taskId);
       cb.checked = isDone;
       updateTaskItemVisual(cb, isDone);
+      updateDeferBtnVisual(taskId);
     });
 
     const notesArea = document.getElementById('week-notes');
@@ -589,6 +681,7 @@ function initWeekPage(weekNum) {
 
     updateWeekProgress();
     updateDayProgress();
+    renderWeekendDeferredQueue(weekNum);
   }
 
   AppState.onDataLoaded(() => {
@@ -601,30 +694,45 @@ function initWeekPage(weekNum) {
     const taskId = cb.getAttribute('data-task-id');
     cb.checked = AppState.isTaskDone(taskId);
     updateTaskItemVisual(cb, cb.checked);
+    updateDeferBtnVisual(taskId);
 
     cb.addEventListener('change', () => {
       if (!AuthManager.isAuthenticated()) {
         cb.checked = !cb.checked;
-        showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+        showToast('⚠️ Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
         return;
       }
       const checked = cb.checked;
       AppState.setTask(taskId, checked);
       updateTaskItemVisual(cb, checked);
+      updateDeferBtnVisual(taskId);
       updateWeekProgress();
       updateDayProgress();
       
       if (checked && isWeekAllDone()) {
-        showToast('🎉 Awesome! Week complete! Saved.');
+        showToast('🎉 Outstanding! All Week tasks completed & logged!');
       }
+    });
+  });
+
+  // 2. Defer buttons setup
+  document.querySelectorAll('.btn-defer').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const taskId = btn.getAttribute('data-task-id');
+      const isCurrentlyDeferred = AppState.isTaskDeferred(taskId);
+      AppState.deferTask(taskId, !isCurrentlyDeferred);
+      updateDeferBtnVisual(taskId);
+      renderWeekendDeferredQueue(weekNum);
     });
   });
 
   updateWeekProgress();
   updateDayProgress();
+  renderWeekendDeferredQueue(weekNum);
 
-  // 2. Track Filtering setup (Day pills removed per requirement)
+  // 3. Track Filtering setup
   const trackPills = document.querySelectorAll('.track-filter-pill');
   trackPills.forEach(pill => {
     pill.addEventListener('click', () => {
@@ -634,7 +742,7 @@ function initWeekPage(weekNum) {
     });
   });
 
-  // 3. Quick Actions
+  // 4. Quick Actions
   const btnCopySummary = document.getElementById('btn-copy-summary');
   if (btnCopySummary) {
     btnCopySummary.addEventListener('click', () => {
@@ -642,7 +750,7 @@ function initWeekPage(weekNum) {
     });
   }
 
-  // 4. Notes Scratchpad auto-save
+  // 5. Notes Scratchpad auto-save
   const notesArea = document.getElementById('week-notes');
   const saveStatus = document.getElementById('notes-save-status');
   if (notesArea) {
@@ -650,7 +758,7 @@ function initWeekPage(weekNum) {
     let timeout;
     notesArea.addEventListener('input', () => {
       if (!AuthManager.isAuthenticated()) {
-        showToast('⚠️ Workspace is locked. Unlock with PIN to edit.');
+        showToast('⚠️ Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
         return;
       }
@@ -665,7 +773,7 @@ function initWeekPage(weekNum) {
     });
   }
 
-  // 5. Keyboard navigation
+  // 6. Keyboard navigation
   window.addEventListener('keydown', (e) => {
     if (['TEXTAREA', 'INPUT', 'SELECT'].includes(document.activeElement.tagName)) return;
     
@@ -693,6 +801,80 @@ function initWeekPage(weekNum) {
   }
 }
 
+function updateDeferBtnVisual(taskId) {
+  const btn = document.querySelector(`.btn-defer[data-task-id="${taskId}"]`);
+  const item = document.querySelector(`.task-item[data-task-id="${taskId}"]`);
+  const isDeferred = AppState.isTaskDeferred(taskId);
+  const isDone = AppState.isTaskDone(taskId);
+
+  if (item) {
+    if (isDeferred && !isDone) {
+      item.classList.add('deferred');
+    } else {
+      item.classList.remove('deferred');
+    }
+  }
+
+  if (btn) {
+    if (isDone) {
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = 'inline-flex';
+      if (isDeferred) {
+        btn.classList.add('active');
+        btn.innerHTML = '⏳ Deferred to Weekend';
+      } else {
+        btn.classList.remove('active');
+        btn.innerHTML = '⏳ Defer';
+      }
+    }
+  }
+}
+
+function renderWeekendDeferredQueue(weekNum) {
+  const containers = document.querySelectorAll('.weekend-deferred-container');
+  if (!containers || containers.length === 0) return;
+
+  const deferredIds = Object.keys(AppState.data.deferredTasks || {});
+  const prefix = `w${weekNum}_`;
+  const weekDeferred = deferredIds.filter(id => id.startsWith(prefix) && !AppState.isTaskDone(id));
+
+  containers.forEach(box => {
+    if (weekDeferred.length === 0) {
+      box.style.display = 'none';
+      box.innerHTML = '';
+      return;
+    }
+
+    box.style.display = 'block';
+    let listHtml = '';
+    weekDeferred.forEach(tid => {
+      const originalItem = document.querySelector(`.task-item[data-task-id="${tid}"]`);
+      const rawText = originalItem ? originalItem.querySelector('.task-text')?.innerText : tid;
+      listHtml += `
+        <div class="deferred-backlog-row">
+          <label class="custom-checkbox">
+            <input type="checkbox" onchange="AppState.setTask('${tid}', this.checked); this.closest('.deferred-backlog-row').remove();">
+            <div class="checkbox-visual"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </label>
+          <span class="deferred-backlog-text">${rawText}</span>
+          <button type="button" class="btn-undefer" onclick="AppState.deferTask('${tid}', false); renderWeekendDeferredQueue(${weekNum});">Return to Day</button>
+        </div>
+      `;
+    });
+
+    box.innerHTML = `
+      <div class="deferred-backlog-header">
+        <span class="deferred-backlog-title">📌 Deferred Weekday Backlog (${weekDeferred.length})</span>
+        <span class="deferred-backlog-hint">Tackle during your 4.0h Lab block</span>
+      </div>
+      <div class="deferred-backlog-list">
+        ${listHtml}
+      </div>
+    `;
+  });
+}
+
 function updateTaskItemVisual(checkbox, isChecked) {
   const item = checkbox.closest('.task-item') || checkbox.closest('.deliverable-item');
   if (item) {
@@ -713,7 +895,6 @@ function updateWeekProgress() {
   });
 
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-  
   const fill = document.getElementById('week-progress-fill');
   const stats = document.getElementById('week-progress-stats');
   
@@ -789,8 +970,207 @@ function copyWeekSummaryToClipboard(weekNum) {
   });
 }
 
-// --- Dashboard (index.html) Controller ---
+// ==========================================================================
+// Dashboard (index.html) Controller & Today's Focus Engine
+// ==========================================================================
 function initDashboard(roadmapData) {
+  let selectedWeekNum = 1;
+  let selectedDayCode = 'Mon';
+
+  function findFirstIncomplete() {
+    for (const w of roadmapData) {
+      for (const d of w.days) {
+        const hasIncomplete = d.tasks.some(t => !t.is_rest && !AppState.isTaskDone(t.id));
+        if (hasIncomplete) {
+          return { weekNum: w.week_num, dayCode: d.day_code };
+        }
+      }
+    }
+    return { weekNum: 1, dayCode: 'Mon' };
+  }
+
+  // Initialize selected day to active incomplete day
+  const active = findFirstIncomplete();
+  selectedWeekNum = active.weekNum;
+  selectedDayCode = active.dayCode;
+
+  function renderTodayCommandCenter() {
+    const card = document.getElementById('today-focus-card');
+    if (!card) return;
+
+    const currentWeek = roadmapData.find(w => w.week_num === selectedWeekNum) || roadmapData[0];
+    const currentDay = currentWeek.days.find(d => d.day_code === selectedDayCode) || currentWeek.days[0];
+    const isWeekend = ['Sat', 'Sun'].includes(currentDay.day_code);
+
+    const titleEl = document.getElementById('today-day-title');
+    if (titleEl) {
+      titleEl.innerHTML = `<strong>${currentDay.day_name}</strong> &bull; Week ${String(currentWeek.week_num).padStart(2, '0')}`;
+    }
+
+    const budgetEl = document.getElementById('today-budget-pill');
+    if (budgetEl) {
+      budgetEl.className = `day-budget-pill ${isWeekend ? 'weekend' : 'weekday'}`;
+      budgetEl.textContent = isWeekend ? '⚡ 8h Deep Focus' : '⏱️ 4h Budget';
+    }
+
+    const openWeekLink = document.getElementById('today-open-week-link');
+    if (openWeekLink) {
+      openWeekLink.setAttribute('href', `weeks/week-${String(currentWeek.week_num).padStart(2, '0')}.html`);
+      openWeekLink.innerHTML = `<span>View Week ${currentWeek.week_num} Checklist</span> &rarr;`;
+    }
+
+    // Populate Day Picker Select
+    const picker = document.getElementById('today-day-picker');
+    if (picker && !picker._initialized) {
+      picker._initialized = true;
+      picker.innerHTML = '';
+      currentWeek.days.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d.day_code;
+        opt.textContent = `${d.day_name} (${['Sat','Sun'].includes(d.day_code)?'8h':'4h'})`;
+        if (d.day_code === selectedDayCode) opt.selected = true;
+        picker.appendChild(opt);
+      });
+      picker.addEventListener('change', (e) => {
+        selectedDayCode = e.target.value;
+        renderTodayCommandCenter();
+      });
+    }
+
+    // Render Tasks
+    const listContainer = document.getElementById('today-tasks-list');
+    if (!listContainer) return;
+
+    let tasksHtml = '';
+    let completedCount = 0;
+    let totalEstimatedMinutes = 0;
+    let completedEstimatedMinutes = 0;
+
+    currentDay.tasks.forEach(t => {
+      const isDone = AppState.isTaskDone(t.id);
+      const isDeferred = AppState.isTaskDeferred(t.id);
+      if (isDone) completedCount++;
+
+      let duration = '2.5h';
+      let mins = 150;
+      if (t.track_id === 'dsa') {
+        duration = '1.5h';
+        mins = 90;
+      } else if (isWeekend && t.track_id === 'aiml') {
+        duration = '4.0h';
+        mins = 240;
+      }
+      totalEstimatedMinutes += mins;
+      if (isDone) completedEstimatedMinutes += mins;
+
+      const deferBtnHtml = (!isWeekend && !isDone) ? `
+        <button type="button" class="btn-defer ${isDeferred ? 'active' : ''}" onclick="AppState.deferTask('${t.id}', ${!isDeferred});">
+          ${isDeferred ? '⏳ Deferred to Weekend' : '⏳ Defer'}
+        </button>
+      ` : '';
+
+      tasksHtml += `
+        <div class="today-task-row ${isDone ? 'completed' : ''} ${isDeferred && !isDone ? 'deferred' : ''}" data-task-id="${t.id}">
+          <label class="custom-checkbox">
+            <input type="checkbox" class="today-task-checkbox" data-task-id="${t.id}" ${isDone ? 'checked' : ''} onchange="AppState.setTask('${t.id}', this.checked)">
+            <div class="checkbox-visual">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </label>
+          <div class="today-task-content">
+            <div class="today-task-meta">
+              <span class="track-tag ${t.track_id}">${t.track_name}</span>
+              <span class="time-estimate-pill">⏱️ ${duration}</span>
+              ${deferBtnHtml}
+            </div>
+            <div class="today-task-text">${t.html}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    listContainer.innerHTML = tasksHtml;
+
+    // Progress Bar in Today's Card
+    const progressFill = document.getElementById('today-progress-bar-fill');
+    const progressText = document.getElementById('today-progress-text');
+    const pct = currentDay.tasks.length > 0 ? Math.round((completedCount / currentDay.tasks.length) * 100) : 0;
+    
+    if (progressFill) progressFill.style.width = `${pct}%`;
+    if (progressText) {
+      const remainingMins = Math.max(0, totalEstimatedMinutes - completedEstimatedMinutes);
+      const remainingHours = (remainingMins / 60).toFixed(1);
+      if (completedCount === currentDay.tasks.length && completedCount > 0) {
+        progressText.innerHTML = `<strong>🎉 All tasks finished for today!</strong> Total logged: ${(totalEstimatedMinutes/60).toFixed(1)}h`;
+      } else {
+        progressText.innerHTML = `${completedCount} of ${currentDay.tasks.length} done &bull; <strong>${remainingHours}h remaining</strong>`;
+      }
+    }
+  }
+
+  function renderStreakAndHeatmap() {
+    const stats = StreakEngine.getStats(AppState.data.activityLog || {});
+
+    // Update streak stats bar
+    const elCurrent = document.getElementById('streak-current-val');
+    if (elCurrent) elCurrent.textContent = `${stats.current} Days`;
+
+    const elLongest = document.getElementById('streak-longest-val');
+    if (elLongest) elLongest.textContent = `${stats.longest} Days`;
+
+    const elTotal = document.getElementById('streak-total-val');
+    if (elTotal) elTotal.textContent = `${stats.totalDays} Days`;
+
+    const elTodayStatus = document.getElementById('streak-today-status');
+    if (elTodayStatus) {
+      if (stats.todayDone) {
+        elTodayStatus.innerHTML = '<span class="status-badge-done">✓ Logged Today</span>';
+      } else {
+        elTodayStatus.innerHTML = '<span class="status-badge-pending">⏳ Pending Today</span>';
+      }
+    }
+
+    // Render Compact Heatmap Grid (Last 16 weeks = 112 days)
+    const heatmapGrid = document.getElementById('activity-heatmap-grid');
+    if (!heatmapGrid) return;
+
+    const activityLog = AppState.data.activityLog || {};
+    const today = new Date();
+    const daysToShow = 112; // 16 weeks * 7 days
+    const startDate = new Date(today);
+    startDate.setDate(today.getDate() - daysToShow + 1);
+
+    // Adjust startDate so it aligns with Monday
+    const dayOfWeek = (startDate.getDay() + 6) % 7; // 0 = Mon, 6 = Sun
+    startDate.setDate(startDate.getDate() - dayOfWeek);
+
+    let cellsHtml = '';
+    const iterDate = new Date(startDate);
+
+    while (iterDate <= today) {
+      const dStr = iterDate.toISOString().slice(0, 10);
+      const count = activityLog[dStr] || 0;
+      
+      let lvl = 0;
+      if (count >= 3) lvl = 3;
+      else if (count === 2) lvl = 2;
+      else if (count === 1) lvl = 1;
+
+      const isTodayCell = dStr === today.toISOString().slice(0, 10);
+      const cellTitle = `${dStr}: ${count} task${count === 1 ? '' : 's'} completed`;
+
+      cellsHtml += `
+        <div class="heatmap-cell lvl-${lvl} ${isTodayCell ? 'is-today' : ''}" 
+             data-date="${dStr}" 
+             data-count="${count}" 
+             title="${cellTitle}"></div>
+      `;
+      iterDate.setDate(iterDate.getDate() + 1);
+    }
+
+    heatmapGrid.innerHTML = cellsHtml;
+  }
+
   function renderDashboardStats() {
     let totalTasksGlobal = 0;
     let completedTasksGlobal = 0;
@@ -867,6 +1247,9 @@ function initDashboard(roadmapData) {
       resumeBtn.setAttribute('href', `weeks/week-${padded}.html`);
       resumeBtn.innerHTML = `Continue Week ${targetWeek} &rarr;`;
     }
+
+    renderTodayCommandCenter();
+    renderStreakAndHeatmap();
   }
 
   renderDashboardStats();
