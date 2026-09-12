@@ -59,38 +59,16 @@
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Header Navigation (Code 1 Exact Architecture) -->
+  <!-- Header Navigation -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-md border-b border-outline-variant/20 dark:border-white/5 transition-colors">
-    <div class="h-16 max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
-      <!-- Brand & Mission Tag -->
-      <div class="flex items-center gap-3 shrink-0">
-        <div class="flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-low/90 border border-outline-variant/30 dark:border-white/10">
-          <span class="font-headline text-xs font-bold text-on-surface tracking-wide">Cockpit</span>
-        </div>
+    <div class="h-16 max-w-6xl mx-auto px-6 flex items-center justify-end gap-3">
+      <!-- Right Vitals: Streak & Sync -->
+      <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low/90 border border-outline-variant/20 dark:border-white/5">
+        <span class="material-symbols-outlined text-[14px] text-error">local_fire_department</span>
+        <span class="font-mono text-xs font-semibold text-on-surface" id="streak-stat-badge">0d</span>
       </div>
-
-      <!-- Center Segmented Pill Navigation -->
-      <nav class="flex items-center bg-surface-container-lowest/80 dark:bg-black/40 p-1 rounded-full border border-outline-variant/25 dark:border-white/10 shadow-inner">
-        <a href="#today" data-path="today" class="nav-segmented-btn px-3.5 py-1 rounded-full text-xs font-semibold text-on-surface bg-surface-container-high transition-all shadow-[0_1px_2px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,0.08)] cursor-pointer">Today</a>
-        <a href="#roadmap" data-path="roadmap" class="nav-segmented-btn px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium cursor-pointer">Roadmap</a>
-        <a href="#telemetry" data-path="telemetry" class="nav-segmented-btn px-3.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium cursor-pointer">Telemetry</a>
-      </nav>
-
-      <!-- Right Vitals & Interactive Controls -->
-      <div class="flex items-center gap-2.5 shrink-0">
-        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low/90 border border-outline-variant/20 dark:border-white/5">
-          <span class="material-symbols-outlined text-[14px] text-error">local_fire_department</span>
-          <span class="font-mono text-xs font-semibold text-on-surface" id="streak-stat-badge">0d</span>
-        </div>
-        <div class="sync-badge saving flex items-center gap-1.5 px-2 py-1 cursor-pointer" title="Supabase Live Cloud Sync">
-          <span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse sync-dot"></span>
-        </div>
-        <button type="button" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all active:scale-95 border border-transparent hover:border-outline-variant/20 flex items-center justify-center cursor-pointer" id="theme-toggle-btn" aria-label="Toggle visual theme">
-          <span class="material-symbols-outlined text-[19px]" id="theme-icon">dark_mode</span>
-        </button>
-        <button type="button" class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center hover:ring-2 ring-primary/30 transition-all shadow-sm cursor-pointer" aria-label="Executive Profile">
-          <span class="font-mono text-xs font-bold text-primary">SK</span>
-        </button>
+      <div class="sync-badge saving flex items-center gap-1.5 px-2 py-1 cursor-pointer" title="Supabase Live Cloud Sync">
+        <span class="h-1.5 w-1.5 rounded-full bg-tertiary animate-pulse sync-dot"></span>
       </div>
     </div>
   </header>
@@ -135,21 +113,15 @@
 
         <!-- 2. Today's Execution Queue (Code 1 Exact Architecture) -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="today">
-          <div class="px-5 py-4 border-b border-outline-variant/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest/50">
+          <div class="px-5 py-4 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-3">
               <h2 class="font-headline text-base font-semibold text-on-surface">Today</h2>
               <span class="text-outline-variant/40">&bull;</span>
               <span class="text-xs text-on-surface-variant" id="today-day-title">Loading schedule...</span>
             </div>
-            <div class="flex items-center gap-3">
-              <select id="today-day-picker" class="bg-surface-container border border-outline-variant/30 rounded-lg text-xs font-mono text-on-surface px-2.5 py-1 focus:outline-none focus:border-primary cursor-pointer" aria-label="Switch Active Day"></select>
-              <a href="weeks/week-01.html" id="today-open-week-link" class="text-xs font-mono text-primary hover:underline font-semibold flex items-center gap-1 cursor-pointer">
-                <span>Open Week</span> &rarr;
-              </a>
-              <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs pl-2 border-l border-outline-variant/20">
-                <span class="text-on-surface font-semibold" id="queue-completed-counter">0</span> of <span id="queue-total-counter">0</span> completed
-                <span class="text-primary text-[11px] font-semibold ml-1" id="queue-percent">0%</span>
-              </div>
+            <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
+              <span class="text-on-surface font-semibold" id="queue-completed-counter">0</span> of <span id="queue-total-counter">0</span> completed
+              <span class="text-primary text-[11px] font-semibold ml-1" id="queue-percent">0%</span>
             </div>
           </div>
 
@@ -164,54 +136,6 @@
           </div>
         </section>
 
-        <!-- 3. Subsystem Workload Distribution (Code 1 Exact) -->
-        <section class="flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xs uppercase tracking-wider text-on-surface-variant font-medium">Workload Balance</h3>
-            <span class="text-xs text-on-surface-variant" id="workload-summary-label">13.7h logged</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="p-3.5 rounded-xl cockpit-glass">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-medium text-on-surface">DSA &amp; Java</span>
-                <span class="font-mono text-xs text-on-surface-variant" id="workload-dsa-pct">34%</span>
-              </div>
-              <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-primary rounded-full transition-all duration-300" id="workload-dsa-bar" style="width: 34%"></div>
-              </div>
-            </div>
-
-            <div class="p-3.5 rounded-xl cockpit-glass">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-medium text-on-surface">Applied AI &amp; ML</span>
-                <span class="font-mono text-xs text-on-surface-variant" id="workload-aiml-pct">26%</span>
-              </div>
-              <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-tertiary rounded-full transition-all duration-300" id="workload-aiml-bar" style="width: 26%"></div>
-              </div>
-            </div>
-
-            <div class="p-3.5 rounded-xl cockpit-glass">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-medium text-on-surface">Core CS</span>
-                <span class="font-mono text-xs text-on-surface-variant" id="workload-corecs-pct">31%</span>
-              </div>
-              <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-secondary rounded-full transition-all duration-300" id="workload-corecs-bar" style="width: 31%"></div>
-              </div>
-            </div>
-
-            <div class="p-3.5 rounded-xl cockpit-glass">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-medium text-on-surface">Backend</span>
-                <span class="font-mono text-xs text-on-surface-variant" id="workload-backend-pct">21%</span>
-              </div>
-              <div class="w-full h-1 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-surface-container-high rounded-full transition-all duration-300" id="workload-backend-bar" style="width: 21%"></div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- 4. 50-Week Execution Cadence (Heatmap Matrix - Code 1 Exact) -->
         <section class="p-5 rounded-xl cockpit-glass flex flex-col gap-4 shadow-xl" id="telemetry">
@@ -1139,13 +1063,7 @@
     </div>
   </main>
 
-  <!-- Executive Footer -->
-  <footer class="w-full border-t border-outline-variant/20 dark:border-white/5 bg-surface-container-lowest/90 backdrop-blur-md py-6 transition-colors">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-on-surface-variant text-xs font-mono">
-      <div>Cockpit</div>
-      <div>Target July 2027</div>
-    </div>
-  </footer>
+
 
   <script src="js/roadmap-data.js"></script>
   <script src="js/app.js"></script>
