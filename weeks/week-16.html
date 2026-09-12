@@ -59,75 +59,39 @@
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
+  <!-- Semi-Transparent Glassmorphism Top Bar (Sticks in place while page scrolls) -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-background/70 border-b border-white/[0.08] select-none py-3.5 transition-all">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
+      <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
+        <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        <span>Dashboard</span>
+      </a>
+
+      <div class="flex flex-col items-center text-center min-w-0 flex-1 px-3">
+        <span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Phase 4 &bull; Week 16</span>
+        <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">Greedy, CN begins, What a neural network actually is</h1>
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        <a href="week-15.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Previous Week (W15)"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>
+        <a href="week-17.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Next Week (W17)"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+      </div>
+    </div>
+  </header>
+
   <!-- Main Executive Console Content -->
-  <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
+  <main class="w-full pt-6 pb-16 min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- In-Flow Header Navigation (No Sticky Navbar) -->
-        <header class="flex items-center justify-between gap-4 pb-1 select-none">
-          <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
-            <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
-            <span>Dashboard</span>
-          </a>
-
-          <div class="flex flex-col items-center text-center min-w-0 flex-1 px-2">
-            <span class="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Phase 4 &bull; Week 16</span>
-            <h1 class="font-headline text-base sm:text-lg font-bold text-on-surface tracking-tight truncate max-w-full">Greedy, CN begins, What a neural network actually is</h1>
+        <!-- Weekly Deliverable / Priority 1 Target Card -->
+        <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <div class="text-xs text-on-surface-variant font-medium">Weekly Deliverable</div>
+            <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">Priority 1 Target</span>
           </div>
-
-          <div class="flex items-center gap-1.5 shrink-0">
-            <a href="week-15.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Previous Week (W15)"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>
-            <a href="week-17.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Next Week (W17)"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
-          </div>
-        </header>
-
-        <!-- Executive Vitals Bar (Hero Metrics: Progress + Deliverable) -->
-        <section class="grid grid-cols-1 md:grid-cols-4 gap-3.5">
-          <!-- Week Progress Box (1 col) -->
-          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 md:col-span-1 flex flex-col justify-between">
-            <div>
-              <div class="text-xs text-on-surface-variant font-medium mb-1">Week Progress</div>
-              <div class="font-mono text-2xl font-bold text-on-surface tracking-tight" id="progress-percent">0%</div>
-            </div>
-            <div class="mt-3">
-              <div class="flex items-center justify-between text-[11px] text-on-surface-variant font-mono mb-1.5">
-                <span><span id="completed-count" class="text-on-surface font-semibold">0</span> of <span id="total-count">16</span> done</span>
-                <span id="logged-hours-label">0.0h</span>
-              </div>
-              <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full bg-primary rounded-full transition-all duration-500" id="progress-bar-fill" style="width: 0%"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Weekly Deliverable / Milestone Box (3 cols elongated) -->
-          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 md:col-span-3 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-1.5">
-                <div class="text-xs text-on-surface-variant font-medium">Weekly Deliverable</div>
-                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold">Priority 1 Target</span>
-              </div>
-              <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><strong class="text-on-surface font-semibold">Deliverable:</strong> Greedy done. You can explain what a neuron, a layer, activation functions, and gradient descent-for-NNs are, conceptually.</div>
-            </div>
-            <div class="mt-3 flex items-center justify-between text-[11px] text-on-surface-variant font-mono pt-2 border-t border-outline-variant/10">
-              <span>Standard Cycle: 4.0h Weekdays &bull; 8.0h Weekend Focus</span>
-              <button type="button" class="text-primary hover:text-on-surface transition-colors cursor-pointer flex items-center gap-1" id="copy-summary-btn">
-                <span class="material-symbols-outlined text-[14px]">content_copy</span>
-                <span id="copy-btn-text">Copy Summary</span>
-              </button>
-            </div>
-          </div>
+          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><strong class="text-on-surface font-semibold">Deliverable:</strong> Greedy done. You can explain what a neuron, a layer, activation functions, and gradient descent-for-NNs are, conceptually.</div>
         </section>
-
-        <!-- Category Filters Strip -->
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none" id="filter-container">
-          <button class="filter-btn active-filter px-3 py-1.5 rounded-lg bg-white/10 text-white font-mono text-xs font-semibold border border-white/20 transition-all cursor-pointer shrink-0" data-filter="all" type="button">All (16)</button>
-          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-primary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="dsa" type="button">DSA &amp; Java (7)</button>
-          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-tertiary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="aiml" type="button">AI / ML (5)</button>
-          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-secondary font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="corecs" type="button">Core CS (2)</button>
-          <button class="filter-btn px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container text-amber-300/90 font-mono text-xs font-medium border border-outline-variant/20 transition-all cursor-pointer shrink-0" data-filter="aptitude" type="button">Aptitude &amp; Backend (2)</button>
-        </div>
 
         <!-- Structured Day Schedule Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="days-container">
@@ -539,28 +503,13 @@
           <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/50 transition-colors p-3.5">
             <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 focus:outline-none resize-none" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="6"></textarea>
           </div>
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-            <div class="flex flex-wrap items-center gap-1.5">
-              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>
-              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Java</span>
-              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#DSA</span>
-              <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Week16</span>
-            </div>
-            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg cockpit-glass hover:bg-surface-container border border-outline-variant/20 text-xs font-mono text-on-surface transition-all cursor-pointer" id="export-notes-btn" type="button">
-              <span class="material-symbols-outlined text-[15px] text-primary">download</span>
-              <span>Export Markdown (.md)</span>
-            </button>
+          <div class="flex items-center gap-1.5 pt-1">
+            <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>
+            <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Java</span>
+            <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#DSA</span>
+            <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#Week16</span>
           </div>
         </section>
-
-        <!-- Clean Bottom Navigation -->
-        <nav class="flex items-center justify-between pt-2 pb-4">
-          <a href="week-15.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Previous Week (W15)"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>
-          <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150">
-            <span>&uarr; Back to Dashboard</span>
-          </a>
-          <a href="week-17.html" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Next Week (W17)"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
-        </nav>
 
       </div>
     </div>
