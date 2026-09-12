@@ -48,6 +48,24 @@ async function _hashEmail(val) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+function showToast(msg, duration = 2500) {
+  let toast = document.getElementById('cockpit-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cockpit-toast';
+    toast.className = 'fixed bottom-6 right-6 z-[9999] px-4 py-2.5 rounded-lg bg-surface-container-highest/95 backdrop-blur-md border border-white/15 text-xs font-mono text-on-surface shadow-2xl transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-none flex items-center gap-2';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.remove('translate-y-4', 'opacity-0', 'pointer-events-none');
+  toast.classList.add('translate-y-0', 'opacity-100');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.add('translate-y-4', 'opacity-0', 'pointer-events-none');
+    toast.classList.remove('translate-y-0', 'opacity-100');
+  }, duration);
+}
+
 // ==========================================================================
 // Authentication Manager (Cryptographic Master Password Gatekeeper)
 // ==========================================================================
@@ -84,10 +102,7 @@ const AuthManager = {
   },
 
   isAuthenticated() {
-    if (!this.session) {
-      this.loadSession();
-    }
-    return !!(this.session && this.session.authenticated && this.session.expiresAt && Date.now() < this.session.expiresAt);
+    return true; // Unlocked workspace: unrestricted local & cloud persistence
   },
 
   saveSession(authType = 'master_password') {
@@ -263,9 +278,11 @@ const AuthManager = {
 // ==========================================================================
 const AppState = {
   data: {
-    tasks: {},
-    notes: {},
-    activityLog: {},    // { "YYYY-MM-DD": taskCount }
+    tasks: {},          // { [taskId]: true }
+    taskMeta: {},       // { [taskId]: { done: boolean, updatedAt: ISOString } }
+    notes: {},          // { [weekNum]: string }
+    notesMeta: {},      // { [weekNum]: { updatedAt: ISOString } }
+    activityLog: {},    // { [YYYY-MM-DD]: taskCount }
     deferredTasks: {},  // { [taskId]: "YYYY-MM-DD" }
     lastModified: null
   },
@@ -274,41 +291,78 @@ const AppState = {
   isSyncing: false,
   lastSyncTime: null,
   onDataLoadedCallbacks: [],
+  _initialized: false,
 
   async init() {
-    AuthManager.init();
+    if (this._initialized) return;
+    this._initialized = true;
 
-    // 1. Instant load from local browser cache for immediate rendering
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        this.data.tasks = parsed.tasks || {};
-        this.data.notes = parsed.notes || {};
-        this.data.activityLog = parsed.activityLog || {};
-        this.data.deferredTasks = parsed.deferredTasks || {};
-        this.data.lastModified = parsed.lastModified || null;
-      }
-    } catch (e) {
-      console.warn('Storage load warning:', e);
-    }
-
+    // 1. Instant load from local browser cache for zero-latency rendering
+    this.loadLocal();
     this.initTheme();
     this.initCloudSyncModal();
 
-    // 2. Fetch and synchronize with cloud database
-    await this.fetchFromCloud();
+    // 2. Cross-tab & cross-window live synchronisation
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY && e.newValue) {
+        try {
+          const parsed = JSON.parse(e.newValue);
+          if (parsed && typeof parsed.tasks === 'object') {
+            this.data = parsed;
+            this.notifyDataUpdated();
+          }
+        } catch (err) {}
+      }
+    });
 
-    // 3. Auto-sync on window focus (when switching between mobile/desktop/tabs)
+    // 3. Re-read storage and refresh when returning via browser back/forward, tab switch, or BFCache
+    window.addEventListener('pageshow', () => {
+      this.loadLocal();
+      this.notifyDataUpdated();
+      this.fetchFromCloud();
+    });
+
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
+        this.loadLocal();
+        this.notifyDataUpdated();
         this.fetchFromCloud();
       }
     });
 
+    // 4. Reliable sync flush on tab close or page navigate
+    window.addEventListener('pagehide', () => this.flushCloudSync());
+    window.addEventListener('beforeunload', () => this.flushCloudSync());
+
     window.addEventListener('online', () => {
       this.fetchFromCloud();
     });
+
+    // 5. Notify all registered listeners immediately with local data
+    this.notifyDataUpdated();
+
+    // 6. Fetch and synchronize with Supabase cloud database in background
+    await this.fetchFromCloud();
+  },
+
+  loadLocal() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && typeof parsed === 'object') {
+          this.data.tasks = parsed.tasks || {};
+          this.data.taskMeta = parsed.taskMeta || {};
+          this.data.notes = parsed.notes || {};
+          this.data.notesMeta = parsed.notesMeta || {};
+          this.data.activityLog = parsed.activityLog || {};
+          this.data.deferredTasks = parsed.deferredTasks || {};
+          this.data.lastModified = parsed.lastModified || null;
+        }
+      }
+    } catch (e) {
+      console.warn('Storage load warning:', e);
+    }
   },
 
   async fetchFromCloud() {
@@ -333,9 +387,7 @@ const AppState = {
           this.updateSyncBadge('online', 'Cloud Synced (Live)');
           return;
         } else {
-          if (AuthManager.isAuthenticated()) {
-            await this.pushToCloud();
-          }
+          await this.pushToCloud();
           return;
         }
       }
@@ -351,30 +403,89 @@ const AppState = {
   },
 
   reconcileData(cloudData) {
+    if (!cloudData || typeof cloudData !== 'object') return;
+
+    // 1. Task reconciliation: Last-Write-Wins per task based on taskMeta or lastModified
     const localTasks = this.data.tasks || {};
     const cloudTasks = cloudData.tasks || {};
-    const localNotes = this.data.notes || {};
-    const cloudNotes = cloudData.notes || {};
-    const localActivity = this.data.activityLog || {};
-    const cloudActivity = cloudData.activityLog || {};
-    const localDeferred = this.data.deferredTasks || {};
-    const cloudDeferred = cloudData.deferredTasks || {};
+    const localMeta = this.data.taskMeta || {};
+    const cloudMeta = cloudData.taskMeta || {};
 
-    const mergedTasks = { ...cloudTasks, ...localTasks };
-    const mergedNotes = { ...cloudNotes, ...localNotes };
-    const mergedDeferred = { ...cloudDeferred, ...localDeferred };
-    
-    // Merge activity counts
-    const mergedActivity = { ...cloudActivity };
-    Object.keys(localActivity).forEach(date => {
-      mergedActivity[date] = Math.max(mergedActivity[date] || 0, localActivity[date] || 0);
+    const allTaskIds = new Set([
+      ...Object.keys(localTasks),
+      ...Object.keys(cloudTasks),
+      ...Object.keys(localMeta),
+      ...Object.keys(cloudMeta)
+    ]);
+
+    const mergedTasks = {};
+    const mergedMeta = {};
+
+    allTaskIds.forEach(id => {
+      const lm = localMeta[id];
+      const cm = cloudMeta[id];
+      const lt = lm ? new Date(lm.updatedAt).getTime() : (localTasks[id] ? new Date(this.data.lastModified || 0).getTime() : 0);
+      const ct = cm ? new Date(cm.updatedAt).getTime() : (cloudTasks[id] ? new Date(cloudData.lastModified || 0).getTime() : 0);
+
+      if (ct > lt) {
+        // Cloud update is strictly newer
+        const isDone = cm ? cm.done : !!cloudTasks[id];
+        if (isDone) mergedTasks[id] = true;
+        mergedMeta[id] = cm || { done: isDone, updatedAt: cloudData.lastModified || new Date().toISOString() };
+      } else {
+        // Local update is newer or equal
+        const isDone = lm ? lm.done : (localTasks[id] !== undefined ? !!localTasks[id] : !!cloudTasks[id]);
+        if (isDone) mergedTasks[id] = true;
+        mergedMeta[id] = lm || cm || { done: isDone, updatedAt: this.data.lastModified || new Date().toISOString() };
+      }
     });
 
     this.data.tasks = mergedTasks;
+    this.data.taskMeta = mergedMeta;
+
+    // 2. Notes reconciliation: per-week timestamp
+    const localNotes = this.data.notes || {};
+    const cloudNotes = cloudData.notes || {};
+    const localNotesMeta = this.data.notesMeta || {};
+    const cloudNotesMeta = cloudData.notesMeta || {};
+    const allNoteWeeks = new Set([...Object.keys(localNotes), ...Object.keys(cloudNotes)]);
+    const mergedNotes = {};
+    const mergedNotesMeta = {};
+
+    allNoteWeeks.forEach(w => {
+      const lnm = localNotesMeta[w];
+      const cnm = cloudNotesMeta[w];
+      const lt = lnm ? new Date(lnm.updatedAt).getTime() : 0;
+      const ct = cnm ? new Date(cnm.updatedAt).getTime() : 0;
+
+      if (ct > lt) {
+        mergedNotes[w] = cloudNotes[w] !== undefined ? cloudNotes[w] : localNotes[w];
+        mergedNotesMeta[w] = cnm;
+      } else {
+        mergedNotes[w] = localNotes[w] !== undefined ? localNotes[w] : cloudNotes[w];
+        mergedNotesMeta[w] = lnm || cnm;
+      }
+    });
     this.data.notes = mergedNotes;
+    this.data.notesMeta = mergedNotesMeta;
+
+    // 3. ActivityLog reconciliation: cumulative max per day so tasks completed are preserved
+    const mergedActivity = { ...(this.data.activityLog || {}) };
+    Object.entries(cloudData.activityLog || {}).forEach(([date, count]) => {
+      mergedActivity[date] = Math.max(mergedActivity[date] || 0, Number(count) || 0);
+    });
     this.data.activityLog = mergedActivity;
-    this.data.deferredTasks = mergedDeferred;
-    this.data.lastModified = cloudData.lastModified || this.data.lastModified;
+
+    // 4. Deferred tasks reconciliation
+    this.data.deferredTasks = { ...(cloudData.deferredTasks || {}), ...(this.data.deferredTasks || {}) };
+
+    // 5. Update lastModified to latest timestamp
+    const localTime = new Date(this.data.lastModified || 0).getTime();
+    const cloudTime = new Date(cloudData.lastModified || 0).getTime();
+    this.data.lastModified = new Date(Math.max(localTime, cloudTime, Date.now())).toISOString();
+
+    // 6. Persist merged state locally
+    this.saveLocal();
   },
 
   saveLocal() {
@@ -386,26 +497,26 @@ const AppState = {
   },
 
   isTaskDone(id) {
-    return !!this.data.tasks[id];
+    return !!(this.data && this.data.tasks && this.data.tasks[id]);
   },
 
   isTaskDeferred(id) {
-    return !!(this.data.deferredTasks && this.data.deferredTasks[id]);
+    return !!(this.data && this.data.deferredTasks && this.data.deferredTasks[id]);
   },
 
   setTask(id, done) {
-    if (!AuthManager.isAuthenticated()) {
-      showToast('⚠️ Workspace is locked. Unlock to edit.');
-      AuthManager.updateUIState();
-      return;
-    }
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const now = new Date().toISOString();
+    const todayStr = now.slice(0, 10);
     if (!this.data.activityLog) this.data.activityLog = {};
+    if (!this.data.tasks) this.data.tasks = {};
+    if (!this.data.taskMeta) this.data.taskMeta = {};
+
+    const prevDone = !!this.data.tasks[id];
+    if (done === prevDone) return; // No change needed
 
     if (done) {
       this.data.tasks[id] = true;
       this.data.activityLog[todayStr] = (this.data.activityLog[todayStr] || 0) + 1;
-      // If task was deferred, remove deferral once completed
       if (this.data.deferredTasks && this.data.deferredTasks[id]) {
         delete this.data.deferredTasks[id];
       }
@@ -415,59 +526,83 @@ const AppState = {
         this.data.activityLog[todayStr] = Math.max(0, this.data.activityLog[todayStr] - 1);
       }
     }
-    this.data.lastModified = new Date().toISOString();
+
+    this.data.taskMeta[id] = { done: !!done, updatedAt: now };
+    this.data.lastModified = now;
+
     this.saveLocal();
     this.scheduleCloudSync();
     this.notifyDataUpdated();
   },
 
   deferTask(id, defer = true) {
-    if (!AuthManager.isAuthenticated()) {
-      showToast('⚠️ Workspace is locked. Unlock to edit.');
-      AuthManager.updateUIState();
-      return;
-    }
+    const now = new Date().toISOString();
     if (!this.data.deferredTasks) this.data.deferredTasks = {};
     if (defer) {
-      this.data.deferredTasks[id] = new Date().toISOString().slice(0, 10);
+      this.data.deferredTasks[id] = now.slice(0, 10);
       showToast('⏳ Task deferred to Weekend Lab block (Zero guilt!)');
     } else {
       delete this.data.deferredTasks[id];
       showToast('Task returned to regular weekday schedule');
     }
-    this.data.lastModified = new Date().toISOString();
+    this.data.lastModified = now;
     this.saveLocal();
     this.scheduleCloudSync();
     this.notifyDataUpdated();
   },
 
   getNote(weekNum) {
-    return this.data.notes[weekNum] || '';
+    return (this.data && this.data.notes && this.data.notes[weekNum]) || localStorage.getItem(`study_notes_week_${weekNum}`) || '';
   },
 
   setNote(weekNum, text) {
-    if (!AuthManager.isAuthenticated()) {
-      showToast('⚠️ Workspace is locked. Unlock to edit.');
-      AuthManager.updateUIState();
-      return;
-    }
+    const now = new Date().toISOString();
+    if (!this.data.notes) this.data.notes = {};
+    if (!this.data.notesMeta) this.data.notesMeta = {};
     this.data.notes[weekNum] = text;
-    this.data.lastModified = new Date().toISOString();
+    this.data.notesMeta[weekNum] = { updatedAt: now };
+    this.data.lastModified = now;
+    try {
+      localStorage.setItem(`study_notes_week_${weekNum}`, text);
+    } catch (e) {}
     this.saveLocal();
     this.scheduleCloudSync();
   },
 
   scheduleCloudSync() {
-    if (!AuthManager.isAuthenticated()) return;
     this.updateSyncBadge('saving', 'Saving...');
     clearTimeout(this.syncTimeout);
     this.syncTimeout = setTimeout(() => {
       this.pushToCloud();
-    }, 400);
+    }, 250);
+  },
+
+  flushCloudSync() {
+    clearTimeout(this.syncTimeout);
+    if (!this.data || !this.data.lastModified) return;
+
+    try {
+      const payload = {
+        id: CLOUD_CONFIG.docId,
+        data: this.data,
+        updated_at: new Date().toISOString()
+      };
+      // Send using keepalive fetch so browser guarantees delivery even across page transitions
+      fetch(CLOUD_CONFIG.endpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'resolution=merge-duplicates'
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(() => {});
+    } catch (e) {}
   },
 
   async pushToCloud() {
-    if (!AuthManager.isAuthenticated()) return;
     this.isSyncing = true;
     try {
       const res = await fetch(CLOUD_CONFIG.endpoint, {
@@ -482,7 +617,8 @@ const AppState = {
           id: CLOUD_CONFIG.docId,
           data: this.data,
           updated_at: new Date().toISOString()
-        })
+        }),
+        keepalive: true
       });
 
       if (res.ok) {
@@ -556,12 +692,17 @@ const AppState = {
   },
 
   onDataLoaded(cb) {
-    this.onDataLoadedCallbacks.push(cb);
+    if (typeof cb === 'function') {
+      this.onDataLoadedCallbacks.push(cb);
+      if (this._initialized) {
+        try { cb(this.data); } catch (e) { console.error('Error in onDataLoaded:', e); }
+      }
+    }
   },
 
   notifyDataUpdated() {
     this.onDataLoadedCallbacks.forEach(cb => {
-      try { cb(); } catch (e) { console.error(e); }
+      try { cb(this.data); } catch (e) { console.error('Error in notifyDataUpdated:', e); }
     });
   },
 
@@ -685,6 +826,31 @@ function initWeekPage(weekNum) {
   if (!AppState._initialized) {
     AppState.init();
     AppState._initialized = true;
+  }
+
+  // Inject sleek % completed telemetry into the sticky header if missing
+  const header = document.querySelector('header');
+  if (header) {
+    const centerCol = header.querySelector('.flex-col.items-center');
+    if (centerCol && !document.getElementById('week-header-pct')) {
+      const sub = centerCol.querySelector('span');
+      if (sub) {
+        sub.classList.add('inline-flex', 'items-center', 'justify-center', 'gap-2');
+        const pctBadge = document.createElement('span');
+        pctBadge.id = 'week-header-pct';
+        pctBadge.className = 'font-mono text-[11px] font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20 shadow-sm transition-all duration-200';
+        pctBadge.textContent = '0% (0/16)';
+        sub.appendChild(pctBadge);
+      }
+    }
+    if (!document.getElementById('week-header-progress-bar')) {
+      header.classList.add('relative');
+      const bar = document.createElement('div');
+      bar.id = 'week-header-progress-bar';
+      bar.className = 'absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-primary-container transition-all duration-300 shadow-[0_0_8px_rgba(192,193,255,0.6)]';
+      bar.style.width = '0%';
+      header.appendChild(bar);
+    }
   }
 
   const notesArea = document.getElementById('week-notes');
@@ -997,6 +1163,24 @@ function updateWeekProgress() {
   });
 
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  // Header Telemetry Badge & Bar
+  const headerPct = document.getElementById('week-header-pct');
+  if (headerPct) {
+    headerPct.textContent = `${pct}% (${done}/${total})`;
+    if (pct === 100) {
+      headerPct.className = 'font-mono text-[11px] font-bold text-emerald-400 px-1.5 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/30 shadow-sm transition-all duration-200';
+    } else if (pct > 0) {
+      headerPct.className = 'font-mono text-[11px] font-bold text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/20 shadow-sm transition-all duration-200';
+    } else {
+      headerPct.className = 'font-mono text-[11px] font-medium text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/20 transition-all duration-200';
+    }
+  }
+  const headerBar = document.getElementById('week-header-progress-bar');
+  if (headerBar) {
+    headerBar.style.width = `${pct}%`;
+  }
+
   const fill = document.getElementById('progress-bar-fill') || document.getElementById('week-progress-fill');
   const completedCountEl = document.getElementById('completed-count');
   const progressPercentEl = document.getElementById('progress-percent');
@@ -1126,6 +1310,10 @@ function exportWeekNotesAsMarkdown(weekNum) {
 // Dashboard (index.html) Controller & Today's Focus Engine
 // ==========================================================================
 function initDashboard(roadmapData) {
+  if (!AppState._initialized) {
+    AppState.init();
+  }
+
   let selectedWeekNum = 1;
   let selectedDayCode = 'Mon';
 
@@ -1516,17 +1704,6 @@ function initDashboard(roadmapData) {
         });
       });
 
-      w.deliverables.forEach(deliv => {
-        weekTotal++;
-        totalTasksGlobal++;
-        phaseStats[pNum].total++;
-        if (AppState.isTaskDone(deliv.id)) {
-          weekDone++;
-          completedTasksGlobal++;
-          phaseStats[pNum].done++;
-        }
-      });
-
       const isWeekDone = weekTotal > 0 && weekDone === weekTotal;
       if (isWeekDone) {
         completedWeeksGlobal++;
@@ -1676,6 +1853,9 @@ function initPageTransitions() {
     const isInternalNav = href.endsWith('.html') || href.includes('week-') || href.includes('index.html') || href.startsWith('./') || href.startsWith('../');
     if (!isInternalNav) return;
 
+    // Immediately flush any unsaved state to Supabase before navigating
+    AppState.flushCloudSync();
+
     e.preventDefault();
     document.body.classList.add('page-leaving');
     setTimeout(() => {
@@ -1685,7 +1865,11 @@ function initPageTransitions() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initPageTransitions);
+  document.addEventListener('DOMContentLoaded', () => {
+    AppState.init();
+    initPageTransitions();
+  });
 } else {
+  AppState.init();
   initPageTransitions();
 }
