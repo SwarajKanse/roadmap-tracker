@@ -903,8 +903,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Relational Normalization & Functional Dependencies** — Functional Dependency; Armstrong's Axioms; Inference Rules; Closure of Attribute Sets; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization + Quiz",
-            "html": "<strong>Relational Normalization &amp; Functional Dependencies</strong> — Functional Dependency; Armstrong's Axioms; Inference Rules; Closure of Attribute Sets; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization + Quiz",
+            "raw_text": "**Relational Normalization & Concurrency Foundations** — Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
+            "html": "<strong>Relational Normalization &amp; Concurrency Foundations</strong> — Functional Dependency, Armstrong's Axioms, Inference Rules, Closure of Attributes; Normal Forms (1NF, 2NF, 3NF, BCNF); Denormalization (Denormalisation); Intro to Concurrency, Thomas' Write Rule, Timestamp Ordering Protocol, Conflict vs View Serializability, Serialization Graphs + Quiz",
             "is_rest": false
           }
         ]
@@ -1128,8 +1128,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS + SQL)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Query Fundamentals & Practice** — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + Quiz + solve: Large Nations, Profitable Customers in 2021, Odd Non-Boring Movies",
-            "html": "<strong>Query Fundamentals &amp; Practice</strong> — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + Quiz + solve: Large Nations, Profitable Customers in 2021, Odd Non-Boring Movies",
+            "raw_text": "**Query Fundamentals & Practice** — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + **TRIM() / LTRIM() / RTRIM()** + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, **Odd Non-Boring Movies**, **Exceeding Tweet Length**",
+            "html": "<strong>Query Fundamentals &amp; Practice</strong> — SELECT, FROM, WHERE, operators, ORDER BY, LIMIT, DISTINCT, AS + <strong>TRIM() / LTRIM() / RTRIM()</strong> + Quiz + solve: Large Nations, Profitable Customers, Available Seat Streaks, Email Duplicates, <strong>Odd Non-Boring Movies</strong>, <strong>Exceeding Tweet Length</strong>",
             "is_rest": false
           }
         ]
@@ -1282,8 +1282,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS + SQL)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**SQL Data Summarization** — Aggregates in SQL, SQL Clauses, GROUP BY, MIN/MAX/SUM/AVG, COUNT, HAVING + Quiz + solve: Unique Subjects per Teacher, User Follower Count, Large Classes, Email Duplicates",
-            "html": "<strong>SQL Data Summarization</strong> — Aggregates in SQL, SQL Clauses, GROUP BY, MIN/MAX/SUM/AVG, COUNT, HAVING + Quiz + solve: Unique Subjects per Teacher, User Follower Count, Large Classes, Email Duplicates",
+            "raw_text": "**SQL Data Summarization** — Aggregates in SQL, SQL Clauses, GROUP BY, MIN/MAX/SUM/AVG, COUNT, HAVING + Quiz + solve: Unique Subjects per Teacher, User Follower Count, Large Classes, Email Duplicates, **Updated Bank Balances**, **Football Team Scores**",
+            "html": "<strong>SQL Data Summarization</strong> — Aggregates in SQL, SQL Clauses, GROUP BY, MIN/MAX/SUM/AVG, COUNT, HAVING + Quiz + solve: Unique Subjects per Teacher, User Follower Count, Large Classes, Email Duplicates, <strong>Updated Bank Balances</strong>, <strong>Football Team Scores</strong>",
             "is_rest": false
           }
         ]
@@ -1330,8 +1330,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS + SQL)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**SQL Functions & Conditional Logic** — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Valid Triangle Check, Special Bonus Calculation",
-            "html": "<strong>SQL Functions &amp; Conditional Logic</strong> — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Valid Triangle Check, Special Bonus Calculation",
+            "raw_text": "**SQL Functions & Conditional Logic** — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, **Instant Food Delivery**",
+            "html": "<strong>SQL Functions &amp; Conditional Logic</strong> — Numeric/NULL functions (ROUND, ABS, GREATEST, LEAST, IFNULL, COALESCE) + CASE statements + solve: Call Count Between Pairs, Find Continuous Ranges in Logs, First Login Analysis, <strong>Instant Food Delivery</strong>",
             "is_rest": false
           }
         ]
@@ -1484,8 +1484,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS + SQL)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Editing & Merging Data** — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + UNION, UNION ALL, INTERSECT + solve: System Settings, Active/Archived Users, Combine Sales Records",
-            "html": "<strong>Editing &amp; Merging Data</strong> — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + UNION, UNION ALL, INTERSECT + solve: System Settings, Active/Archived Users, Combine Sales Records",
+            "raw_text": "**Editing & Merging Data** — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + **Unions in SQL** (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, **Inactive Sellers**",
+            "html": "<strong>Editing &amp; Merging Data</strong> — INSERT, UPSERT, UPDATE, DELETE, ALTER, TRUNCATE + <strong>Unions in SQL</strong> (UNION, UNION ALL, INTERSECT) + solve: System Settings, Active/Archived Users, Combine Sales Records, <strong>Inactive Sellers</strong>",
             "is_rest": false
           }
         ]
@@ -1936,8 +1936,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (DBMS + SQL)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Common Table Expressions (CTEs) & Date Functions** — Non-Recursive & Recursive CTEs (WITH clause) + Date/Time functions (DATEDIFF, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login",
-            "html": "<strong>Common Table Expressions (CTEs) &amp; Date Functions</strong> — Non-Recursive &amp; Recursive CTEs (WITH clause) + Date/Time functions (DATEDIFF, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login",
+            "raw_text": "**Common Table Expressions (CTEs) & Date Functions** — Non-Recursive & Recursive CTEs (WITH clause) + Date/Time functions (**Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF**, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, **Restaurant Payment Trends**, **Top Ratings in Feb 2020**",
+            "html": "<strong>Common Table Expressions (CTEs) &amp; Date Functions</strong> — Non-Recursive &amp; Recursive CTEs (WITH clause) + Date/Time functions (<strong>Calculating Date Differences: DATEDIFF, TIMESTAMPDIFF</strong>, DATE_ADD, EXTRACT) + solve: Frequently Ordered Products, Warmer Days, Latest Login, <strong>Restaurant Payment Trends</strong>, <strong>Top Ratings in Feb 2020</strong>",
             "is_rest": false
           }
         ]
@@ -2026,8 +2026,8 @@ window.ROADMAP_DATA = [
             "track_original": "Aptitude",
             "track_id": "aptitude",
             "track_name": "Aptitude",
-            "raw_text": "**Logical & Transactions/ACID** — Logical: Blood Relations (Basic & Advance) + DBMS: Transactions & Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + Full Phase 2 revision",
-            "html": "<strong>Logical &amp; Transactions/ACID</strong> — Logical: Blood Relations (Basic &amp; Advance) + DBMS: Transactions &amp; Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + Full Phase 2 revision",
+            "raw_text": "**Logical & Transactions/ACID** — Logical: Blood Relations (Basic & Advance) + DBMS: Transactions & Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + **Database Backups (Full, Differential, Transaction Log / WAL) & Recovery Management (Point-in-Time Recovery, RPO/RTO)** + Full Phase 2 revision",
+            "html": "<strong>Logical &amp; Transactions/ACID</strong> — Logical: Blood Relations (Basic &amp; Advance) + DBMS: Transactions &amp; Concurrency (ACID properties, Serializability, Isolation Levels, CAP Theorem) + <strong>Database Backups (Full, Differential, Transaction Log / WAL) &amp; Recovery Management (Point-in-Time Recovery, RPO/RTO)</strong> + Full Phase 2 revision",
             "is_rest": false
           }
         ]
@@ -2112,8 +2112,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (OS)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**OS Foundations & Process Basics** — Why OS? OS as resource manager, System calls & execution modes, Process vs Program vs Thread, Process States, Process Control Block (PCB) + Quiz",
-            "html": "<strong>OS Foundations &amp; Process Basics</strong> — Why OS? OS as resource manager, System calls &amp; execution modes, Process vs Program vs Thread, Process States, Process Control Block (PCB) + Quiz",
+            "raw_text": "**OS Foundations & Protection** — Why OS? **Types of Operating Systems** (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts & Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + **Quiz: Introduction to Operating Systems**",
+            "html": "<strong>OS Foundations &amp; Protection</strong> — Why OS? <strong>Types of Operating Systems</strong> (Batch, Time-sharing, Distributed, Real-time, Embedded), OS as resource manager, Dual-Mode Operation (User Mode vs Kernel Mode, Privileged Instructions), Traps, Interrupts &amp; Exceptions, System calls, Process vs Program vs Thread, Process States, Process Control Block (PCB) + <strong>Quiz: Introduction to Operating Systems</strong>",
             "is_rest": false
           }
         ]
@@ -2160,8 +2160,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (OS)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Process Lifecycle & Operations** — Process Creation and Termination, `fork()`, `exec()`, `wait()`, `exit()`, Zombie & Orphan processes, Context Switching mechanisms + Quiz",
-            "html": "<strong>Process Lifecycle &amp; Operations</strong> — Process Creation and Termination, <code>fork()</code>, <code>exec()</code>, <code>wait()</code>, <code>exit()</code>, Zombie &amp; Orphan processes, Context Switching mechanisms + Quiz",
+            "raw_text": "**Process Lifecycle, Daemon Processes & IPC** — Process Creation & Termination, `fork()`, `exec()`, `wait()`, `exit()`, Zombie & Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, `mmap`) + **Quiz - Daemons and IPC Basics**",
+            "html": "<strong>Process Lifecycle, Daemon Processes &amp; IPC</strong> — Process Creation &amp; Termination, <code>fork()</code>, <code>exec()</code>, <code>wait()</code>, <code>exit()</code>, Zombie &amp; Orphan processes, Daemon Processes, Context Switching; Multiprogramming vs Multitasking vs Multiprocessing vs Multithreading; Inter-Process Communication (IPC Decision Guide: Shared Memory, Message Passing, Pipes, FIFOs, Sockets, Signals, <code>mmap</code>) + <strong>Quiz - Daemons and IPC Basics</strong>",
             "is_rest": false
           }
         ]
@@ -2452,8 +2452,8 @@ window.ROADMAP_DATA = [
             "track_original": "Aptitude",
             "track_id": "aptitude",
             "track_name": "Aptitude",
-            "raw_text": "**Logical & Synchronization Solutions** — Logical: Coding and Decoding (Basic & Advance) + Peterson's algorithm, Test-and-Set, Compare-and-Swap, Mutexes, Counting & Binary Semaphores",
-            "html": "<strong>Logical &amp; Synchronization Solutions</strong> — Logical: Coding and Decoding (Basic &amp; Advance) + Peterson's algorithm, Test-and-Set, Compare-and-Swap, Mutexes, Counting &amp; Binary Semaphores",
+            "raw_text": "**Logical & Synchronization Solutions** — Logical: Coding and Decoding (Basic & Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting & Binary Semaphores",
+            "html": "<strong>Logical &amp; Synchronization Solutions</strong> — Logical: Coding and Decoding (Basic &amp; Advance) + Dekker's Algorithm, Peterson's Algorithm, Bakery Algorithm, Hardware Synchronization (Test-and-Set, Compare-and-Swap), Mutexes, Counting &amp; Binary Semaphores",
             "is_rest": false
           }
         ]
@@ -2766,8 +2766,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (OS)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Paging & Segmentation** — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, Translation Lookaside Buffer (TLB), Segmentation + Quiz",
-            "html": "<strong>Paging &amp; Segmentation</strong> — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, Translation Lookaside Buffer (TLB), Segmentation + Quiz",
+            "raw_text": "**Paging & Segmentation** — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, **TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)**, Segmentation + Quiz",
+            "html": "<strong>Paging &amp; Segmentation</strong> — Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, <strong>TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)</strong>, Segmentation + Quiz",
             "is_rest": false
           }
         ]
@@ -2920,8 +2920,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (OS)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Inter-Process Communication (IPC)** — Shared Memory, Message Passing, Anonymous Pipes, Named Pipes (FIFOs), Message Queues, Sockets, Signals, Unix Domain Sockets + Quiz",
-            "html": "<strong>Inter-Process Communication (IPC)</strong> — Shared Memory, Message Passing, Anonymous Pipes, Named Pipes (FIFOs), Message Queues, Sockets, Signals, Unix Domain Sockets + Quiz",
+            "raw_text": "**Inter-Process Communication (IPC) Decision Guide** — Shared Memory, Message Passing, Anonymous Pipes, Named Pipes (FIFOs), Message Queues, Sockets, Signals, Memory-Mapped Files (`mmap`), Unix Domain Sockets + Quiz",
+            "html": "<strong>Inter-Process Communication (IPC) Decision Guide</strong> — Shared Memory, Message Passing, Anonymous Pipes, Named Pipes (FIFOs), Message Queues, Sockets, Signals, Memory-Mapped Files (<code>mmap</code>), Unix Domain Sockets + Quiz",
             "is_rest": false
           }
         ]
@@ -3144,8 +3144,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (CN)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**CN Foundations & Topologies** — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, Packet Switching vs Circuit Switching, Physical & Logical Topologies + Quiz: Network Basics",
-            "html": "<strong>CN Foundations &amp; Topologies</strong> — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, Packet Switching vs Circuit Switching, Physical &amp; Logical Topologies + Quiz: Network Basics",
+            "raw_text": "**CN Foundations & Physical Media** — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical & Logical Topologies + Quiz",
+            "html": "<strong>CN Foundations &amp; Physical Media</strong> — Why Networks Exist, Network Types (LAN, WAN, MAN), Clients/Servers/Peers, How data moves in packets, Packet Switching vs Circuit Switching, Transmission Media (Twisted Pair, Fiber Optic Cable, Coaxial Cable), Full-Duplex vs Half-Duplex, Physical &amp; Logical Topologies + Quiz",
             "is_rest": false
           }
         ]
@@ -3394,8 +3394,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (CN)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Network Layer Protocols & NAT** — Private vs Public IP addresses, Network Address Translation (NAT, SNAT, DNAT, PAT), IPv6 structure & IPv6 over IPv4 tunneling + Quiz",
-            "html": "<strong>Network Layer Protocols &amp; NAT</strong> — Private vs Public IP addresses, Network Address Translation (NAT, SNAT, DNAT, PAT), IPv6 structure &amp; IPv6 over IPv4 tunneling + Quiz",
+            "raw_text": "**Network Layer Protocols & NAT** — Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure & IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing & EIGRP + Quiz",
+            "html": "<strong>Network Layer Protocols &amp; NAT</strong> — Private vs Public IP, NAT (SNAT, DNAT, Port Forwarding), NAT Limitations, IPv6 structure &amp; IPv6 over IPv4 tunneling, Router vs Forwarding, Static vs Dynamic Routing, Hybrid Routing &amp; EIGRP + Quiz",
             "is_rest": false
           }
         ]
@@ -3798,8 +3798,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (CN)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Security & Web Protocols** — HTTPS, SSL/TLS Handshake protocol, Digital Certificates, Public Key Infrastructure (PKI), Cookies vs Sessions vs Tokens (JWT), WebSockets, DNS hierarchy & resolution, DHCP + Quiz",
-            "html": "<strong>Security &amp; Web Protocols</strong> — HTTPS, SSL/TLS Handshake protocol, Digital Certificates, Public Key Infrastructure (PKI), Cookies vs Sessions vs Tokens (JWT), WebSockets, DNS hierarchy &amp; resolution, DHCP + Quiz",
+            "raw_text": "**Security & Cryptographic Protocols** — **Introduction to Cryptography**, **Security Goals of Cryptography** (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, **HTTPS and TLS** Handshake & Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC & HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + **Quiz: Introduction to Cryptography**",
+            "html": "<strong>Security &amp; Cryptographic Protocols</strong> — <strong>Introduction to Cryptography</strong>, <strong>Security Goals of Cryptography</strong> (Confidentiality, Integrity, Availability - CIA Triad), Symmetric vs Asymmetric Encryption, <strong>HTTPS and TLS</strong> Handshake &amp; Perfect Forward Secrecy, Diffie-Hellman Key Exchange, Hash Functions, MAC &amp; HMAC, Digital Signatures, PKI, Certificate Pinning, DNSSEC, Cookies vs Sessions vs JWT, WebSockets + <strong>Quiz: Introduction to Cryptography</strong>",
             "is_rest": false
           }
         ]
@@ -3952,8 +3952,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (CN)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Advanced Systems Networking** — Rate Limiting algorithms (Token Bucket, Leaky Bucket), Load Balancing algorithms (Round Robin, Least Connections, Consistent Hashing), Network Performance Metrics (Latency, Bandwidth, Throughput, Jitter) + Quiz",
-            "html": "<strong>Advanced Systems Networking</strong> — Rate Limiting algorithms (Token Bucket, Leaky Bucket), Load Balancing algorithms (Round Robin, Least Connections, Consistent Hashing), Network Performance Metrics (Latency, Bandwidth, Throughput, Jitter) + Quiz",
+            "raw_text": "**Wireless Networking, Performance & Security** — Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, **How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance**); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping & Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
+            "html": "<strong>Wireless Networking, Performance &amp; Security</strong> — Wireless Networking (Wi-Fi 802.11 Generations: Wi-Fi 4/5/6/7, WPA/WPA2/WPA3 Handshake, <strong>How Wi-Fi avoids Collisions: CSMA/CA Collision Avoidance</strong>); Network Performance (BDP, TTFB, Bufferbloat, QoS, Traffic Shaping &amp; Policing); Rate Limiting (Token Bucket, Leaky Bucket); Network Security (AAA Framework, IDPS, Firewalls L3/L4/L7, VPNs, Zero Trust); MPLS + Quiz",
             "is_rest": false
           }
         ]
@@ -4176,8 +4176,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (LLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**LLD Intro & SOLID Principles** — Intro to Low-Level Design; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
-            "html": "<strong>LLD Intro &amp; SOLID Principles</strong> — Intro to Low-Level Design; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
+            "raw_text": "**LLD Intro, Design Principles & SOLID** — Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
+            "html": "<strong>LLD Intro, Design Principles &amp; SOLID</strong> — Intro to Low-Level Design; Software Design Principles: DRY, KISS, YAGNI; SOLID Principles: Single Responsibility (SRP), Open/Closed (OCP), Liskov Substitution (LSP), Interface Segregation (ISP), Dependency Inversion (DIP) + Java code implementations + Quiz",
             "is_rest": false
           }
         ]
@@ -4984,8 +4984,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (LLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**LLD Concurrency & Thread Management** — Multithreading in Java, `Thread` vs `Runnable`, Thread Pools & `ExecutorService`, Thread Safety, Synchronized blocks, Atomic variables, Locks & Deadlock prevention + Quiz",
-            "html": "<strong>LLD Concurrency &amp; Thread Management</strong> — Multithreading in Java, <code>Thread</code> vs <code>Runnable</code>, Thread Pools &amp; <code>ExecutorService</code>, Thread Safety, Synchronized blocks, Atomic variables, Locks &amp; Deadlock prevention + Quiz",
+            "raw_text": "**LLD Concurrency & Thread Management** — Multithreading in Java, Creating & Managing Threads, Thread Safety, Reentrancy, Race Conditions, `Thread` vs `Runnable`, Thread Pools & `ExecutorService`, Synchronized blocks, Atomic variables, Locks & Deadlock prevention + Quiz",
+            "html": "<strong>LLD Concurrency &amp; Thread Management</strong> — Multithreading in Java, Creating &amp; Managing Threads, Thread Safety, Reentrancy, Race Conditions, <code>Thread</code> vs <code>Runnable</code>, Thread Pools &amp; <code>ExecutorService</code>, Synchronized blocks, Atomic variables, Locks &amp; Deadlock prevention + Quiz",
             "is_rest": false
           }
         ]
@@ -5032,8 +5032,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (LLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**LLD Dependency Injection & Architecture** — Inversion of Control (IoC) concept, Dependency Injection implementation from scratch in Java, Service Locator vs DI, Exception handling in LLD systems + Quiz",
-            "html": "<strong>LLD Dependency Injection &amp; Architecture</strong> — Inversion of Control (IoC) concept, Dependency Injection implementation from scratch in Java, Service Locator vs DI, Exception handling in LLD systems + Quiz",
+            "raw_text": "**LLD Dependency Injection & API Design** — Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
+            "html": "<strong>LLD Dependency Injection &amp; API Design</strong> — Inversion of Control (IoC), Dependency Injection from scratch, Service Locator vs DI; All About APIs: REST design principles, HTTP status codes, Idempotency, API Gateways; Exception handling in LLD systems + Quiz",
             "is_rest": false
           }
         ]
@@ -5660,8 +5660,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (LLD → HLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**High-Level Design (HLD) Foundations** — What is System Design? Vertical vs Horizontal Scaling, Load Balancers, Consistent Hashing, Database Sharding, Replication (Master-Slave, Multi-Master) + Quiz",
-            "html": "<strong>High-Level Design (HLD) Foundations</strong> — What is System Design? Vertical vs Horizontal Scaling, Load Balancers, Consistent Hashing, Database Sharding, Replication (Master-Slave, Multi-Master) + Quiz",
+            "raw_text": "**High-Level Design (HLD) Foundations** — What is System Design? Vertical vs Horizontal Scaling, Monolith vs Microservices Architecture, **How monoliths are migrated (Strangler Fig pattern, database decoupling)**, Load Balancers, Consistent Hashing, Database Sharding, Replication (Master-Slave, Multi-Master) + Quiz",
+            "html": "<strong>High-Level Design (HLD) Foundations</strong> — What is System Design? Vertical vs Horizontal Scaling, Monolith vs Microservices Architecture, <strong>How monoliths are migrated (Strangler Fig pattern, database decoupling)</strong>, Load Balancers, Consistent Hashing, Database Sharding, Replication (Master-Slave, Multi-Master) + Quiz",
             "is_rest": false
           }
         ]
@@ -5814,8 +5814,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (HLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**HLD System Components** — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + Quiz",
-            "html": "<strong>HLD System Components</strong> — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + Quiz",
+            "raw_text": "**HLD System Components & Security** — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + **API Security & OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)** + Quiz",
+            "html": "<strong>HLD System Components &amp; Security</strong> — Message Queues (Kafka, RabbitMQ), Event-Driven Architecture, Publisher-Subscriber pattern, Single Point of Failure (SPOF), CAP Theorem, PACELC Theorem + <strong>API Security &amp; OAuth (OAuth 2.0, OpenID Connect, JWT, API Gateway authentication)</strong> + Quiz",
             "is_rest": false
           }
         ]
@@ -6851,8 +6851,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (SQL finish → HLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**SQL: Storage, Keys and Query Performance** — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy, Index strategy at scale + Quiz (**Storage & Keys module done**)",
-            "html": "<strong>SQL: Storage, Keys and Query Performance</strong> — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy, Index strategy at scale + Quiz (<strong>Storage &amp; Keys module done</strong>)",
+            "raw_text": "**SQL: Storage, Keys and Query Performance** — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (**Why the Wrong Primary Key Can Quietly Destroy You**), Index strategy at scale + Quiz (**Storage & Keys module done**)",
+            "html": "<strong>SQL: Storage, Keys and Query Performance</strong> — Where rows actually live, How a B+ Tree is built with data, Primary Key strategy (<strong>Why the Wrong Primary Key Can Quietly Destroy You</strong>), Index strategy at scale + Quiz (<strong>Storage &amp; Keys module done</strong>)",
             "is_rest": false
           }
         ]
@@ -6899,8 +6899,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (SQL finish → HLD)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**SQL: Scaling & Production Systems** — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes (**All of `SQL+DE Foundations.md` & `DBMS.md` 100% Complete!**)",
-            "html": "<strong>SQL: Scaling &amp; Production Systems</strong> — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes (<strong>All of <code>SQL+DE Foundations.md</code> &amp; <code>DBMS.md</code> 100% Complete!</strong>)",
+            "raw_text": "**SQL: Scaling & Production Systems** — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + **TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)** (**All of `SQL+DE Foundations.md` & `DBMS.md` 100% Complete!**)",
+            "html": "<strong>SQL: Scaling &amp; Production Systems</strong> — Scaling Reads, Sharding, Distributed IDs, Zero-Downtime Schema Changes + <strong>TUF+ SQL Interview Situational Questions (15 scenarios: 5 Easy, 5 Medium, 5 Hard)</strong> (<strong>All of <code>SQL+DE Foundations.md</code> &amp; <code>DBMS.md</code> 100% Complete!</strong>)",
             "is_rest": false
           }
         ]
@@ -8309,8 +8309,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (fresh HLD topics)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Fresh HLD Practice: System Design of a URL Shortener** — Functional & non-functional requirements, capacity estimation (500M new URLs/month, 100:1 read-to-write ratio, 5-year storage)",
-            "html": "<strong>Fresh HLD Practice: System Design of a URL Shortener</strong> — Functional &amp; non-functional requirements, capacity estimation (500M new URLs/month, 100:1 read-to-write ratio, 5-year storage)",
+            "raw_text": "**Fresh HLD Practice: System Design of a URL Shortener & Live-Streaming App** — URL Shortener requirements & Base62/KGS design + **System Design of a Live-Streaming App** (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
+            "html": "<strong>Fresh HLD Practice: System Design of a URL Shortener &amp; Live-Streaming App</strong> — URL Shortener requirements &amp; Base62/KGS design + <strong>System Design of a Live-Streaming App</strong> (Video ingestion, RTMP/HLS protocols, CDN distribution, low-latency live chat)",
             "is_rest": false
           }
         ]
@@ -8511,8 +8511,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (fresh design practice)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**URL Shortener Scaling & Resiliency** — Caching layer (Redis), database sharding by hash, rate limiting requests, handling expired links, analytics pipeline",
-            "html": "<strong>URL Shortener Scaling &amp; Resiliency</strong> — Caching layer (Redis), database sharding by hash, rate limiting requests, handling expired links, analytics pipeline",
+            "raw_text": "**URL Shortener Scaling & IRCTC High-Concurrency Booking** — Caching, database sharding, rate limiting + **System Design of IRCTC Railway Booking System** (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
+            "html": "<strong>URL Shortener Scaling &amp; IRCTC High-Concurrency Booking</strong> — Caching, database sharding, rate limiting + <strong>System Design of IRCTC Railway Booking System</strong> (High-concurrency inventory locking, flash-sale traffic handling, queue-based booking pipeline)",
             "is_rest": false
           }
         ]
@@ -8713,8 +8713,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (fresh design practice)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Fresh HLD Practice: Design a Distributed Rate Limiter** — Requirements, algorithms comparison (Token Bucket, Leaky Bucket, Fixed Window Counter, Sliding Window Counter, Sliding Window Log)",
-            "html": "<strong>Fresh HLD Practice: Design a Distributed Rate Limiter</strong> — Requirements, algorithms comparison (Token Bucket, Leaky Bucket, Fixed Window Counter, Sliding Window Counter, Sliding Window Log)",
+            "raw_text": "**Fresh HLD Practice: Distributed Rate Limiter & Netflix Video Pipeline** — Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + **System Design of Netflix Video Onboarding Pipeline** (Transcoding, chunking, manifest generation, multi-CDN caching)",
+            "html": "<strong>Fresh HLD Practice: Distributed Rate Limiter &amp; Netflix Video Pipeline</strong> — Distributed Rate Limiter (Token Bucket, Lua scripts, Redis) + <strong>System Design of Netflix Video Onboarding Pipeline</strong> (Transcoding, chunking, manifest generation, multi-CDN caching)",
             "is_rest": false
           }
         ]
@@ -8915,8 +8915,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (document your capstone)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Capstone Architecture Document 1: Component Design** — Draw the full system component diagram: Client $\\rightarrow$ API Gateway $\\rightarrow$ Spring AI Service $\\rightarrow$ pgvector $\\rightarrow$ MCP Server $\\rightarrow$ LLM Provider",
-            "html": "<strong>Capstone Architecture Document 1: Component Design</strong> — Draw the full system component diagram: Client $\\rightarrow$ API Gateway $\\rightarrow$ Spring AI Service $\\rightarrow$ pgvector $\\rightarrow$ MCP Server $\\rightarrow$ LLM Provider",
+            "raw_text": "**Capstone Architecture Document & Real-Time Chess Website** — Full component diagram of your Spring AI capstone + **System Design of an Online Chess Website** (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
+            "html": "<strong>Capstone Architecture Document &amp; Real-Time Chess Website</strong> — Full component diagram of your Spring AI capstone + <strong>System Design of an Online Chess Website</strong> (WebSocket real-time state sync, matchmaking engine, game state persistence, rating calculation)",
             "is_rest": false
           }
         ]
@@ -8963,8 +8963,8 @@ window.ROADMAP_DATA = [
             "track_original": "Core CS (document your capstone)",
             "track_id": "corecs",
             "track_name": "Core CS",
-            "raw_text": "**Capstone Architecture Document 2: Data Flow & Failure Modes** — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion)",
-            "html": "<strong>Capstone Architecture Document 2: Data Flow &amp; Failure Modes</strong> — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion)",
+            "raw_text": "**Capstone Architecture Document 2: Data Flow & Failure Modes** — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + **System Design of Google Docs Collaborative Real-Time Editor** (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
+            "html": "<strong>Capstone Architecture Document 2: Data Flow &amp; Failure Modes</strong> — Trace request end-to-end on paper; document failure modes (provider downtime, slow vector search, DB connection pool exhaustion) + <strong>System Design of Google Docs Collaborative Real-Time Editor</strong> (Operational Transformation - OT vs CRDT, real-time conflict resolution, snapshotting, WebSocket synchronizer)",
             "is_rest": false
           }
         ]
