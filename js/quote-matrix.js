@@ -84,7 +84,7 @@
   window.MOTIVATIONAL_QUOTES = QUOTES;
 
   // Configuration constants
-  const ROTATION_INTERVAL_MS = 10000; // 10 seconds
+  const ROTATION_INTERVAL_MS = 5000;  // 5 seconds auto-rotation
   const GRID_SPACING = 2.0;            // Fine 2.0px Dithered dot grid
   const CANVAS_LOGICAL_HEIGHT = 300;   // Strictly uniform height for all portraits
   const MAX_DOT_RADIUS = (GRID_SPACING / 2.0) * 0.95;
@@ -93,7 +93,6 @@
   let currentIndex = 0;
   let currentCanvasWidth = 275;
   let rotationTimer = null;
-  let isPaused = false;
   let activeDots = [];
   const dotsCache = new Map();
 
@@ -326,6 +325,7 @@
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         rotateTo(idx);
+        startRotationTimer();
       });
       dotsIndicatorEl.appendChild(btn);
     });
@@ -367,15 +367,15 @@
       visibleCtx.scale(dpr, dpr);
 
       if (quoteTextEl) {
-        quoteTextEl.textContent = item.quote;
+        quoteTextEl.textContent = `“${item.quote}”`;
         if (item.isSanskrit) {
-          quoteTextEl.className = "font-calligraphy text-2xl sm:text-3xl text-on-surface font-normal leading-snug tracking-wide";
+          quoteTextEl.className = "quote-text-sanskrit text-[26px] sm:text-[32px] md:text-[36px] text-on-surface font-normal leading-[1.35] tracking-wide";
         } else {
-          quoteTextEl.className = "font-headline text-lg sm:text-xl text-on-surface font-medium leading-relaxed tracking-tight";
+          quoteTextEl.className = "quote-text-english text-[20px] sm:text-[24px] md:text-[27px] text-on-surface font-medium leading-[1.4] tracking-normal";
         }
       }
 
-      if (quoteAuthorEl) quoteAuthorEl.textContent = item.author;
+      if (quoteAuthorEl) quoteAuthorEl.textContent = `— ${item.author}`;
 
       renderDotsIndicator();
       drawActiveDots();
@@ -391,22 +391,13 @@
   }
 
   /**
-   * Starts the 10-second automatic rotation loop
+   * Starts the 5-second automatic rotation loop (continuous, no hover pause)
    */
   function startRotationTimer() {
     clearInterval(rotationTimer);
     rotationTimer = setInterval(() => {
-      if (!isPaused) {
-        rotateTo((currentIndex + 1) % QUOTES.length);
-      }
+      rotateTo((currentIndex + 1) % QUOTES.length);
     }, ROTATION_INTERVAL_MS);
-  }
-
-  /**
-   * Pauses the rotation timer on hover
-   */
-  function pauseRotationTimer() {
-    clearInterval(rotationTimer);
   }
 
   /**
@@ -423,16 +414,17 @@
 
     if (!initCanvases()) return;
 
-    // Hover pause and resume listeners: simply pause rotation so user can read peacefully
-    cardEl.addEventListener('mouseenter', () => {
-      isPaused = true;
-      pauseRotationTimer();
-    });
-
-    cardEl.addEventListener('mouseleave', () => {
-      isPaused = false;
-      startRotationTimer();
-    });
+    // Set initial quote text and author immediately with double quotes and typography
+    const firstItem = QUOTES[0];
+    if (quoteTextEl) {
+      quoteTextEl.textContent = `“${firstItem.quote}”`;
+      quoteTextEl.className = firstItem.isSanskrit
+        ? "quote-text-sanskrit text-[26px] sm:text-[32px] md:text-[36px] text-on-surface font-normal leading-[1.35] tracking-wide"
+        : "quote-text-english text-[20px] sm:text-[24px] md:text-[27px] text-on-surface font-medium leading-[1.4] tracking-normal";
+    }
+    if (quoteAuthorEl) {
+      quoteAuthorEl.textContent = `— ${firstItem.author}`;
+    }
 
     // Load initial quote immediately
     loadQuoteDots(0).then((dots) => {

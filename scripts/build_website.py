@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v10"
+BUILD_VERSION = "20260914_quote_v2"
 
 def clean_latex_and_math(text):
     if not text:
@@ -734,7 +734,7 @@ def generate_dashboard(roadmap):
   <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
   <link rel="stylesheet" href="css/tailwind.min.css?v={BUILD_VERSION}">
   <link rel="stylesheet" href="css/style.css?v={BUILD_VERSION}">
@@ -886,21 +886,21 @@ def generate_dashboard(roadmap):
         <section class="rounded-xl cockpit-glass border border-white/5 overflow-hidden" id="quote-matrix-card">
           <div class="p-7 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <!-- Left Side: Rotating Quote & Author -->
-            <div class="flex-1 flex flex-col justify-between h-[300px] w-full">
-              <div id="quote-text-container" class="pt-9 transition-opacity duration-300 ease-out opacity-100">
-                <p id="quote-text" class="font-calligraphy text-2xl sm:text-3xl text-on-surface font-normal leading-snug tracking-wide">
-                  कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।
+            <div class="flex-1 flex flex-col justify-center relative min-h-[220px] md:h-[300px] w-full pr-4">
+              <div id="quote-text-container" class="transition-opacity duration-300 ease-out opacity-100 flex flex-col justify-center">
+                <p id="quote-text" class="quote-text-sanskrit text-[26px] sm:text-[32px] md:text-[36px] text-on-surface font-normal leading-[1.35] tracking-wide">
+                  “कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।”
                 </p>
                 
-                <div class="mt-4 flex items-center text-xs text-on-surface-variant">
-                  <span id="quote-author" class="font-medium text-on-surface">
-                    Shri Krishna
+                <div class="mt-4 flex items-center text-xs sm:text-sm text-primary/80 font-medium">
+                  <span id="quote-author" class="quote-author-style">
+                    — Shri Krishna
                   </span>
                 </div>
               </div>
 
               <!-- Bottom Indicator Pills -->
-              <div class="flex items-center gap-1.5 pb-1" id="quote-dots-indicator">
+              <div class="absolute bottom-1 left-0 flex items-center gap-1.5" id="quote-dots-indicator">
                 <!-- Generated dynamically (6 dots) -->
               </div>
             </div>
