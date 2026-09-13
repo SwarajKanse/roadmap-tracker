@@ -2073,58 +2073,26 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
     const { totalDue, tasks } = SpacedRepetitionEngine.getDueTasks(5);
     const stats = SpacedRepetitionEngine.getStats();
 
-    // Update Header Badges
-    const duePill = document.getElementById('deck-due-pill');
-    const masteredPill = document.getElementById('deck-mastered-pill');
-    const retentionPill = document.getElementById('deck-retention-pill');
-    const statusPill = document.getElementById('deck-status-pill');
+    // Minimal Header Counters
+    const dueCounter = document.getElementById('deck-due-counter');
+    const masteredCounter = document.getElementById('deck-mastered-counter');
+    const subtitle = document.getElementById('deck-subtitle');
 
-    if (duePill) {
-      if (totalDue > 0) {
-        duePill.className = 'px-2.5 py-1 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-mono font-semibold flex items-center gap-1.5';
-        duePill.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>${totalDue} Due Recall`;
-      } else {
-        duePill.className = 'px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant/80 border border-white/5';
-        duePill.textContent = '0 Due Today';
-      }
+    if (dueCounter) dueCounter.textContent = totalDue;
+    if (masteredCounter) masteredCounter.textContent = stats.masteredCount;
+    if (subtitle) {
+      subtitle.textContent = totalDue > 0 ? `${totalDue} due for review` : 'Spaced repetition';
     }
 
-    if (masteredPill) {
-      masteredPill.textContent = `⭐ ${stats.masteredCount} Mastered`;
-    }
-
-    if (retentionPill) {
-      retentionPill.textContent = `${stats.retentionIndex}% Retained`;
-    }
-
-    if (statusPill) {
-      if (totalDue > 0) {
-        statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-primary/20 text-primary border border-primary/30';
-        statusPill.textContent = `${tasks.length} Priority Scheduled`;
-      } else {
-        statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-normal bg-surface-container text-emerald-400 border border-emerald-500/20';
-        statusPill.textContent = 'Consolidated ✓';
-      }
-    }
-
-    // Render Cards or Empty State
+    // 1-Line Minimal Consolidated State
     if (tasks.length === 0) {
       container.innerHTML = `
-        <div class="p-6 sm:p-8 flex flex-col items-center text-center gap-2 select-none">
-          <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-1">
-            <span class="material-symbols-outlined text-xl">verified</span>
+        <div class="px-5 py-3.5 flex items-center justify-between text-xs text-on-surface-variant/60 font-mono select-none">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/80"></span>
+            <span>All reviews caught up</span>
           </div>
-          <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">
-            Memory Retention Deck is 100% Consolidated
-          </h4>
-          <p class="text-xs text-on-surface-variant/70 max-w-md leading-relaxed font-normal">
-            ${stats.totalTracked > 0 ? `All ${stats.totalTracked} completed roadmap topics are safely within their optimal retention curves.` : 'Mark tasks completed in the roadmap to enroll them into automated spaced retrieval.'} Next daily retrieval queue unlocks tomorrow at 5:30 AM IST.
-          </p>
-          <div class="flex items-center gap-3 mt-2 text-[11px] font-mono text-on-surface-variant/50">
-            <span>Tracked: <strong class="text-on-surface-variant">${stats.totalTracked}</strong></span>
-            <span>&bull;</span>
-            <span>Mastered (30d+): <strong class="text-primary">${stats.masteredCount}</strong></span>
-          </div>
+          <span class="text-[11px] text-on-surface-variant/40">Next unlock tomorrow 5:30 AM IST</span>
         </div>
       `;
       return;
@@ -2132,7 +2100,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
 
     let deckHtml = '';
     tasks.forEach(t => {
-      const meta = t.meta || {};
+      const meta = SpacedRepetitionEngine.getTaskMeta(t.taskId) || t.meta || {};
       const item = t.item || {};
       const curInterval = item.interval || 1;
       const reps = item.reps || 0;
@@ -2141,56 +2109,37 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       const nextGood = reps === 0 ? 3 : (reps === 1 ? 7 : Math.max(curInterval + 2, Math.round(curInterval * ease)));
       const nextEasy = reps === 0 ? 5 : (reps === 1 ? 14 : Math.max(curInterval + 4, Math.round(curInterval * ease * 1.3)));
 
-      const trackBadge = meta.trackId ? meta.trackId.toUpperCase() : 'CORE';
-      const weekOrigin = meta.weekNum ? `Week ${String(meta.weekNum).padStart(2, '0')}` : '';
-      const dayOrigin = meta.dayName || '';
-      const originStr = [weekOrigin, dayOrigin].filter(Boolean).join(' • ');
+      let tagText = 'CORE';
+      if (meta.trackId === 'dsa') tagText = 'DSA';
+      else if (meta.trackId === 'aiml') tagText = 'AI/ML';
+      else if (meta.trackId === 'backend') tagText = 'JAVA';
+      else if (meta.trackId === 'aptitude') tagText = 'APT';
+
+      const weekOrigin = meta.weekNum ? `W${String(meta.weekNum).padStart(2, '0')}` : '';
+      const dayOrigin = meta.dayCode || '';
+      const originStr = [weekOrigin, dayOrigin].filter(Boolean).join(' ');
 
       const titleHtml = meta.title || t.taskId;
-      const descHtml = meta.desc ? `<div class="text-[12px] text-on-surface-variant/70 leading-relaxed font-normal mt-0.5 line-clamp-2">${meta.desc}</div>` : '';
-
-      const overdueBadge = t.overdueDays > 0 ? `
-        <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-medium border border-amber-500/30">
-          +${t.overdueDays}d overdue
-        </span>
-      ` : '';
-
-      const stageBadge = `
-        <span class="px-2 py-0.5 rounded bg-surface-container text-[10px] font-mono text-on-surface-variant border border-white/5">
-          ${SpacedRepetitionEngine.getStageName(item.stage || 1)} (${curInterval}d)
-        </span>
-      `;
+      const overdueStr = t.overdueDays > 0 ? `<span class="text-amber-400/80 font-mono text-[11px] font-normal shrink-0">+${t.overdueDays}d</span>` : '';
 
       deckHtml += `
-        <div class="p-4 sm:p-5 flex flex-col gap-3 hover:bg-surface-container-highest/20 transition-colors duration-150" data-recall-id="${t.taskId}">
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 min-w-0">
-            <div class="flex flex-col gap-1 min-w-0 flex-1">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="task-tag px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${trackBadge}</span>
-                ${originStr ? `<span class="text-[11px] font-mono text-on-surface-variant/70">${originStr}</span>` : ''}
-                ${stageBadge}
-                ${overdueBadge}
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between px-5 py-3 hover:bg-surface-container-highest/20 transition-colors duration-150 gap-2.5" data-recall-id="${t.taskId}">
+          <div class="flex items-start sm:items-center gap-3 min-w-0 flex-1">
+            <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${tagText}</span>
+            <div class="flex flex-col min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap min-w-0">
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words">${titleHtml}</span>
+                <span class="text-[11px] font-mono text-on-surface-variant/40 shrink-0">${originStr ? originStr + ' &bull; ' : ''}${curInterval}d</span>
+                ${overdueStr}
               </div>
-              <h3 class="font-headline text-xs sm:text-[13px] font-semibold text-on-surface leading-snug break-words mt-1">
-                ${titleHtml}
-              </h3>
-              ${descHtml}
             </div>
+          </div>
 
-            <!-- Recall Assessment Actions -->
-            <div class="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
-              <button type="button" class="recall-btn recall-again px-2.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'again');" title="Reset interval to 1 day">
-                <span>🔴</span>
-                <span>Again (+1d)</span>
-              </button>
-              <button type="button" class="recall-btn recall-good px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'good');" title="Recalled with effort: Advance interval to ${nextGood} days">
-                <span>🟡</span>
-                <span>Good (+${nextGood}d)</span>
-              </button>
-              <button type="button" class="recall-btn recall-easy px-2.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'easy');" title="Mastered / instant recall: Advance interval to ${nextEasy} days">
-                <span>🟢</span>
-                <span>Easy (+${nextEasy}d)</span>
-              </button>
+          <div class="flex items-center gap-1 shrink-0 self-end sm:self-center">
+            <div class="inline-flex rounded-md border border-outline-variant/20 bg-surface-container-lowest overflow-hidden divide-x divide-outline-variant/15 text-xs font-mono">
+              <button type="button" class="px-2.5 py-1 text-on-surface-variant hover:text-red-400 hover:bg-red-500/10 active:scale-95 transition-all cursor-pointer" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'again');" title="Reset interval to 1d">Again</button>
+              <button type="button" class="px-2.5 py-1 text-on-surface-variant hover:text-primary hover:bg-primary/10 active:scale-95 transition-all cursor-pointer" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'good');" title="Next review in ${nextGood}d">Good +${nextGood}d</button>
+              <button type="button" class="px-2.5 py-1 text-on-surface-variant hover:text-emerald-400 hover:bg-emerald-500/10 active:scale-95 transition-all cursor-pointer" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'easy');" title="Next review in ${nextEasy}d">Easy +${nextEasy}d</button>
             </div>
           </div>
         </div>

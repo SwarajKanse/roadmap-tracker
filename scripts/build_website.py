@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v8"
+BUILD_VERSION = "20260913_sync_v9"
 
 def clean_latex_and_math(text):
     if not text:
@@ -780,29 +780,22 @@ def generate_dashboard(roadmap):
           </div>
         </section>
 
-        <!-- 2. Spaced Repetition // Memory Retention Deck -->
-        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl flex flex-col transition-all duration-200" id="memory-deck">
-          <div class="px-5 py-4 border-b border-outline-variant/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest/50">
-            <div class="flex items-center gap-2.5 min-w-0">
-              <span class="material-symbols-outlined text-primary text-xl select-none">psychology</span>
-              <div class="flex flex-col min-w-0">
-                <div class="flex items-center gap-2">
-                  <h2 class="font-headline text-base font-semibold text-on-surface tracking-tight truncate">
-                    Memory Retention Deck
-                  </h2>
-                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-medium border border-outline-variant/20 bg-surface-container" id="deck-status-pill">Active Recall</span>
-                </div>
-                <span class="text-[11px] text-on-surface-variant font-normal">SuperMemo SM-2 Spaced Retrieval Practice</span>
-              </div>
+        <!-- 2. Spaced Repetition // Recall Queue -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl" id="memory-deck">
+          <div class="px-5 py-4 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-3">
+              <h2 class="font-headline text-base font-semibold text-on-surface">Recall</h2>
+              <span class="text-outline-variant/40">&bull;</span>
+              <span class="text-xs text-on-surface-variant" id="deck-subtitle">Spaced repetition</span>
             </div>
-            <div class="flex items-center gap-2 sm:gap-2.5 shrink-0 flex-wrap">
-              <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant border border-outline-variant/20" id="deck-due-pill">0 Due Today</span>
-              <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant border border-outline-variant/20" id="deck-mastered-pill">⭐ 0 Mastered</span>
-              <span class="px-2.5 py-1 rounded bg-primary/10 text-primary border border-primary/30 text-xs font-mono font-semibold" id="deck-retention-pill">100% Retained</span>
+            <div class="flex items-center gap-2 text-on-surface-variant font-mono text-xs">
+              <span class="text-on-surface font-semibold" id="deck-due-counter">0</span> due
+              <span class="text-outline-variant/40">&bull;</span>
+              <span class="text-on-surface font-semibold" id="deck-mastered-counter">0</span> mastered
             </div>
           </div>
 
-          <!-- Memory Deck Cards List -->
+          <!-- Memory Deck List -->
           <div class="divide-y divide-outline-variant/10 text-body" id="memory-deck-list">
             <!-- Populated dynamically by app.js -->
           </div>
