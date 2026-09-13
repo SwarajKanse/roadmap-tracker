@@ -525,6 +525,7 @@ def generate_week_page(week, total_weeks, all_weeks):
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>अभ्यास &bull; Week {w_pad}</title>
+  <meta name="google-site-verification" content="uKnD8wt6kniI25IpAMVkaCIqsAQ9eGbGhSE2MGY5CPc" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical journal.">
   <meta property="og:title" content="अभ्यास &bull; Week {w_pad}">
@@ -721,6 +722,7 @@ def generate_dashboard(roadmap):
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>अभ्यास</title>
+  <meta name="google-site-verification" content="uKnD8wt6kniI25IpAMVkaCIqsAQ9eGbGhSE2MGY5CPc" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="अभ्यास: 50-Week Placement Engineering Roadmap. Track daily progress, streaks, and focus queues.">
   <meta property="og:title" content="अभ्यास">
