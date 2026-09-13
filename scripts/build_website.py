@@ -560,10 +560,6 @@ def generate_week_page(week, total_weeks, all_weeks):
       </div>
 
       <div id="week-header-actions" class="flex items-center gap-1.5 shrink-0 transition-opacity">
-        <button type="button" onclick="window.GlobalSearch && window.GlobalSearch.open()" class="h-8 px-2.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center gap-1.5 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-colors shrink-0 cursor-pointer" title="Find in 50 weeks (Ctrl+F or /)">
-          <span class="material-symbols-outlined text-[16px]">search</span>
-          <span class="hidden sm:inline text-[11px] opacity-60">Ctrl+F</span>
-        </button>
         {prev_btn}
         {next_btn}
       </div>
@@ -746,12 +742,6 @@ def generate_dashboard(roadmap):
 
   <!-- Subtle Ambient Glow Overlay (Code 1 Exact) -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
-  <!-- Global Search Trigger Button -->
-  <button id="global-search-trigger-btn" type="button" onclick="window.GlobalSearch && window.GlobalSearch.open()" class="fixed top-4 right-6 z-40 px-3 py-1.5 rounded-lg cockpit-glass border border-white/10 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2 cursor-pointer shadow-lg select-none backdrop-blur-md" title="Find in 50 weeks (Ctrl+F or /)">
-    <span class="material-symbols-outlined text-[15px]">search</span>
-    <span class="text-[11px] opacity-70">Find</span>
-    <kbd class="text-[10px] px-1 py-0.2 rounded bg-white/5 border border-white/10 font-mono text-on-surface-variant/60 hidden sm:inline">Ctrl+F</kbd>
-  </button>
 
   <!-- Main Executive Console Content -->
   <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
