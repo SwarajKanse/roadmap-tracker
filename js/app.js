@@ -393,6 +393,7 @@ const AppState = {
     notesMeta: {},      // { [weekNum]: { updatedAt: ISOString } }
     activityLog: {},    // { [YYYY-MM-DD]: taskCount }
     deferredTasks: {},  // { [taskId]: "YYYY-MM-DD" }
+    srQueue: {},        // { [taskId]: { reps, stage, interval, easeFactor, lastReviewed, nextReview } }
     lastModified: null
   },
   cloudConnected: false,
@@ -618,6 +619,7 @@ const AppState = {
           this.data.notesMeta = parsed.notesMeta || {};
           this.data.activityLog = parsed.activityLog || {};
           this.data.deferredTasks = parsed.deferredTasks || {};
+          this.data.srQueue = parsed.srQueue || {};
           this.data.lastModified = parsed.lastModified || null;
 
           const doneCount = Object.keys(this.data.tasks).length;
@@ -688,6 +690,7 @@ const AppState = {
       this.data.notesMeta = { ...(cloudData.notesMeta || {}) };
       this.data.activityLog = { ...(cloudData.activityLog || {}) };
       this.data.deferredTasks = { ...(cloudData.deferredTasks || {}) };
+      this.data.srQueue = { ...(cloudData.srQueue || {}) };
       this.data.lastModified = cloudData.lastModified || new Date().toISOString();
       return;
     }
@@ -730,6 +733,7 @@ const AppState = {
     this.data.taskMeta = mergedMeta;
     this.data.notes = { ...(cloudData.notes || {}), ...(this.data.notes || {}) };
     this.data.deferredTasks = { ...(cloudData.deferredTasks || {}), ...(this.data.deferredTasks || {}) };
+    this.data.srQueue = { ...(cloudData.srQueue || {}), ...(this.data.srQueue || {}) };
     this.data.activityLog = { ...(cloudData.activityLog || {}), ...(this.data.activityLog || {}) };
     this.data.lastModified = new Date(Math.max(localTime, cloudTime, Date.now())).toISOString();
   },
@@ -772,8 +776,14 @@ const AppState = {
       if (this.data.deferredTasks && this.data.deferredTasks[id]) {
         delete this.data.deferredTasks[id];
       }
+      if (window.SpacedRepetitionEngine) {
+        window.SpacedRepetitionEngine.registerCompletedTask(id, now);
+      }
     } else {
       delete this.data.tasks[id];
+      if (window.SpacedRepetitionEngine) {
+        window.SpacedRepetitionEngine.unregisterUncheckedTask(id);
+      }
       const prevDate = (this.data.taskMeta[id]?.updatedAt || '').slice(0, 10) || todayStr;
       if (this.data.activityLog[prevDate]) {
         this.data.activityLog[prevDate] = Math.max(0, this.data.activityLog[prevDate] - 1);
@@ -959,6 +969,8 @@ const AppState = {
     document.documentElement.classList.remove('light');
   }
 };
+window.AppState = AppState;
+window.AuthManager = AuthManager;
 
 // ==========================================================================
 // Streak Engine & Analytics
@@ -1042,6 +1054,277 @@ const StreakEngine = {
     };
   }
 };
+
+// ==========================================================================
+// Spaced Repetition Engine (Modified SuperMemo SM-2 & Leitner Hybrid)
+// ==========================================================================
+const SpacedRepetitionEngine = {
+  taskCache: {},
+
+  initTaskCache(roadmapData) {
+    if (!roadmapData || !Array.isArray(roadmapData)) return;
+    roadmapData.forEach(w => {
+      const wNum = w.week_num;
+      (w.days || []).forEach(d => {
+        (d.tasks || []).forEach(t => {
+          if (t && t.id) {
+            const metaObj = {
+              id: t.id,
+              weekNum: wNum,
+              dayName: d.day_name,
+              dayCode: d.day_code,
+              trackId: t.track_id,
+              trackName: t.track_name || t.track_id,
+              title: t.title || t.raw || '',
+              desc: t.desc || '',
+              raw: t.raw || '',
+              ref: t.ref || '',
+              isRest: !!t.is_rest
+            };
+            this.taskCache[t.id] = metaObj;
+            // Dual-alias for w1_ vs w01_
+            const withZero = t.id.replace(/^w(\d)_/, 'w0$1_');
+            if (withZero !== t.id) this.taskCache[withZero] = metaObj;
+            const noZero = t.id.replace(/^w0(\d)_/, 'w$1_');
+            if (noZero !== t.id) this.taskCache[noZero] = metaObj;
+          }
+        });
+      });
+    });
+  },
+
+  getTaskMeta(taskId) {
+    if (this.taskCache[taskId]) return this.taskCache[taskId];
+    const noZero = taskId.replace(/^w0(\d)_/, 'w$1_');
+    if (this.taskCache[noZero]) return this.taskCache[noZero];
+    const withZero = taskId.replace(/^w(\d)_/, 'w0$1_');
+    if (this.taskCache[withZero]) return this.taskCache[withZero];
+    return null;
+  },
+
+  getStudyDateStr(date = new Date()) {
+    // 5:30 AM IST (00:00:00 UTC) rollover
+    const d = new Date(date);
+    return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())).toISOString().slice(0, 10);
+  },
+
+  addDays(dateStr, days) {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d + days));
+    return dt.toISOString().slice(0, 10);
+  },
+
+  getStage(interval) {
+    if (interval < 3) return 1;       // Consolidation (+1d)
+    if (interval < 7) return 2;       // Early Retrieval (+3d)
+    if (interval < 16) return 3;      // Deep Encoding (+7d)
+    if (interval < 30) return 4;      // Retention Transfer (+16d)
+    return 5;                         // Permanent Mastery (+30d+)
+  },
+
+  getStageName(stage) {
+    const names = {
+      1: 'Stage 1 • Consolidation',
+      2: 'Stage 2 • Early Recall',
+      3: 'Stage 3 • Deep Encoding',
+      4: 'Stage 4 • Retention Transfer',
+      5: 'Stage 5 • Mastered ⭐'
+    };
+    return names[stage] || `Stage ${stage}`;
+  },
+
+  registerCompletedTask(taskId, completedAt = new Date().toISOString()) {
+    if (!AppState.data.srQueue) AppState.data.srQueue = {};
+    if (AppState.data.srQueue[taskId]) return; // Already enrolled
+
+    const todayStr = this.getStudyDateStr(completedAt);
+    const nextReview = this.addDays(todayStr, 1);
+
+    AppState.data.srQueue[taskId] = {
+      reps: 0,
+      stage: 1,
+      interval: 1,
+      easeFactor: 2.5,
+      lastReviewed: todayStr,
+      nextReview: nextReview,
+      enrolledAt: completedAt
+    };
+  },
+
+  unregisterUncheckedTask(taskId) {
+    if (!AppState.data.srQueue) return;
+    if (AppState.data.srQueue[taskId]) {
+      delete AppState.data.srQueue[taskId];
+    }
+  },
+
+  syncCompletedTasks() {
+    if (!AppState.data.srQueue) AppState.data.srQueue = {};
+    const tasks = AppState.data.tasks || {};
+    const taskMeta = AppState.data.taskMeta || {};
+    const todayStr = this.getStudyDateStr();
+
+    Object.keys(tasks).forEach(taskId => {
+      if (tasks[taskId] && !AppState.data.srQueue[taskId] && /^w\d+_[a-z]+_[a-z0-9]+$/.test(taskId)) {
+        const completedAt = taskMeta[taskId]?.updatedAt || new Date().toISOString();
+        const doneDateStr = this.getStudyDateStr(completedAt);
+        const nextReview = doneDateStr === todayStr ? this.addDays(todayStr, 1) : todayStr;
+
+        AppState.data.srQueue[taskId] = {
+          reps: 0,
+          stage: 1,
+          interval: 1,
+          easeFactor: 2.5,
+          lastReviewed: doneDateStr,
+          nextReview: nextReview,
+          enrolledAt: completedAt
+        };
+      }
+    });
+  },
+
+  getDueTasks(limit = 5) {
+    this.syncCompletedTasks();
+    const todayStr = this.getStudyDateStr();
+    const queue = AppState.data.srQueue || {};
+    const dueList = [];
+
+    Object.keys(queue).forEach(taskId => {
+      const item = queue[taskId];
+      if (!AppState.data.tasks || !AppState.data.tasks[taskId]) return;
+
+      if (item.nextReview <= todayStr) {
+        const overdueDays = Math.max(0, Math.floor((new Date(todayStr) - new Date(item.nextReview)) / 86400000));
+        const meta = this.getTaskMeta(taskId) || null;
+        dueList.push({
+          taskId,
+          item,
+          overdueDays,
+          meta
+        });
+      }
+    });
+
+    dueList.sort((a, b) => {
+      if (b.overdueDays !== a.overdueDays) return b.overdueDays - a.overdueDays;
+      if (a.item.stage !== b.item.stage) return a.item.stage - b.item.stage;
+      return a.taskId.localeCompare(b.taskId);
+    });
+
+    return {
+      totalDue: dueList.length,
+      tasks: dueList.slice(0, limit)
+    };
+  },
+
+  getStats() {
+    this.syncCompletedTasks();
+    const queue = AppState.data.srQueue || {};
+    const todayStr = this.getStudyDateStr();
+    let totalTracked = 0;
+    let dueCount = 0;
+    let masteredCount = 0;
+    let stageBreakdown = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    Object.keys(queue).forEach(tId => {
+      if (AppState.data.tasks && AppState.data.tasks[tId]) {
+        totalTracked++;
+        const item = queue[tId];
+        if (item.nextReview <= todayStr) dueCount++;
+        if (item.stage >= 5 || item.interval >= 30) masteredCount++;
+        const s = item.stage || 1;
+        stageBreakdown[s] = (stageBreakdown[s] || 0) + 1;
+      }
+    });
+
+    const retentionIndex = totalTracked > 0 
+      ? Math.round(((totalTracked - dueCount + (masteredCount * 0.5)) / (totalTracked + (masteredCount * 0.5))) * 100) 
+      : 100;
+
+    return {
+      totalTracked,
+      dueCount,
+      masteredCount,
+      stageBreakdown,
+      retentionIndex: Math.min(100, Math.max(0, retentionIndex))
+    };
+  },
+
+  submitReview(taskId, grade) {
+    if (!AuthManager.isAuthenticated()) {
+      showToast('🔒 Authorization required to record memory reviews.');
+      AuthManager.showPrompt();
+      return;
+    }
+
+    if (!AppState.data.srQueue) AppState.data.srQueue = {};
+    const item = AppState.data.srQueue[taskId] || {
+      reps: 0,
+      stage: 1,
+      interval: 1,
+      easeFactor: 2.5
+    };
+
+    const todayStr = this.getStudyDateStr();
+    let newInterval = 1;
+    let newReps = item.reps || 0;
+    let newEase = item.easeFactor || 2.5;
+    let toastMsg = '';
+
+    if (grade === 'again') {
+      newReps = 0;
+      newInterval = 1;
+      newEase = Math.max(1.3, newEase - 0.2);
+      toastMsg = '🔁 Reset to Stage 1 (+1d). Review scheduled for tomorrow.';
+    } else if (grade === 'good') {
+      newReps += 1;
+      if (newReps === 1) {
+        newInterval = 3;
+      } else if (newReps === 2) {
+        newInterval = 7;
+      } else {
+        newInterval = Math.max(item.interval + 2, Math.round(item.interval * newEase));
+      }
+      toastMsg = `🧠 Recall confirmed! Next review in ${newInterval} days.`;
+    } else if (grade === 'easy') {
+      newReps += 1;
+      newEase = Math.min(3.0, newEase + 0.15);
+      if (newReps === 1) {
+        newInterval = 5;
+      } else if (newReps === 2) {
+        newInterval = 14;
+      } else {
+        newInterval = Math.max(item.interval + 4, Math.round(item.interval * newEase * 1.3));
+      }
+      toastMsg = `⭐ Concept Mastered! Next review in ${newInterval} days.`;
+    }
+
+    const newStage = this.getStage(newInterval);
+    const nextReview = this.addDays(todayStr, newInterval);
+
+    AppState.data.srQueue[taskId] = {
+      reps: newReps,
+      stage: newStage,
+      interval: newInterval,
+      easeFactor: Number(newEase.toFixed(2)),
+      lastReviewed: todayStr,
+      nextReview: nextReview,
+      lastGrade: grade
+    };
+
+    AppState.data.lastModified = new Date().toISOString();
+    AppState.saveLocal();
+    AppState.scheduleCloudSync(true);
+    AppState.notifyDataUpdated();
+
+    showToast(toastMsg, 3500);
+
+    if (window.renderMemoryDeck) {
+      window.renderMemoryDeck();
+    }
+  }
+};
+window.SpacedRepetitionEngine = SpacedRepetitionEngine;
 
 // ==========================================================================
 // Week Page Controller
@@ -1406,6 +1689,36 @@ function updateTaskCardVisual(card, isDone) {
       desc.classList.remove('line-through', 'opacity-50');
     }
   }
+
+  // Spaced Repetition Retention Stage Badge
+  const taskId = card.getAttribute('data-task-id');
+  let srBadge = card.querySelector('.task-sr-badge');
+  if (isDone && taskId && AppState.data.srQueue && AppState.data.srQueue[taskId]) {
+    const item = AppState.data.srQueue[taskId];
+    const todayStr = (window.SpacedRepetitionEngine && window.SpacedRepetitionEngine.getStudyDateStr()) || new Date().toISOString().slice(0, 10);
+    const isDue = item.nextReview <= todayStr;
+    const stageName = item.stage >= 5 ? '⭐ Mastered' : `Stage ${item.stage || 1} (${item.interval || 1}d)`;
+
+    if (!srBadge) {
+      srBadge = document.createElement('span');
+      srBadge.className = 'task-sr-badge shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded transition-all select-none';
+      const titleWrapper = card.querySelector('.flex.flex-wrap.items-center.gap-2') || card.querySelector('.flex-col');
+      if (titleWrapper) {
+        titleWrapper.appendChild(srBadge);
+      }
+    }
+    if (isDue) {
+      srBadge.className = 'task-sr-badge shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1 select-none';
+      srBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>Due Recall`;
+      srBadge.title = `Memory review due today! Interval: ${item.interval} days`;
+    } else {
+      srBadge.className = 'task-sr-badge shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 select-none';
+      srBadge.textContent = stageName;
+      srBadge.title = `Next spaced recall review: ${item.nextReview}`;
+    }
+  } else if (!isDone && srBadge) {
+    srBadge.remove();
+  }
 }
 
 
@@ -1491,6 +1804,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
   if (!AppState._initialized) {
     AppState.init();
   }
+  SpacedRepetitionEngine.initTaskCache(roadmapData);
 
   // Anchor Today's Command Center strictly to today's date (5:30 AM IST rollover)
   const calInfo = getRoadmapCalendarInfo();
@@ -1506,12 +1820,14 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       selectedWeekNum = latestCal.weekNum;
       selectedDayCode = latestCal.dayCode;
       renderTodayCommandCenter();
+      renderMemoryDeck();
       renderBacklogQueue();
       render50WeekHeatmap();
     }
   }, 30000);
 
   window.renderTodayCommandCenter = renderTodayCommandCenter;
+  window.renderMemoryDeck = renderMemoryDeck;
   window.renderBacklogQueue = renderBacklogQueue;
   window.renderDashboardStats = renderDashboardStats;
 
@@ -1747,6 +2063,141 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
     });
 
     listContainer.innerHTML = html;
+  }
+
+  function renderMemoryDeck() {
+    const container = document.getElementById('memory-deck-list');
+    if (!container) return;
+
+    SpacedRepetitionEngine.initTaskCache(roadmapData);
+    const { totalDue, tasks } = SpacedRepetitionEngine.getDueTasks(5);
+    const stats = SpacedRepetitionEngine.getStats();
+
+    // Update Header Badges
+    const duePill = document.getElementById('deck-due-pill');
+    const masteredPill = document.getElementById('deck-mastered-pill');
+    const retentionPill = document.getElementById('deck-retention-pill');
+    const statusPill = document.getElementById('deck-status-pill');
+
+    if (duePill) {
+      if (totalDue > 0) {
+        duePill.className = 'px-2.5 py-1 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-mono font-semibold flex items-center gap-1.5';
+        duePill.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>${totalDue} Due Recall`;
+      } else {
+        duePill.className = 'px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant/80 border border-white/5';
+        duePill.textContent = '0 Due Today';
+      }
+    }
+
+    if (masteredPill) {
+      masteredPill.textContent = `⭐ ${stats.masteredCount} Mastered`;
+    }
+
+    if (retentionPill) {
+      retentionPill.textContent = `${stats.retentionIndex}% Retained`;
+    }
+
+    if (statusPill) {
+      if (totalDue > 0) {
+        statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-primary/20 text-primary border border-primary/30';
+        statusPill.textContent = `${tasks.length} Priority Scheduled`;
+      } else {
+        statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-mono font-normal bg-surface-container text-emerald-400 border border-emerald-500/20';
+        statusPill.textContent = 'Consolidated ✓';
+      }
+    }
+
+    // Render Cards or Empty State
+    if (tasks.length === 0) {
+      container.innerHTML = `
+        <div class="p-6 sm:p-8 flex flex-col items-center text-center gap-2 select-none">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-1">
+            <span class="material-symbols-outlined text-xl">verified</span>
+          </div>
+          <h4 class="font-headline text-sm sm:text-base font-semibold text-on-surface">
+            Memory Retention Deck is 100% Consolidated
+          </h4>
+          <p class="text-xs text-on-surface-variant/70 max-w-md leading-relaxed font-normal">
+            ${stats.totalTracked > 0 ? `All ${stats.totalTracked} completed roadmap topics are safely within their optimal retention curves.` : 'Mark tasks completed in the roadmap to enroll them into automated spaced retrieval.'} Next daily retrieval queue unlocks tomorrow at 5:30 AM IST.
+          </p>
+          <div class="flex items-center gap-3 mt-2 text-[11px] font-mono text-on-surface-variant/50">
+            <span>Tracked: <strong class="text-on-surface-variant">${stats.totalTracked}</strong></span>
+            <span>&bull;</span>
+            <span>Mastered (30d+): <strong class="text-primary">${stats.masteredCount}</strong></span>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    let deckHtml = '';
+    tasks.forEach(t => {
+      const meta = t.meta || {};
+      const item = t.item || {};
+      const curInterval = item.interval || 1;
+      const reps = item.reps || 0;
+      const ease = item.easeFactor || 2.5;
+
+      const nextGood = reps === 0 ? 3 : (reps === 1 ? 7 : Math.max(curInterval + 2, Math.round(curInterval * ease)));
+      const nextEasy = reps === 0 ? 5 : (reps === 1 ? 14 : Math.max(curInterval + 4, Math.round(curInterval * ease * 1.3)));
+
+      const trackBadge = meta.trackId ? meta.trackId.toUpperCase() : 'CORE';
+      const weekOrigin = meta.weekNum ? `Week ${String(meta.weekNum).padStart(2, '0')}` : '';
+      const dayOrigin = meta.dayName || '';
+      const originStr = [weekOrigin, dayOrigin].filter(Boolean).join(' • ');
+
+      const titleHtml = meta.title || t.taskId;
+      const descHtml = meta.desc ? `<div class="text-[12px] text-on-surface-variant/70 leading-relaxed font-normal mt-0.5 line-clamp-2">${meta.desc}</div>` : '';
+
+      const overdueBadge = t.overdueDays > 0 ? `
+        <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono font-medium border border-amber-500/30">
+          +${t.overdueDays}d overdue
+        </span>
+      ` : '';
+
+      const stageBadge = `
+        <span class="px-2 py-0.5 rounded bg-surface-container text-[10px] font-mono text-on-surface-variant border border-white/5">
+          ${SpacedRepetitionEngine.getStageName(item.stage || 1)} (${curInterval}d)
+        </span>
+      `;
+
+      deckHtml += `
+        <div class="p-4 sm:p-5 flex flex-col gap-3 hover:bg-surface-container-highest/20 transition-colors duration-150" data-recall-id="${t.taskId}">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 min-w-0">
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="task-tag px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">${trackBadge}</span>
+                ${originStr ? `<span class="text-[11px] font-mono text-on-surface-variant/70">${originStr}</span>` : ''}
+                ${stageBadge}
+                ${overdueBadge}
+              </div>
+              <h3 class="font-headline text-xs sm:text-[13px] font-semibold text-on-surface leading-snug break-words mt-1">
+                ${titleHtml}
+              </h3>
+              ${descHtml}
+            </div>
+
+            <!-- Recall Assessment Actions -->
+            <div class="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
+              <button type="button" class="recall-btn recall-again px-2.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'again');" title="Reset interval to 1 day">
+                <span>🔴</span>
+                <span>Again (+1d)</span>
+              </button>
+              <button type="button" class="recall-btn recall-good px-2.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'good');" title="Recalled with effort: Advance interval to ${nextGood} days">
+                <span>🟡</span>
+                <span>Good (+${nextGood}d)</span>
+              </button>
+              <button type="button" class="recall-btn recall-easy px-2.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/25 text-xs font-mono font-medium transition-all active:scale-95 cursor-pointer flex items-center gap-1.5" onclick="SpacedRepetitionEngine.submitReview('${t.taskId}', 'easy');" title="Mastered / instant recall: Advance interval to ${nextEasy} days">
+                <span>🟢</span>
+                <span>Easy (+${nextEasy}d)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = deckHtml;
   }
 
   function render50WeekHeatmap() {
@@ -2105,6 +2556,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
     if (backendBarEl) backendBarEl.style.width = `${backendPct}%`;
 
     renderTodayCommandCenter();
+    renderMemoryDeck();
     renderBacklogQueue();
     render50WeekHeatmap();
     initQuietAccordion();
@@ -2132,6 +2584,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
 
   AppState.onDataLoaded(() => {
     renderTodayCommandCenter();
+    renderMemoryDeck();
     renderBacklogQueue();
     render50WeekHeatmap();
     renderDashboardStats();

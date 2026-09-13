@@ -1668,3 +1668,21 @@ body.page-leaving {
     justify-content: space-between;
   }
 }
+
+/* Spaced Repetition Memory Deck */
+.recall-btn {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.recall-btn:hover {
+  transform: translateY(-1px);
+}
+
+.recall-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.task-sr-badge {
+  letter-spacing: -0.01em;
+}

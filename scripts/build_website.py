@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v7"
+BUILD_VERSION = "20260913_sync_v8"
 
 def clean_latex_and_math(text):
     if not text:
@@ -776,6 +776,34 @@ def generate_dashboard(roadmap):
 
           <!-- Task List (Code 1 Exact 1-line Rows) -->
           <div class="divide-y divide-outline-variant/10 text-body" id="today-tasks-list">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </section>
+
+        <!-- 2. Spaced Repetition // Memory Retention Deck -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl flex flex-col transition-all duration-200" id="memory-deck">
+          <div class="px-5 py-4 border-b border-outline-variant/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="material-symbols-outlined text-primary text-xl select-none">psychology</span>
+              <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-2">
+                  <h2 class="font-headline text-base font-semibold text-on-surface tracking-tight truncate">
+                    Memory Retention Deck
+                  </h2>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-medium border border-outline-variant/20 bg-surface-container" id="deck-status-pill">Active Recall</span>
+                </div>
+                <span class="text-[11px] text-on-surface-variant font-normal">SuperMemo SM-2 Spaced Retrieval Practice</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-2.5 shrink-0 flex-wrap">
+              <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant border border-outline-variant/20" id="deck-due-pill">0 Due Today</span>
+              <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono text-on-surface-variant border border-outline-variant/20" id="deck-mastered-pill">⭐ 0 Mastered</span>
+              <span class="px-2.5 py-1 rounded bg-primary/10 text-primary border border-primary/30 text-xs font-mono font-semibold" id="deck-retention-pill">100% Retained</span>
+            </div>
+          </div>
+
+          <!-- Memory Deck Cards List -->
+          <div class="divide-y divide-outline-variant/10 text-body" id="memory-deck-list">
             <!-- Populated dynamically by app.js -->
           </div>
         </section>
