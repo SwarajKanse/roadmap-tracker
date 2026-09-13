@@ -1775,8 +1775,11 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       }
     }
 
-    // Exactly 12 months ago, starting strictly from the 1st of that month in UTC
-    const startUtc = Date.UTC(todayYear - 1, todayMonth, 1);
+    // Exactly 1 year ago today: starting on todayDate of the same month last year (e.g., 13 Sep 2025 to 13 Sep 2026)
+    const startYear = todayYear - 1;
+    const daysInStartMonth = new Date(Date.UTC(startYear, todayMonth + 1, 0)).getUTCDate();
+    const startDate = Math.min(todayDate, daysInStartMonth);
+    const startUtc = Date.UTC(startYear, todayMonth, startDate);
 
     // Group days from start to today by Year-Month
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -1877,23 +1880,27 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
         const cell = document.createElement('div');
         const count = tasksDoneCount === 0 ? 0 : (AppState.data.activityLog[d.dateStr] || 0);
 
-        // Theme palette: Inactive dark surface -> Soft violet -> Medium violet -> Primary container -> Primary lavender
-        let bgColor = 'bg-[#242429]'; // Level 0: Inactive
+        // Authentic LeetCode Emerald Palette
+        let bgColor = 'bg-[#28282c]'; // Level 0: Inactive dark cell
         if (count === 1) {
-          bgColor = 'bg-[#8083ff]/30'; // Level 1: Theme Soft Indigo
+          bgColor = 'bg-[#016620]'; // Level 1: Deep forest green
         } else if (count === 2) {
-          bgColor = 'bg-[#8083ff]/60'; // Level 2: Theme Medium Indigo
+          bgColor = 'bg-[#1da438]'; // Level 2: Medium emerald
         } else if (count === 3) {
-          bgColor = 'bg-[#8083ff]'; // Level 3: Theme Vibrant Container
+          bgColor = 'bg-[#28c244]'; // Level 3: Vibrant green
         } else if (count >= 4) {
-          bgColor = 'bg-[#c0c1ff]'; // Level 4: Theme Primary Accent
+          bgColor = 'bg-[#7fe18b]'; // Level 4: Light mint accent
         }
 
-        const todayRing = d.isToday ? ' ring-1 ring-[#c0c1ff]/70' : '';
+        const todayRing = d.isToday ? ' ring-1 ring-[#7fe18b]/90' : '';
         cell.className = `leetcode-cell ${bgColor}${todayRing}`;
+        cell.title = count === 0
+          ? `No submissions on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`
+          : `${count} submission${count === 1 ? '' : 's'} on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`;
 
         grid.appendChild(cell);
       });
+
 
       // 3. Invisible placeholders after the last day to fill the last column to 7 slots
       const totalSlots = startDow + m.days.length;

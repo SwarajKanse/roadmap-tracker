@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v5"
+BUILD_VERSION = "20260913_sync_v6"
 
 def clean_latex_and_math(text):
     if not text:
@@ -812,7 +812,10 @@ def generate_dashboard(roadmap):
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 select-none">
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-white text-lg sm:text-xl tracking-tight" id="heatmap-total-completed">0</span>
-              <span class="text-xs sm:text-sm text-zinc-400 font-normal">tasks completion in past one year</span>
+              <span class="text-xs sm:text-sm text-zinc-400 font-normal flex items-center gap-1">
+                submissions in the past one year
+                <span class="text-zinc-500 text-xs select-none cursor-help" title="Study tasks completed in the 1-year contribution window">ⓘ</span>
+              </span>
             </div>
             <div class="flex items-center gap-4 text-xs text-zinc-400 font-normal">
               <div>Total active days: <span class="text-white font-medium ml-1" id="heatmap-active-days">0</span></div>
@@ -822,7 +825,7 @@ def generate_dashboard(roadmap):
 
           <!-- Heatmap Container (Grouped by Month with Month Labels at Bottom) -->
           <div class="overflow-x-auto pb-1 no-scrollbar">
-            <div class="flex items-start justify-between gap-1.5 sm:gap-2.5 select-none w-full min-w-[720px]" id="heatmap-months-container">
+            <div class="flex items-start justify-between gap-1.5 sm:gap-2 select-none w-full min-w-[850px]" id="heatmap-months-container">
               <!-- Populated dynamically by app.js -->
             </div>
           </div>
