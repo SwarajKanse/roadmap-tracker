@@ -940,7 +940,7 @@ def generate_dashboard(roadmap):
             <div class="md:col-span-5 flex items-center justify-center relative min-h-[320px]">
               <div class="relative w-full max-w-[320px] aspect-[4/5] flex items-center justify-center">
                 <!-- Visible Canvas with smooth opacity transitions -->
-                <canvas id="quote-dot-canvas" class="w-full h-full object-contain rounded-lg transition-opacity duration-500 ease-in-out opacity-100"></canvas>
+                <canvas id="quote-dot-canvas" class="w-full h-full object-contain rounded-lg transition-opacity duration-500 ease-in-out opacity-100 cursor-pointer touch-none select-none"></canvas>
               </div>
             </div>
           </div>

@@ -265,14 +265,32 @@
 
       // Fast-path: If precomputed high-detail dithered dot array is present, map directly
       if (item && item.dots && Array.isArray(item.dots) && item.dots.length > 0) {
-        const dots = item.dots.map(d => ({
-          x: d[0],
-          y: d[1],
-          baseRadius: d[2],
-          baseAlpha: d[3],
-          normX: d[4],
-          normY: d[5]
-        }));
+        const dots = item.dots.map(d => {
+          const x = d[0];
+          const y = d[1];
+          // Independent non-synchronized phase and frequency for organic sub-pixel drift
+          const phase = (x * 12.9898 + y * 78.233) % 6.28318;
+          const twinklePhase = (x * 37.19 + y * 91.73) % 6.28318;
+          const speed = 0.7 + (((x * 5.3 + y * 11.7) % 1.0)) * 0.6;
+          // Initial slight scatter for magnetic particle assembly
+          const scatterX = (Math.random() - 0.5) * 8;
+          const scatterY = (Math.random() - 0.5) * 8;
+          return {
+            x: x,
+            y: y,
+            baseRadius: d[2],
+            baseAlpha: d[3],
+            normX: d[4],
+            normY: d[5],
+            offsetX: scatterX,
+            offsetY: scatterY,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5,
+            phase: phase,
+            twinklePhase: twinklePhase,
+            speed: speed
+          };
+        });
         dotsCache.set(index, dots);
         resolve(dots);
         return;
@@ -281,13 +299,28 @@
       const img = new Image();
 
       img.onload = () => {
-        const dots = processImageToDots(img);
+        const rawDots = processImageToDots(img);
+        const dots = rawDots.map(d => {
+          const phase = (d.x * 12.9898 + d.y * 78.233) % 6.28318;
+          const twinklePhase = (d.x * 37.19 + d.y * 91.73) % 6.28318;
+          const speed = 0.7 + (((d.x * 5.3 + d.y * 11.7) % 1.0)) * 0.6;
+          return {
+            ...d,
+            offsetX: (Math.random() - 0.5) * 8,
+            offsetY: (Math.random() - 0.5) * 8,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5,
+            phase: phase,
+            twinklePhase: twinklePhase,
+            speed: speed
+          };
+        });
         dotsCache.set(index, dots);
         resolve(dots);
       };
 
       img.onerror = () => {
-        // If imagePath fails (e.g. file:/// restrictions or network), attempt webp / data URI
+        // If imagePath fails, attempt webp / data URI
         if (item.imageDataUri && img.src !== item.imageDataUri) {
           img.src = item.imageDataUri;
         } else if (item.imagePath.endsWith('.png')) {
@@ -311,9 +344,28 @@
     });
   }
 
+  // Interactive mouse/touch cursor state
+  const mouse = {
+    x: -9999,
+    y: -9999,
+    active: false,
+    radius: 75, // magnetic repulsion radius in logical pixels
+    currentTiltX: 0,
+    currentTiltY: 0,
+    targetTiltX: 0,
+    targetTiltY: 0
+  };
+
   /**
    * Animation Loop using requestAnimationFrame
-   * Applies subtle sine wave pulsation to radius and opacity
+   * Features:
+   * 1. ZERO blinking wave: dots remain crisp, stable, and highly legible without strobing
+   * 2. Interactive magnetic repulsion & glow wake on mouse/touch hover
+   * 3. Fluid spring damping returns particles to their home coordinates
+   * 4. Meditative living breath (slow volumetric cadence, 7.5s cycle)
+   * 5. 3D holographic parallax tilt based on luminance depth
+   * 6. Sub-pixel Brownian micro-float for an organic, living presence
+   * 7. Sporadic micro-star twinkle (individual celestial dust sparkles)
    */
   function renderLoop() {
     if (visibleCtx && activeDots.length > 0) {
@@ -323,21 +375,88 @@
       visibleCtx.fillStyle = primaryColor;
 
       const now = Date.now();
-      const time = now * 0.0022; // subtle temporal pace
+      const time = now * 0.0016; // elegant temporal pacing
+
+      // Smooth 3D tilt interpolation
+      mouse.currentTiltX += (mouse.targetTiltX - mouse.currentTiltX) * 0.07;
+      mouse.currentTiltY += (mouse.targetTiltY - mouse.currentTiltY) * 0.07;
+
+      // Meditative, slow living breath rhythm (7.5s cycle, NO blinking, just subtle volumetric life)
+      const breathScale = Math.sin(time * 0.85) * 0.0035;
+      const centerX = CANVAS_LOGICAL_WIDTH * 0.5;
+      const centerY = CANVAS_LOGICAL_HEIGHT * 0.5;
+
+      const mouseRadius = mouse.radius;
+      const isMouseActive = mouse.active;
+      const mouseX = mouse.x;
+      const mouseY = mouse.y;
 
       for (let i = 0; i < activeDots.length; i++) {
         const dot = activeDots[i];
 
-        // Spatial sine wave propagating diagonally across the dot matrix
-        const wave = Math.sin(time + dot.normX * 3.4 + dot.normY * 4.0);
+        // 1. Interactive cursor repulsion with spring physics
+        if (isMouseActive) {
+          const curX = dot.x + dot.offsetX;
+          const curY = dot.y + dot.offsetY;
+          const dx = curX - mouseX;
+          const dy = curY - mouseY;
+          const dist = Math.hypot(dx, dy);
 
-        // Gentle breathing modulation of radius and opacity
-        const dynamicRadius = dot.baseRadius * (0.86 + 0.14 * wave);
-        const dynamicAlpha = Math.max(0.08, Math.min(1.0, dot.baseAlpha * (0.80 + 0.20 * wave)));
+          if (dist < mouseRadius && dist > 0.05) {
+            const force = Math.pow(1.0 - dist / mouseRadius, 1.8) * 14.0;
+            const angle = Math.atan2(dy, dx);
+            dot.vx += Math.cos(angle) * force * 0.38;
+            dot.vy += Math.sin(angle) * force * 0.38;
+          }
+        }
 
-        visibleCtx.globalAlpha = dynamicAlpha;
+        // 2. Spring damping: smoothly returns dot to its home (0, 0 offset)
+        dot.vx += (0 - dot.offsetX) * 0.12;
+        dot.vy += (0 - dot.offsetY) * 0.12;
+        dot.vx *= 0.78; // fluid damping friction
+        dot.vy *= 0.78;
+        dot.offsetX += dot.vx;
+        dot.offsetY += dot.vy;
+
+        // 3. Sub-pixel organic Brownian micro-drift (each dot has unique phase, ZERO wave blinking)
+        const floatX = Math.sin(time * dot.speed + dot.phase) * 0.30;
+        const floatY = Math.cos(time * dot.speed * 0.85 + dot.phase * 1.35) * 0.30;
+
+        // 4. Subtle living breath (gentle volumetric expansion from portrait center)
+        const breathX = (dot.x - centerX) * breathScale;
+        const breathY = (dot.y - centerY) * breathScale;
+
+        // 5. 3D holographic parallax based on luminance depth
+        const depth = (dot.baseAlpha - 0.45) * 5.5;
+        const px = mouse.currentTiltX * depth;
+        const py = mouse.currentTiltY * depth;
+
+        const rx = dot.x + breathX + dot.offsetX + floatX + px;
+        const ry = dot.y + breathY + dot.offsetY + floatY + py;
+
+        // 6. Mouse proximity luminescence (magnetic aura under cursor)
+        let proximityGlow = 0;
+        if (isMouseActive) {
+          const distMouse = Math.hypot(rx - mouseX, ry - mouseY);
+          if (distMouse < mouseRadius) {
+            proximityGlow = (1.0 - distMouse / mouseRadius) * 0.32;
+          }
+        }
+
+        // 7. Sporadic micro-star twinkle (subtle celestial dust, individual dots only)
+        let starSparkle = 0;
+        const tw = Math.sin(time * 2.0 + dot.twinklePhase);
+        if (tw > 0.93) {
+          starSparkle = (tw - 0.93) * 2.8 * 0.22;
+        }
+
+        // Final radius & alpha (steady, clear, never flashing or blinking out)
+        const finalRadius = Math.max(0.38, dot.baseRadius * (1.0 + proximityGlow * 0.35 + starSparkle * 0.15));
+        const finalAlpha = Math.min(1.0, dot.baseAlpha + proximityGlow + starSparkle);
+
+        visibleCtx.globalAlpha = finalAlpha;
         visibleCtx.beginPath();
-        visibleCtx.arc(dot.x, dot.y, Math.max(0.4, dynamicRadius), 0, Math.PI * 2);
+        visibleCtx.arc(rx, ry, finalRadius, 0, Math.PI * 2);
         visibleCtx.fill();
       }
     }
@@ -371,7 +490,7 @@
   }
 
   /**
-   * Graceful cross-fade transition to a target quote index
+   * Graceful cross-fade transition to a target quote index with particle assembly
    */
   async function rotateTo(targetIndex) {
     if (targetIndex < 0) targetIndex = QUOTES.length - 1;
@@ -379,21 +498,42 @@
 
     const item = QUOTES[targetIndex];
 
-    // 1. Begin fade-out of text container & canvas
+    // 1. Particle scatter pulse on transition
+    for (let i = 0; i < activeDots.length; i++) {
+      const dot = activeDots[i];
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 2.5 + Math.random() * 5.0;
+      dot.vx += Math.cos(angle) * speed;
+      dot.vy += Math.sin(angle) * speed;
+    }
+
+    // 2. Fade text container & canvas
     if (textContainerEl) {
       textContainerEl.style.opacity = '0';
       textContainerEl.style.transform = 'translateY(6px)';
     }
     if (visibleCanvas) {
-      visibleCanvas.style.opacity = '0';
+      visibleCanvas.style.opacity = '0.2';
     }
 
-    // 2. Preload/fetch dot data during the fade-out window
+    // 3. Preload/fetch dot data during the fade-out window
     const newDots = await loadQuoteDots(targetIndex);
 
-    // 3. Update DOM content after fade-out transition duration (~350ms)
+    // 4. Update DOM content after fade-out transition duration (~320ms)
     setTimeout(() => {
       currentIndex = targetIndex;
+
+      // Initialize incoming particles with dynamic assemble spring
+      for (let i = 0; i < newDots.length; i++) {
+        const dot = newDots[i];
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 10 + Math.random() * 22;
+        dot.offsetX = Math.cos(angle) * dist;
+        dot.offsetY = Math.sin(angle) * dist;
+        dot.vx = -dot.offsetX * 0.14;
+        dot.vy = -dot.offsetY * 0.14;
+      }
+
       activeDots = newDots;
 
       if (quoteTextEl) {
@@ -410,7 +550,7 @@
 
       renderDotsIndicator();
 
-      // 4. Fade back in
+      // 5. Fade back in
       if (textContainerEl) {
         textContainerEl.style.opacity = '1';
         textContainerEl.style.transform = 'translateY(0)';
@@ -418,7 +558,7 @@
       if (visibleCanvas) {
         visibleCanvas.style.opacity = '1';
       }
-    }, 350);
+    }, 320);
   }
 
   /**
@@ -482,6 +622,51 @@
 
     if (!initCanvases()) return;
 
+    // Pointer interaction handling on the canvas
+    function handlePointerMove(e) {
+      if (!visibleCanvas) return;
+      const rect = visibleCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      const lx = (clientX - rect.left) * (CANVAS_LOGICAL_WIDTH / rect.width);
+      const ly = (clientY - rect.top) * (CANVAS_LOGICAL_HEIGHT / rect.height);
+
+      mouse.x = lx;
+      mouse.y = ly;
+      mouse.active = true;
+
+      if (cardEl) {
+        const cardRect = cardEl.getBoundingClientRect();
+        mouse.targetTiltX = ((clientX - cardRect.left) / cardRect.width - 0.5) * 2;
+        mouse.targetTiltY = ((clientY - cardRect.top) / cardRect.height - 0.5) * 2;
+      }
+    }
+
+    function handlePointerLeave() {
+      mouse.active = false;
+      mouse.x = -9999;
+      mouse.y = -9999;
+      mouse.targetTiltX = 0;
+      mouse.targetTiltY = 0;
+    }
+
+    visibleCanvas.addEventListener('mousemove', handlePointerMove);
+    visibleCanvas.addEventListener('mouseleave', handlePointerLeave);
+    visibleCanvas.addEventListener('touchstart', handlePointerMove, { passive: true });
+    visibleCanvas.addEventListener('touchmove', handlePointerMove, { passive: true });
+    visibleCanvas.addEventListener('touchend', handlePointerLeave);
+    visibleCanvas.addEventListener('touchcancel', handlePointerLeave);
+
+    // Track card tilt when cursor is anywhere on the card
+    cardEl.addEventListener('mousemove', (e) => {
+      if (!mouse.active) {
+        const cardRect = cardEl.getBoundingClientRect();
+        mouse.targetTiltX = ((e.clientX - cardRect.left) / cardRect.width - 0.5) * 2;
+        mouse.targetTiltY = ((e.clientY - cardRect.top) / cardRect.height - 0.5) * 2;
+      }
+    });
+
     // Hover pause and resume listeners
     cardEl.addEventListener('mouseenter', () => {
       isPaused = true;
@@ -491,6 +676,7 @@
     cardEl.addEventListener('mouseleave', () => {
       isPaused = false;
       startRotationTimer();
+      handlePointerLeave();
     });
 
     // Start render loop
