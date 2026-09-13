@@ -2574,12 +2574,396 @@ function initPageTransitions() {
   });
 }
 
+// ==========================================================================
+// Minimal Global Roadmap Search (Ctrl+F / Cmd+F / Ctrl+K / /)
+// ==========================================================================
+const GlobalSearch = {
+  matches: [],
+  currentIndex: -1,
+  isOpen: false,
+  query: '',
+  hasNavigated: false,
+
+  init() {
+    this.injectUI();
+    this.bindEvents();
+    this.checkUrlParams();
+  },
+
+  injectUI() {
+    if (document.getElementById('global-search-bar')) return;
+
+    const bar = document.createElement('div');
+    bar.id = 'global-search-bar';
+    bar.className = 'fixed top-3.5 right-6 flex items-center bg-[#1c1c1f]/95 border border-white/15 rounded-xl shadow-2xl px-3 py-1.5 gap-1.5 sm:gap-2 backdrop-blur-md transition-all duration-150 select-none text-on-surface';
+    bar.style.display = 'none';
+    bar.style.zIndex = '9999';
+    bar.innerHTML = `
+      <input id="global-search-input" type="text" autocomplete="off" spellcheck="false" placeholder="Find in 50 weeks..." class="bg-transparent text-xs sm:text-[13px] text-white/90 placeholder:text-white/30 outline-none border-none focus:ring-0 w-36 sm:w-56 py-0.5" />
+      <button id="global-search-week-pill" type="button" class="text-[10px] font-mono text-primary bg-primary/10 border border-primary/25 hover:bg-primary/20 px-1.5 py-0.5 rounded font-medium shrink-0 cursor-pointer transition-colors" style="display: none;" title="Open Week">W01</button>
+      <span id="global-search-count" class="text-xs font-mono text-white/50 min-w-[28px] text-right shrink-0">0/0</span>
+      <div class="h-4 w-[1px] bg-white/20 mx-1 shrink-0"></div>
+      <button id="global-search-prev" type="button" class="p-1 rounded hover:bg-white/10 text-white/60 hover:text-white transition-colors cursor-pointer flex items-center justify-center shrink-0 disabled:opacity-25 disabled:cursor-not-allowed" title="Previous (Left Arrow / Shift+Enter)">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button id="global-search-next" type="button" class="p-1 rounded hover:bg-white/10 text-white/60 hover:text-white transition-colors cursor-pointer flex items-center justify-center shrink-0 disabled:opacity-25 disabled:cursor-not-allowed" title="Next (Right Arrow / Enter)">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <button id="global-search-close" type="button" class="p-1 rounded hover:bg-white/10 text-white/60 hover:text-white transition-colors cursor-pointer flex items-center justify-center shrink-0 ml-0.5" title="Close (Escape)">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    `;
+    (document.documentElement || document.body).appendChild(bar);
+  },
+
+  bindEvents() {
+    const input = document.getElementById('global-search-input');
+    const weekPill = document.getElementById('global-search-week-pill');
+    const prevBtn = document.getElementById('global-search-prev');
+    const nextBtn = document.getElementById('global-search-next');
+    const closeBtn = document.getElementById('global-search-close');
+
+    if (input) {
+      input.addEventListener('input', (e) => {
+        this.hasNavigated = false;
+        this.performSearch(e.target.value.trim(), true);
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          this.onEnterPressed(e.shiftKey);
+        } else if (e.key === 'ArrowRight' && (input.selectionStart === input.value.length || e.altKey)) {
+          e.preventDefault();
+          this.navigateMatch(1, true);
+        } else if (e.key === 'ArrowLeft' && (input.selectionStart === 0 || e.altKey)) {
+          e.preventDefault();
+          this.navigateMatch(-1, true);
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          this.close();
+        }
+      });
+    }
+
+    if (weekPill) {
+      weekPill.addEventListener('click', () => {
+        this.applyCurrentMatch(true);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => this.navigateMatch(-1, true));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => this.navigateMatch(1, true));
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.close());
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const isSearchShortcut = (e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'f' || e.key.toLowerCase() === 'k');
+      const isSlashShortcut = e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName);
+
+      if (isSearchShortcut || isSlashShortcut) {
+        e.preventDefault();
+        this.open();
+      } else if (e.key === 'Escape' && this.isOpen) {
+        e.preventDefault();
+        this.close();
+      }
+    });
+  },
+
+  onEnterPressed(shiftKey) {
+    if (this.matches.length === 0) return;
+    const currentWeek = this.getCurrentWeekNum();
+    const match = this.matches[this.currentIndex];
+
+    // If currently not on the match week and user just pressed Enter, open the first match
+    if (currentWeek !== match.weekNum && this.currentIndex === 0 && !this.hasNavigated) {
+      this.hasNavigated = true;
+      this.applyCurrentMatch(true);
+      return;
+    }
+
+    this.navigateMatch(shiftKey ? -1 : 1, true);
+  },
+
+  open(initialQuery = '') {
+    this.injectUI();
+    const bar = document.getElementById('global-search-bar');
+    const input = document.getElementById('global-search-input');
+    const trigger = document.getElementById('global-search-trigger-btn');
+    const weekActions = document.getElementById('week-header-actions');
+    if (!bar || !input) return;
+
+    bar.style.display = 'flex';
+    if (trigger) trigger.style.display = 'none';
+    if (weekActions) weekActions.style.opacity = '0';
+    this.isOpen = true;
+
+    if (initialQuery) {
+      input.value = initialQuery;
+      this.performSearch(initialQuery, false);
+    }
+
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 50);
+  },
+
+  close() {
+    const bar = document.getElementById('global-search-bar');
+    const trigger = document.getElementById('global-search-trigger-btn');
+    const weekActions = document.getElementById('week-header-actions');
+    if (bar) bar.style.display = 'none';
+    if (trigger) trigger.style.display = 'flex';
+    if (weekActions) weekActions.style.opacity = '1';
+    this.isOpen = false;
+    this.clearHighlight();
+
+    // Clean URL query params without reloading
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('q')) {
+      url.searchParams.delete('q');
+      url.searchParams.delete('m');
+      window.history.replaceState(null, '', url.pathname + (url.hash || ''));
+    }
+  },
+
+  stripHtml(html) {
+    return (html || '').replace(/<[^>]*>/g, ' ');
+  },
+
+  performSearch(query, isTyping = false) {
+    this.query = query;
+    this.matches = [];
+
+    const countEl = document.getElementById('global-search-count');
+    const weekPill = document.getElementById('global-search-week-pill');
+    const prevBtn = document.getElementById('global-search-prev');
+    const nextBtn = document.getElementById('global-search-next');
+
+    if (!query || query.length < 2) {
+      if (countEl) countEl.textContent = '0/0';
+      if (weekPill) weekPill.style.display = 'none';
+      if (prevBtn) prevBtn.disabled = true;
+      if (nextBtn) nextBtn.disabled = true;
+      this.clearHighlight();
+      return;
+    }
+
+    const q = query.toLowerCase();
+    const roadmap = window.ROADMAP_DATA || window.DASHBOARD_DATA || [];
+
+    roadmap.forEach(w => {
+      const wNum = w.week_num;
+      const wTitle = this.stripHtml(w.title || '');
+      const wDeliv = this.stripHtml((w.deliverables || []).map(d => d.text || d.html || '').join(' '));
+
+      if (wTitle.toLowerCase().includes(q)) {
+        this.matches.push({
+          weekNum: wNum,
+          type: 'week-title',
+          title: wTitle,
+          taskId: null
+        });
+      }
+
+      (w.days || []).forEach(d => {
+        (d.tasks || []).forEach(t => {
+          const tTitle = this.stripHtml(t.title || t.raw || '');
+          const tDesc = this.stripHtml(t.desc || '');
+          const tRaw = this.stripHtml(t.raw || '');
+          const fullText = `${tTitle} ${tDesc} ${tRaw}`.toLowerCase();
+
+          if (fullText.includes(q)) {
+            this.matches.push({
+              weekNum: wNum,
+              dayCode: d.day_code,
+              dayName: d.day_name,
+              taskId: t.id,
+              trackId: t.track_id,
+              title: tTitle,
+              desc: tDesc,
+              type: 'task'
+            });
+          }
+        });
+      });
+
+      if (wDeliv.toLowerCase().includes(q)) {
+        this.matches.push({
+          weekNum: wNum,
+          type: 'deliverable',
+          title: `Week ${wNum} Deliverable`,
+          taskId: null
+        });
+      }
+    });
+
+    if (this.matches.length === 0) {
+      if (countEl) {
+        countEl.textContent = '0/0';
+        countEl.className = 'text-xs font-mono text-red-400/80 min-w-[34px] text-right shrink-0';
+      }
+      if (weekPill) weekPill.style.display = 'none';
+      if (prevBtn) prevBtn.disabled = true;
+      if (nextBtn) nextBtn.disabled = true;
+      this.clearHighlight();
+      return;
+    }
+
+    if (countEl) {
+      countEl.className = 'text-xs font-mono text-on-surface-variant/80 min-w-[34px] text-right shrink-0';
+    }
+    if (prevBtn) prevBtn.disabled = false;
+    if (nextBtn) nextBtn.disabled = false;
+
+    if (this.currentIndex < 0 || this.currentIndex >= this.matches.length) {
+      this.currentIndex = 0;
+    }
+
+    this.updateMatchDisplay();
+
+    if (!isTyping) {
+      this.applyCurrentMatch(false);
+    }
+  },
+
+  updateMatchDisplay() {
+    const countEl = document.getElementById('global-search-count');
+    const weekPill = document.getElementById('global-search-week-pill');
+    if (!countEl || this.matches.length === 0) return;
+
+    countEl.textContent = `${this.currentIndex + 1}/${this.matches.length}`;
+
+    const currentMatch = this.matches[this.currentIndex];
+    if (weekPill && currentMatch) {
+      weekPill.style.display = 'inline-block';
+      weekPill.textContent = `W${String(currentMatch.weekNum).padStart(2, '0')}${currentMatch.dayCode ? ' ' + currentMatch.dayCode : ''}`;
+    }
+  },
+
+  navigateMatch(direction, autoLoad = true) {
+    if (this.matches.length === 0) return;
+    const currentWeek = this.getCurrentWeekNum();
+    const currentMatch = this.matches[this.currentIndex];
+
+    // If currently not on the match week and user clicked next on the first match without navigating yet:
+    if (currentWeek !== currentMatch.weekNum && this.currentIndex === 0 && direction === 1 && !this.hasNavigated) {
+      this.hasNavigated = true;
+      this.applyCurrentMatch(true);
+      return;
+    }
+
+    this.hasNavigated = true;
+    this.currentIndex = (this.currentIndex + direction + this.matches.length) % this.matches.length;
+    this.updateMatchDisplay();
+    this.applyCurrentMatch(autoLoad);
+  },
+
+  applyCurrentMatch(autoLoad = true) {
+    if (this.matches.length === 0 || this.currentIndex < 0) return;
+    const match = this.matches[this.currentIndex];
+    const currentWeek = this.getCurrentWeekNum();
+
+    if (currentWeek === match.weekNum) {
+      this.highlightMatch(match);
+      if (match.taskId) {
+        window.history.replaceState(null, '', `#${match.taskId}`);
+      }
+    } else if (autoLoad) {
+      const targetUrl = this.getWeekUrl(match.weekNum, this.query, this.currentIndex, match.taskId);
+      window.location.href = targetUrl;
+    }
+  },
+
+  getCurrentWeekNum() {
+    const m = window.location.pathname.match(/week-(\d+)\.html/i);
+    return m ? parseInt(m[1], 10) : null;
+  },
+
+  getWeekUrl(weekNum, query, matchIndex, taskId) {
+    const isInsideWeeksDir = window.location.pathname.includes('/weeks/');
+    const prefix = isInsideWeeksDir ? '' : 'weeks/';
+    const pad = String(weekNum).padStart(2, '0');
+    let url = `${prefix}week-${pad}.html?q=${encodeURIComponent(query)}&m=${matchIndex}`;
+    if (taskId) url += `#${taskId}`;
+    return url;
+  },
+
+  highlightMatch(match) {
+    this.clearHighlight();
+
+    let el = null;
+    if (match.taskId) {
+      el = document.querySelector(`[data-task-id="${match.taskId}"]`);
+      if (!el) {
+        const altId = match.taskId.startsWith('w0')
+          ? match.taskId.replace(/^w0/, 'w')
+          : match.taskId.replace(/^w(\d)_/, 'w0$1_');
+        el = document.querySelector(`[data-task-id="${altId}"]`);
+      }
+    }
+    if (!el && match.type === 'deliverable') {
+      el = document.querySelector('.deliverable-text') || document.getElementById('deliverable') || document.querySelector('section');
+    }
+    if (!el) {
+      el = document.querySelector('h1');
+    }
+
+    if (el) {
+      el.classList.add('task-search-highlight');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  },
+
+  clearHighlight() {
+    document.querySelectorAll('.task-search-highlight').forEach(el => {
+      el.classList.remove('task-search-highlight');
+    });
+  },
+
+  checkUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    const m = params.get('m');
+
+    if (q) {
+      const matchIdx = m ? parseInt(m, 10) : 0;
+      this.hasNavigated = true;
+      this.open(q);
+      if (!isNaN(matchIdx) && matchIdx >= 0 && matchIdx < this.matches.length) {
+        this.currentIndex = matchIdx;
+        this.updateMatchDisplay();
+      }
+      setTimeout(() => {
+        this.applyCurrentMatch(false);
+      }, 100);
+    }
+  }
+};
+window.GlobalSearch = GlobalSearch;
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     AppState.init();
     initPageTransitions();
+    GlobalSearch.init();
   });
 } else {
   AppState.init();
   initPageTransitions();
+  GlobalSearch.init();
 }

@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v9"
+BUILD_VERSION = "20260913_sync_v10"
 
 def clean_latex_and_math(text):
     if not text:
@@ -559,7 +559,11 @@ def generate_week_page(week, total_weeks, all_weeks):
         <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">{week['title']}</h1>
       </div>
 
-      <div class="flex items-center gap-1.5 shrink-0">
+      <div id="week-header-actions" class="flex items-center gap-1.5 shrink-0 transition-opacity">
+        <button type="button" onclick="window.GlobalSearch && window.GlobalSearch.open()" class="h-8 px-2.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center gap-1.5 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-colors shrink-0 cursor-pointer" title="Find in 50 weeks (Ctrl+F or /)">
+          <span class="material-symbols-outlined text-[16px]">search</span>
+          <span class="hidden sm:inline text-[11px] opacity-60">Ctrl+F</span>
+        </button>
         {prev_btn}
         {next_btn}
       </div>
@@ -573,11 +577,24 @@ def generate_week_page(week, total_weeks, all_weeks):
 
         <!-- Weekly Deliverable Card -->
         <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+              <h2 class="text-xs sm:text-sm font-semibold text-on-surface tracking-tight">Weekly Production Deliverable</h2>
+            </div>
+            <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Target Output</span>
+          </div>
           <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text">{deliv_text}</div>
         </section>
 
-        <!-- Structured Day Schedule Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="days-container">
+        <!-- Phase Navigation Tabs -->
+        <section class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs font-mono">
+          <span class="text-on-surface-variant font-medium pr-1 select-none">Weeks:</span>
+          {phase_tabs_joined}
+        </section>
+
+        <!-- Days Grid (2 columns on desktop) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
           {weekday_cards_html}
 
           <!-- Weekend Section Header / Divider -->
@@ -615,6 +632,7 @@ def generate_week_page(week, total_weeks, all_weeks):
     </div>
   </main>
 
+  <script src="../js/dashboard-summary.js?v={BUILD_VERSION}"></script>
   <script src="../js/app.js?v={BUILD_VERSION}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
@@ -728,7 +746,12 @@ def generate_dashboard(roadmap):
 
   <!-- Subtle Ambient Glow Overlay (Code 1 Exact) -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
-  <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
+  <!-- Global Search Trigger Button -->
+  <button id="global-search-trigger-btn" type="button" onclick="window.GlobalSearch && window.GlobalSearch.open()" class="fixed top-4 right-6 z-40 px-3 py-1.5 rounded-lg cockpit-glass border border-white/10 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2 cursor-pointer shadow-lg select-none backdrop-blur-md" title="Find in 50 weeks (Ctrl+F or /)">
+    <span class="material-symbols-outlined text-[15px]">search</span>
+    <span class="text-[11px] opacity-70">Find</span>
+    <kbd class="text-[10px] px-1 py-0.2 rounded bg-white/5 border border-white/10 font-mono text-on-surface-variant/60 hidden sm:inline">Ctrl+F</kbd>
+  </button>
 
   <!-- Main Executive Console Content -->
   <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
@@ -915,6 +938,7 @@ def main():
             'week_num': w['week_num'],
             'phase_num': w['phase_num'],
             'title': w['title'],
+            'deliverables': w.get('deliverables', []),
             'days': days_clean
         })
 

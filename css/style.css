@@ -168,7 +168,7 @@ body.page-leaving {
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
@@ -1685,4 +1685,27 @@ body.page-leaving {
 
 .task-sr-badge {
   letter-spacing: -0.01em;
+}
+
+/* Global Search Match Highlight */
+#global-search-bar {
+  z-index: 9999 !important;
+  background-color: #1c1c1f !important;
+}
+
+.task-search-highlight {
+  outline: 2px solid var(--color-primary, #8083ff) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 25px rgba(128, 131, 255, 0.4) !important;
+  border-radius: 8px !important;
+  animation: search-highlight-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+@keyframes search-highlight-pulse {
+  0% {
+    box-shadow: 0 0 15px rgba(128, 131, 255, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 32px rgba(128, 131, 255, 0.55);
+  }
 }

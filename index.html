@@ -19,14 +19,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
-  <link rel="stylesheet" href="css/tailwind.min.css?v=20260913_sync_v9">
-  <link rel="stylesheet" href="css/style.css?v=20260913_sync_v9">
+  <link rel="stylesheet" href="css/tailwind.min.css?v=20260913_sync_v10">
+  <link rel="stylesheet" href="css/style.css?v=20260913_sync_v10">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
   <!-- Subtle Ambient Glow Overlay (Code 1 Exact) -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
-  <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
+  <!-- Global Search Trigger Button -->
+  <button id="global-search-trigger-btn" type="button" onclick="window.GlobalSearch && window.GlobalSearch.open()" class="fixed top-4 right-6 z-40 px-3 py-1.5 rounded-lg cockpit-glass border border-white/10 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2 cursor-pointer shadow-lg select-none backdrop-blur-md" title="Find in 50 weeks (Ctrl+F or /)">
+    <span class="material-symbols-outlined text-[15px]">search</span>
+    <span class="text-[11px] opacity-70">Find</span>
+    <kbd class="text-[10px] px-1 py-0.2 rounded bg-white/5 border border-white/10 font-mono text-on-surface-variant/60 hidden sm:inline">Ctrl+F</kbd>
+  </button>
 
   <!-- Main Executive Console Content -->
   <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
@@ -1016,8 +1021,8 @@
 
 
 
-  <script src="js/dashboard-summary.js?v=20260913_sync_v9"></script>
-  <script src="js/app.js?v=20260913_sync_v9"></script>
+  <script src="js/dashboard-summary.js?v=20260913_sync_v10"></script>
+  <script src="js/app.js?v=20260913_sync_v10"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (window.DASHBOARD_DATA) {
