@@ -1,4 +1,4 @@
-# 🕉️ अभ्यास // Placement Engineering Roadmap
+# अभ्यास // Placement Engineering Roadmap
 
 > **50-Week Placement Engineering Roadmap & Minimalist Execution Console**  
 > Live Tracker: **[track.swarajkanse.me](https://track.swarajkanse.me/)**

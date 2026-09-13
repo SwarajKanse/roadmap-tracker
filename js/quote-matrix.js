@@ -60,12 +60,13 @@
     }
   ];
 
-  // Merge precomputed data URIs from quotes-data.js if available
+  // Merge precomputed data URIs and dot arrays from quotes-data.js if available
   if (window.MOTIVATIONAL_QUOTES && Array.isArray(window.MOTIVATIONAL_QUOTES)) {
     window.MOTIVATIONAL_QUOTES.forEach((item, idx) => {
       if (QUOTES[idx]) {
         if (item.imageDataUri) QUOTES[idx].imageDataUri = item.imageDataUri;
         if (item.note) QUOTES[idx].note = item.note;
+        if (item.dots) QUOTES[idx].dots = item.dots;
       }
     });
   }
@@ -75,10 +76,10 @@
 
   // Configuration constants
   const ROTATION_INTERVAL_MS = 10000; // 10 seconds
-  const GRID_SPACING = 6;            // ~5-8px spacing
-  const CANVAS_LOGICAL_WIDTH = 280;
-  const CANVAS_LOGICAL_HEIGHT = 350;
-  const CONTRAST_THRESHOLD = 85;     // Darkness threshold for ink pixels (0-255)
+  const GRID_SPACING = 2.0;            // Fine 2.0px Dithered / Halftone dot grid for maximum photographic detail
+  const CANVAS_LOGICAL_WIDTH = 320;    // Exact 4:5 aspect ratio (320x400)
+  const CANVAS_LOGICAL_HEIGHT = 400;
+  const MAX_DOT_RADIUS = (GRID_SPACING / 2.0) * 0.95; // ~0.95px radius for fine crisp dot points
 
   // State
   let currentIndex = 0;
@@ -113,8 +114,10 @@
 
     visibleCanvas.width = Math.round(CANVAS_LOGICAL_WIDTH * dpr);
     visibleCanvas.height = Math.round(CANVAS_LOGICAL_HEIGHT * dpr);
-    visibleCanvas.style.width = `${CANVAS_LOGICAL_WIDTH}px`;
-    visibleCanvas.style.height = `${CANVAS_LOGICAL_HEIGHT}px`;
+    visibleCanvas.style.width = '100%';
+    visibleCanvas.style.height = '100%';
+    visibleCanvas.style.maxWidth = `${CANVAS_LOGICAL_WIDTH}px`;
+    visibleCanvas.style.maxHeight = `${CANVAS_LOGICAL_HEIGHT}px`;
     visibleCtx.scale(dpr, dpr);
 
     // Offscreen scratch canvas for pixel brightness extraction
@@ -142,7 +145,8 @@
   }
 
   /**
-   * Extracts dot matrix from an Image element using pixel brightness mapping
+   * Extracts Halftone / Rasterbation dot matrix from an Image element
+   * Uses circular dots on a 5px grid with varying radius and intensity based on tone
    */
   function processImageToDots(img) {
     if (!hiddenCtx) return [];
@@ -150,28 +154,37 @@
     const W = CANVAS_LOGICAL_WIDTH;
     const H = CANVAS_LOGICAL_HEIGHT;
 
-    // Reset hidden canvas to pure white background
-    hiddenCtx.fillStyle = '#ffffff';
+    // Reset hidden canvas to black background (matching photo studio backgrounds)
+    hiddenCanvas.width = W;
+    hiddenCanvas.height = H;
+    hiddenCtx.fillStyle = '#000000';
     hiddenCtx.fillRect(0, 0, W, H);
 
-    // Calculate aspect-ratio contained bounds
-    const imgAspect = img.naturalWidth / img.naturalHeight;
-    const canvasAspect = W / H;
+    // Padding inside canvas to prevent any edge clipping
+    const pad = 6;
+    const targetW = W - pad * 2;
+    const targetH = H - pad * 2;
+
+    const naturalW = img.naturalWidth || img.width || 320;
+    const naturalH = img.naturalHeight || img.height || 400;
+    const imgAspect = naturalW / naturalH;
+    const containerAspect = targetW / targetH;
     let drawW, drawH, drawX, drawY;
 
-    if (imgAspect > canvasAspect) {
-      drawW = W;
-      drawH = W / imgAspect;
-      drawX = 0;
-      drawY = (H - drawH) / 2;
+    // Preserve 1:1 aspect ratio strictly - never stretch or flatten character
+    if (imgAspect > containerAspect) {
+      drawW = targetW;
+      drawH = targetW / imgAspect;
+      drawX = pad;
+      drawY = pad + (targetH - drawH) / 2;
     } else {
-      drawH = H;
-      drawW = H * imgAspect;
-      drawX = (W - drawW) / 2;
-      drawY = 0;
+      drawH = targetH;
+      drawW = targetH * imgAspect;
+      drawX = pad + (targetW - drawW) / 2;
+      drawY = pad;
     }
 
-    // Draw to hidden canvas
+    // Draw to hidden scratch canvas for pixel analysis
     hiddenCtx.drawImage(img, drawX, drawY, drawW, drawH);
 
     let imgData;
@@ -184,35 +197,52 @@
 
     const dots = [];
     const step = GRID_SPACING;
+    const cols = Math.floor(W / step);
+    const rows = Math.floor(H / step);
+    const maxR = MAX_DOT_RADIUS;
 
-    for (let y = 0; y < H; y += step) {
-      for (let x = 0; x < W; x += step) {
-        const idx = (y * W + x) * 4;
-        const r = imgData[idx];
-        const g = imgData[idx + 1];
-        const b = imgData[idx + 2];
-        const a = imgData[idx + 3];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const cx = (c + 0.5) * step;
+        const cy = (r + 0.5) * step;
 
-        if (a < 50) continue; // transparent pixel
+        // 3x3 local neighborhood luminance average
+        let totalLum = 0;
+        let count = 0;
 
-        // Perceived luminance (ITU-R BT.601)
-        const brightness = r * 0.299 + g * 0.587 + b * 0.114;
-        const darkness = 255 - brightness;
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            const sx = Math.min(W - 1, Math.max(0, Math.round(cx + dx)));
+            const sy = Math.min(H - 1, Math.max(0, Math.round(cy + dy)));
+            const idx = (sy * W + sx) * 4;
+            const red = imgData[idx];
+            const green = imgData[idx + 1];
+            const blue = imgData[idx + 2];
+            const alpha = imgData[idx + 3];
 
-        // Only draw dots where the underlying pixel is dark/opaque enough
-        if (darkness > CONTRAST_THRESHOLD) {
-          const normStrength = (darkness - CONTRAST_THRESHOLD) / (255 - CONTRAST_THRESHOLD);
-          const baseRadius = 0.9 + normStrength * 1.65; // ~1.0px to 2.6px
-          const baseAlpha = 0.45 + normStrength * 0.55;  // ~0.45 to 1.0
+            const pixelLum = alpha < 20 ? 0 : (red * 0.299 + green * 0.587 + blue * 0.114);
+            totalLum += pixelLum;
+            count++;
+          }
+        }
+
+        const avgLum = totalLum / count;
+        const normLum = avgLum / 255.0; // 0.0 (background) to 1.0 (highlights)
+
+        // Emit dots where character lighting is present
+        if (normLum > 0.06) {
+          const intensity = Math.pow(normLum, 1.0);
+          const baseRadius = Math.max(0.4, maxR * (0.65 + 0.35 * intensity));
+          const baseAlpha = Math.min(1.0, 0.40 + 0.60 * intensity);
 
           dots.push({
-            x: x + (step / 2),
-            y: y + (step / 2),
+            x: cx,
+            y: cy,
             baseRadius,
             baseAlpha,
-            darkness,
-            normX: x / W,
-            normY: y / H
+            intensity,
+            normX: cx / W,
+            normY: cy / H
           });
         }
       }
@@ -232,6 +262,22 @@
       }
 
       const item = QUOTES[index];
+
+      // Fast-path: If precomputed high-detail dithered dot array is present, map directly
+      if (item && item.dots && Array.isArray(item.dots) && item.dots.length > 0) {
+        const dots = item.dots.map(d => ({
+          x: d[0],
+          y: d[1],
+          baseRadius: d[2],
+          baseAlpha: d[3],
+          normX: d[4],
+          normY: d[5]
+        }));
+        dotsCache.set(index, dots);
+        resolve(dots);
+        return;
+      }
+
       const img = new Image();
 
       img.onload = () => {
