@@ -524,10 +524,10 @@ def generate_week_page(week, total_weeks, all_weeks):
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>अभ्यास &bull; Week {w_pad} &bull; {clean_week_title}</title>
+  <title>अभ्यास &bull; Week {w_pad}</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical journal.">
-  <meta property="og:title" content="अभ्यास &bull; Week {w_pad} &bull; {clean_week_title}">
+  <meta property="og:title" content="अभ्यास &bull; Week {w_pad}">
   <meta property="og:description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical notes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/weeks/week-{w_pad}.html">
@@ -720,16 +720,16 @@ def generate_dashboard(roadmap):
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>अभ्यास // 50-Week Placement Roadmap</title>
+  <title>अभ्यास</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="अभ्यास: 50-Week Placement Engineering Roadmap. Track daily progress, streaks, and focus queues.">
-  <meta property="og:title" content="अभ्यास // 50-Week Placement Roadmap">
+  <meta property="og:title" content="अभ्यास">
   <meta property="og:description" content="अभ्यास: 50-Week Placement Engineering Roadmap. Track daily progress, streaks, and focus queues.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/">
   <meta property="og:site_name" content="अभ्यास">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="अभ्यास // 50-Week Placement Roadmap">
+  <meta name="twitter:title" content="अभ्यास">
   <meta name="twitter:description" content="अभ्यास: 50-Week Placement Engineering Roadmap.">
   <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -749,16 +749,9 @@ def generate_dashboard(roadmap):
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- Brand Masthead -->
-        <header class="flex items-center justify-between pb-3 border-b border-outline-variant/15 select-none">
-          <div class="flex items-center gap-3">
-            <span class="font-calligraphy text-2xl sm:text-3xl text-on-surface font-normal leading-none tracking-wide">अभ्यास</span>
-            <span class="text-outline-variant/40 text-sm">&bull;</span>
-            <span class="text-xs font-mono text-on-surface-variant/70 tracking-wider uppercase">50-Week Placement Roadmap</span>
-          </div>
-          <div class="text-[11px] font-mono text-on-surface-variant/50 hidden sm:block">
-            DAILY DISCIPLINE
-          </div>
+        <!-- Brand Masthead (Top Center Only अभ्यास) -->
+        <header class="flex items-center justify-center pt-2 pb-2 select-none">
+          <h1 class="font-calligraphy text-3xl sm:text-4xl text-on-surface font-normal leading-none tracking-wide text-center">अभ्यास</h1>
         </header>
 
         <!-- 1. Executive Vitals Bar (Hero Metrics) -->
