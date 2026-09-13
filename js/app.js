@@ -67,7 +67,6 @@ const AUTH_CONFIG = {
 
 // Cryptographic one-way verification (Zero plain-text credentials in client code)
 const _SEC = {
-  eH: '772c6f69a74a0530a2cc1c4a5dec881288e1bdbf8b3e2f6b89b5934529cacefd',
   pH: 'c8145ecf06526ca12acb7bd2c7cc03e1d633fc4df39358042a9e1b63c4de5ffb',
   salt: 'swaraj_placement_roadmap_secure_salt_2026'
 };
@@ -75,14 +74,6 @@ const _SEC = {
 async function _hashPassword(val) {
   const encoder = new TextEncoder();
   const data = encoder.encode((val || '').trim() + _SEC.salt);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-async function _hashEmail(val) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode((val || '').trim().toLowerCase() + _SEC.salt);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
@@ -375,7 +366,6 @@ const AppState = {
     // 1. Instant load from local browser cache for zero-latency rendering
     this.loadLocal();
     this.initTheme();
-    this.initCloudSyncModal();
 
     // 2. Cross-tab & cross-window live synchronisation
     window.addEventListener('storage', (e) => {
@@ -461,7 +451,6 @@ const AppState = {
 
   async fetchFromCloud() {
     if (this.isSyncing) return;
-    this.updateSyncBadge('saving', 'Syncing...');
     try {
       const res = await fetch(`${CLOUD_CONFIG.endpoint}?id=eq.${CLOUD_CONFIG.docId}`, {
         headers: {
@@ -478,7 +467,6 @@ const AppState = {
           this.reconcileData(rows[0].data);
           this.saveLocal();
           this.notifyDataUpdated();
-          this.updateSyncBadge('online', 'Cloud Synced (Live)');
           return;
         } else {
           await this.pushToCloud();
@@ -487,12 +475,6 @@ const AppState = {
       }
     } catch (e) {
       console.warn('Cloud fetch notice:', e);
-    }
-    
-    if (!this.cloudConnected) {
-      this.updateSyncBadge('offline', 'Saved Locally (Offline)');
-    } else {
-      this.updateSyncBadge('online', 'Cloud Synced (Live)');
     }
   },
 
@@ -704,7 +686,6 @@ const AppState = {
   },
 
   scheduleCloudSync() {
-    this.updateSyncBadge('saving', 'Saving...');
     clearTimeout(this.syncTimeout);
     this.syncTimeout = setTimeout(() => {
       this.pushToCloud();
@@ -760,71 +741,12 @@ const AppState = {
       if (res.ok) {
         this.cloudConnected = true;
         this.lastSyncTime = new Date();
-        this.updateSyncBadge('online', 'Cloud Synced (Live)');
-      } else {
-        this.updateSyncBadge('offline', 'Saved Locally');
       }
     } catch (e) {
       console.warn('Cloud sync error:', e);
-      this.updateSyncBadge('offline', 'Saved Locally');
     } finally {
       this.isSyncing = false;
     }
-  },
-
-  updateSyncBadge(status, text) {
-    const badges = document.querySelectorAll('.sync-badge');
-    badges.forEach(badge => {
-      badge.className = `sync-badge ${status}`;
-      const textEl = badge.querySelector('.sync-text');
-      if (textEl) textEl.textContent = text;
-      badge.onclick = () => openCloudSyncModal();
-    });
-  },
-
-  initCloudSyncModal() {
-    if (document.getElementById('cloud-sync-modal')) return;
-
-    const modal = document.createElement('div');
-    modal.id = 'cloud-sync-modal';
-    modal.className = 'cloud-modal';
-    modal.innerHTML = `
-      <div class="cloud-modal-content">
-        <div class="cloud-modal-header">
-          <span class="cloud-modal-title">☁️ Live Cloud Sync &amp; Backup</span>
-          <button class="cloud-modal-close" onclick="closeCloudSyncModal()">&times;</button>
-        </div>
-        <div class="cloud-modal-body">
-          <p>Your checklist and streak automatically synchronize with your encrypted cloud database on every change.</p>
-          <div class="cloud-status-box">
-            <div class="cloud-status-row">
-              <span>Status:</span>
-              <span id="cloud-status-val" style="color: var(--success); font-weight: 600;">Active &bull; Real-Time</span>
-            </div>
-            <div class="cloud-status-row">
-              <span>Database:</span>
-              <span>Supabase REST API (SSL)</span>
-            </div>
-            <div class="cloud-status-row">
-              <span>Device Key:</span>
-              <span><code>swaraj_placement_roadmap</code></span>
-            </div>
-          </div>
-          <p id="cloud-last-sync-text" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-            Last synced with cloud: Just now
-          </p>
-          <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
-            <button class="nav-btn" onclick="closeCloudSyncModal()">Close</button>
-            <button class="nav-btn" style="background: var(--accent-primary); color: white;" onclick="manualForceSync()">Sync Now &rarr;</button>
-          </div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeCloudSyncModal();
-    });
   },
 
   onDataLoaded(cb) {
@@ -1017,47 +939,7 @@ function initWeekPage(weekNum) {
     });
   });
 
-  // 2. Defer buttons setup
-  document.querySelectorAll('.btn-defer').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const taskId = btn.getAttribute('data-task-id');
-      const isCurrentlyDeferred = AppState.isTaskDeferred(taskId);
-      AppState.deferTask(taskId, !isCurrentlyDeferred);
-      updateDeferBtnVisual(taskId);
-      renderWeekendDeferredQueue(weekNum);
-    });
-  });
 
-  // 3. Track Filtering setup: support both .filter-btn and .track-filter-pill
-  const filterBtns = document.querySelectorAll('.filter-btn, .track-filter-pill');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('active-filter', 'active', 'bg-white/10', 'bg-white/15', 'text-white', 'border-white/20', 'font-semibold');
-        b.classList.add('cockpit-glass', 'font-medium');
-      });
-      btn.classList.add('active-filter', 'active', 'bg-white/10', 'text-white', 'border-white/20', 'font-semibold');
-      btn.classList.remove('cockpit-glass', 'font-medium');
-      applyFilters();
-    });
-  });
-
-  // 4. Quick Action: Copy Summary
-  const btnCopySummary = document.getElementById('copy-summary-btn') || document.getElementById('btn-copy-summary');
-  if (btnCopySummary) {
-    btnCopySummary.addEventListener('click', () => {
-      copyWeekSummaryToClipboard(weekNum);
-    });
-  }
-
-  // Quick Action: Export Markdown Notes
-  const btnExportNotes = document.getElementById('export-notes-btn');
-  if (btnExportNotes) {
-    btnExportNotes.addEventListener('click', () => {
-      exportWeekNotesAsMarkdown(weekNum);
-    });
-  }
 
   // 5. Notes Scratchpad auto-save & auto-expanding height
   if (notesArea) {
@@ -1133,34 +1015,11 @@ function initWeekPage(weekNum) {
 }
 
 function updateDeferBtnVisual(taskId) {
-  const btn = document.querySelector(`.btn-defer[data-task-id="${taskId}"]`);
   const card = document.querySelector(`.task-card[data-task-id="${taskId}"], .task-item[data-task-id="${taskId}"]`);
-  const isDeferred = AppState.isTaskDeferred(taskId);
-  const isDone = AppState.isTaskDone(taskId);
-
   if (card) {
-    if (isDeferred && !isDone) {
-      card.classList.add('deferred');
-    } else {
-      card.classList.remove('deferred');
-    }
-  }
-
-  if (btn) {
-    if (isDone) {
-      btn.style.display = 'none';
-    } else {
-      btn.style.display = 'inline-flex';
-      if (isDeferred) {
-        btn.classList.add('text-primary');
-        btn.classList.remove('text-slate-500');
-        btn.setAttribute('title', 'Deferred to weekend lab');
-      } else {
-        btn.classList.remove('text-primary');
-        btn.classList.add('text-slate-500');
-        btn.setAttribute('title', 'Defer to Weekend Lab');
-      }
-    }
+    const isDeferred = AppState.isTaskDeferred(taskId);
+    const isDone = AppState.isTaskDone(taskId);
+    card.classList.toggle('deferred', isDeferred && !isDone);
   }
 }
 
@@ -1366,12 +1225,7 @@ function updateTaskCardVisual(card, isDone) {
   }
 }
 
-function updateTaskItemVisual(checkbox, isChecked) {
-  const card = checkbox.closest('.task-card, .task-item, .deliverable-item');
-  if (card) {
-    updateTaskCardVisual(card, isChecked);
-  }
-}
+
 
 function updateWeekProgress() {
   const allCards = document.querySelectorAll('.task-card, .task-item');
@@ -1444,83 +1298,13 @@ function updateDayProgress() {
   });
 }
 
-function applyFilters() {
-  const activeBtn = document.querySelector('.filter-btn.active-filter') || document.querySelector('.filter-btn.active') || document.querySelector('.track-filter-pill.active');
-  const activeTrack = activeBtn?.getAttribute('data-filter') || activeBtn?.getAttribute('data-track') || 'all';
 
-  const dayCards = document.querySelectorAll('.day-card');
-  dayCards.forEach(card => {
-    const taskCards = card.querySelectorAll('.task-card, .task-item');
-    let visibleTasksInDay = 0;
-    taskCards.forEach(item => {
-      const trackId = item.getAttribute('data-track');
-      const trackMatch = (activeTrack === 'all' || activeTrack === trackId || 
-                         (['backend', 'aptitude'].includes(activeTrack) && ['aptitude', 'backend'].includes(trackId)));
-      if (trackMatch) {
-        item.style.display = 'flex';
-        visibleTasksInDay++;
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    card.style.display = (visibleTasksInDay > 0 || activeTrack === 'all') ? 'flex' : 'none';
-  });
-}
-
-function copyWeekSummaryToClipboard(weekNum) {
-  const allCards = document.querySelectorAll('.task-card, .task-item');
-  const total = allCards.length;
-  let done = 0;
-  const completedList = [];
-  const pendingList = [];
-
-  allCards.forEach(card => {
-    const taskId = card.getAttribute('data-task-id');
-    const isDone = AppState.isTaskDone(taskId);
-    const label = card.querySelector('.task-title, .task-text')?.innerText.trim() || taskId;
-    if (isDone) {
-      done++;
-      completedList.push(`- [x] ${label}`);
-    } else {
-      pendingList.push(`- [ ] ${label}`);
-    }
-  });
-
-  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-  const text = `# Week ${weekNum} Progress: ${done}/${total} (${pct}%)\n\n## Completed:\n${completedList.join('\n') || 'None'}\n\n## Pending:\n${pendingList.join('\n') || 'None'}\n`;
-
-  navigator.clipboard.writeText(text).then(() => {
-    const btnText = document.getElementById('copy-btn-text');
-    if (btnText) {
-      const old = btnText.textContent;
-      btnText.textContent = 'Copied! ✓';
-      setTimeout(() => { btnText.textContent = old; }, 2000);
-    }
-    showToast('Summary copied to clipboard!');
-  }).catch(() => {
-    showToast('Failed to copy summary');
-  });
-}
-
-function exportWeekNotesAsMarkdown(weekNum) {
-  const notes = AppState.getNote(weekNum);
-  const blob = new Blob([`# Week ${String(weekNum).padStart(2, '0')} Technical Notes\n\n${notes || '_No notes recorded yet._'}\n`], { type: 'text/markdown;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `week-${String(weekNum).padStart(2, '0')}-notes.md`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  showToast('Notes exported as Markdown');
-}
 
 // ==========================================================================
 // Dashboard (index.html) Controller & Today's Focus Engine
 // ==========================================================================
-function initDashboard(roadmapData) {
+function initDashboard(roadmapData = window.ROADMAP_DATA) {
+  if (!roadmapData) roadmapData = window.ROADMAP_DATA || [];
   if (!AppState._initialized) {
     AppState.init();
   }
@@ -1543,6 +1327,10 @@ function initDashboard(roadmapData) {
       render50WeekHeatmap();
     }
   }, 30000);
+
+  window.renderTodayCommandCenter = renderTodayCommandCenter;
+  window.renderBacklogQueue = renderBacklogQueue;
+  window.renderDashboardStats = renderDashboardStats;
 
   function renderTodayCommandCenter() {
     const currentWeek = roadmapData.find(w => w.week_num === selectedWeekNum) || roadmapData[0];
