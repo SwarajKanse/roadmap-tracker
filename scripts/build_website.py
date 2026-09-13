@@ -524,18 +524,19 @@ def generate_week_page(week, total_weeks, all_weeks):
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Week {w_pad} Execution &bull; SK Cockpit</title>
+  <title>अभ्यास &bull; Week {w_pad} &bull; {clean_week_title}</title>
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="Phase {week['phase_num']} Week {w_pad} Execution Console: {clean_week_title}. Track daily tasks, deliverables, and technical journal.">
-  <meta property="og:title" content="Week {w_pad} Execution &bull; SK Cockpit">
+  <meta name="description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical journal.">
+  <meta property="og:title" content="अभ्यास &bull; Week {w_pad} &bull; {clean_week_title}">
   <meta property="og:description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical notes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/weeks/week-{w_pad}.html">
+  <meta property="og:site_name" content="अभ्यास">
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
   <link rel="stylesheet" href="../css/tailwind.min.css?v={BUILD_VERSION}">
   <link rel="stylesheet" href="../css/style.css?v={BUILD_VERSION}">
@@ -551,7 +552,7 @@ def generate_week_page(week, total_weeks, all_weeks):
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
       <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
         <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
-        <span>Dashboard</span>
+        <span class="font-calligraphy text-base leading-none text-on-surface">अभ्यास</span>
       </a>
 
       <div class="flex flex-col items-center text-center min-w-0 flex-1 px-3">
@@ -719,21 +720,21 @@ def generate_dashboard(roadmap):
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>ORBIT // Executive Cockpit</title>
+  <title>अभ्यास // 50-Week Placement Roadmap</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta name="description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
-  <meta property="og:title" content="ORBIT // Executive Cockpit">
-  <meta property="og:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
+  <meta name="description" content="अभ्यास: 50-Week Placement Engineering Roadmap. Track daily progress, streaks, and focus queues.">
+  <meta property="og:title" content="अभ्यास // 50-Week Placement Roadmap">
+  <meta property="og:description" content="अभ्यास: 50-Week Placement Engineering Roadmap. Track daily progress, streaks, and focus queues.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/">
-  <meta property="og:site_name" content="ORBIT Cockpit">
+  <meta property="og:site_name" content="अभ्यास">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ORBIT // Executive Cockpit">
-  <meta name="twitter:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse.">
+  <meta name="twitter:title" content="अभ्यास // 50-Week Placement Roadmap">
+  <meta name="twitter:description" content="अभ्यास: 50-Week Placement Engineering Roadmap.">
   <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
   <link rel="stylesheet" href="css/tailwind.min.css?v={BUILD_VERSION}">
   <link rel="stylesheet" href="css/style.css?v={BUILD_VERSION}">
@@ -747,6 +748,18 @@ def generate_dashboard(roadmap):
   <main class="w-full pt-8 sm:pt-10 pb-16 min-h-screen">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
+
+        <!-- Brand Masthead -->
+        <header class="flex items-center justify-between pb-3 border-b border-outline-variant/15 select-none">
+          <div class="flex items-center gap-3">
+            <span class="font-calligraphy text-2xl sm:text-3xl text-on-surface font-normal leading-none tracking-wide">अभ्यास</span>
+            <span class="text-outline-variant/40 text-sm">&bull;</span>
+            <span class="text-xs font-mono text-on-surface-variant/70 tracking-wider uppercase">50-Week Placement Roadmap</span>
+          </div>
+          <div class="text-[11px] font-mono text-on-surface-variant/50 hidden sm:block">
+            DAILY DISCIPLINE
+          </div>
+        </header>
 
         <!-- 1. Executive Vitals Bar (Hero Metrics) -->
         <section class="grid grid-cols-1 md:grid-cols-4 gap-3.5">

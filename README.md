@@ -1,32 +1,32 @@
-# 🛰️ ORBIT // Executive Cockpit
+# 🕉️ अभ्यास // Placement Engineering Roadmap
 
 > **50-Week Placement Engineering Roadmap & Minimalist Execution Console**  
-> Live Cockpit: **[track.swarajkanse.me](https://track.swarajkanse.me/)**
+> Live Tracker: **[track.swarajkanse.me](https://track.swarajkanse.me/)**
 
 [![Status](https://img.shields.io/badge/Status-Active%20Execution-8083ff?style=flat-square)](https://track.swarajkanse.me/)
 [![Stack](https://img.shields.io/badge/Architecture-Local--First%20%2B%20Supabase-c0c1ff?style=flat-square)](#-architecture--tech-stack)
-[![Theme](https://img.shields.io/badge/Design-Obsidian%20Cockpit-121316?style=flat-square)](#-design-system)
+[![Theme](https://img.shields.io/badge/Design-Obsidian%20Dark-121316?style=flat-square)](#-design-system)
 [![Search](https://img.shields.io/badge/Search-Sub--1ms%20Global%20Find-8083ff?style=flat-square)](#-minimal-global-roadmap-search)
 [![Recall](https://img.shields.io/badge/Recall-SM--2%20Spaced%20Repetition-10b981?style=flat-square)](#-spaced-repetition-recall-engine)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
 ---
 
-## ⚡ Executive Overview
+## ⚡ Overview
 
-**ORBIT** is an ultra-minimalist, distraction-free execution cockpit engineered for 50 weeks of rigorous placement preparation across Data Structures & Algorithms, System Design (HLD & LLD), Machine Learning / AI, and Core Computer Science.
+**अभ्यास** is an ultra-minimalist, distraction-free execution tracker engineered for 50 weeks of rigorous placement preparation across Data Structures & Algorithms, System Design (HLD & LLD), Machine Learning / AI, and Core Computer Science.
 
-Built with a **local-first, zero-runtime-hydration** philosophy, ORBIT delivers instant rendering from browser cache, seamless optimistic UI updates, multi-tab broadcast synchronization, and background PostgreSQL synchronization via Supabase. Public viewers enjoy an uncompromised **Guest Read-Only** experience with zero exposed credentials, while authenticated sessions allow complete progress tracking and focus queue management.
+Built with a **local-first, zero-runtime-hydration** philosophy, अभ्यास delivers instant rendering from browser cache, seamless optimistic UI updates, multi-tab broadcast synchronization, and background PostgreSQL synchronization via Supabase. Public viewers enjoy an uncompromised **Guest Read-Only** experience with zero exposed credentials, while authenticated sessions allow complete progress tracking and focus queue management.
 
 ---
 
 ## 🎯 Core Capabilities & Systems
 
 ### 🔍 Minimal Global Roadmap Search
-- **Browser-Find Native Widget**: Floating dark pill widget (`#1c1c1f`, `rounded-xl`) engineered with zero visual clutter.
+- **Browser-Find Native Widget**: Floating dark pill widget (`#1c1c1f`, `rounded-xl`) engineered with zero visual clutter. Hidden until shortcut keys are pressed.
 - **Sub-Millisecond Indexing**: Scans all 800+ tasks, deliverables, and titles across 50 weeks in under 1ms entirely in-memory.
 - **Horizontal Arrow Iteration**: Navigate search results forward (`>`) and backward (`<`) across weeks using on-screen chevrons or keyboard arrows (`ArrowRight` / `ArrowLeft`, `Enter` / `Shift+Enter`).
-- **Cross-Week Auto-Routing**: When advancing to a match in another week, ORBIT automatically routes to that page (`week-XX.html?q=...&m=...#taskId`), highlights the card with a pulsing violet outline (`.task-search-highlight`), and smoothly centers it in the viewport.
+- **Cross-Week Auto-Routing**: When advancing to a match in another week, अभ्यास automatically routes to that page (`week-XX.html?q=...&m=...#taskId`), highlights the card with a pulsing violet outline (`.task-search-highlight`), and smoothly centers it in the viewport.
 - **Clickable Week Badges**: Interactive pill tags (e.g. `W08 Sun`) display match location and jump immediately to that week when clicked.
 - **Instant Hotkeys**: Trigger anytime via `Ctrl+F`, `Cmd+F`, `Ctrl+K`, or `/`. Press `Escape` to close.
 
@@ -50,7 +50,7 @@ Built with a **local-first, zero-runtime-hydration** philosophy, ORBIT delivers 
 - **Interactive Tooltips**: Hover over any cell to see exact completion counts, date, and activity status.
 
 ### 🔄 Local-First + Supabase Cloud Synchronization
-- **Zero-Latency Optimistic State**: Checkbox toggles and notes save immediately to `localStorage` and broadcast to all open browser tabs via `StorageEvent`.
+- **Zero-Latency Optimistic State**: Checkbox toggles and notes save immediately to `localStorage` and broadcast to all open browser tabs via `StorageEvent` and `BroadcastChannel`.
 - **Bidirectional Cloud Sync**: Automatic reconciliation with Supabase PostgreSQL. Background polling ensures changes on mobile or other devices reflect everywhere in real time.
 - **Server-Side Authorization**: Mutations are gated by PostgreSQL Row Level Security (RLS) and stored procedures with Blowfish-salted bcrypt hashing (`crypt()`). Client bundles contain zero private keys or write hashes.
 - **Guest Read-Only Inspection**: Public visitors can explore all weeks, inspect notes, and search without accidental or unauthorized state changes.
@@ -86,11 +86,11 @@ The 50-week roadmap spans 10 cohesive engineering phases:
 
 ```
 tracker/
-├── index.html                    # Pre-rendered Executive Cockpit Dashboard
-├── favicon.svg                   # Vector Obsidian Cockpit favicon
+├── index.html                    # Pre-rendered Dashboard
+├── favicon.svg                   # Calligraphic Devanagari 'अ' vector icon
 ├── CNAME                         # Production domain: track.swarajkanse.me
 ├── css/
-│   ├── style.css                 # Custom glassmorphism, animations & design tokens
+│   ├── style.css                 # Custom glassmorphism, calligraphic typography & design tokens
 │   ├── tailwind-input.css        # Tailwind base and utilities entrypoint
 │   └── tailwind.min.css          # Purged, precompiled production CSS bundle
 ├── js/
@@ -112,7 +112,7 @@ tracker/
 | :--- | :--- | :--- |
 | **Core Client** | Vanilla ES6+ JavaScript | Zero-framework runtime, instant boot, lightweight memory footprint |
 | **Markup** | Semantic HTML5 + WCAG 2.1 | Accessible buttons, ARIA state announcements, screen-reader friendly |
-| **Styling** | Tailwind CSS + Vanilla CSS | Purged utility bundle + custom Obsidian cockpit tokens & animations |
+| **Styling** | Tailwind CSS + Vanilla CSS | Purged utility bundle + custom calligraphic typography & animations |
 | **Persistence** | Browser `localStorage` | Instant local-first writes, offline resiliency, `StorageEvent` tab sync |
 | **Cloud Backend** | Supabase (PostgreSQL 15) | Real-time database sync, Row Level Security, transactional RPC |
 | **Authentication** | PostgreSQL `pgcrypto` (`crypt`) | Server-side Blowfish password verification with zero client exposure |
@@ -185,7 +185,7 @@ The cloud sync layer utilizes Supabase PostgreSQL with strict Row Level Security
 
 ## 🎨 Design System & Palette
 
-ORBIT employs a customized **Obsidian Dark Cockpit** aesthetic engineered for prolonged visual comfort during 8+ hour study sessions:
+अभ्यास employs a customized **Obsidian Dark** aesthetic engineered for prolonged visual comfort during 8+ hour study sessions:
 
 - **Surface Background**: `#121316` (Deep Matte Obsidian)
 - **Container Glass**: `rgba(27, 27, 31, 0.75)` with `backdrop-filter: blur(12px)`
@@ -193,6 +193,7 @@ ORBIT employs a customized **Obsidian Dark Cockpit** aesthetic engineered for pr
 - **Secondary Accent**: `#c0c1ff` (Soft Lavender Highlight)
 - **Success Tone**: `#10b981` (Vibrant Emerald for completed tasks and streaks)
 - **Typography Hierarchy**:
+  - **Brand Title**: Rozha One / Yatra One (Calligraphic Devanagari)
   - **Headlines**: Space Grotesk (technical, high-legibility geometric sans)
   - **Body Copy**: Inter (clean, optimized UI text)
   - **Telemetry & Badges**: JetBrains Mono (monospaced metrics, timers, and code references)
@@ -203,9 +204,9 @@ ORBIT employs a customized **Obsidian Dark Cockpit** aesthetic engineered for pr
 
 **Swaraj Kanse**  
 - **Portfolio**: [swarajkanse.me](https://swarajkanse.me/)  
-- **Live Cockpit**: [track.swarajkanse.me](https://track.swarajkanse.me/)  
+- **Live Tracker**: [track.swarajkanse.me](https://track.swarajkanse.me/)  
 - **GitHub**: [@SwarajKanse](https://github.com/SwarajKanse)
 
 ---
 
-*“Discipline is choosing between what you want now and what you want most.”*
+*“अभ्यास ही सफलता की कुंजी है — Consistent practice builds mastery.”*

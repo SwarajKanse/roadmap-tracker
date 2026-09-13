@@ -69,10 +69,10 @@ const AUTH_CONFIG = {
 };
 
 function showToast(msg, duration = 2500) {
-  let toast = document.getElementById('cockpit-toast');
+  let toast = document.getElementById('abhyas-toast');
   if (!toast) {
     toast = document.createElement('div');
-    toast.id = 'cockpit-toast';
+    toast.id = 'abhyas-toast';
     toast.className = 'fixed bottom-6 right-6 z-[9999] px-4 py-2.5 rounded-lg bg-surface-container-highest/95 backdrop-blur-md border border-white/15 text-xs font-mono text-on-surface shadow-2xl transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-none flex items-center gap-2';
     document.body.appendChild(toast);
   }
@@ -422,7 +422,7 @@ const AppState = {
     // 2. Cross-tab & cross-window live synchronisation
     if (typeof BroadcastChannel !== 'undefined') {
       try {
-        this._broadcastChannel = new BroadcastChannel('orbit_state_sync');
+        this._broadcastChannel = new BroadcastChannel('abhyas_state_sync');
         this._broadcastChannel.onmessage = (e) => {
           if (e.data && e.data.data) {
             this.data = e.data.data;
@@ -500,7 +500,7 @@ const AppState = {
               ]
             }
           },
-          ref: 'orbit_join_1'
+          ref: 'abhyas_join_1'
         };
         ws.send(JSON.stringify(joinMsg));
 
@@ -963,7 +963,7 @@ const AppState = {
   },
 
   initTheme() {
-    // Dedicated Obsidian Dark Executive Cockpit Design System
+    // Dedicated Obsidian Dark Design System
     document.documentElement.setAttribute('data-theme', 'dark');
     document.documentElement.classList.add('dark');
     document.documentElement.classList.remove('light');
@@ -2559,7 +2559,7 @@ function initPageTransitions() {
     if (href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || link.target === '_blank' || link.hasAttribute('download')) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
-    // Check if navigating to another HTML file in cockpit
+    // Check if navigating to another HTML file in tracker
     const isInternalNav = href.endsWith('.html') || href.includes('week-') || href.includes('index.html') || href.startsWith('./') || href.startsWith('../');
     if (!isInternalNav) return;
 

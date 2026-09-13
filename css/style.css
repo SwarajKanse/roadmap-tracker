@@ -1,12 +1,18 @@
 /* ==========================================================================
-   Linear & Obsidian Design System — Placement Engineering Cockpit
-   Typography: Inter & JetBrains Mono • High Craftsmanship • Zero Slop
+   Linear & Obsidian Design System — अभ्यास Placement Engineering Roadmap
+   Typography: Inter, JetBrains Mono & Rozha One • High Craftsmanship
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Rozha+One&family=Yatra+One&display=swap');
+
+/* Calligraphic Devanagari Typography */
+.font-calligraphy {
+  font-family: 'Rozha One', 'Yatra One', serif;
+  letter-spacing: 0.03em;
+}
 
 :root, html.dark, [data-theme="dark"] {
-  /* Executive Obsidian Cockpit Palette */
+  /* Obsidian Dark Palette */
   --bg-canvas: #121316;
   --bg-surface: #1b1b1f;
   --bg-surface-elevated: #292a2d;
@@ -237,7 +243,7 @@ body.page-leaving {
 }
 
 /* ==========================================================================
-   Dashboard Hero & Cockpit Identity
+   Dashboard Hero & Identity
    ========================================================================== */
 .dashboard-hero {
   margin-bottom: 1.75rem;
