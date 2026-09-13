@@ -4,6 +4,8 @@ import json
 import os
 import sys
 
+BUILD_VERSION = "20260913_sync_v5"
+
 def clean_latex_and_math(text):
     if not text:
         return ""
@@ -535,8 +537,8 @@ def generate_week_page(week, total_weeks, all_weeks):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
-  <link rel="stylesheet" href="../css/tailwind.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tailwind.min.css?v={BUILD_VERSION}">
+  <link rel="stylesheet" href="../css/style.css?v={BUILD_VERSION}">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
@@ -613,7 +615,7 @@ def generate_week_page(week, total_weeks, all_weeks):
     </div>
   </main>
 
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v={BUILD_VERSION}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
       initWeekPage({w_num});
@@ -719,8 +721,8 @@ def generate_dashboard(roadmap):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
-  <link rel="stylesheet" href="css/tailwind.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tailwind.min.css?v={BUILD_VERSION}">
+  <link rel="stylesheet" href="css/style.css?v={BUILD_VERSION}">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
@@ -846,8 +848,8 @@ def generate_dashboard(roadmap):
 
 
 
-  <script src="js/dashboard-summary.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/dashboard-summary.js?v={BUILD_VERSION}"></script>
+  <script src="js/app.js?v={BUILD_VERSION}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
       if (window.DASHBOARD_DATA) {{

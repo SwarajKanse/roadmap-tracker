@@ -103,6 +103,40 @@ const AuthManager = {
     }
     this.injectAuthUI();
     this.updateUIState();
+    if (this.session && this.session.token) {
+      this.validateSession();
+    }
+  },
+
+  async validateSession() {
+    if (!this.session || !this.session.token) return;
+    try {
+      const res = await fetch(CLOUD_CONFIG.rpcVerify, {
+        method: 'POST',
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ p_password: this.session.token }),
+        cache: 'no-store'
+      });
+      if (res.ok) {
+        const result = await res.json();
+        if (result && result.valid !== true) {
+          console.warn('Stored session credential is no longer valid. Auto-invalidating stale session.');
+          this.session = null;
+          try {
+            localStorage.removeItem(AUTH_CONFIG.sessionKey);
+          } catch (e) {}
+          this.updateUIState();
+          showToast('🔒 Master password was rotated. Please unlock to edit.', 6000);
+          this.showPrompt();
+        }
+      }
+    } catch (e) {
+      console.warn('Session check notice:', e);
+    }
   },
 
   loadSession() {
@@ -893,7 +927,8 @@ const AppState = {
       } else if (rpcRes.status === 401 || rpcRes.status === 403) {
         console.warn('Server authorization rejected: Invalid master password');
         AuthManager.logout();
-        showToast('🔒 Session expired. Please re-enter master password.');
+        showToast('🔒 Master password was rotated. Please enter the new password to save changes.', 5000);
+        AuthManager.showPrompt();
       }
     } catch (e) {
       console.warn('Cloud sync error:', e);
@@ -1065,6 +1100,7 @@ function initWeekPage(weekNum) {
       if (!AuthManager.isAuthenticated()) {
         showToast('⚠️ Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
+        AuthManager.showPrompt();
         return;
       }
       const currentDone = AppState.isTaskDone(taskId);
