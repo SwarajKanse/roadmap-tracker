@@ -449,14 +449,14 @@ def generate_week_page(week, total_weeks, all_weeks):
                 duration = '2.5h'
                 track_tag = 'CORE'
 
-            clean_title = re.sub(r'<[^>]*>', '', title).replace('"', '&quot;')
+            clean_title = re.sub(r'<[^>]*>', '', title).replace('"', '&quot;').strip()
             ref_badge = f'<span class="task-ref font-mono text-[10px] text-on-surface-variant/60 ml-1.5 shrink-0">{ref}</span>' if ref else ''
             desc_html = f'<div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">{desc}</div>' if desc else ''
 
             tasks_html.append(f'''
             <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer {rest_class}" data-completed="false" data-hours="{duration.replace('h','')}" data-task-id="{task_id}" data-track="{track_class}">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button aria-label="Toggle task" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: {clean_title}" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
@@ -516,18 +516,26 @@ def generate_week_page(week, total_weeks, all_weeks):
     prev_btn = f'''<a href="{prev_w}" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Previous Week (W{(w_num-1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_left</span></a>''' if prev_w else '<span class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/10 opacity-30 flex items-center justify-center text-on-surface-variant shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_left</span></span>'
     next_btn = f'''<a href="{next_w}" class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors shrink-0" title="Next Week (W{(w_num+1):02d})"><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>''' if next_w else '<span class="h-8 w-8 rounded-lg cockpit-glass border border-outline-variant/10 opacity-30 flex items-center justify-center text-on-surface-variant shrink-0"><span class="material-symbols-outlined text-[18px]">chevron_right</span></span>'
 
+    clean_week_title = re.sub(r'<[^>]*>', '', week['title']).replace('"', '&quot;').strip()
     html_content = f'''<!DOCTYPE html>
 <html class="dark" data-theme="dark" lang="en">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Week {w_pad} Execution &bull; SK Cockpit</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="Phase {week['phase_num']} Week {w_pad} Execution Console: {clean_week_title}. Track daily tasks, deliverables, and technical journal.">
+  <meta property="og:title" content="Week {w_pad} Execution &bull; SK Cockpit">
+  <meta property="og:description" content="Phase {week['phase_num']} Week {w_pad}: {clean_week_title}. Track daily tasks, deliverables, and technical notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://track.swarajkanse.me/weeks/week-{w_pad}.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  {COMMON_TAILWIND_CONFIG}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
@@ -696,12 +704,22 @@ def generate_dashboard(roadmap):
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>ORBIT // Executive Cockpit</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
+  <meta property="og:title" content="ORBIT // Executive Cockpit">
+  <meta property="og:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://track.swarajkanse.me/">
+  <meta property="og:site_name" content="ORBIT Cockpit">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ORBIT // Executive Cockpit">
+  <meta name="twitter:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse.">
+  <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  {COMMON_TAILWIND_CONFIG}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
@@ -828,11 +846,13 @@ def generate_dashboard(roadmap):
 
 
 
-  <script src="js/roadmap-data.js"></script>
+  <script src="js/dashboard-summary.js"></script>
   <script src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {{
-      if (window.ROADMAP_DATA) {{
+      if (window.DASHBOARD_DATA) {{
+        initDashboard(window.DASHBOARD_DATA);
+      }} else if (window.ROADMAP_DATA) {{
         initDashboard(window.ROADMAP_DATA);
       }}
     }});
@@ -849,6 +869,39 @@ def main():
     roadmap = parse_roadmap()
     print(f"Parsed {len(roadmap)} weeks.")
 
+    # 1. Compact Dashboard Summary (Shrinks initial homepage bundle by >70%)
+    dashboard_data = []
+    for w in roadmap:
+        days_clean = []
+        for d in w['days']:
+            tasks_clean = []
+            for t in d['tasks']:
+                tasks_clean.append({
+                    'id': t['id'],
+                    'track_id': t['track_id'],
+                    'title': t.get('title', ''),
+                    'desc': t.get('desc', ''),
+                    'is_rest': t.get('is_rest', False)
+                })
+            days_clean.append({
+                'day_code': d['day_code'],
+                'day_name': d['day_name'],
+                'tasks': tasks_clean
+            })
+        dashboard_data.append({
+            'week_num': w['week_num'],
+            'phase_num': w['phase_num'],
+            'title': w['title'],
+            'days': days_clean
+        })
+
+    with open('js/dashboard-summary.js', 'w', encoding='utf-8') as f:
+        f.write("window.DASHBOARD_DATA = ")
+        json.dump(dashboard_data, f, ensure_ascii=False, separators=(',', ':'))
+        f.write(";\n")
+    print("Written js/dashboard-summary.js (compact)")
+
+    # 2. Legacy full roadmap dataset
     with open('js/roadmap-data.js', 'w', encoding='utf-8') as f:
         f.write("window.ROADMAP_DATA = ")
         json.dump(roadmap, f, ensure_ascii=False, indent=2)
@@ -867,6 +920,23 @@ def main():
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(week_html)
     print(f"Generated {len(roadmap)} weekly HTML pages in weeks/")
+
+    # 3. Compile purged production Tailwind CSS bundle
+    print("Compiling production Tailwind CSS bundle...")
+    try:
+        import subprocess
+        res = subprocess.run(
+            ["npx", "-y", "tailwindcss@3", "-i", "./css/tailwind-input.css", "-o", "./css/tailwind.min.css", "--minify"],
+            capture_output=True,
+            text=True,
+            shell=True
+        )
+        if res.returncode == 0:
+            print("Successfully compiled css/tailwind.min.css")
+        else:
+            print("Tailwind compile notice:", res.stderr or res.stdout)
+    except Exception as e:
+        print("Tailwind compile warning:", e)
 
 if __name__ == '__main__':
     main()

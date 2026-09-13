@@ -4,53 +4,22 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>ORBIT // Executive Cockpit</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
+  <meta property="og:title" content="ORBIT // Executive Cockpit">
+  <meta property="og:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse. Track daily progress, streaks, and focus queues.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://track.swarajkanse.me/">
+  <meta property="og:site_name" content="ORBIT Cockpit">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ORBIT // Executive Cockpit">
+  <meta name="twitter:description" content="Obsidian Executive Cockpit & 50-Week Placement Engineering Roadmap by Swaraj Kanse.">
+  <meta name="theme-color" content="#121316">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-dim": "#121316",
-            "surface": "#121316",
-            "background": "#121316",
-            "surface-container-lowest": "#0d0e11",
-            "surface-container-low": "#1b1b1f",
-            "surface-container": "#1f1f23",
-            "surface-container-high": "#292a2d",
-            "surface-container-highest": "#343538",
-            "on-surface": "#e3e2e6",
-            "on-surface-variant": "#c7c4d7",
-            "outline-variant": "#464554",
-            "outline": "#908fa0",
-            "primary": "#c0c1ff",
-            "primary-container": "#8083ff",
-            "on-primary": "#1000a9",
-            "tertiary": "#b9c8de",
-            "secondary": "#c1c7cf",
-            "error": "#ffb4ab"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          fontFamily: {
-            "headline": ["Space Grotesk", "Plus Jakarta Sans", "sans-serif"],
-            "body": ["Inter", "sans-serif"],
-            "mono": ["JetBrains Mono", "monospace"]
-          }
-        }
-      }
-    };
-</script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
@@ -1026,11 +995,13 @@
 
 
 
-  <script src="js/roadmap-data.js"></script>
+  <script src="js/dashboard-summary.js"></script>
   <script src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      if (window.ROADMAP_DATA) {
+      if (window.DASHBOARD_DATA) {
+        initDashboard(window.DASHBOARD_DATA);
+      } else if (window.ROADMAP_DATA) {
         initDashboard(window.ROADMAP_DATA);
       }
     });
