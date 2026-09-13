@@ -44,6 +44,10 @@ create policy "Allow public read-only"
   to anon, authenticated 
   using (true);
 
+-- Enable Realtime broadcasting on tracker_state so all devices update instantly
+alter publication supabase_realtime add table public.tracker_state;
+alter table public.tracker_state replica identity full;
+
 -- 5. Create secure server-side verification function
 create or replace function public.verify_admin_password(p_password text)
 returns jsonb

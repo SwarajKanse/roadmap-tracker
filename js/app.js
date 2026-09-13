@@ -58,6 +58,7 @@ const CLOUD_CONFIG = {
   endpoint: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/rest/v1/tracker_state',
   rpcVerify: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/rest/v1/rpc/verify_admin_password',
   rpcSync: 'https://ljqmvwvfmyoaakgsxddw.supabase.co/rest/v1/rpc/sync_tracker_state',
+  wsUrl: 'wss://ljqmvwvfmyoaakgsxddw.supabase.co/realtime/v1/websocket',
   apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqcW12d3ZmbXlvYWFrZ3N4ZGR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkwNTc1ODAsImV4cCI6MjEwNDYzMzU4MH0.aVUPWDOnirAco45eh0iTLNxupL9etepBWkInje0dZuk',
   docId: 'swaraj_placement_roadmap'
 };
@@ -364,8 +365,13 @@ const AppState = {
   syncTimeout: null,
   isSyncing: false,
   lastSyncTime: null,
+  lastKnownServerUpdatedAt: null,
   onDataLoadedCallbacks: [],
   _initialized: false,
+  _ws: null,
+  _wsHeartbeatInterval: null,
+  _pollingInterval: null,
+  _broadcastChannel: null,
 
   async init() {
     if (this._initialized) return;
@@ -379,6 +385,18 @@ const AppState = {
     this.initTheme();
 
     // 2. Cross-tab & cross-window live synchronisation
+    if (typeof BroadcastChannel !== 'undefined') {
+      try {
+        this._broadcastChannel = new BroadcastChannel('orbit_state_sync');
+        this._broadcastChannel.onmessage = (e) => {
+          if (e.data && e.data.data) {
+            this.data = e.data.data;
+            this.notifyDataUpdated();
+          }
+        };
+      } catch (err) {}
+    }
+
     window.addEventListener('storage', (e) => {
       if (e.key === STORAGE_KEY && e.newValue) {
         try {
@@ -391,22 +409,22 @@ const AppState = {
       }
     });
 
-    // 3. Re-read storage and refresh when returning via browser back/forward, tab switch, or BFCache
+    // 3. Start Live Realtime WebSocket & Polling Heartbeat
+    this.startRealtimeSubscription();
+    this.startPollingHeartbeat();
+
+    // 4. Re-read storage and refresh when returning via browser back/forward, tab switch, or BFCache
     window.addEventListener('pageshow', () => {
-      this.loadLocal();
-      this.notifyDataUpdated();
       this.fetchFromCloud();
     });
 
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
-        this.loadLocal();
-        this.notifyDataUpdated();
         this.fetchFromCloud();
       }
     });
 
-    // 4. Reliable sync flush on tab close or page navigate
+    // 5. Reliable sync flush on tab close or page navigate
     window.addEventListener('pagehide', () => this.flushCloudSync());
     window.addEventListener('beforeunload', () => this.flushCloudSync());
 
@@ -414,11 +432,130 @@ const AppState = {
       this.fetchFromCloud();
     });
 
-    // 5. Notify all registered listeners immediately with local data
+    // 6. Notify all registered listeners immediately with local data
     this.notifyDataUpdated();
 
-    // 6. Fetch and synchronize with Supabase cloud database in background
+    // 7. Fetch and synchronize with Supabase cloud database in background
     await this.fetchFromCloud();
+  },
+
+  startRealtimeSubscription() {
+    if (typeof WebSocket === 'undefined') return;
+    if (this._ws && (this._ws.readyState === WebSocket.OPEN || this._ws.readyState === WebSocket.CONNECTING)) {
+      return;
+    }
+
+    try {
+      const url = `${CLOUD_CONFIG.wsUrl}?apikey=${CLOUD_CONFIG.apiKey}&vsn=1.0.0`;
+      const ws = new WebSocket(url);
+      this._ws = ws;
+
+      ws.onopen = () => {
+        const joinMsg = {
+          topic: 'realtime:public:tracker_state',
+          event: 'phx_join',
+          payload: {
+            config: {
+              postgres_changes: [
+                {
+                  event: '*',
+                  schema: 'public',
+                  table: 'tracker_state'
+                }
+              ]
+            }
+          },
+          ref: 'orbit_join_1'
+        };
+        ws.send(JSON.stringify(joinMsg));
+
+        if (this._wsHeartbeatInterval) clearInterval(this._wsHeartbeatInterval);
+        this._wsHeartbeatInterval = setInterval(() => {
+          if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({
+              topic: 'phoenix',
+              event: 'heartbeat',
+              payload: {},
+              ref: `hb_${Date.now()}`
+            }));
+          }
+        }, 25000);
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const msg = JSON.parse(event.data);
+          if (msg && msg.event === 'postgres_changes') {
+            const record = msg.payload?.data?.record || msg.payload?.record;
+            if (record && record.id === CLOUD_CONFIG.docId) {
+              if (record.updated_at) {
+                this.lastKnownServerUpdatedAt = record.updated_at;
+              }
+              if (record.data && typeof record.data === 'object') {
+                this.reconcileData(record.data);
+                this.saveLocal();
+                this.notifyDataUpdated();
+                return;
+              }
+            }
+            this.fetchFromCloud();
+          }
+        } catch (err) {
+          console.warn('Realtime message parse note:', err);
+        }
+      };
+
+      ws.onerror = () => {};
+
+      ws.onclose = () => {
+        if (this._wsHeartbeatInterval) clearInterval(this._wsHeartbeatInterval);
+        this._ws = null;
+        setTimeout(() => {
+          if (document.visibilityState === 'visible') {
+            this.startRealtimeSubscription();
+          }
+        }, 3000);
+      };
+    } catch (e) {
+      console.warn('Realtime init notice:', e);
+    }
+  },
+
+  startPollingHeartbeat() {
+    if (this._pollingInterval) clearInterval(this._pollingInterval);
+
+    const checkServer = async () => {
+      if (this.isSyncing) return;
+      try {
+        const res = await fetch(`${CLOUD_CONFIG.endpoint}?id=eq.${CLOUD_CONFIG.docId}&select=updated_at`, {
+          headers: {
+            'apikey': CLOUD_CONFIG.apiKey,
+            'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`
+          },
+          cache: 'no-store'
+        });
+        if (res.ok) {
+          const rows = await res.json();
+          if (rows && rows.length > 0 && rows[0].updated_at) {
+            const serverTime = rows[0].updated_at;
+            if (this.lastKnownServerUpdatedAt && serverTime !== this.lastKnownServerUpdatedAt) {
+              this.lastKnownServerUpdatedAt = serverTime;
+              await this.fetchFromCloud();
+            } else {
+              this.lastKnownServerUpdatedAt = serverTime;
+            }
+          }
+        }
+      } catch (e) {}
+    };
+
+    this._pollingInterval = setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        checkServer();
+      }
+    }, 2500);
+
+    window.addEventListener('focus', checkServer);
   },
 
   loadLocal() {
@@ -467,7 +604,8 @@ const AppState = {
         headers: {
           'apikey': CLOUD_CONFIG.apiKey,
           'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`
-        }
+        },
+        cache: 'no-store'
       });
 
       if (res.ok) {
@@ -475,6 +613,7 @@ const AppState = {
         if (rows && rows.length > 0 && rows[0].data) {
           this.cloudConnected = true;
           this.lastSyncTime = new Date();
+          this.lastKnownServerUpdatedAt = rows[0].updated_at || null;
           this.reconcileData(rows[0].data);
           this.saveLocal();
           this.notifyDataUpdated();
@@ -492,8 +631,35 @@ const AppState = {
   reconcileData(cloudData) {
     if (!cloudData || typeof cloudData !== 'object') return;
 
+    // 1. View Mode (Guest / Read-Only): The cloud is the single authoritative source of truth
+    if (!AuthManager.isAuthenticated()) {
+      this.data.tasks = { ...(cloudData.tasks || {}) };
+      this.data.taskMeta = { ...(cloudData.taskMeta || {}) };
+      this.data.notes = { ...(cloudData.notes || {}) };
+      this.data.notesMeta = { ...(cloudData.notesMeta || {}) };
+      this.data.activityLog = { ...(cloudData.activityLog || {}) };
+      this.data.deferredTasks = { ...(cloudData.deferredTasks || {}) };
+      this.data.lastModified = cloudData.lastModified || new Date().toISOString();
+      return;
+    }
+
+    // 2. Authorized Mode: If cloud timestamp is strictly newer or equal, adopt cloud
+    const localTime = new Date(this.data.lastModified || 0).getTime();
+    const cloudTime = new Date(cloudData.lastModified || 0).getTime();
+
+    if (cloudTime >= localTime && !this.isSyncing) {
+      this.data.tasks = { ...(cloudData.tasks || {}) };
+      this.data.taskMeta = { ...(cloudData.taskMeta || {}) };
+      this.data.notes = { ...(cloudData.notes || {}) };
+      this.data.notesMeta = { ...(cloudData.notesMeta || {}) };
+      this.data.activityLog = { ...(cloudData.activityLog || {}) };
+      this.data.deferredTasks = { ...(cloudData.deferredTasks || {}) };
+      this.data.lastModified = cloudData.lastModified || new Date().toISOString();
+      return;
+    }
+
+    // 3. Conflict resolution (only if local edits happened while offline): Last-Write-Wins per task
     const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
-    // 1. Task reconciliation: Last-Write-Wins per task based on taskMeta or lastModified
     const localTasks = this.data.tasks || {};
     const cloudTasks = cloudData.tasks || {};
     const localMeta = this.data.taskMeta || {};
@@ -512,80 +678,26 @@ const AppState = {
     allTaskIds.forEach(id => {
       const lm = localMeta[id];
       const cm = cloudMeta[id];
-      const lt = lm ? new Date(lm.updatedAt).getTime() : (localTasks[id] ? new Date(this.data.lastModified || 0).getTime() : 0);
-      const ct = cm ? new Date(cm.updatedAt).getTime() : (cloudTasks[id] ? new Date(cloudData.lastModified || 0).getTime() : 0);
+      const lt = lm ? new Date(lm.updatedAt).getTime() : 0;
+      const ct = cm ? new Date(cm.updatedAt).getTime() : 0;
 
       if (ct > lt) {
-        // Cloud update is strictly newer
         const isDone = cm ? cm.done : !!cloudTasks[id];
         if (isDone) mergedTasks[id] = true;
         mergedMeta[id] = cm || { done: isDone, updatedAt: cloudData.lastModified || new Date().toISOString() };
       } else {
-        // Local update is newer or equal
-        const isDone = lm ? lm.done : (localTasks[id] !== undefined ? !!localTasks[id] : !!cloudTasks[id]);
+        const isDone = lm ? lm.done : !!localTasks[id];
         if (isDone) mergedTasks[id] = true;
-        mergedMeta[id] = lm || cm || { done: isDone, updatedAt: this.data.lastModified || new Date().toISOString() };
+        mergedMeta[id] = lm || { done: isDone, updatedAt: this.data.lastModified || new Date().toISOString() };
       }
     });
 
     this.data.tasks = mergedTasks;
     this.data.taskMeta = mergedMeta;
-
-    // 2. Notes reconciliation: per-week timestamp
-    const localNotes = this.data.notes || {};
-    const cloudNotes = cloudData.notes || {};
-    const localNotesMeta = this.data.notesMeta || {};
-    const cloudNotesMeta = cloudData.notesMeta || {};
-    const allNoteWeeks = new Set([...Object.keys(localNotes), ...Object.keys(cloudNotes)]);
-    const mergedNotes = {};
-    const mergedNotesMeta = {};
-
-    allNoteWeeks.forEach(w => {
-      const lnm = localNotesMeta[w];
-      const cnm = cloudNotesMeta[w];
-      const lt = lnm ? new Date(lnm.updatedAt).getTime() : 0;
-      const ct = cnm ? new Date(cnm.updatedAt).getTime() : 0;
-
-      if (ct > lt) {
-        mergedNotes[w] = cloudNotes[w] !== undefined ? cloudNotes[w] : localNotes[w];
-        mergedNotesMeta[w] = cnm;
-      } else {
-        mergedNotes[w] = localNotes[w] !== undefined ? localNotes[w] : cloudNotes[w];
-        mergedNotesMeta[w] = lnm || cnm;
-      }
-    });
-    this.data.notes = mergedNotes;
-    this.data.notesMeta = mergedNotesMeta;
-
-    // 3. ActivityLog reconciliation: cumulative max per day so tasks completed are preserved
-    const activeTasksCount = Object.keys(mergedTasks).filter(k => mergedTasks[k] && validPattern.test(k)).length;
-    if (activeTasksCount === 0) {
-      this.data.activityLog = {};
-    } else {
-      const mergedActivity = { ...(this.data.activityLog || {}) };
-      Object.entries(cloudData.activityLog || {}).forEach(([date, count]) => {
-        mergedActivity[date] = Math.max(mergedActivity[date] || 0, Number(count) || 0);
-      });
-      // Safety cap: total tasks in activityLog should never exceed activeTasksCount
-      let totalLogTasks = Object.values(mergedActivity).reduce((s, v) => s + (Number(v) || 0), 0);
-      if (totalLogTasks > activeTasksCount) {
-        const todayStr = new Date().toISOString().slice(0, 10);
-        mergedActivity[todayStr] = Math.max(0, activeTasksCount - (totalLogTasks - (mergedActivity[todayStr] || 0)));
-        if (mergedActivity[todayStr] === 0) delete mergedActivity[todayStr];
-      }
-      this.data.activityLog = mergedActivity;
-    }
-
-    // 4. Deferred tasks reconciliation
+    this.data.notes = { ...(cloudData.notes || {}), ...(this.data.notes || {}) };
     this.data.deferredTasks = { ...(cloudData.deferredTasks || {}), ...(this.data.deferredTasks || {}) };
-
-    // 5. Update lastModified to latest timestamp
-    const localTime = new Date(this.data.lastModified || 0).getTime();
-    const cloudTime = new Date(cloudData.lastModified || 0).getTime();
+    this.data.activityLog = { ...(cloudData.activityLog || {}), ...(this.data.activityLog || {}) };
     this.data.lastModified = new Date(Math.max(localTime, cloudTime, Date.now())).toISOString();
-
-    // 6. Persist merged state locally
-    this.saveLocal();
   },
 
   saveLocal() {
@@ -646,7 +758,12 @@ const AppState = {
     this.data.lastModified = now;
 
     this.saveLocal();
-    this.scheduleCloudSync();
+    if (this._broadcastChannel) {
+      try {
+        this._broadcastChannel.postMessage({ type: 'TASK_UPDATED', data: this.data });
+      } catch (err) {}
+    }
+    this.scheduleCloudSync(true);
     this.notifyDataUpdated();
   },
 
@@ -668,7 +785,12 @@ const AppState = {
     }
     this.data.lastModified = now;
     this.saveLocal();
-    this.scheduleCloudSync();
+    if (this._broadcastChannel) {
+      try {
+        this._broadcastChannel.postMessage({ type: 'TASK_DEFERRED', data: this.data });
+      } catch (err) {}
+    }
+    this.scheduleCloudSync(true);
     this.notifyDataUpdated();
   },
 
@@ -693,14 +815,23 @@ const AppState = {
       localStorage.setItem(`study_notes_week_${weekNum}`, text);
     } catch (e) {}
     this.saveLocal();
-    this.scheduleCloudSync();
+    if (this._broadcastChannel) {
+      try {
+        this._broadcastChannel.postMessage({ type: 'NOTE_UPDATED', data: this.data });
+      } catch (err) {}
+    }
+    this.scheduleCloudSync(true);
   },
 
-  scheduleCloudSync() {
+  scheduleCloudSync(immediate = false) {
     clearTimeout(this.syncTimeout);
-    this.syncTimeout = setTimeout(() => {
+    if (immediate) {
       this.pushToCloud();
-    }, 250);
+    } else {
+      this.syncTimeout = setTimeout(() => {
+        this.pushToCloud();
+      }, 50);
+    }
   },
 
   flushCloudSync() {
@@ -753,6 +884,12 @@ const AppState = {
       if (rpcRes.ok) {
         this.cloudConnected = true;
         this.lastSyncTime = new Date();
+        try {
+          const resJson = await rpcRes.json();
+          if (resJson && resJson.updated_at) {
+            this.lastKnownServerUpdatedAt = resJson.updated_at;
+          }
+        } catch (err) {}
       } else if (rpcRes.status === 401 || rpcRes.status === 403) {
         console.warn('Server authorization rejected: Invalid master password');
         AuthManager.logout();
@@ -1951,6 +2088,9 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
   renderDashboardStats();
 
   AppState.onDataLoaded(() => {
+    renderTodayCommandCenter();
+    renderBacklogQueue();
+    render50WeekHeatmap();
     renderDashboardStats();
   });
 }
