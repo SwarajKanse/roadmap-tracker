@@ -186,7 +186,7 @@ const AuthManager = {
     }
 
     try {
-      // 1. Primary: Server-Side Cryptographic Verification via PostgreSQL RPC
+      // Primary: Server-Side Cryptographic Verification via PostgreSQL RPC
       const res = await fetch(CLOUD_CONFIG.rpcVerify, {
         method: 'POST',
         headers: {
@@ -208,30 +208,9 @@ const AuthManager = {
           }
           return true;
         }
-      } else if (res.status === 404) {
-        // Fallback if user has not yet executed supabase_security_setup.sql in Supabase SQL editor
-        if (cleanPass === 'Hellnah@8364') {
-          this.saveSession(cleanPass);
-          this.onAuthenticated('Fallback Verified');
-          showToast('⚠️ Notice: Run supabase_security_setup.sql in Supabase to lock DB writes!', 5000);
-          if (unlockBtn) {
-            unlockBtn.disabled = false;
-            unlockBtn.classList.remove('opacity-50');
-          }
-          return true;
-        }
       }
     } catch (e) {
-      console.warn('Server auth attempt note:', e);
-      if (cleanPass === 'Hellnah@8364') {
-        this.saveSession(cleanPass);
-        this.onAuthenticated('Offline Verified');
-        if (unlockBtn) {
-          unlockBtn.disabled = false;
-          unlockBtn.classList.remove('opacity-50');
-        }
-        return true;
-      }
+      console.warn('Server auth attempt error:', e);
     }
 
     if (statusEl) {
@@ -729,98 +708,55 @@ const AppState = {
     if (!AuthManager.isAuthenticated()) return;
     if (!this.data || !this.data.lastModified) return;
     const token = AuthManager.getAuthToken();
+    if (!token) return;
 
     try {
-      if (token) {
-        fetch(CLOUD_CONFIG.rpcSync, {
-          method: 'POST',
-          headers: {
-            'apikey': CLOUD_CONFIG.apiKey,
-            'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            p_password: token,
-            p_doc_id: CLOUD_CONFIG.docId,
-            p_data: this.data
-          }),
-          keepalive: true
-        }).catch(() => {});
-      } else {
-        fetch(CLOUD_CONFIG.endpoint, {
-          method: 'POST',
-          headers: {
-            'apikey': CLOUD_CONFIG.apiKey,
-            'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
-            'Content-Type': 'application/json',
-            'Prefer': 'resolution=merge-duplicates'
-          },
-          body: JSON.stringify({
-            id: CLOUD_CONFIG.docId,
-            data: this.data,
-            updated_at: new Date().toISOString()
-          }),
-          keepalive: true
-        }).catch(() => {});
-      }
+      fetch(CLOUD_CONFIG.rpcSync, {
+        method: 'POST',
+        headers: {
+          'apikey': CLOUD_CONFIG.apiKey,
+          'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          p_password: token,
+          p_doc_id: CLOUD_CONFIG.docId,
+          p_data: this.data
+        }),
+        keepalive: true
+      }).catch(() => {});
     } catch (e) {}
   },
 
   async pushToCloud() {
     if (!AuthManager.isAuthenticated()) return;
-    this.isSyncing = true;
     const token = AuthManager.getAuthToken();
+    if (!token) return;
 
+    this.isSyncing = true;
     try {
-      // 1. Primary: Server-side authorized update through sync_tracker_state RPC
-      if (token) {
-        const rpcRes = await fetch(CLOUD_CONFIG.rpcSync, {
-          method: 'POST',
-          headers: {
-            'apikey': CLOUD_CONFIG.apiKey,
-            'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            p_password: token,
-            p_doc_id: CLOUD_CONFIG.docId,
-            p_data: this.data
-          }),
-          keepalive: true
-        });
-
-        if (rpcRes.ok) {
-          this.cloudConnected = true;
-          this.lastSyncTime = new Date();
-          return;
-        } else if (rpcRes.status === 401 || rpcRes.status === 403) {
-          console.warn('Server authorization rejected: Invalid master password');
-          AuthManager.logout();
-          showToast('🔒 Session expired. Please re-enter master password.');
-          return;
-        }
-      }
-
-      // 2. Direct write fallback (supported until user applies RLS policy in Supabase)
-      const res = await fetch(CLOUD_CONFIG.endpoint, {
+      const rpcRes = await fetch(CLOUD_CONFIG.rpcSync, {
         method: 'POST',
         headers: {
           'apikey': CLOUD_CONFIG.apiKey,
           'Authorization': `Bearer ${CLOUD_CONFIG.apiKey}`,
-          'Content-Type': 'application/json',
-          'Prefer': 'resolution=merge-duplicates'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          id: CLOUD_CONFIG.docId,
-          data: this.data,
-          updated_at: new Date().toISOString()
+          p_password: token,
+          p_doc_id: CLOUD_CONFIG.docId,
+          p_data: this.data
         }),
         keepalive: true
       });
 
-      if (res.ok) {
+      if (rpcRes.ok) {
         this.cloudConnected = true;
         this.lastSyncTime = new Date();
+      } else if (rpcRes.status === 401 || rpcRes.status === 403) {
+        console.warn('Server authorization rejected: Invalid master password');
+        AuthManager.logout();
+        showToast('🔒 Session expired. Please re-enter master password.');
       }
     } catch (e) {
       console.warn('Cloud sync error:', e);

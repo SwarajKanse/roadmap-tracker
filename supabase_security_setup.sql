@@ -22,12 +22,12 @@ create table if not exists public.tracker_auth (
 revoke all on public.tracker_auth from public, anon, authenticated;
 
 -- 3. Set the master password hash (Salted bcrypt via Blowfish)
--- To rotate your password in the future, simply run:
--- update public.tracker_auth set password_hash = crypt('NEW_PASSWORD', gen_salt('bf', 10)), updated_at = now() where id = 'admin';
+-- Replace 'REPLACE_WITH_YOUR_PASSWORD' with your actual secure master password when running in Supabase SQL editor.
+-- NEVER commit your real password to git!
 insert into public.tracker_auth (id, password_hash)
-values ('admin', crypt('Hellnah@8364', gen_salt('bf', 10)))
+values ('admin', crypt('REPLACE_WITH_YOUR_PASSWORD', gen_salt('bf', 10)))
 on conflict (id) do update 
-set password_hash = crypt('Hellnah@8364', gen_salt('bf', 10)),
+set password_hash = crypt('REPLACE_WITH_YOUR_PASSWORD', gen_salt('bf', 10)),
     updated_at = now();
 
 -- 4. Enable Row Level Security (RLS) on tracker_state
@@ -86,6 +86,43 @@ begin
 end;
 $$;
 
--- 7. Grant execute permissions to anon and authenticated for the secure RPC functions
+-- 7. Create secure password rotation function (requires old password verification)
+create or replace function public.rotate_admin_password(p_old_password text, p_new_password text)
+returns jsonb
+language plpgsql
+security definer
+as $$
+declare
+  v_hash text;
+begin
+  select password_hash into v_hash from public.tracker_auth where id = 'admin';
+  if v_hash is null or v_hash != crypt(coalesce(p_old_password, ''), v_hash) then
+    raise exception '401: Unauthorized - Invalid current password';
+  end if;
+
+  update public.tracker_auth
+  set password_hash = crypt(p_new_password, gen_salt('bf', 10)),
+      updated_at = now()
+  where id = 'admin';
+
+  return jsonb_build_object('success', true, 'updated_at', now());
+end;
+$$;
+
+-- 8. Grant execute permissions to anon and authenticated for the secure RPC functions
 grant execute on function public.verify_admin_password(text) to anon, authenticated;
 grant execute on function public.sync_tracker_state(text, text, jsonb) to anon, authenticated;
+grant execute on function public.rotate_admin_password(text, text) to anon, authenticated;
+
+-- ============================================================================
+-- PASSWORD ROTATION CHEATSHEET:
+-- To rotate your password in the future without editing this file:
+-- Option A (Direct SQL in Supabase SQL Editor):
+--   update public.tracker_auth
+--   set password_hash = crypt('NEW_PASSWORD', gen_salt('bf', 10)),
+--       updated_at = now()
+--   where id = 'admin';
+--
+-- Option B (Via SQL Editor using helper function):
+--   select public.rotate_admin_password('OLD_PASSWORD', 'NEW_PASSWORD');
+-- ============================================================================
