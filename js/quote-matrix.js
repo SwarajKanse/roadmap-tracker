@@ -3,9 +3,11 @@
  * Quote & Animated Dot-Matrix Engine (अभ्यास Wisdom Component)
  * ============================================================================
  * Features:
- * - Hidden canvas image analysis with brightness-to-dot-grid mapping
+ * - High-precision dot-matrix portrait rendering
+ * - Strictly uniform 300px height across all photos
+ * - Right-anchored layout: width expands to the left, maintaining strictly equal
+ *   top, bottom, and right margins
  * - High-contrast thresholding for silhouettes and portraits
- * - requestAnimationFrame loop with subtle sine-wave pulsing
  * - Dynamic theme color inheritance via CSS custom properties
  * - 10-second auto-rotation with graceful cross-fade transitions
  * - Interactive pause/resume on hover & quick-jump indicator dots
@@ -20,53 +22,60 @@
       author: "Shri Krishna",
       quote: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।",
       imagePath: "assets/quotes/krishna.png",
-      note: "Bhagavad Gita 2.47 • Karma Yoga",
-      isSanskrit: true
+      isSanskrit: true,
+      width: 275,
+      height: 300
     },
     {
       author: "Swami Vivekananda",
       quote: "Arise, awake, and stop not till the goal is reached.",
       imagePath: "assets/quotes/vivekananda.png",
-      note: "Katha Upanishad • Infinite Will",
-      isSanskrit: false
+      isSanskrit: false,
+      width: 300,
+      height: 300
     },
     {
       author: "Dr. A.P.J. Abdul Kalam",
       quote: "You have to dream before your dreams can come true.",
       imagePath: "assets/quotes/kalam.png",
-      note: "Wings of Fire • Relentless Aspiration",
-      isSanskrit: false
+      isSanskrit: false,
+      width: 300,
+      height: 300
     },
     {
       author: "Andrew Ng",
       quote: "Don't worry about being the best. Worry about being better than you were yesterday.",
       imagePath: "assets/quotes/andrew_ng.png",
-      note: "DeepLearning.AI • Continuous Iteration",
-      isSanskrit: false
+      isSanskrit: false,
+      width: 300,
+      height: 300
     },
     {
       author: "Linus Torvalds",
       quote: "Talk is cheap. Show me the code.",
       imagePath: "assets/quotes/linus.png",
-      note: "Linux Kernel • Uncompromising Craft",
-      isSanskrit: false
+      isSanskrit: false,
+      width: 300,
+      height: 300
     },
     {
       author: "Jensen Huang",
       quote: "Run, don't walk. Remember, either you're running for food, or you are running from becoming food.",
       imagePath: "assets/quotes/jensen.png",
-      note: "NVIDIA • High-Velocity Drive",
-      isSanskrit: false
+      isSanskrit: false,
+      width: 300,
+      height: 300
     }
   ];
 
-  // Merge precomputed data URIs and dot arrays from quotes-data.js if available
+  // Merge precomputed data URIs, dimensions, and dot arrays from quotes-data.js if available
   if (window.MOTIVATIONAL_QUOTES && Array.isArray(window.MOTIVATIONAL_QUOTES)) {
     window.MOTIVATIONAL_QUOTES.forEach((item, idx) => {
       if (QUOTES[idx]) {
         if (item.imageDataUri) QUOTES[idx].imageDataUri = item.imageDataUri;
-        if (item.note) QUOTES[idx].note = item.note;
         if (item.dots) QUOTES[idx].dots = item.dots;
+        if (item.width) QUOTES[idx].width = item.width;
+        if (item.height) QUOTES[idx].height = item.height;
       }
     });
   }
@@ -76,26 +85,23 @@
 
   // Configuration constants
   const ROTATION_INTERVAL_MS = 10000; // 10 seconds
-  const GRID_SPACING = 2.0;            // Fine 2.0px Dithered / Halftone dot grid for maximum photographic detail
-  const CANVAS_LOGICAL_WIDTH = 320;    // Exact 4:5 aspect ratio (320x400)
-  const CANVAS_LOGICAL_HEIGHT = 400;
-  const MAX_DOT_RADIUS = (GRID_SPACING / 2.0) * 0.95; // ~0.95px radius for fine crisp dot points
+  const GRID_SPACING = 2.0;            // Fine 2.0px Dithered dot grid
+  const CANVAS_LOGICAL_HEIGHT = 300;   // Strictly uniform height for all portraits
+  const MAX_DOT_RADIUS = (GRID_SPACING / 2.0) * 0.95;
 
   // State
   let currentIndex = 0;
+  let currentCanvasWidth = 275;
   let rotationTimer = null;
   let isPaused = false;
-  let animFrameId = null;
   let activeDots = [];
-  const dotsCache = new Map(); // Cache parsed dot arrays per quote index
+  const dotsCache = new Map();
 
   // DOM references
   let cardEl = null;
   let textContainerEl = null;
   let quoteTextEl = null;
   let quoteAuthorEl = null;
-  let quoteNoteEl = null;
-  let statusBadgeEl = null;
   let dotsIndicatorEl = null;
   let visibleCanvas = null;
   let visibleCtx = null;
@@ -112,17 +118,18 @@
     visibleCtx = visibleCanvas.getContext('2d');
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    visibleCanvas.width = Math.round(CANVAS_LOGICAL_WIDTH * dpr);
+    const firstItem = QUOTES[0];
+    const initialW = (firstItem && firstItem.width) ? firstItem.width : 275;
+    currentCanvasWidth = initialW;
+
+    visibleCanvas.width = Math.round(initialW * dpr);
     visibleCanvas.height = Math.round(CANVAS_LOGICAL_HEIGHT * dpr);
-    visibleCanvas.style.width = '100%';
-    visibleCanvas.style.height = '100%';
-    visibleCanvas.style.maxWidth = `${CANVAS_LOGICAL_WIDTH}px`;
-    visibleCanvas.style.maxHeight = `${CANVAS_LOGICAL_HEIGHT}px`;
+    visibleCanvas.style.width = `${initialW}px`;
+    visibleCanvas.style.height = `${CANVAS_LOGICAL_HEIGHT}px`;
     visibleCtx.scale(dpr, dpr);
 
-    // Offscreen scratch canvas for pixel brightness extraction
     hiddenCanvas = document.createElement('canvas');
-    hiddenCanvas.width = CANVAS_LOGICAL_WIDTH;
+    hiddenCanvas.width = initialW;
     hiddenCanvas.height = CANVAS_LOGICAL_HEIGHT;
     hiddenCtx = hiddenCanvas.getContext('2d', { willReadFrequently: true });
 
@@ -145,47 +152,17 @@
   }
 
   /**
-   * Extracts Halftone / Rasterbation dot matrix from an Image element
-   * Uses circular dots on a 5px grid with varying radius and intensity based on tone
+   * Fallback: Extracts Halftone dot matrix from an Image element
    */
-  function processImageToDots(img) {
+  function processImageToDots(img, W, H) {
     if (!hiddenCtx) return [];
 
-    const W = CANVAS_LOGICAL_WIDTH;
-    const H = CANVAS_LOGICAL_HEIGHT;
-
-    // Reset hidden canvas to black background (matching photo studio backgrounds)
     hiddenCanvas.width = W;
     hiddenCanvas.height = H;
     hiddenCtx.fillStyle = '#000000';
     hiddenCtx.fillRect(0, 0, W, H);
 
-    // Padding inside canvas to prevent any edge clipping
-    const pad = 6;
-    const targetW = W - pad * 2;
-    const targetH = H - pad * 2;
-
-    const naturalW = img.naturalWidth || img.width || 320;
-    const naturalH = img.naturalHeight || img.height || 400;
-    const imgAspect = naturalW / naturalH;
-    const containerAspect = targetW / targetH;
-    let drawW, drawH, drawX, drawY;
-
-    // Preserve 1:1 aspect ratio strictly - never stretch or flatten character
-    if (imgAspect > containerAspect) {
-      drawW = targetW;
-      drawH = targetW / imgAspect;
-      drawX = pad;
-      drawY = pad + (targetH - drawH) / 2;
-    } else {
-      drawH = targetH;
-      drawW = targetH * imgAspect;
-      drawX = pad + (targetW - drawW) / 2;
-      drawY = pad;
-    }
-
-    // Draw to hidden scratch canvas for pixel analysis
-    hiddenCtx.drawImage(img, drawX, drawY, drawW, drawH);
+    hiddenCtx.drawImage(img, 0, 0, W, H);
 
     let imgData;
     try {
@@ -206,7 +183,6 @@
         const cx = (c + 0.5) * step;
         const cy = (r + 0.5) * step;
 
-        // 3x3 local neighborhood luminance average
         let totalLum = 0;
         let count = 0;
 
@@ -227,9 +203,8 @@
         }
 
         const avgLum = totalLum / count;
-        const normLum = avgLum / 255.0; // 0.0 (background) to 1.0 (highlights)
+        const normLum = avgLum / 255.0;
 
-        // Emit dots where character lighting is present
         if (normLum > 0.06) {
           const intensity = Math.pow(normLum, 1.0);
           const baseRadius = Math.max(0.4, maxR * (0.65 + 0.35 * intensity));
@@ -279,15 +254,15 @@
       }
 
       const img = new Image();
+      const targetW = item.width || (item.author === 'Shri Krishna' ? 275 : 300);
 
       img.onload = () => {
-        const dots = processImageToDots(img);
+        const dots = processImageToDots(img, targetW, CANVAS_LOGICAL_HEIGHT);
         dotsCache.set(index, dots);
         resolve(dots);
       };
 
       img.onerror = () => {
-        // If imagePath fails, attempt webp / data URI
         if (item.imageDataUri && img.src !== item.imageDataUri) {
           img.src = item.imageDataUri;
         } else if (item.imagePath.endsWith('.png')) {
@@ -297,7 +272,6 @@
         }
       };
 
-      // Prioritize data URI to ensure zero taint on file:/// protocol
       if (item.imageDataUri) {
         img.src = item.imageDataUri;
       } else {
@@ -313,11 +287,10 @@
 
   /**
    * Renders the dot-matrix portrait onto the visible canvas
-   * Pure, steady, dignified, and crisp
    */
   function drawActiveDots() {
     if (!visibleCtx) return;
-    visibleCtx.clearRect(0, 0, CANVAS_LOGICAL_WIDTH, CANVAS_LOGICAL_HEIGHT);
+    visibleCtx.clearRect(0, 0, currentCanvasWidth, CANVAS_LOGICAL_HEIGHT);
 
     if (!activeDots || activeDots.length === 0) return;
 
@@ -334,7 +307,7 @@
   }
 
   /**
-   * Renders the minimal indicator pills at the bottom
+   * Renders the minimal indicator pills at the bottom left
    */
   function renderDotsIndicator() {
     if (!dotsIndicatorEl) return;
@@ -366,6 +339,7 @@
     if (targetIndex >= QUOTES.length) targetIndex = 0;
 
     const item = QUOTES[targetIndex];
+    const targetW = item.width || (item.author === 'Shri Krishna' ? 275 : 300);
 
     // 1. Fade out text and canvas smoothly
     if (textContainerEl) {
@@ -378,10 +352,19 @@
     // 2. Preload/fetch dot data during the fade-out window
     const newDots = await loadQuoteDots(targetIndex);
 
-    // 3. Update DOM content after fade-out transition duration (~250ms)
+    // 3. Update DOM content after fade-out transition duration (~200ms)
     setTimeout(() => {
       currentIndex = targetIndex;
       activeDots = newDots;
+      currentCanvasWidth = targetW;
+
+      // Adjust canvas resolution and CSS dimensions to match photo aspect ratio
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      visibleCanvas.width = Math.round(targetW * dpr);
+      visibleCanvas.height = Math.round(CANVAS_LOGICAL_HEIGHT * dpr);
+      visibleCanvas.style.width = `${targetW}px`;
+      visibleCanvas.style.height = `${CANVAS_LOGICAL_HEIGHT}px`;
+      visibleCtx.scale(dpr, dpr);
 
       if (quoteTextEl) {
         quoteTextEl.textContent = item.quote;
@@ -393,7 +376,6 @@
       }
 
       if (quoteAuthorEl) quoteAuthorEl.textContent = item.author;
-      if (quoteNoteEl) quoteNoteEl.textContent = item.note || '';
 
       renderDotsIndicator();
       drawActiveDots();
@@ -405,7 +387,7 @@
       if (visibleCanvas) {
         visibleCanvas.style.opacity = '1';
       }
-    }, 250);
+    }, 200);
   }
 
   /**
@@ -418,10 +400,6 @@
         rotateTo((currentIndex + 1) % QUOTES.length);
       }
     }, ROTATION_INTERVAL_MS);
-
-    if (statusBadgeEl && !isPaused) {
-      statusBadgeEl.textContent = 'AUTO 10S';
-    }
   }
 
   /**
@@ -429,9 +407,6 @@
    */
   function pauseRotationTimer() {
     clearInterval(rotationTimer);
-    if (statusBadgeEl) {
-      statusBadgeEl.textContent = 'PAUSED';
-    }
   }
 
   /**
@@ -444,26 +419,7 @@
     textContainerEl = document.getElementById('quote-text-container');
     quoteTextEl = document.getElementById('quote-text');
     quoteAuthorEl = document.getElementById('quote-author');
-    quoteNoteEl = document.getElementById('quote-note');
-    statusBadgeEl = document.getElementById('quote-status-badge');
     dotsIndicatorEl = document.getElementById('quote-dots-indicator');
-
-    const prevBtn = document.getElementById('quote-prev-btn');
-    const nextBtn = document.getElementById('quote-next-btn');
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        rotateTo((currentIndex - 1 + QUOTES.length) % QUOTES.length);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        rotateTo((currentIndex + 1) % QUOTES.length);
-      });
-    }
 
     if (!initCanvases()) return;
 
@@ -491,7 +447,7 @@
       for (let i = 1; i < QUOTES.length; i++) {
         loadQuoteDots(i);
       }
-    }, 1200);
+    }, 800);
   }
 
   // Self-initialize on DOM ready

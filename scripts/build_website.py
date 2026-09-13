@@ -884,46 +884,30 @@ def generate_dashboard(roadmap):
 
         <!-- 6. Wisdom & Quote Component (Minimal) -->
         <section class="rounded-xl cockpit-glass border border-white/5 overflow-hidden" id="quote-matrix-card">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 p-6 sm:p-8 items-center">
+          <div class="p-7 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <!-- Left Side: Rotating Quote & Author -->
-            <div class="md:col-span-7 flex flex-col justify-between h-full min-h-[220px]">
-              <div id="quote-text-container" class="transition-opacity duration-300 ease-out opacity-100">
+            <div class="flex-1 flex flex-col justify-between h-[300px] w-full">
+              <div id="quote-text-container" class="pt-9 transition-opacity duration-300 ease-out opacity-100">
                 <p id="quote-text" class="font-calligraphy text-2xl sm:text-3xl text-on-surface font-normal leading-snug tracking-wide">
                   कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।
                 </p>
                 
-                <div class="mt-4 flex items-center gap-2.5 text-xs text-on-surface-variant">
+                <div class="mt-4 flex items-center text-xs text-on-surface-variant">
                   <span id="quote-author" class="font-medium text-on-surface">
                     Shri Krishna
-                  </span>
-                  <span class="text-outline-variant/40">&bull;</span>
-                  <span id="quote-note" class="font-mono text-[11px] text-on-surface-variant/80">
-                    Bhagavad Gita 2.47 &bull; Karma Yoga
                   </span>
                 </div>
               </div>
 
-              <!-- Bottom Indicator Pills & Manual Navigation -->
-              <div class="pt-6 mt-6 border-t border-outline-variant/10 flex items-center justify-between gap-4">
-                <div class="flex items-center gap-1.5" id="quote-dots-indicator">
-                  <!-- Generated dynamically (6 dots) -->
-                </div>
-                <div class="flex items-center gap-1">
-                  <button id="quote-prev-btn" type="button" class="w-7 h-7 rounded-lg cockpit-subglass border border-outline-variant/15 hover:border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" title="Previous Quote">
-                    <span class="material-symbols-outlined text-[16px]">chevron_left</span>
-                  </button>
-                  <button id="quote-next-btn" type="button" class="w-7 h-7 rounded-lg cockpit-subglass border border-outline-variant/15 hover:border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" title="Next Quote">
-                    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-                  </button>
-                </div>
+              <!-- Bottom Indicator Pills -->
+              <div class="flex items-center gap-1.5 pb-1" id="quote-dots-indicator">
+                <!-- Generated dynamically (6 dots) -->
               </div>
             </div>
 
             <!-- Right Side: Clean Dot-Matrix Canvas -->
-            <div class="md:col-span-5 flex items-center justify-center">
-              <div class="relative w-full max-w-[280px] aspect-[4/5] flex items-center justify-center">
-                <canvas id="quote-dot-canvas" class="w-full h-full object-contain rounded-lg transition-opacity duration-300 ease-in-out opacity-100"></canvas>
-              </div>
+            <div class="flex-shrink-0 flex items-center justify-end h-[300px]">
+              <canvas id="quote-dot-canvas" class="h-[300px] object-contain rounded-lg transition-opacity duration-300 ease-in-out opacity-100 block"></canvas>
             </div>
           </div>
         </section>
