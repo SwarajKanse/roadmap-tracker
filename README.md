@@ -222,15 +222,3 @@ The cloud sync layer utilizes Supabase PostgreSQL with strict Row Level Security
   - **Body Copy**: Inter (clean, optimized UI text)
   - **Telemetry & Badges**: JetBrains Mono (monospaced metrics, timers, and code references)
 
----
-
-## 👤 Author
-
-**Swaraj Kanse**  
-- **Portfolio**: [swarajkanse.me](https://swarajkanse.me/)  
-- **Live Tracker**: [track.swarajkanse.me](https://track.swarajkanse.me/)  
-- **GitHub**: [@SwarajKanse](https://github.com/SwarajKanse)
-
----
-
-*“अभ्यास ही सफलता की कुंजी है — Consistent practice builds mastery.”*
