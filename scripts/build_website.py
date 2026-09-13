@@ -550,9 +550,9 @@ def generate_week_page(week, total_weeks, all_weeks):
   <!-- Semi-Transparent Glassmorphism Top Bar (Borderless, highly transparent) -->
   <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background/25 select-none py-3 transition-all border-none">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
-      <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
-        <span class="material-symbols-outlined text-[16px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
-        <span class="font-calligraphy text-base leading-none text-on-surface">अभ्यास</span>
+      <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
+        <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        <span class="font-calligraphy leading-none text-on-surface" style="font-size: 1.7rem;">अभ्यास</span>
       </a>
 
       <div class="flex flex-col items-center text-center min-w-0 flex-1 px-3">
@@ -751,7 +751,7 @@ def generate_dashboard(roadmap):
 
         <!-- Brand Masthead (Top Center Only अभ्यास) -->
         <header class="flex items-center justify-center pt-2 pb-2 select-none">
-          <h1 class="font-calligraphy text-3xl sm:text-4xl text-on-surface font-normal leading-none tracking-wide text-center">अभ्यास</h1>
+          <h1 class="font-calligraphy text-on-surface font-normal leading-none tracking-wide text-center" style="font-size: 3.5rem;">अभ्यास</h1>
         </header>
 
         <!-- 1. Executive Vitals Bar (Hero Metrics) -->
