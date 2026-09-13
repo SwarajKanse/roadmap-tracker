@@ -8,6 +8,7 @@
 [![Theme](https://img.shields.io/badge/Design-Obsidian%20Dark-121316?style=flat-square)](#-design-system)
 [![Search](https://img.shields.io/badge/Search-Sub--1ms%20Global%20Find-8083ff?style=flat-square)](#-minimal-global-roadmap-search)
 [![Recall](https://img.shields.io/badge/Recall-SM--2%20Spaced%20Repetition-10b981?style=flat-square)](#-spaced-repetition-recall-engine)
+[![Wisdom](https://img.shields.io/badge/Wisdom-Animated%20Dot--Matrix%20Engine-c0c1ff?style=flat-square)](#-wisdom--animated-dot-matrix-portrait-engine)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
 ---
@@ -61,6 +62,17 @@ Built with a **local-first, zero-runtime-hydration** philosophy, अभ्या
 - **Anti-Guilt Weekend Spillover**: Weekday tasks that couldn't be completed can be deferred to Saturday/Sunday with a single click.
 - **Weekly Production Deliverables**: Every week specifies a tangible production output (e.g. custom ML algorithm from scratch, working Raft consensus node, deployed microservice).
 
+### 🎨 Wisdom & Animated Dot-Matrix Portrait Engine
+- **High-Precision Atkinson Dithering**: Custom offline Python pipeline transforms high-contrast reference portraits into fine 2.0px dithered halftone dot matrices rendered in theme primary color (`#c0c1ff`).
+- **Strictly Equal Padding Geometry**: Top margin, bottom margin, and right margin from the portrait to the card borders are strictly identical (`25.4px` / `p-7`).
+- **Dynamic Width with Left Expansion**: Uniform 300px portrait height across all personal figures. When switching from non-square silhouettes (Shri Krishna: $275 \times 300\text{px}$) to 1:1 square portraits (Swami Vivekananda, Dr. Kalam, Andrew Ng, Linus Torvalds, Jensen Huang: $300 \times 300\text{px}$), the portrait expands towards the left while the right border margin stays fixed.
+- **Refined Editorial Typography**:
+  - Devanagari Sanskrit verses rendered in majestic **Rozha One** calligraphic display font with typographic double quotes (`“कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।”`).
+  - English quotes typeset in elegant **Playfair Display** italic serif (`“Arise, awake, and stop not till the goal is reached.”`).
+  - Authors distinguished in spaced **Space Grotesk** tracking with em-dash (`—`).
+  - Vertically centered inside the card canvas for balanced aesthetic harmony.
+- **Serene 10-Second Auto-Rotation**: Continuous 10s auto-rotation across all 6 inspirations with subtle cross-fade transitions and minimal bottom indicator pills.
+
 ---
 
 ## 🗺️ 10-Phase Curriculum Roadmap
@@ -89,6 +101,8 @@ tracker/
 ├── index.html                    # Pre-rendered Dashboard
 ├── favicon.svg                   # Calligraphic Devanagari 'अ' vector icon
 ├── CNAME                         # Production domain: track.swarajkanse.me
+├── assets/
+│   └── quotes/                   # Precomputed high-contrast WebP/PNG portrait assets
 ├── css/
 │   ├── style.css                 # Custom glassmorphism, calligraphic typography & design tokens
 │   ├── tailwind-input.css        # Tailwind base and utilities entrypoint
@@ -96,9 +110,12 @@ tracker/
 ├── js/
 │   ├── app.js                    # Global Search, Spaced Repetition, Cloud Sync & State
 │   ├── dashboard-summary.js      # Compact precomputed roadmap dataset (218 KB)
+│   ├── quote-matrix.js           # Dot-matrix canvas engine, rotation & HiDPI rendering
+│   ├── quotes-data.js            # Precomputed Atkinson dithered dot arrays & base64 URIs
 │   └── roadmap-data.js           # Full syllabus dataset with extended deliverables
 ├── scripts/
-│   └── build_website.py          # Python static site generator & precompiler
+│   ├── build_website.py          # Python static site generator & precompiler
+│   └── process_user_cropped.py   # Atkinson dither precompiler & asset generator
 ├── supabase_security_setup.sql   # PostgreSQL RLS & server-side auth procedures
 ├── tailwind.config.js            # Custom Obsidian Dark design tokens
 └── weeks/
@@ -151,14 +168,21 @@ cd tracker
 python scripts/build_website.py
 ```
 
-### 2. Compile Production Tailwind CSS
+### 2. Regenerate Quote Dot Matrices & Portrait Assets (Optional)
+To re-process reference portraits and update `assets/quotes/` and `js/quotes-data.js`:
+
+```bash
+python scripts/process_user_cropped.py
+```
+
+### 3. Compile Production Tailwind CSS
 To purge unused utility classes and compile the minimal CSS bundle:
 
 ```bash
 npx tailwindcss -i ./css/tailwind-input.css -o ./css/tailwind.min.css --minify
 ```
 
-### 3. Local Preview Server
+### 4. Local Preview Server
 Start a local HTTP server to verify animations, search routing, and sync:
 
 ```bash

@@ -84,7 +84,7 @@
   window.MOTIVATIONAL_QUOTES = QUOTES;
 
   // Configuration constants
-  const ROTATION_INTERVAL_MS = 5000;  // 5 seconds auto-rotation
+  const ROTATION_INTERVAL_MS = 10000; // 10 seconds auto-rotation
   const GRID_SPACING = 2.0;            // Fine 2.0px Dithered dot grid
   const CANVAS_LOGICAL_HEIGHT = 300;   // Strictly uniform height for all portraits
   const MAX_DOT_RADIUS = (GRID_SPACING / 2.0) * 0.95;
