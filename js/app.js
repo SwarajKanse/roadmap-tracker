@@ -1880,23 +1880,23 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
         const cell = document.createElement('div');
         const count = tasksDoneCount === 0 ? 0 : (AppState.data.activityLog[d.dateStr] || 0);
 
-        // Authentic LeetCode Emerald Palette
-        let bgColor = 'bg-[#28282c]'; // Level 0: Inactive dark cell
+        // Theme palette: Inactive dark surface -> Soft violet -> Medium violet -> Primary container -> Primary lavender
+        let bgColor = 'bg-[#242429]'; // Level 0: Inactive
         if (count === 1) {
-          bgColor = 'bg-[#016620]'; // Level 1: Deep forest green
+          bgColor = 'bg-[#8083ff]/30'; // Level 1: Theme Soft Indigo
         } else if (count === 2) {
-          bgColor = 'bg-[#1da438]'; // Level 2: Medium emerald
+          bgColor = 'bg-[#8083ff]/60'; // Level 2: Theme Medium Indigo
         } else if (count === 3) {
-          bgColor = 'bg-[#28c244]'; // Level 3: Vibrant green
+          bgColor = 'bg-[#8083ff]'; // Level 3: Theme Vibrant Container
         } else if (count >= 4) {
-          bgColor = 'bg-[#7fe18b]'; // Level 4: Light mint accent
+          bgColor = 'bg-[#c0c1ff]'; // Level 4: Theme Primary Accent
         }
 
-        const todayRing = d.isToday ? ' ring-1 ring-[#7fe18b]/90' : '';
+        const todayRing = d.isToday ? ' ring-1 ring-[#c0c1ff]/70' : '';
         cell.className = `leetcode-cell ${bgColor}${todayRing}`;
         cell.title = count === 0
-          ? `No submissions on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`
-          : `${count} submission${count === 1 ? '' : 's'} on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`;
+          ? `No tasks completed on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`
+          : `${count} task${count === 1 ? '' : 's'} completed on ${d.dateStr}${d.isToday ? ' (Today)' : ''}`;
 
         grid.appendChild(cell);
       });

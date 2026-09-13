@@ -4,7 +4,7 @@ import json
 import os
 import sys
 
-BUILD_VERSION = "20260913_sync_v6"
+BUILD_VERSION = "20260913_sync_v7"
 
 def clean_latex_and_math(text):
     if not text:
@@ -812,10 +812,7 @@ def generate_dashboard(roadmap):
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 select-none">
             <div class="flex items-center gap-1.5">
               <span class="font-bold text-white text-lg sm:text-xl tracking-tight" id="heatmap-total-completed">0</span>
-              <span class="text-xs sm:text-sm text-zinc-400 font-normal flex items-center gap-1">
-                submissions in the past one year
-                <span class="text-zinc-500 text-xs select-none cursor-help" title="Study tasks completed in the 1-year contribution window">ⓘ</span>
-              </span>
+              <span class="text-xs sm:text-sm text-zinc-400 font-normal">tasks completion in past one year</span>
             </div>
             <div class="flex items-center gap-4 text-xs text-zinc-400 font-normal">
               <div>Total active days: <span class="text-white font-medium ml-1" id="heatmap-active-days">0</span></div>
