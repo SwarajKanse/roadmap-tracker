@@ -130,7 +130,7 @@ const AuthManager = {
             localStorage.removeItem(AUTH_CONFIG.sessionKey);
           } catch (e) {}
           this.updateUIState();
-          showToast('🔒 Master password was rotated. Please unlock to edit.', 6000);
+          showToast('Master password was rotated. Please unlock to edit.', 6000);
           this.showPrompt();
         }
       }
@@ -193,7 +193,7 @@ const AuthManager = {
       localStorage.removeItem(AUTH_CONFIG.sessionKey);
     } catch (e) {}
     this.updateUIState();
-    showToast('🔒 Workspace locked. Password required to edit.');
+    showToast('Workspace locked. Password required to edit.');
   },
 
   async verifyCredentials(password) {
@@ -270,7 +270,7 @@ const AuthManager = {
       overlay.classList.remove('active');
     }
     document.body.classList.remove('auth-locked');
-    showToast(`🔓 Workspace unlocked • Device authorized for 30 days!`);
+    showToast(`Workspace unlocked • Device authorized for 30 days!`);
   },
 
   closeModal() {
@@ -278,7 +278,7 @@ const AuthManager = {
     if (overlay) overlay.classList.remove('active');
     document.body.classList.remove('auth-locked');
     if (!this.isAuthenticated()) {
-      showToast('👀 Viewing in Read-Only mode. Password required to edit.');
+      showToast('Viewing in Read-Only mode. Password required to edit.');
     }
   },
 
@@ -369,8 +369,8 @@ const AuthManager = {
         </form>
 
         <div class="mt-5 pt-3.5 border-t border-outline-variant/15 flex flex-col gap-1 text-center font-mono text-[11px] text-on-surface-variant/60">
-          <span>🛡️ Remembers this device for 30 days</span>
-          <span>🔒 Server-side bcrypt authorization</span>
+          <span class="flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-primary">verified_user</span> Remembers this device for 30 days</span>
+          <span class="flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-primary">lock</span> Server-side bcrypt authorization</span>
         </div>
       </div>
     `;
@@ -756,7 +756,7 @@ const AppState = {
 
   setTask(id, done) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('🔒 Authorization required. Enter password to edit.');
+      showToast('Authorization required. Enter password to edit.');
       AuthManager.showPrompt();
       return;
     }
@@ -813,7 +813,7 @@ const AppState = {
 
   deferTask(id, defer = true) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('🔒 Authorization required. Enter password to edit.');
+      showToast('Authorization required. Enter password to edit.');
       AuthManager.showPrompt();
       return;
     }
@@ -822,7 +822,7 @@ const AppState = {
     if (!this.data.deferredTasks) this.data.deferredTasks = {};
     if (defer) {
       this.data.deferredTasks[id] = now.slice(0, 10);
-      showToast('⏳ Task deferred to Weekend Lab block (Zero guilt!)');
+      showToast('Task deferred to weekend block.');
     } else {
       delete this.data.deferredTasks[id];
       showToast('Task returned to regular weekday schedule');
@@ -844,7 +844,7 @@ const AppState = {
 
   setNote(weekNum, text) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('🔒 Authorization required to edit notes.');
+      showToast('Authorization required to edit notes.');
       AuthManager.showPrompt();
       return;
     }
@@ -937,7 +937,7 @@ const AppState = {
       } else if (rpcRes.status === 401 || rpcRes.status === 403) {
         console.warn('Server authorization rejected: Invalid master password');
         AuthManager.logout();
-        showToast('🔒 Master password was rotated. Please enter the new password to save changes.', 5000);
+        showToast('Master password was rotated. Please enter the new password to save changes.', 5000);
         AuthManager.showPrompt();
       }
     } catch (e) {
@@ -1128,7 +1128,7 @@ const SpacedRepetitionEngine = {
       2: 'Stage 2 • Early Recall',
       3: 'Stage 3 • Deep Encoding',
       4: 'Stage 4 • Retention Transfer',
-      5: 'Stage 5 • Mastered ⭐'
+      5: 'Stage 5 • Mastered'
     };
     return names[stage] || `Stage ${stage}`;
   },
@@ -1252,7 +1252,7 @@ const SpacedRepetitionEngine = {
 
   submitReview(taskId, grade) {
     if (!AuthManager.isAuthenticated()) {
-      showToast('🔒 Authorization required to record memory reviews.');
+      showToast('Authorization required to record memory reviews.');
       AuthManager.showPrompt();
       return;
     }
@@ -1275,7 +1275,7 @@ const SpacedRepetitionEngine = {
       newReps = 0;
       newInterval = 1;
       newEase = Math.max(1.3, newEase - 0.2);
-      toastMsg = '🔁 Reset to Stage 1 (+1d). Review scheduled for tomorrow.';
+      toastMsg = 'Reset to Stage 1 (+1d). Review scheduled for tomorrow.';
     } else if (grade === 'good') {
       newReps += 1;
       if (newReps === 1) {
@@ -1285,7 +1285,7 @@ const SpacedRepetitionEngine = {
       } else {
         newInterval = Math.max(item.interval + 2, Math.round(item.interval * newEase));
       }
-      toastMsg = `🧠 Recall confirmed! Next review in ${newInterval} days.`;
+      toastMsg = `Recall confirmed! Next review in ${newInterval} days.`;
     } else if (grade === 'easy') {
       newReps += 1;
       newEase = Math.min(3.0, newEase + 0.15);
@@ -1296,7 +1296,7 @@ const SpacedRepetitionEngine = {
       } else {
         newInterval = Math.max(item.interval + 4, Math.round(item.interval * newEase * 1.3));
       }
-      toastMsg = `⭐ Concept Mastered! Next review in ${newInterval} days.`;
+      toastMsg = `Concept Mastered! Next review in ${newInterval} days.`;
     }
 
     const newStage = this.getStage(newInterval);
@@ -1382,7 +1382,7 @@ function initWeekPage(weekNum) {
       // Ignore if clicking on external link or defer button
       if (e.target.closest('a') || e.target.closest('.btn-defer')) return;
       if (!AuthManager.isAuthenticated()) {
-        showToast('⚠️ Workspace is locked. Unlock to edit.');
+        showToast('Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
         AuthManager.showPrompt();
         return;
@@ -1397,7 +1397,7 @@ function initWeekPage(weekNum) {
       updateDayProgress();
 
       if (nextDone && isWeekAllDone()) {
-        showToast('🎉 Outstanding! All Week tasks completed & logged!');
+        showToast('Outstanding! All week tasks completed & logged.');
       }
     });
   });
@@ -1412,7 +1412,7 @@ function initWeekPage(weekNum) {
     card.addEventListener('click', (e) => {
       if (e.target.closest('a')) return;
       if (!AuthManager.isAuthenticated()) {
-        showToast('⚠️ Workspace is locked. Unlock to edit.');
+        showToast('Workspace is locked. Unlock to edit.');
         AuthManager.updateUIState();
         AuthManager.showPrompt();
         return;
@@ -1425,7 +1425,7 @@ function initWeekPage(weekNum) {
       updateGateProgress();
 
       if (nextDone) {
-        showToast('✅ Gate criterion cleared & logged!');
+        showToast('Gate criterion cleared & logged.');
       }
     });
   });
@@ -1447,7 +1447,7 @@ function initWeekPage(weekNum) {
     notesArea.addEventListener('focus', () => {
       if (!AuthManager.isAuthenticated()) {
         notesArea.blur();
-        showToast('🔒 Authorization required to edit notes.');
+        showToast('Authorization required to edit notes.');
         AuthManager.showPrompt();
       }
     });
@@ -1456,7 +1456,7 @@ function initWeekPage(weekNum) {
     notesArea.addEventListener('input', () => {
       if (!AuthManager.isAuthenticated()) {
         notesArea.value = localStorage.getItem(`study_notes_week_${weekNum}`) || AppState.getNote(weekNum) || '';
-        showToast('🔒 Authorization required to edit notes.');
+        showToast('Authorization required to edit notes.');
         AuthManager.showPrompt();
         return;
       }
@@ -1643,7 +1643,7 @@ function renderWeekendDeferredQueue(weekNum) {
       <div class="deferred-backlog-box rounded-lg bg-surface-container-lowest/90 border border-outline-variant/20 p-3 mb-3 flex flex-col gap-2 shadow-lg">
         <div class="flex items-center justify-between pb-1.5 border-b border-white/[0.06]">
           <span class="font-mono text-[11px] font-semibold text-primary flex items-center gap-1.5">
-            <span>⏳</span>
+            <span class="material-symbols-outlined text-[13px]">schedule</span>
             <span>Spillover Queue (${tasks.length} tasks &bull; +${totalSpillHours.toFixed(1)}h)</span>
           </span>
           <span class="font-mono text-[10px] text-on-surface-variant/60">Allocated to ${dayName} (load balanced)</span>
@@ -1729,7 +1729,7 @@ function updateTaskCardVisual(card, isDone) {
     const item = AppState.data.srQueue[taskId];
     const todayStr = (window.SpacedRepetitionEngine && window.SpacedRepetitionEngine.getStudyDateStr()) || new Date().toISOString().slice(0, 10);
     const isDue = item.nextReview <= todayStr;
-    const stageName = item.stage >= 5 ? '⭐ Mastered' : `Stage ${item.stage || 1} (${item.interval || 1}d)`;
+    const stageName = item.stage >= 5 ? 'Mastered' : `Stage ${item.stage || 1} (${item.interval || 1}d)`;
 
     if (!srBadge) {
       srBadge = document.createElement('span');
@@ -1898,15 +1898,15 @@ function initHourCalibration(weekNum) {
     const ratio = val / printedHours;
     if (ratio <= 1.10) {
       slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-primary/15 text-primary border border-primary/30 flex items-center gap-1 font-semibold';
-      slippageBadge.innerHTML = `<span>⚡</span> ${ratio.toFixed(2)}x &bull; On Track`;
+      slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; On Track`;
       slippageBadge.title = 'Slippage ratio ≤ 1.10: Solid pace within healthy velocity.';
     } else if (ratio <= 1.25) {
       slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/35 flex items-center gap-1 font-semibold';
-      slippageBadge.innerHTML = `<span>⚠️</span> ${ratio.toFixed(2)}x &bull; Watch Slippage`;
+      slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; Watch Slippage`;
       slippageBadge.title = 'Slippage ratio 1.11–1.25: Velocity warning. Watch for hidden time sinks.';
     } else {
       slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-violet-900/40 text-violet-200 border border-violet-500/40 flex items-center gap-1 font-bold animate-pulse';
-      slippageBadge.innerHTML = `<span>🚨</span> ${ratio.toFixed(2)}x &bull; Trigger Rung 2 Scope-Cut!`;
+      slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; Trigger Rung 2 Scope-Cut!`;
       slippageBadge.title = 'Slippage ratio > 1.25: Scope-Cut Ladder Rung 2 applies (drop SHOULD tasks, protect MUST).';
     }
   }
@@ -1985,7 +1985,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
     const budgetEl = document.getElementById('today-budget-pill');
     if (budgetEl) {
       budgetEl.className = `px-2 py-0.5 rounded font-mono-metric-md text-[11px] border ${isWeekend ? 'bg-primary/20 text-primary border-primary/30 font-semibold' : 'bg-surface-container text-on-surface-variant border-outline-variant/20'}`;
-      budgetEl.textContent = isWeekend ? '⚡ 8h Deep Focus' : '⏱️ 4h Budget';
+      budgetEl.textContent = isWeekend ? '8h Deep Focus' : '4h Budget';
     }
 
     const openWeekLink = document.getElementById('today-open-week-link');
@@ -2059,7 +2059,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       ` : '';
 
       const deferredBadge = (isDeferred && !isDone) ? `
-        <span class="text-[10px] text-primary font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend">⏳</span>
+        <span class="text-[10px] text-primary font-mono-metric-md flex items-center gap-0.5" title="Deferred to weekend"><span class="material-symbols-outlined text-[12px]">schedule</span></span>
       ` : '';
 
       tasksHtml += `

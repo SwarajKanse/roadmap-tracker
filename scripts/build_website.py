@@ -8,9 +8,28 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 BUILD_VERSION = "20261005_v6_2"
 
+EMOJI_PATTERN = re.compile(
+    r'[\U00010000-\U0010ffff'
+    r'\u200d\u200c\ufe0f\ufe0e'
+    r'\u2600-\u26ff'
+    r'\u2700-\u27bf'
+    r'\u2300-\u23ff'
+    r'\u2b50'
+    r']+',
+    flags=re.UNICODE
+)
+
+def strip_emojis(text):
+    if not text:
+        return ""
+    cleaned = EMOJI_PATTERN.sub('', str(text))
+    return re.sub(r' +', ' ', cleaned).strip()
+
 def clean_latex_and_math(text):
     if not text:
         return ""
+    
+    text = strip_emojis(text)
     
     subs = [
         (r'\$?\\\s*rightarrow\$?', '&rarr;'),
@@ -176,14 +195,14 @@ def parse_roadmap():
             if not w_match:
                 continue
             w_num = int(w_match.group(1))
-            w_title = w_match.group(2).strip()
-            w_title_clean = re.sub(r'\*\*([^*]+)\*\*', r'\1', w_title)
+            w_title = strip_emojis(w_match.group(2).strip())
+            w_title_clean = strip_emojis(re.sub(r'\*\*([^*]+)\*\*', r'\1', w_title))
 
             # Week Focus quote (first blockquote)
             w_focus = ""
             for l in lines[1:8]:
                 if l.startswith('>'):
-                    w_focus = re.sub(r'^[>\s]+', '', l).strip()
+                    w_focus = strip_emojis(re.sub(r'^[>\s]+', '', l).strip())
                     break
 
             # 1. Parse MUST Section
@@ -247,7 +266,7 @@ def parse_roadmap():
                             'id': task_id,
                             'priority': 'must',
                             'priority_label': 'MUST',
-                            'priority_icon': '🔴',
+                            'priority_icon': '',
                             'track_id': cat_id,
                             'track_name': cat_name,
                             'track_tag': cat_tag,
@@ -258,7 +277,7 @@ def parse_roadmap():
                             'hours': hours,
                             'prob_marker': prob_marker,
                             'ref': ref,
-                            'raw_text': line
+                            'raw_text': strip_emojis(line)
                         })
 
             # 2. Parse SHOULD Section
@@ -288,7 +307,7 @@ def parse_roadmap():
                             'id': task_id,
                             'priority': 'should',
                             'priority_label': 'SHOULD',
-                            'priority_icon': '🟡',
+                            'priority_icon': '',
                             'track_id': cat_id,
                             'track_name': cat_name,
                             'track_tag': cat_tag,
@@ -297,7 +316,7 @@ def parse_roadmap():
                             'desc': desc,
                             'desc_html': format_cell_html(desc),
                             'hours': hours,
-                            'raw_text': line
+                            'raw_text': strip_emojis(line)
                         })
 
             # 3. Parse STRETCH Section
@@ -327,7 +346,7 @@ def parse_roadmap():
                             'id': task_id,
                             'priority': 'stretch',
                             'priority_label': 'STRETCH',
-                            'priority_icon': '🟢',
+                            'priority_icon': '',
                             'track_id': cat_id,
                             'track_name': cat_name,
                             'track_tag': cat_tag,
@@ -336,7 +355,7 @@ def parse_roadmap():
                             'desc': desc,
                             'desc_html': format_cell_html(desc),
                             'hours': hours,
-                            'raw_text': line
+                            'raw_text': strip_emojis(line)
                         })
 
             # 4. Parse Gate Section
@@ -372,7 +391,7 @@ def parse_roadmap():
                                 'evidence': evidence,
                                 'evidence_html': format_cell_html(evidence),
                                 'is_health': False,
-                                'raw_text': line
+                                'raw_text': strip_emojis(line)
                             })
                         else:
                             m_simple = re.match(r'^-\s+\[\s*\]\s+(.*)$', line)
@@ -390,7 +409,7 @@ def parse_roadmap():
                                     'evidence': '',
                                     'evidence_html': '',
                                     'is_health': is_h,
-                                    'raw_text': line
+                                    'raw_text': strip_emojis(line)
                                 })
 
             # 5. Parse If Behind Section
@@ -622,7 +641,7 @@ def generate_week_page(week, total_weeks, all_weeks):
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ {t['hours']}h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">{t['hours']}h</span>
               </div>
             </div>''')
 
@@ -667,7 +686,7 @@ def generate_week_page(week, total_weeks, all_weeks):
             </div>
           </div>
           <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-            <span class="text-xs text-purple-300/70 font-mono-metric-md">⏱ {t['hours']}h</span>
+            <span class="text-xs text-purple-300/70 font-mono-metric-md">{t['hours']}h</span>
           </div>
         </div>''')
 
@@ -697,7 +716,7 @@ def generate_week_page(week, total_weeks, all_weeks):
             </div>
           </div>
           <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-            <span class="text-xs text-violet-300/70 font-mono-metric-md">⏱ {t['hours']}h</span>
+            <span class="text-xs text-violet-300/70 font-mono-metric-md">{t['hours']}h</span>
           </div>
         </div>''')
 
@@ -751,11 +770,11 @@ def generate_week_page(week, total_weeks, all_weeks):
         protect_content = week['if_behind']['protect'] or "Core MUST tasks"
         defer_content = week['if_behind']['defer'] or "Secondary depth items"
         if_behind_html = f'''
-        <!-- 🔄 If Behind / Life Interruption Protocol Box -->
+        <!-- If Behind / Life Interruption Protocol Box -->
         <section class="rounded-xl cockpit-glass border border-primary/20 overflow-hidden p-5 flex flex-col gap-3">
           <div class="flex items-center justify-between pb-2 border-b border-outline-variant/15">
             <div class="flex items-center gap-2">
-              <span class="text-primary text-sm">🔄</span>
+              <span class="material-symbols-outlined text-[16px] text-primary">tune</span>
               <h3 class="text-sm font-semibold text-on-surface tracking-tight">If Behind / Life Interruption Protocol</h3>
             </div>
             <span class="text-[10px] font-mono text-primary px-2 py-0.5 rounded bg-primary/10 border border-primary/20">Triage Rule</span>
@@ -764,13 +783,13 @@ def generate_week_page(week, total_weeks, all_weeks):
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
             <div class="p-3.5 rounded-lg bg-primary/10 border border-primary/20 text-xs flex flex-col gap-1">
               <span class="font-mono text-[10px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
-                <span>🛡️</span> <span>Protect (Non-Negotiable)</span>
+                <span class="material-symbols-outlined text-[14px]">shield</span> <span>Protect (Non-Negotiable)</span>
               </span>
               <div class="text-on-surface font-medium leading-relaxed">{format_cell_html(protect_content)}</div>
             </div>
             <div class="p-3.5 rounded-lg bg-surface-container/60 border border-outline-variant/20 text-xs flex flex-col gap-1">
               <span class="font-mono text-[10px] font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
-                <span>📦</span> <span>Defer (Safe to Shift)</span>
+                <span class="material-symbols-outlined text-[14px]">schedule</span> <span>Defer (Safe to Shift)</span>
               </span>
               <div class="text-on-surface-variant font-medium leading-relaxed">{format_cell_html(defer_content)}</div>
             </div>
@@ -933,7 +952,7 @@ def generate_week_page(week, total_weeks, all_weeks):
           </div>
         </section>
 
-        <!-- ✅ Weekly Clearance Gate Section -->
+        <!-- Weekly Clearance Gate Section -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-primary/20 flex flex-col" id="section-gate">
           <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-2.5">
