@@ -47,25 +47,25 @@
   --accent-light: rgba(192, 193, 255, 0.12);
   --accent-ring: rgba(192, 193, 255, 0.25);
   
-  --success: #10b981;
-  --success-bg: rgba(16, 185, 129, 0.14);
-  --success-border: rgba(16, 185, 129, 0.28);
-  --streak-flame: #ea580c;
+  --success: #c0c1ff;
+  --success-bg: rgba(192, 193, 255, 0.14);
+  --success-border: rgba(192, 193, 255, 0.3);
+  --streak-flame: #a78bfa;
   
-  --warning: #f59e0b;
-  --warning-bg: rgba(245, 158, 11, 0.14);
+  --warning: #8083ff;
+  --warning-bg: rgba(128, 131, 255, 0.14);
   
-  /* Track Badges (Dark) */
+  /* Track Badges (Dark) - Minimal purple family harmonious palette */
   --tag-dsa-bg: rgba(192, 193, 255, 0.14);
   --tag-dsa-text: #c0c1ff;
-  --tag-aiml-bg: rgba(185, 200, 222, 0.14);
-  --tag-aiml-text: #b9c8de;
-  --tag-corecs-bg: rgba(193, 199, 207, 0.14);
-  --tag-corecs-text: #c1c7cf;
-  --tag-backend-bg: rgba(128, 131, 255, 0.14);
-  --tag-backend-text: #c0c1ff;
-  --tag-aptitude-bg: rgba(245, 158, 11, 0.14);
-  --tag-aptitude-text: #fde68a;
+  --tag-aiml-bg: rgba(167, 139, 250, 0.14);
+  --tag-aiml-text: #c4b5fd;
+  --tag-corecs-bg: rgba(128, 131, 255, 0.14);
+  --tag-corecs-text: #c0c1ff;
+  --tag-backend-bg: rgba(139, 92, 246, 0.14);
+  --tag-backend-text: #ddd6fe;
+  --tag-aptitude-bg: rgba(168, 85, 247, 0.14);
+  --tag-aptitude-text: #e9d5ff;
 
   /* Heatmap Levels (Dark) */
   --heat-lvl-0: #1f1f23;
@@ -1615,7 +1615,7 @@ body.page-leaving {
 }
 
 .auth-status-msg.error {
-  color: #ef4444;
+  color: #c4b5fd;
 }
 
 .auth-status-msg.info {

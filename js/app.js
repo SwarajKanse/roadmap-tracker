@@ -203,7 +203,7 @@ const AuthManager = {
 
     if (!cleanPass) {
       if (statusEl) {
-        statusEl.className = 'auth-status-msg error text-xs text-red-400 font-mono mb-3';
+        statusEl.className = 'auth-status-msg error text-xs text-purple-300 font-mono mb-3';
         statusEl.textContent = 'Please enter your password.';
       }
       const passInput = document.getElementById('auth-password-input');
@@ -249,7 +249,7 @@ const AuthManager = {
     }
 
     if (statusEl) {
-      statusEl.className = 'auth-status-msg error text-xs text-red-400 font-mono mb-3';
+      statusEl.className = 'auth-status-msg error text-xs text-purple-300 font-mono mb-3';
       statusEl.textContent = 'Incorrect password. Access Denied.';
     }
     if (unlockBtn) {
@@ -1871,7 +1871,7 @@ function updateGateProgress() {
   const pill = document.getElementById('gate-status-pill');
   if (pill) {
     if (done === gateCards.length && done > 0) {
-      pill.className = 'font-mono text-xs px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold flex items-center gap-1';
+      pill.className = 'font-mono text-xs px-2.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold flex items-center gap-1';
       pill.innerHTML = `<span class="material-symbols-outlined text-[14px]">check_circle</span> All ${gateCards.length} Cleared`;
     } else {
       pill.className = 'font-mono text-xs px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold';
@@ -1897,15 +1897,15 @@ function initHourCalibration(weekNum) {
     slippageBadge.style.display = 'inline-flex';
     const ratio = val / printedHours;
     if (ratio <= 1.10) {
-      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1 font-semibold';
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-primary/15 text-primary border border-primary/30 flex items-center gap-1 font-semibold';
       slippageBadge.innerHTML = `<span>⚡</span> ${ratio.toFixed(2)}x &bull; On Track`;
       slippageBadge.title = 'Slippage ratio ≤ 1.10: Solid pace within healthy velocity.';
     } else if (ratio <= 1.25) {
-      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 flex items-center gap-1 font-semibold';
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/35 flex items-center gap-1 font-semibold';
       slippageBadge.innerHTML = `<span>⚠️</span> ${ratio.toFixed(2)}x &bull; Watch Slippage`;
       slippageBadge.title = 'Slippage ratio 1.11–1.25: Velocity warning. Watch for hidden time sinks.';
     } else {
-      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1 font-bold animate-pulse';
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-violet-900/40 text-violet-200 border border-violet-500/40 flex items-center gap-1 font-bold animate-pulse';
       slippageBadge.innerHTML = `<span>🚨</span> ${ratio.toFixed(2)}x &bull; Trigger Rung 2 Scope-Cut!`;
       slippageBadge.title = 'Slippage ratio > 1.25: Scope-Cut Ladder Rung 2 applies (drop SHOULD tasks, protect MUST).';
     }
@@ -2563,7 +2563,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       if (weekPctEl) {
         const pct = weekTotal > 0 ? Math.round((weekDone / weekTotal) * 100) : 0;
         weekPctEl.textContent = `${pct}%`;
-        if (isWeekDone) weekPctEl.className = 'font-mono-metric-md text-[10px] text-emerald-400 font-bold week-pct';
+        if (isWeekDone) weekPctEl.className = 'font-mono-metric-md text-[10px] text-primary font-bold week-pct';
       }
     });
 
@@ -2574,7 +2574,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
       if (pPill) {
         const pPct = ps.total > 0 ? Math.round((ps.done / ps.total) * 100) : 0;
         if (pPct === 100) {
-          pPill.className = 'font-mono-metric-md text-xs font-semibold text-emerald-400 phase-status-pill';
+          pPill.className = 'font-mono-metric-md text-xs font-semibold text-primary phase-status-pill';
           pPill.textContent = `100% (${ps.total}/${ps.total})`;
         } else if (pPct > 0) {
           pPill.className = 'font-mono-metric-md text-xs font-semibold text-primary phase-status-pill';
@@ -2956,7 +2956,7 @@ const GlobalSearch = {
     if (this.matches.length === 0) {
       if (countEl) {
         countEl.textContent = '0/0';
-        countEl.className = 'text-xs font-mono text-red-400/80 min-w-[34px] text-right shrink-0';
+        countEl.className = 'text-xs font-mono text-purple-300 min-w-[34px] text-right shrink-0';
       }
       if (weekPill) weekPill.style.display = 'none';
       if (prevBtn) prevBtn.disabled = true;
