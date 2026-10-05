@@ -6,9 +6,9 @@
   <title>अभ्यास &bull; Week 14</title>
   <meta name="google-site-verification" content="uKnD8wt6kniI25IpAMVkaCIqsAQ9eGbGhSE2MGY5CPc" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="Phase 3 Week 14: Linked List (Logic + FAQs), OS deadlock, Unsupervised Learning — Kaggle in progress. Track daily tasks, deliverables, and technical journal.">
+  <meta name="description" content="Phase 3 Week 14: Linked Lists Hard, Binary Trees Properties, Heaps, Ensembles, Off-Cycle Applications. Track MUST curriculum, weekly gates, and slippage calibration.">
   <meta property="og:title" content="अभ्यास &bull; Week 14">
-  <meta property="og:description" content="Phase 3 Week 14: Linked List (Logic + FAQs), OS deadlock, Unsupervised Learning — Kaggle in progress. Track daily tasks, deliverables, and technical notes.">
+  <meta property="og:description" content="Phase 3 Week 14: Linked Lists Hard, Binary Trees Properties, Heaps, Ensembles, Off-Cycle Applications. Track daily tasks, deliverables, and technical notes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/weeks/week-14.html">
   <meta property="og:site_name" content="अभ्यास">
@@ -18,16 +18,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
-  <link rel="stylesheet" href="../css/tailwind.min.css?v=20260914_quote_v2">
-  <link rel="stylesheet" href="../css/style.css?v=20260914_quote_v2">
+  <link rel="stylesheet" href="../css/tailwind.min.css?v=20261005_v6_2">
+  <link rel="stylesheet" href="../css/style.css?v=20261005_v6_2">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
-  <!-- Subtle Ambient Glow Overlay (Matching index.html) -->
+  <!-- Ambient Glow Overlay -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Semi-Transparent Glassmorphism Top Bar (Borderless, highly transparent) -->
+  <!-- Semi-Transparent Glassmorphism Top Bar -->
   <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background/25 select-none py-3 transition-all border-none">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
       <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
@@ -37,7 +37,7 @@
 
       <div class="flex flex-col items-center text-center min-w-0 flex-1 px-3">
         <span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Phase 3 &bull; Week 14</span>
-        <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">Linked List (Logic + FAQs), OS deadlock, Unsupervised Learning — Kaggle in progress</h1>
+        <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">Linked Lists Hard, Binary Trees Properties, Heaps, Ensembles, Off-Cycle Applications</h1>
       </div>
 
       <div id="week-header-actions" class="flex items-center gap-1.5 shrink-0 transition-opacity">
@@ -52,16 +52,62 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- Weekly Deliverable Card -->
+        <!-- Executive Vitals Bar (Cap, Hour Calibration, Week Progress) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+          <!-- 1. Capacity & Cap Card -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Weekly MUST Budget</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded border font-semibold bg-primary/15 text-primary border-primary/30">Standard</span>
+            </div>
+            <div class="font-mono text-2xl font-bold tracking-tight text-on-surface">
+              <span>26.0h</span> <span class="text-xs text-on-surface-variant font-normal">/ 27.0h cap</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden mt-3">
+              <div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 96%"></div>
+            </div>
+          </div>
+
+          <!-- 2. Hour Calibration & Slippage Calculator (Architecture §4.1) -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Hour Calibration</span>
+              <span id="slippage-ratio-badge" style="display: none;"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="number" step="0.5" min="0" max="100" id="actual-hours-input" data-printed-hours="26.0" placeholder="0.0" class="w-20 px-2.5 py-1 rounded bg-surface-container-lowest border border-outline-variant/30 font-mono text-base text-on-surface font-semibold focus:border-primary focus:outline-none" />
+              <span class="text-xs text-on-surface-variant">actual hours logged</span>
+            </div>
+            <div class="text-[10px] text-on-surface-variant/70 font-mono mt-2">Rule: slippage &gt; 1.25x triggers Scope-Cut Rung 2</div>
+          </div>
+
+          <!-- 3. Week Completion Progress -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between sm:col-span-2 md:col-span-1">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Week Execution</span>
+              <span class="font-mono text-xs font-semibold text-primary" id="progress-percent">0%</span>
+            </div>
+            <div class="font-mono text-2xl font-bold tracking-tight text-on-surface flex items-baseline gap-1.5">
+              <span id="completed-count">0</span><span class="text-xs text-on-surface-variant font-normal">/ 19 tasks</span>
+              <span class="text-xs text-on-surface-variant/70 font-normal ml-auto" id="logged-hours-label">0.0h</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden mt-3">
+              <div class="h-full bg-primary rounded-full transition-all duration-500" id="week-progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+        </section>
+
+        
+        <!-- Weekly Focus & Objectives Card -->
         <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
           <div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/15">
             <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
-              <h2 class="text-xs sm:text-sm font-semibold text-on-surface tracking-tight">Weekly Production Deliverable</h2>
+              <span class="material-symbols-outlined text-[18px] text-primary">target</span>
+              <h2 class="text-xs sm:text-sm font-semibold text-on-surface tracking-tight">Week Objective &amp; Target Output</h2>
             </div>
             <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Target Output</span>
           </div>
-          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><div class="space-y-2"><div class="leading-relaxed"><strong class="text-on-surface font-semibold">Deliverable:</strong> Linked List (Logic Building + FAQs Medium) done. Unsupervised learning (K-Means, Hierarchical, DBSCAN, PCA) done. <strong class="text-on-surface font-semibold">You have a real Kaggle submission.</strong></div></div></div>
+          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text">🟢 <strong class="text-on-surface font-semibold">SEM 6 BEGINS (Jan 4)</strong> — January 4 – January 10, 2027. Sem 6 begins Jan 4. Focus: Linked Lists Hard; Binary Trees Properties; Heaps Foundations; Ensemble Methods: Bagging & Boosting; OS File Systems & I/O Management.</div>
         </section>
 
         <!-- Phase Navigation Tabs -->
@@ -74,418 +120,646 @@
 <a href="week-15.html" class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">W15</a>
         </section>
 
-        <!-- Days Grid (2 columns on desktop) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Mon">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Monday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_mon_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Add two numbers in LL; Segregate odd and even nodes" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_mon_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Add two numbers in LL; Segregate odd and even nodes">Add two numbers in LL; Segregate odd and even nodes</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
+        <!-- 🔴 MUST — Critical Path Section -->
+        <section class="flex flex-col gap-3" id="section-must">
+          <div class="flex items-center justify-between pb-3 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <h2 class="font-headline text-base sm:text-lg font-bold text-on-surface tracking-tight">MUST &mdash; Critical Path</h2>
+              <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20 font-semibold">12 Tasks &bull; ~26.0h</span>
             </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_mon_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Unsupervised 1: K-Means Clustering" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_mon_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Unsupervised 1: K-Means Clustering">Unsupervised 1: K-Means Clustering</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">CampusX: K-Means algorithm, centroid initialization (K-Means++), Elbow Method (WCSS), Silhouette Score + <strong class="text-on-surface font-semibold">StatQuest</strong>: "K-Means Clustering" + <strong class="text-on-surface font-semibold">Scratch implementation</strong>: Code K-Means in raw NumPy; add to <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">ml-from-scratch</code></div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Tue">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Tuesday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_tue_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Sort a LL of 0s, 1s, 2s; Remove Nth node from back" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_tue_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Sort a LL of 0s, 1s, 2s; Remove Nth node from back">Sort a LL of 0s, 1s, 2s; Remove Nth node from back</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_tue_corecs" data-track="corecs">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Memory Management & Allocation" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_tue_corecs" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Memory Management & Allocation">Memory Management & Allocation</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Logical vs Physical Address space, Memory Management Unit (MMU), Swapping, Contiguous Allocation, Fragmentation (Internal vs External), Compaction & Buddy System + Quiz</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Wed">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Wednesday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_wed_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Reverse a LL" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_wed_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Reverse a LL">Reverse a LL</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_wed_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Unsupervised 2: Hierarchical & DBSCAN" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_wed_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Unsupervised 2: Hierarchical & DBSCAN">Unsupervised 2: Hierarchical & DBSCAN</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">CampusX: Hierarchical Clustering (Agglomerative, Divisive, Linkage methods: Single, Complete, Average, Ward), Dendrograms + DBSCAN (Density-Based Spatial Clustering: Core, Border, Noise points, &epsilon; , MinPts)</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Thu">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Thursday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_thu_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Add one to number in LL; Find middle of LL" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_thu_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Add one to number in LL; Find middle of LL">Add one to number in LL; Find middle of LL</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_thu_corecs" data-track="corecs">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Paging & Segmentation" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_thu_corecs" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Paging & Segmentation">Paging & Segmentation</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Paging concept, Page Table structure, Frames, Page Table Entries, Multilevel Paging, Inverted Page Table, <strong class="text-on-surface font-semibold">TLB in Operating System (Translation Lookaside Buffer, TLB Hit/Miss ratio, Effective Memory Access Time - EMAT)</strong>, Segmentation + Quiz</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Fri">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Friday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_fri_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Delete middle node in LL; Check if LL is palindrome" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_fri_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Delete middle node in LL; Check if LL is palindrome">Delete middle node in LL; Check if LL is palindrome</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_fri_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Dimensionality Reduction: PCA & Kaggle Submission" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_fri_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Dimensionality Reduction: PCA & Kaggle Submission">Dimensionality Reduction: PCA & Kaggle Submission</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">CampusX: Principal Component Analysis (PCA), variance maximization, covariance matrix, eigenvectors & eigenvalues + <strong class="text-on-surface font-semibold">StatQuest</strong>: "PCA Step-by-Step" + <strong class="text-on-surface font-semibold">Kaggle</strong>: Build, tune, and submit your first full competition entry</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-          <!-- Weekend Section Header / Divider -->
-          <div class="md:col-span-2 flex items-center gap-3 py-1">
-            <div class="h-px flex-1 bg-outline-variant/15"></div>
-            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
-              <span>⚡</span>
-              <span class="font-semibold">Weekend High-Load Execution</span>
-              <span class="text-primary/70">&bull; 8.0h Daily Deep Focus Lab</span>
-            </div>
-            <div class="h-px flex-1 bg-outline-variant/15"></div>
+            <span class="font-mono text-[11px] text-on-surface-variant/80 hidden sm:inline-block">Non-negotiable core curriculum</span>
           </div>
 
-          
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Sat">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Saturday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 3 done</span>
-                </div>
-              </div>
-              <div class="weekend-deferred-container px-5 pt-3" data-day="Sat"></div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_sat_dsa" data-track="dsa">
+          <div class="flex flex-col gap-4">
+            
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              DSA (Java)
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">6 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.5" data-task-id="w14_must_dsa_1" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Find intersection of Y LL; Detect a loop in LL" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sat_dsa" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Linked Lists Hard" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_1" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
                     <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Find intersection of Y LL; Detect a loop in LL">Find intersection of Y LL; Detect a loop in LL</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Linked Lists Hard">Linked Lists Hard</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">6 problems</span>
                     
                   </div>
-                  
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Reverse nodes in K-group, Rotate a Linked List, Merge two sorted lists, Sort a Linked List (merge sort on LL), Flattening a Linked List, Copy list with random pointer. <em>TUF+ A2Z Step 6.4</em></div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w14_sat_aiml" data-track="aiml">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.5" data-task-id="w14_must_dsa_2" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: ml-from-scratch K-Means Clustering Lab (4.0h)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sat_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="ml-from-scratch K-Means Clustering Lab (4.0h)"><code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">ml-from-scratch</code> K-Means Clustering Lab (4.0h)</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Implement K-Means algorithm with random initialization and inertia computation; plot Elbow curve and Silhouette score.</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_sat_aptitude" data-track="aptitude">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Quant M14 & Verbal" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sat_aptitude" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Quant M14 & Verbal">Quant M14 & Verbal</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Quant M14 Profit and Loss (Basic & Advance) + Verbal: Mixed Practice</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Sun">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Sunday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 3 done</span>
-                </div>
-              </div>
-              <div class="weekend-deferred-container px-5 pt-3" data-day="Sun"></div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w14_sun_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Starting point of loop in LL; Length of loop + revision" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sun_dsa" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Binary Trees Properties" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_2" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
                     <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Starting point of loop in LL; Length of loop + revision">Starting point of loop in LL; Length of loop + revision</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Binary Trees Properties">Binary Trees Properties</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">4 problems</span>
                     
                   </div>
-                  
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Height of Binary Tree, Diameter of Binary Tree, Balanced Binary Tree check, Maximum Path Sum. <em>TUF+ A2Z Step 13.2</em></div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w14_sun_aiml" data-track="aiml">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.5" data-task-id="w14_must_dsa_3" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: PCA & Dimensionality Reduction Lab (4.0h)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sun_aiml" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Heaps Foundations" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_3" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="PCA & Dimensionality Reduction Lab (4.0h)">PCA & Dimensionality Reduction Lab (4.0h)</span>
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Heaps Foundations">Heaps Foundations</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">5 problems</span>
                     
                   </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Implement PCA via Eigenvalue Decomposition of Covariance Matrix in NumPy; project high-dimensional data (MNIST) to 2D.</div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Min Heap & Max Heap representation using arrays, heapify up/down, insert, delete, HeapSort implementation from scratch. <em>TUF+ A2Z Step 11.1</em></div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w14_sun_aptitude" data-track="aptitude">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="1.5" data-task-id="w14_must_dsa_4" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Logical & Virtual Memory" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_sun_aptitude" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: DSA Transfer: No-Hint Timed Tree Set" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_4" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Logical & Virtual Memory">Logical & Virtual Memory</span>
-                    
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="DSA Transfer: No-Hint Timed Tree Set">DSA Transfer: No-Hint Timed Tree Set</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">2 problems</span>
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #</span>
                   </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Logical: Clocks (Basic & Advance — <strong class="text-on-surface font-semibold">Logical Reasoning complete!</strong>) + Virtual Memory, Demand Paging, Page Faults, Page Replacement Algorithms (FIFO, Optimal, LRU, LFU, Clock), Belady's Anomaly, Thrashing</div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Sit 2 unseen Tree problems you have never attempted (pick from the LeetCode topic tag, NeetCode “similar questions” or a company list; never a problem named in any learning task), at least 72 h after the learning task — move the set to the first half of next week if needed. Format: 25 min per problem (35 min for a Hard), including 5 min for edge cases and a dry run; no hints, no AI. Pass bar: ≥ 1/2 solved inside the time box; on a miss, log the miss reason in the Journal and re-sit a fresh pair within 7 days.</div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 1.5h</span>
               </div>
             </div>
+
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.5" data-task-id="w14_must_dsa_5" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: DSA Daily Quota (Week 14)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_5" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="DSA Daily Quota (Week 14)">DSA Daily Quota (Week 14)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">4 problems</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Solve 4 new problems from NeetCode 150 — Linked List (Pass 2); time-box each at 25 min before any hint (2.5h includes editorial on misses), then log pattern and miss reason in the Journal. Never repeat a problem already in the ledger.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.5h</span>
               </div>
             </div>
+
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.0" data-task-id="w14_must_dsa_6" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Design Data-Structure Problems" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_6" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Design Data-Structure Problems">Design Data-Structure Problems</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">3 problems</span>
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #146</span>
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">LRU Cache (LC #146) with HashMap + doubly linked list, Insert Delete GetRandom O(1) (LC #380), Time Based Key-Value Store (LC #981). Code each as a clean class with unit tests; they double as LLD warm-ups.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.0h</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Competitive Programming
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.5" data-task-id="w14_must_dsa_7" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Contest & Upsolving (Week 14)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_dsa_7" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CP</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Contest & Upsolving (Week 14)">Contest & Upsolving (Week 14)</span>
+                    
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #</span>
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">LeetCode Weekly Contest (+ Codeforces Div.2/3 when it fits) and mandatory upsolving within 48 h.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.5h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Core CS (OS)
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.0" data-task-id="w14_must_corecs_8" data-track="corecs">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: OS File Systems & I/O Management" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_corecs_8" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">OS</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="OS File Systems & I/O Management">OS File Systems & I/O Management</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Inodes, file allocation methods (contiguous, linked, indexed), free space management, disk scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN), TUF+ OS curriculum completion.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Recruiting Pipeline
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">2 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="1.0" data-task-id="w14_must_professional_9" data-track="professional">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Off-Cycle Internship Applications (Startups & GCCs)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_professional_9" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">PIPELINE</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Off-Cycle Internship Applications (Startups & GCCs)">Off-Cycle Internship Applications (Startups & GCCs)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Lane 2: apply to ≥ 8 off-cycle/startup/GCC internships and alumni-referred roles for Jan–Jun 2027 using the Target-40 Track D list and the Alumni map; log each in the Tracker [VERIFY each portal].</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 1.0h</span>
+              </div>
+            </div>
+
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="1.0" data-task-id="w14_must_professional_10" data-track="professional">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Recruiting Pipeline Weekly (Week 14)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_professional_10" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">PIPELINE</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Recruiting Pipeline Weekly (Week 14)">Recruiting Pipeline Weekly (Week 14)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised outreach messages (alumni, seniors, recruiters) and log each in the Tracker; follow up open threads; ask for a referral 1–2 days after any OA invite; apply within 72 h of any new posting on the Target-40.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 1.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Aptitude
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="0.5" data-task-id="w14_must_aptitude_11" data-track="aptitude">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Aptitude Timed Drill (Week 14)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_aptitude_11" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Aptitude Timed Drill (Week 14)">Aptitude Timed Drill (Week 14)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">25-minute timed mixed set (quant, logical reasoning, data interpretation) from IndiaBix / PrepInsta-style banks; log accuracy and seconds per question in the Tracker. Target: ≥ 70% accuracy by W28.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 0.5h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              SQL Database
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.5" data-task-id="w14_must_corecs_12" data-track="corecs">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: LeetCode SQL 50 (Part 1: Questions 1–17)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_must_corecs_12" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">SQL</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="LeetCode SQL 50 (Part 1: Questions 1–17)">LeetCode SQL 50 (Part 1: Questions 1–17)</span>
+                    
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #</span>
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Complete questions 1 to 17 on LeetCode SQL 50 study plan (Select & Basic Joins).</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.5h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- 🟡 SHOULD — Depth & Mastery Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-should">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">SHOULD &mdash; Depth &amp; Mastery</h3>
+              <span class="font-mono text-xs text-amber-300/80">(6 Tasks)</span>
+            </div>
+            <span class="font-mono text-[11px] text-on-surface-variant/70">Execute when MUST pace is on track</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w14_should_corecs_1" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: XGBoost / LightGBM Hands-on" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_corecs_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">OS</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="XGBoost / LightGBM Hands-on">XGBoost / LightGBM Hands-on</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Train an XGBoost model on tabular data; inspect feature importances.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="1.5" data-task-id="w14_should_corecs_2" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: OS Top 50 Interview Questions" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_corecs_2" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">OS</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="OS Top 50 Interview Questions">OS Top 50 Interview Questions</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Revise top operating systems interview questions on TUF+.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 1.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="1.5" data-task-id="w14_should_aptitude_3" data-track="aptitude">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Verbal V3" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_aptitude_3" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">APT</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Verbal V3">Verbal V3</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Idioms, Phrases & Cloze Test.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 1.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.5" data-task-id="w14_should_corecs_4" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: K-Means & PCA" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_corecs_4" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="K-Means & PCA">K-Means & PCA</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">K-Means algorithm, Elbow method, PCA dimensionality reduction derivation (covariance matrix, eigenvalues, projection).</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 2.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w14_should_aptitude_5" data-track="aptitude">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Quant M13–M14" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_aptitude_5" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">APT</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Quant M13–M14">Quant M13–M14</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Permutations, Combinations & Probability (Basic + Advanced).</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="3.5" data-task-id="w14_should_corecs_6" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Bagging & Boosting" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_should_corecs_6" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Bagging & Boosting">Bagging & Boosting</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Bootstrap aggregating (Bagging), Out-of-Bag (OOB) error, Random Forest feature randomness, Boosting principle (AdaBoost, Gradient Boosting, XGBoost math & split criterion). <em>Architecture §6.2</em></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 3.5h</span>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- 🟢 STRETCH — If Ahead Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-stretch">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">STRETCH &mdash; If Ahead</h3>
+              <span class="font-mono text-xs text-emerald-300/80">(1 Tasks)</span>
+            </div>
+            <span class="font-mono text-[11px] text-on-surface-variant/70">Bonus reps &amp; competitive advantage</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w14_stretch_corecs_1" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: K-Means from Scratch" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-emerald-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w14_stretch_corecs_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="K-Means from Scratch">K-Means from Scratch</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Implement K-Means clustering from scratch in pure NumPy.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-emerald-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- ✅ Weekly Clearance Gate Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-primary/20 flex flex-col" id="section-gate">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[20px] text-primary">verified_user</span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">Weekly Clearance Gate</h3>
+            </div>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold" id="gate-status-pill">0 / 8 Cleared</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_1">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Can you solve &quot;Reverse Nodes in K-Group&quot; and &quot;Copy List with Random Pointer&quot; in Java?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Linked Lists Hard]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Can you solve "Reverse Nodes in K-Group" and "Copy List with Random Pointer" in Java?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>one problem from this task re-solved cold in ≤ 25 min a week later, logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_2">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **DSA**: Have you completed “Binary Trees Properties” (Height of Binary Tree, Diameter of Binary Tree, Balanced Binary Tree check, Maximum Path…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_2" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Binary Trees Properties]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">DSA</strong>: Have you completed “Binary Trees Properties” (Height of Binary Tree, Diameter of Binary Tree, Balanced Binary Tree check, Maximum Path…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>one problem from this task re-solved cold in ≤ 25 min a week later, logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_3">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **DSA**: Have you completed “Heaps Foundations” (Min Heap & Max Heap representation using arrays, heapify up/down, insert, delete,…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_3" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Heaps Foundations]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">DSA</strong>: Have you completed “Heaps Foundations” (Min Heap & Max Heap representation using arrays, heapify up/down, insert, delete,…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>one problem from this task re-solved cold in ≤ 25 min a week later, logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_4">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Have you completed “Off-Cycle Internship Applications (Startups & GCCs)” (Lane 2: apply to ≥ 8 off-cycle/startup/GCC internships and alumni-referred roles for…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_4" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Off-Cycle Internship Applications (Startups & GCCs)]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Have you completed “Off-Cycle Internship Applications (Startups & GCCs)” (Lane 2: apply to ≥ 8 off-cycle/startup/GCC internships and alumni-referred roles for…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>Tracker rows with dates and links.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_5">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **Recruiting Pipeline**: Have you completed “Recruiting Pipeline Weekly (Week 14)” (Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_5" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Recruiting Pipeline Weekly (Week 14)]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">Recruiting Pipeline</strong>: Have you completed “Recruiting Pipeline Weekly (Week 14)” (Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>Tracker log shows ≥ 3 personalised outreach messages this week.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_6">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **DSA**: Did you pass “DSA Transfer: No-Hint Timed Tree Set” — 2 unseen Tree problems, 25 min per problem, no hints, pass bar ≥ 1/2 solved?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_6" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: DSA Transfer: No-Hint Timed Tree Set]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">DSA</strong>: Did you pass “DSA Transfer: No-Hint Timed Tree Set” — 2 unseen Tree problems, 25 min per problem, no hints, pass bar ≥ 1/2 solved?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>timed result and miss reasons logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_7">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **SQL**: Have you completed “LeetCode SQL 50 (Part 1: Questions 1–17)” (Complete questions 1 to 17 on LeetCode SQL 50 study plan (Select & Basic Joins).)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_7" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: LeetCode SQL 50 (Part 1: Questions 1–17)]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">SQL</strong>: Have you completed “LeetCode SQL 50 (Part 1: Questions 1–17)” (Complete questions 1 to 17 on LeetCode SQL 50 study plan (Select & Basic Joins).)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>LeetCode SQL submission count.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w14_gate_8">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Health & Guardrails: 1 full rest day taken every 2 weeks?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w14_gate_8" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Health & Guardrails: 1 full rest day taken every 2 weeks?</span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        
+        <!-- 🔄 If Behind / Life Interruption Protocol Box -->
+        <section class="rounded-xl cockpit-glass border border-amber-500/20 overflow-hidden p-5 flex flex-col gap-3">
+          <div class="flex items-center justify-between pb-2 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2">
+              <span class="text-amber-400 text-sm">🔄</span>
+              <h3 class="text-sm font-semibold text-on-surface tracking-tight">If Behind / Life Interruption Protocol</h3>
+            </div>
+            <span class="text-[10px] font-mono text-amber-300 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">Triage Rule</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">When academic exams spike or weekly time slips, execute this contingency plan:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            <div class="p-3.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🛡️</span> <span>Protect (Non-Negotiable)</span>
+              </span>
+              <div class="text-emerald-200/90 font-medium leading-relaxed">Linked Lists Hard + Ensemble Methods: Bagging & Boosting + Recruiting Pipeline Weekly (Week 14)</div>
+            </div>
+            <div class="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>📦</span> <span>Defer (Safe to Shift)</span>
+              </span>
+              <div class="text-amber-200/90 font-medium leading-relaxed">XGBoost / LightGBM Hands-on → weekend; OS Top 50 Interview Questions → Week 15</div>
+            </div>
+          </div>
+        </section>
 
         <!-- Reflection & Technical Notes Journal -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 p-5 sm:p-6 flex flex-col gap-4" id="journal">
@@ -494,7 +768,7 @@
             <h3 class="text-sm font-semibold text-on-surface tracking-tight">Week 14 Technical Notes &amp; Journal</h3>
           </div>
           <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/60 focus-within:ring-1 focus-within:ring-primary/20 transition-all p-3.5">
-            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 border-0 outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none overflow-hidden block" style="outline: none !important; box-shadow: none !important; border: none !important;" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="5"></textarea>
+            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 border-0 outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none overflow-hidden block" style="outline: none !important; box-shadow: none !important; border: none !important;" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores, OA post-mortems..." rows="5"></textarea>
           </div>
           <div class="flex items-center gap-1.5 pt-1">
             <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>
@@ -508,8 +782,8 @@
     </div>
   </main>
 
-  <script src="../js/dashboard-summary.js?v=20260914_quote_v2"></script>
-  <script src="../js/app.js?v=20260914_quote_v2"></script>
+  <script src="../js/dashboard-summary.js?v=20261005_v6_2"></script>
+  <script src="../js/app.js?v=20261005_v6_2"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initWeekPage(14);

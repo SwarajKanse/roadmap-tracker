@@ -13,11 +13,11 @@
 
 const STORAGE_KEY = 'study_roadmap_checklist_v1';
 
-// Hardened Roadmap Start Date: Monday, September 14, 2026 at 5:30 AM IST (00:00:00 UTC)
+// Hardened Roadmap Start Date: Monday, October 5, 2026 at 5:30 AM IST (00:00:00 UTC)
 // The study day rolls over strictly at 5:30 AM IST.
 // Since IST is UTC+5:30, 05:30:00 IST maps precisely to 00:00:00 UTC.
-const ROADMAP_START_UTC = Date.UTC(2026, 8, 14, 0, 0, 0, 0);
-const ROADMAP_START_DATE = new Date('2026-09-14T05:30:00+05:30');
+const ROADMAP_START_UTC = Date.UTC(2026, 9, 5, 0, 0, 0, 0);
+const ROADMAP_START_DATE = new Date('2026-10-05T05:30:00+05:30');
 
 function getRoadmapCalendarInfo(targetDate = new Date()) {
   const cur = new Date(targetDate);
@@ -1362,6 +1362,7 @@ function initWeekPage(weekNum) {
 
     updateWeekProgress();
     updateDayProgress();
+    updateGateProgress();
     renderWeekendDeferredQueue(weekNum);
   }
 
@@ -1400,6 +1401,37 @@ function initWeekPage(weekNum) {
       }
     });
   });
+
+  // 1b. Weekly Gate Items & Checkbox clicks
+  document.querySelectorAll('.gate-card, .gate-item').forEach(card => {
+    const gateId = card.getAttribute('data-gate-id');
+    const isDone = AppState.isTaskDone(gateId);
+    card.setAttribute('data-completed', isDone ? 'true' : 'false');
+    updateGateCardVisual(card, isDone);
+
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      if (!AuthManager.isAuthenticated()) {
+        showToast('⚠️ Workspace is locked. Unlock to edit.');
+        AuthManager.updateUIState();
+        AuthManager.showPrompt();
+        return;
+      }
+      const currentDone = AppState.isTaskDone(gateId);
+      const nextDone = !currentDone;
+      AppState.setTask(gateId, nextDone);
+      card.setAttribute('data-completed', nextDone ? 'true' : 'false');
+      updateGateCardVisual(card, nextDone);
+      updateGateProgress();
+
+      if (nextDone) {
+        showToast('✅ Gate criterion cleared & logged!');
+      }
+    });
+  });
+
+  // 1c. Hour Calibration & Live Slippage Calculator (Architecture §4.1)
+  initHourCalibration(weekNum);
 
 
 
@@ -1790,6 +1822,115 @@ function updateDayProgress() {
       } else {
         badge.className = 'day-badge day-progress font-mono text-xs text-on-surface-variant';
       }
+    }
+  });
+}
+
+function updateGateCardVisual(card, isDone) {
+  const btn = card.querySelector('.gate-toggle-btn, .task-checkbox');
+  const icon = btn?.querySelector('.material-symbols-outlined') || btn?.querySelector('svg');
+  const question = card.querySelector('.gate-question');
+  
+  if (isDone) {
+    card.classList.add('completed');
+    card.setAttribute('data-completed', 'true');
+    if (btn) {
+      btn.setAttribute('aria-checked', 'true');
+      btn.className = 'gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-primary border-primary flex items-center justify-center shadow-sm cursor-pointer';
+    }
+    if (icon) {
+      icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-100 transition-opacity';
+    }
+    if (question) {
+      question.classList.add('text-on-surface-variant/60', 'line-through');
+    }
+  } else {
+    card.classList.remove('completed');
+    card.setAttribute('data-completed', 'false');
+    if (btn) {
+      btn.setAttribute('aria-checked', 'false');
+      btn.className = 'gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer';
+    }
+    if (icon) {
+      icon.className = 'material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity';
+    }
+    if (question) {
+      question.classList.remove('text-on-surface-variant/60', 'line-through');
+    }
+  }
+}
+
+function updateGateProgress() {
+  const gateCards = document.querySelectorAll('.gate-card');
+  if (!gateCards.length) return;
+  let done = 0;
+  gateCards.forEach(card => {
+    const gid = card.getAttribute('data-gate-id');
+    if (AppState.isTaskDone(gid)) done++;
+  });
+  const pill = document.getElementById('gate-status-pill');
+  if (pill) {
+    if (done === gateCards.length && done > 0) {
+      pill.className = 'font-mono text-xs px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold flex items-center gap-1';
+      pill.innerHTML = `<span class="material-symbols-outlined text-[14px]">check_circle</span> All ${gateCards.length} Cleared`;
+    } else {
+      pill.className = 'font-mono text-xs px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold';
+      pill.textContent = `${done} / ${gateCards.length} Cleared`;
+    }
+  }
+}
+
+function initHourCalibration(weekNum) {
+  const hoursInput = document.getElementById('actual-hours-input');
+  const slippageBadge = document.getElementById('slippage-ratio-badge');
+  if (!hoursInput) return;
+
+  const printedHours = parseFloat(hoursInput.getAttribute('data-printed-hours')) || 27.0;
+  const savedActual = localStorage.getItem(`study_actual_hours_week_${weekNum}`) || AppState.data.actualHours?.[weekNum] || '';
+
+  function renderSlippage(val) {
+    if (!slippageBadge) return;
+    if (isNaN(val) || val <= 0 || printedHours <= 0) {
+      slippageBadge.style.display = 'none';
+      return;
+    }
+    slippageBadge.style.display = 'inline-flex';
+    const ratio = val / printedHours;
+    if (ratio <= 1.10) {
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1 font-semibold';
+      slippageBadge.innerHTML = `<span>⚡</span> ${ratio.toFixed(2)}x &bull; On Track`;
+      slippageBadge.title = 'Slippage ratio ≤ 1.10: Solid pace within healthy velocity.';
+    } else if (ratio <= 1.25) {
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 flex items-center gap-1 font-semibold';
+      slippageBadge.innerHTML = `<span>⚠️</span> ${ratio.toFixed(2)}x &bull; Watch Slippage`;
+      slippageBadge.title = 'Slippage ratio 1.11–1.25: Velocity warning. Watch for hidden time sinks.';
+    } else {
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1 font-bold animate-pulse';
+      slippageBadge.innerHTML = `<span>🚨</span> ${ratio.toFixed(2)}x &bull; Trigger Rung 2 Scope-Cut!`;
+      slippageBadge.title = 'Slippage ratio > 1.25: Scope-Cut Ladder Rung 2 applies (drop SHOULD tasks, protect MUST).';
+    }
+  }
+
+  if (savedActual) {
+    hoursInput.value = savedActual;
+    renderSlippage(parseFloat(savedActual));
+  }
+
+  hoursInput.addEventListener('input', () => {
+    const val = parseFloat(hoursInput.value);
+    if (!isNaN(val)) {
+      try {
+        localStorage.setItem(`study_actual_hours_week_${weekNum}`, val);
+      } catch (e) {}
+      if (!AppState.data.actualHours) AppState.data.actualHours = {};
+      AppState.data.actualHours[weekNum] = val;
+      AppState.saveLocal();
+      renderSlippage(val);
+      if (AuthManager.isAuthenticated()) {
+        AppState.scheduleCloudSync();
+      }
+    } else {
+      renderSlippage(NaN);
     }
   });
 }

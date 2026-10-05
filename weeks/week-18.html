@@ -6,9 +6,9 @@
   <title>अभ्यास &bull; Week 18</title>
   <meta name="google-site-verification" content="uKnD8wt6kniI25IpAMVkaCIqsAQ9eGbGhSE2MGY5CPc" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="Phase 4 Week 18: Stack/Queue (Implementation + Monotonic), CN continues, Deep Neural Networks & Regularization. Track daily tasks, deliverables, and technical journal.">
+  <meta name="description" content="Phase 4 Week 18: Binary Tree FAQs, Testing Spring Apps, micrograd Part 2, CN Transport, Mock 3. Track MUST curriculum, weekly gates, and slippage calibration.">
   <meta property="og:title" content="अभ्यास &bull; Week 18">
-  <meta property="og:description" content="Phase 4 Week 18: Stack/Queue (Implementation + Monotonic), CN continues, Deep Neural Networks & Regularization. Track daily tasks, deliverables, and technical notes.">
+  <meta property="og:description" content="Phase 4 Week 18: Binary Tree FAQs, Testing Spring Apps, micrograd Part 2, CN Transport, Mock 3. Track daily tasks, deliverables, and technical notes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://track.swarajkanse.me/weeks/week-18.html">
   <meta property="og:site_name" content="अभ्यास">
@@ -18,16 +18,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0" rel="stylesheet">
-  <link rel="stylesheet" href="../css/tailwind.min.css?v=20260914_quote_v2">
-  <link rel="stylesheet" href="../css/style.css?v=20260914_quote_v2">
+  <link rel="stylesheet" href="../css/tailwind.min.css?v=20261005_v6_2">
+  <link rel="stylesheet" href="../css/style.css?v=20261005_v6_2">
 </head>
 <body class="bg-background font-body text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen relative overflow-x-hidden transition-colors duration-200">
 
-  <!-- Subtle Ambient Glow Overlay (Matching index.html) -->
+  <!-- Ambient Glow Overlay -->
   <div class="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[850px] h-[340px] bg-gradient-to-b from-primary/10 via-primary/3 to-transparent blur-3xl -z-10 dark:opacity-70 opacity-30"></div>
   <div class="pointer-events-none fixed top-24 right-0 w-[420px] h-[350px] bg-tertiary/5 blur-3xl -z-10"></div>
 
-  <!-- Semi-Transparent Glassmorphism Top Bar (Borderless, highly transparent) -->
+  <!-- Semi-Transparent Glassmorphism Top Bar -->
   <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-background/25 select-none py-3 transition-all border-none">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between gap-4">
       <a href="../index.html" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg cockpit-glass border border-outline-variant/20 hover:border-primary/40 text-on-surface-variant hover:text-on-surface transition-all duration-150 group shrink-0">
@@ -37,7 +37,7 @@
 
       <div class="flex flex-col items-center text-center min-w-0 flex-1 px-3">
         <span class="text-[11px] font-mono text-on-surface-variant uppercase tracking-wider">Phase 4 &bull; Week 18</span>
-        <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">Stack/Queue (Implementation + Monotonic), CN continues, Deep Neural Networks & Regularization</h1>
+        <h1 class="font-headline text-sm sm:text-base font-bold text-on-surface tracking-tight truncate max-w-full">Binary Tree FAQs, Testing Spring Apps, micrograd Part 2, CN Transport, Mock 3</h1>
       </div>
 
       <div id="week-header-actions" class="flex items-center gap-1.5 shrink-0 transition-opacity">
@@ -52,16 +52,62 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col w-full gap-7">
 
-        <!-- Weekly Deliverable Card -->
+        <!-- Executive Vitals Bar (Cap, Hour Calibration, Week Progress) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+          <!-- 1. Capacity & Cap Card -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Weekly MUST Budget</span>
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded border font-semibold bg-primary/15 text-primary border-primary/30">Standard</span>
+            </div>
+            <div class="font-mono text-2xl font-bold tracking-tight text-on-surface">
+              <span>25.0h</span> <span class="text-xs text-on-surface-variant font-normal">/ 27.0h cap</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden mt-3">
+              <div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 92%"></div>
+            </div>
+          </div>
+
+          <!-- 2. Hour Calibration & Slippage Calculator (Architecture §4.1) -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Hour Calibration</span>
+              <span id="slippage-ratio-badge" style="display: none;"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="number" step="0.5" min="0" max="100" id="actual-hours-input" data-printed-hours="25.0" placeholder="0.0" class="w-20 px-2.5 py-1 rounded bg-surface-container-lowest border border-outline-variant/30 font-mono text-base text-on-surface font-semibold focus:border-primary focus:outline-none" />
+              <span class="text-xs text-on-surface-variant">actual hours logged</span>
+            </div>
+            <div class="text-[10px] text-on-surface-variant/70 font-mono mt-2">Rule: slippage &gt; 1.25x triggers Scope-Cut Rung 2</div>
+          </div>
+
+          <!-- 3. Week Completion Progress -->
+          <div class="p-4 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200 flex flex-col justify-between sm:col-span-2 md:col-span-1">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs text-on-surface-variant font-medium">Week Execution</span>
+              <span class="font-mono text-xs font-semibold text-primary" id="progress-percent">0%</span>
+            </div>
+            <div class="font-mono text-2xl font-bold tracking-tight text-on-surface flex items-baseline gap-1.5">
+              <span id="completed-count">0</span><span class="text-xs text-on-surface-variant font-normal">/ 20 tasks</span>
+              <span class="text-xs text-on-surface-variant/70 font-normal ml-auto" id="logged-hours-label">0.0h</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden mt-3">
+              <div class="h-full bg-primary rounded-full transition-all duration-500" id="week-progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+        </section>
+
+        
+        <!-- Weekly Focus & Objectives Card -->
         <section class="p-4 sm:p-5 rounded-xl cockpit-glass hover:border-primary/40 transition-all duration-200">
           <div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/15">
             <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
-              <h2 class="text-xs sm:text-sm font-semibold text-on-surface tracking-tight">Weekly Production Deliverable</h2>
+              <span class="material-symbols-outlined text-[18px] text-primary">target</span>
+              <h2 class="text-xs sm:text-sm font-semibold text-on-surface tracking-tight">Week Objective &amp; Target Output</h2>
             </div>
             <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Target Output</span>
           </div>
-          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text"><div class="space-y-2"><div class="leading-relaxed"><strong class="text-on-surface font-semibold">Deliverable:</strong> Stack/Queue (Implementation + Monotonic) done. You understand how deep networks are actually trained in practice — not just the forward pass.</div></div></div>
+          <div class="text-xs sm:text-sm font-medium text-on-surface leading-relaxed deliverable-text">🎯 <strong class="text-on-surface font-semibold">February 1 – February 7, 2027</strong> — Focus: Binary Trees Medium FAQs; Binary Trees Ancestor & Paths; Build <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">micrograd</code> from Scratch (Part 2: The Neural Net); Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers; CN Transport Layer.</div>
         </section>
 
         <!-- Phase Navigation Tabs -->
@@ -74,418 +120,674 @@
 <a href="week-20.html" class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">W20</a>
         </section>
 
-        <!-- Days Grid (2 columns on desktop) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Mon">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Monday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_mon_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Implementation using different DS; Stack using Arrays; Queue using Arrays" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_mon_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Implementation using different DS; Stack using Arrays; Queue using Arrays">Implementation using different DS; Stack using Arrays; Queue using Arrays</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
+        <!-- 🔴 MUST — Critical Path Section -->
+        <section class="flex flex-col gap-3" id="section-must">
+          <div class="flex items-center justify-between pb-3 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <h2 class="font-headline text-base sm:text-lg font-bold text-on-surface tracking-tight">MUST &mdash; Critical Path</h2>
+              <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20 font-semibold">11 Tasks &bull; ~25.0h</span>
             </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_mon_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Deep Neural Networks Theory" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_mon_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Deep Neural Networks Theory">Deep Neural Networks Theory</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5"><strong class="text-on-surface font-semibold">Andrew Ng Deep Learning Specialization</strong> Course 1: Neural Networks & Deep Learning (Weeks 3–4: Deep L-layer neural networks, forward and backward propagation matrix equations)</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Tue">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Tuesday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_tue_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Stack using Queue; Queue using Stack" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_tue_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Stack using Queue; Queue using Stack">Stack using Queue; Queue using Stack</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_tue_corecs" data-track="corecs">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Transport Layer Fundamentals & UDP" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_tue_corecs" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Transport Layer Fundamentals & UDP">Transport Layer Fundamentals & UDP</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Transport layer duties, Port numbers, Sockets, Multiplexing/Demultiplexing, User Datagram Protocol (UDP) header, characteristics & use cases + Quiz</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Wed">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Wednesday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_wed_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Stack using LinkedList; Queue using LinkedList; Balanced Parenthesis" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_wed_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Stack using LinkedList; Queue using LinkedList; Balanced Parenthesis">Stack using LinkedList; Queue using LinkedList; Balanced Parenthesis</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_wed_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Optimization Algorithms" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_wed_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Optimization Algorithms">Optimization Algorithms</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Andrew Ng DL Spec Course 2: Improving Deep Neural Networks (Week 2: Mini-batch gradient descent, Exponentially Weighted Averages, Momentum, RMSprop, Adam optimizer, Learning Rate Decay)</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Thu">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Thursday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_thu_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Next Greater Element; Next Greater Element" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_thu_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Next Greater Element; Next Greater Element">Next Greater Element; Next Greater Element</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">2</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_thu_corecs" data-track="corecs">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Transmission Control Protocol (TCP) Deep Dive" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_thu_corecs" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CORE</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Transmission Control Protocol (TCP) Deep Dive">Transmission Control Protocol (TCP) Deep Dive</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">TCP Features, TCP Segment Header, 3-Way Handshake connection establishment, Sequence & Acknowledgement numbering, Reliable transmission & Retransmission timers</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Fri">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Friday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 2 done</span>
-                </div>
-              </div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_fri_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Asteroid Collision" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_fri_dsa" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Asteroid Collision">Asteroid Collision</span>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_fri_aiml" data-track="aiml">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Regularization & Hands-on PyTorch" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_fri_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Regularization & Hands-on PyTorch">Regularization & Hands-on PyTorch</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Andrew Ng DL Spec Course 2 (Weeks 1 & 3: L2 regularization/weight decay, Dropout, Batch Normalization) + <strong class="text-on-surface font-semibold">StatQuest</strong>: "Batch Normalization" & "Dropout" + build and train a feedforward NN in PyTorch on Fashion-MNIST</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-          <!-- Weekend Section Header / Divider -->
-          <div class="md:col-span-2 flex items-center gap-3 py-1">
-            <div class="h-px flex-1 bg-outline-variant/15"></div>
-            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
-              <span>⚡</span>
-              <span class="font-semibold">Weekend High-Load Execution</span>
-              <span class="text-primary/70">&bull; 8.0h Daily Deep Focus Lab</span>
-            </div>
-            <div class="h-px flex-1 bg-outline-variant/15"></div>
+            <span class="font-mono text-[11px] text-on-surface-variant/80 hidden sm:inline-block">Non-negotiable core curriculum</span>
           </div>
 
-          
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Sat">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Saturday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 3 done</span>
-                </div>
-              </div>
-              <div class="weekend-deferred-container px-5 pt-3" data-day="Sat"></div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_sat_dsa" data-track="dsa">
+          <div class="flex flex-col gap-4">
+            
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              DSA (Java)
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">5 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.5" data-task-id="w18_must_dsa_1" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Sum of Subarray Minimums; Sum of Subarray Ranges" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sat_dsa" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Binary Trees Medium FAQs" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_1" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
                     <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Sum of Subarray Minimums; Sum of Subarray Ranges">Sum of Subarray Minimums; Sum of Subarray Ranges</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Binary Trees Medium FAQs">Binary Trees Medium FAQs</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">6 problems</span>
                     
                   </div>
-                  
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Zigzag Traversal, Boundary Traversal, Vertical Order Traversal, Top View, Bottom View, Right/Left View. <em>TUF+ A2Z Step 13.2</em></div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w18_sat_aiml" data-track="aiml">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.5" data-task-id="w18_must_dsa_2" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: CNN Architecture & Convolutions from Scratch (4.0h)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sat_aiml" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="CNN Architecture & Convolutions from Scratch (4.0h)">CNN Architecture & Convolutions from Scratch (4.0h)</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Code 2D convolution and max-pooling operations in NumPy; visualize edge-detection filters and feature maps.</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
-              </div>
-            </div>
-
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_sat_aptitude" data-track="aptitude">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Quant M18 & Verbal/Logical" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sat_aptitude" type="button">
-                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
-                </button>
-                <div class="flex flex-col gap-1 min-w-0 flex-1">
-                  <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Quant M18 & Verbal/Logical">Quant M18 & Verbal/Logical</span>
-                    
-                  </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Quant M18 Trigonometry & Height/Distances (Basic & Advance) + Verbal/Logical Mixed Practice</div>
-                </div>
-              </div>
-              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
-              </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="day-card rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" data-day="Sun">
-              <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
-                <div class="flex items-center gap-2.5">
-                  <h3 class="font-headline text-sm font-semibold text-on-surface">Sunday</h3>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="day-badge day-progress font-mono text-xs text-on-surface-variant">0 / 3 done</span>
-                </div>
-              </div>
-              <div class="weekend-deferred-container px-5 pt-3" data-day="Sun"></div>
-              <div class="divide-y divide-outline-variant/10 text-body">
-                
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="1.5" data-task-id="w18_sun_dsa" data-track="dsa">
-              <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Remove K Digits + revision" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sun_dsa" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Binary Trees Ancestor & Paths" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_2" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
                     <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Remove K Digits + revision">Remove K Digits + revision</span>
-                    
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Binary Trees Ancestor & Paths">Binary Trees Ancestor & Paths</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">4 problems</span>
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #A</span>
                   </div>
-                  
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Path to Given Node, Lowest Common Ancestor (LCA), Maximum Width of Binary Tree, Children Sum Property. <em>TUF+ A2Z Step 13.2</em></div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">1.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="4.0" data-task-id="w18_sun_aiml" data-track="aiml">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="1.5" data-task-id="w18_must_dsa_3" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: PyTorch CNN Image Classifier Project (4.0h)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sun_aiml" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: DSA Transfer: No-Hint Timed Tree FAQs Set" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_3" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">AI/ML</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="PyTorch CNN Image Classifier Project (4.0h)">PyTorch CNN Image Classifier Project (4.0h)</span>
-                    
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="DSA Transfer: No-Hint Timed Tree FAQs Set">DSA Transfer: No-Hint Timed Tree FAQs Set</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">2 problems</span>
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #</span>
                   </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Build and train a CNN on CIFAR-10 in PyTorch; implement data augmentation (RandomCrop, Flip) and achieve >85% test accuracy.</div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Sit 2 unseen Tree FAQs problems you have never attempted (pick from the LeetCode topic tag, NeetCode “similar questions” or a company list; never a problem named in any learning task), at least 72 h after the learning task — move the set to the first half of next week if needed. Format: 25 min per problem (35 min for a Hard), including 5 min for edge cases and a dry run; no hints, no AI. Pass bar: ≥ 1/2 solved inside the time box; on a miss, log the miss reason in the Journal and re-sit a fresh pair within 7 days.</div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">4.0h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 1.5h</span>
               </div>
             </div>
 
-            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer " data-completed="false" data-hours="2.5" data-task-id="w18_sun_aptitude" data-track="aptitude">
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.0" data-task-id="w18_must_dsa_4" data-track="dsa">
               <div class="flex items-start gap-3.5 min-w-0 flex-1">
-                <button role="checkbox" aria-checked="false" aria-label="Toggle task: TCP Flow & Congestion Control" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_sun_aptitude" type="button">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: DP 1D Part II: Interview Staples" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_4" type="button">
                   <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
                 </button>
                 <div class="flex flex-col gap-1 min-w-0 flex-1">
                   <div class="flex flex-wrap items-center gap-2 min-w-0">
-                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
-                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="TCP Flow & Congestion Control">TCP Flow & Congestion Control</span>
-                    
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="DP 1D Part II: Interview Staples">DP 1D Part II: Interview Staples</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">4 problems</span>
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #213</span>
                   </div>
-                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Sliding Window flow control, TCP Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery), 4-Way FIN connection termination</div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">House Robber II (LC #213), Decode Ways (LC #91), Word Break (LC #139), Perfect Squares (LC #279). First DP revisit three weeks after DP 1D Foundations: write recurrence → memo → tabulation → space-optimised for each.</div>
                 </div>
               </div>
               <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-                <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">2.5h</span>
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.0h</span>
               </div>
             </div>
+
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.5" data-task-id="w18_must_dsa_5" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: DSA Daily Quota (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_5" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">DSA</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="DSA Daily Quota (Week 18)">DSA Daily Quota (Week 18)</span>
+                    <span class="px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 text-[10px] font-mono text-primary font-semibold shrink-0">4 problems</span>
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Solve 4 new problems from NeetCode 150 — Two Pointers & Binary Search (Pass 2); time-box each at 25 min before any hint (2.5h includes editorial on misses), then log pattern and miss reason in the Journal. Never repeat a problem already in the ledger.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.5h</span>
               </div>
             </div>
+          </div>
         </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Competitive Programming
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.5" data-task-id="w18_must_dsa_6" data-track="dsa">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Contest & Upsolving (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_dsa_6" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CP</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Contest & Upsolving (Week 18)">Contest & Upsolving (Week 18)</span>
+                    
+                    <span class="task-ref font-mono text-[10px] text-on-surface-variant/70 shrink-0">LC #</span>
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">LeetCode Weekly Contest (+ Codeforces Div.2/3 when it fits) and mandatory upsolving within 48 h.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.5h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Backend (Spring Boot)
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.0" data-task-id="w18_must_backend_7" data-track="backend">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_backend_7" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">SPRING</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers">Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Unit-test services with JUnit 5 + Mockito, slice-test controllers with MockMvc, and integration-test repositories against a Testcontainers PostgreSQL. Capstone milestone 3: ≥ 10 meaningful tests green in CI later. Why: backend interviews and real teams expect tested code.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Core CS (CN)
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="3.0" data-task-id="w18_must_corecs_8" data-track="corecs">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: CN Transport Layer" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_corecs_8" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">CN</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="CN Transport Layer">CN Transport Layer</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Port numbers, UDP vs TCP, TCP 3-way handshake, TCP 4-way termination, TCP segment structure, Reliability (sequence numbers, ACKs), Flow Control (Sliding Window), Congestion Control (Slow Start, Congestion Avoidance, Fast Retransmit, Fast Recovery). <em>TUF+ CN</em></div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 3.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Recruiting Pipeline
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="1.0" data-task-id="w18_must_professional_9" data-track="professional">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Recruiting Pipeline Weekly (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_professional_9" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">PIPELINE</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Recruiting Pipeline Weekly (Week 18)">Recruiting Pipeline Weekly (Week 18)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised outreach messages (alumni, seniors, recruiters) and log each in the Tracker; follow up open threads; ask for a referral 1–2 days after any OA invite; apply within 72 h of any new posting on the Target-40.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 1.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Mock Interviews
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="2.0" data-task-id="w18_must_professional_10" data-track="professional">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Mock Interview 3 (Java & CS Fundamentals Grill)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_professional_10" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">MOCK</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Mock Interview 3 (Java & CS Fundamentals Grill)">Mock Interview 3 (Java & CS Fundamentals Grill)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">60-min grill on Java collections/concurrency, OOPs, DBMS, OS and CN with depth-ladder follow-ups. Rubric: Java/CS grill (Architecture §15.5: accuracy + depth ladder + trade-offs).</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 2.0h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2">
+          <div class="px-2 flex items-center justify-between text-xs font-mono font-semibold text-primary/90">
+            <span class="flex items-center gap-2 uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Aptitude
+            </span>
+            <span class="text-on-surface-variant/60 font-normal">1 tasks</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body bg-surface-container-lowest/40 rounded-xl border border-white/5 overflow-hidden">
+            
+            <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3.5 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer rounded-lg border border-transparent hover:border-white/5" data-completed="false" data-hours="0.5" data-task-id="w18_must_aptitude_11" data-track="aptitude">
+              <div class="flex items-start gap-3.5 min-w-0 flex-1">
+                <button role="checkbox" aria-checked="false" aria-label="Toggle task: Aptitude Timed Drill (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_must_aptitude_11" type="button">
+                  <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+                </button>
+                <div class="flex flex-col gap-1 min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 min-w-0">
+                    <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-label-caps text-[10px] text-on-surface-variant font-semibold uppercase">APT</span>
+                    <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Aptitude Timed Drill (Week 18)">Aptitude Timed Drill (Week 18)</span>
+                    
+                    
+                  </div>
+                  <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">25-minute timed mixed set (quant, logical reasoning, data interpretation) from IndiaBix / PrepInsta-style banks; log accuracy and seconds per question in the Tracker. Target: ≥ 70% accuracy by W28.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+                <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">⏱ 0.5h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- 🟡 SHOULD — Depth & Mastery Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-should">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">SHOULD &mdash; Depth &amp; Mastery</h3>
+              <span class="font-mono text-xs text-amber-300/80">(8 Tasks)</span>
+            </div>
+            <span class="font-mono text-[11px] text-on-surface-variant/70">Execute when MUST pace is on track</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w18_should_corecs_1" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Structuring ML Projects)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Structuring ML Projects)">Structuring ML Projects)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Train/Dev/Test distributions, Error Analysis, Human-level performance baseline, Transfer Learning.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="3.0" data-task-id="w18_should_corecs_2" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Andrew Ng DL Course 4 (Convolutional Neural Networks)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_2" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CN</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Andrew Ng DL Course 4 (Convolutional Neural Networks)">Andrew Ng DL Course 4 (Convolutional Neural Networks)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Video lectures on conv layers, pooling, stride, padding.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 3.0h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w18_should_corecs_3" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Problem-Solving Journal Spaced Review (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_3" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Problem-Solving Journal Spaced Review (Week 18)">Problem-Solving Journal Spaced Review (Week 18)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Re-solve 3 tagged stack and two-pointer problems.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="1.5" data-task-id="w18_should_aptitude_4" data-track="aptitude">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Quant M18" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_aptitude_4" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">APT</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Quant M18">Quant M18</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Speed, Distance & Races.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 1.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="1.5" data-task-id="w18_should_corecs_5" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Company Research Database Updates (Week 18)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_5" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Company Research Database Updates (Week 18)">Company Research Database Updates (Week 18)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Compile core tech stack requirements for Track B banks (JPMorgan, Goldman Sachs, Morgan Stanley).</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 1.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="4.5" data-task-id="w18_should_corecs_6" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Neural Networks & Deep Learning)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_6" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Neural Networks & Deep Learning)">Neural Networks & Deep Learning)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Neural networks foundations, vectorization, computational graphs, activation functions, shallow and deep neural network forward/backprop. <em>Architecture §6.2</em></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 4.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="3.5" data-task-id="w18_should_corecs_7" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Improving Deep Neural Networks)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_corecs_7" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">CORE</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Improving Deep Neural Networks)">Improving Deep Neural Networks)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Hyperparameter tuning, weight initialization, L2 regularization, dropout, Batch Normalization, Adam optimizer.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 3.5h</span>
+          </div>
+        </div>
+
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="3.0" data-task-id="w18_should_aiml_8" data-track="aiml">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: The Engine)" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-amber-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_should_aiml_8" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-label-caps text-[10px] font-semibold uppercase">AI/ML</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="The Engine)">The Engine)</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Implement <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">Value</code> scalar class in pure Python: store <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">data</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">grad</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">_prev</code> children, and <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">_op</code>. Implement <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">+</code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5"><em></code>, <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">relu</code>, and backward pass using chain rule and topological DAG sort. </em>Architecture §6.1*</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-amber-300/70 font-mono-metric-md">⏱ 3.0h</span>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- 🟢 STRETCH — If Ahead Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-stretch">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">STRETCH &mdash; If Ahead</h3>
+              <span class="font-mono text-xs text-emerald-300/80">(1 Tasks)</span>
+            </div>
+            <span class="font-mono text-[11px] text-on-surface-variant/70">Bonus reps &amp; competitive advantage</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="2.0" data-task-id="w18_stretch_corecs_1" data-track="corecs">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: Kurose & Ross Chapter 3" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-emerald-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="w18_stretch_corecs_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-label-caps text-[10px] font-semibold uppercase">OS</span>
+                <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="Kurose & Ross Chapter 3">Kurose & Ross Chapter 3</span>
+              </div>
+              <div class="task-desc text-[12px] text-on-surface-variant leading-relaxed break-words font-normal pl-0.5 pt-0.5">Transport Layer reading on TCP Reno vs Tahoe.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
+            <span class="text-xs text-emerald-300/70 font-mono-metric-md">⏱ 2.0h</span>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        <!-- ✅ Weekly Clearance Gate Section -->
+        <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-primary/20 flex flex-col" id="section-gate">
+          <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[20px] text-primary">verified_user</span>
+              <h3 class="font-headline text-sm font-semibold text-on-surface">Weekly Clearance Gate</h3>
+            </div>
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-semibold" id="gate-status-pill">0 / 8 Cleared</span>
+          </div>
+          <div class="divide-y divide-outline-variant/10 text-body">
+            
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_1">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **DSA**: Have you completed “Binary Trees Medium FAQs” (Zigzag Traversal, Boundary Traversal, Vertical Order Traversal, Top View, Bottom View,…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_1" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Binary Trees Medium FAQs]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">DSA</strong>: Have you completed “Binary Trees Medium FAQs” (Zigzag Traversal, Boundary Traversal, Vertical Order Traversal, Top View, Bottom View,…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>one problem from this task re-solved cold in ≤ 25 min a week later, logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_2">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Can you implement Lowest Common Ancestor (LCA) in a Binary Tree in Java in under 15 minutes?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_2" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Binary Trees Ancestor & Paths]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Can you implement Lowest Common Ancestor (LCA) in a Binary Tree in Java in under 15 minutes?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>one problem from this task re-solved cold in ≤ 25 min a week later, logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_3">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **Backend**: Have you completed “Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers” (Unit-test services with JUnit 5 + Mockito, slice-test controllers with MockMvc, and…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_3" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">Backend</strong>: Have you completed “Testing Spring Apps: JUnit 5, Mockito, MockMvc, Testcontainers” (Unit-test services with JUnit 5 + Mockito, slice-test controllers with MockMvc, and…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>GitHub PR link with passing CI run.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_4">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **CN**: Have you completed “CN Transport Layer” (Port numbers, UDP vs TCP, TCP 3-way handshake, TCP 4-way termination, TCP segment…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_4" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: CN Transport Layer]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">CN</strong>: Have you completed “CN Transport Layer” (Port numbers, UDP vs TCP, TCP 3-way handshake, TCP 4-way termination, TCP segment…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>written answers in your notes repo.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_5">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **Recruiting Pipeline**: Have you completed “Recruiting Pipeline Weekly (Week 18)” (Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_5" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Recruiting Pipeline Weekly (Week 18)]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">Recruiting Pipeline</strong>: Have you completed “Recruiting Pipeline Weekly (Week 18)” (Calendar check against the Opportunity Calendar (Architecture §16); send ≥ 3 personalised…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>Tracker log shows ≥ 3 personalised outreach messages this week.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_6">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Have you completed “Mock Interview 3 (Java & CS Fundamentals Grill)” (60-min grill on Java collections/concurrency, OOPs, DBMS, OS and CN with depth-ladder…)?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_6" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: Mock Interview 3 (Java & CS Fundamentals Grill)]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Have you completed “Mock Interview 3 (Java & CS Fundamentals Grill)” (60-min grill on Java collections/concurrency, OOPs, DBMS, OS and CN with depth-ladder…)?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>rubric sheet saved in Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_7">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: **DSA**: Did you pass “DSA Transfer: No-Hint Timed Tree FAQs Set” — 2 unseen Tree FAQs problems, 25 min per problem, no hints, pass bar ≥ 1/2 solved?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_7" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-mono text-[11px] font-semibold shrink-0">[T: DSA Transfer: No-Hint Timed Tree FAQs Set]</span>
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150"><strong class="text-on-surface font-semibold">DSA</strong>: Did you pass “DSA Transfer: No-Hint Timed Tree FAQs Set” — 2 unseen Tree FAQs problems, 25 min per problem, no hints, pass bar ≥ 1/2 solved?</span>
+              </div>
+              <div class="mt-1 text-[11px] font-mono text-on-surface-variant flex items-center gap-1.5"><span class="text-primary font-semibold">Evidence:</span> <span>timed result and miss reasons logged in the Journal.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gate-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-gate-id="w18_gate_8">
+          <div class="flex items-start gap-3.5 min-w-0 flex-1">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle gate: Health & Guardrails: 1 full rest day taken every 2 weeks?" class="gate-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-gate-id="w18_gate_8" type="button">
+              <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
+            </button>
+            <div class="flex flex-col gap-1 min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2 min-w-0">
+                
+                <span class="gate-question font-body text-xs sm:text-[13px] text-on-surface leading-snug break-words transition-all duration-150">Health & Guardrails: 1 full rest day taken every 2 weeks?</span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+          </div>
+        </section>
+
+        
+        <!-- 🔄 If Behind / Life Interruption Protocol Box -->
+        <section class="rounded-xl cockpit-glass border border-amber-500/20 overflow-hidden p-5 flex flex-col gap-3">
+          <div class="flex items-center justify-between pb-2 border-b border-outline-variant/15">
+            <div class="flex items-center gap-2">
+              <span class="text-amber-400 text-sm">🔄</span>
+              <h3 class="text-sm font-semibold text-on-surface tracking-tight">If Behind / Life Interruption Protocol</h3>
+            </div>
+            <span class="text-[10px] font-mono text-amber-300 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">Triage Rule</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">When academic exams spike or weekly time slips, execute this contingency plan:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            <div class="p-3.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🛡️</span> <span>Protect (Non-Negotiable)</span>
+              </span>
+              <div class="text-emerald-200/90 font-medium leading-relaxed">Binary Trees Medium FAQs + Build <code class="px-1 py-0.5 rounded bg-surface-container font-mono text-[11px] text-primary border border-white/5">micrograd</code> from Scratch (Part 2: The Neural Net) + Recruiting Pipeline Weekly (Week 18)</div>
+            </div>
+            <div class="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs flex flex-col gap-1">
+              <span class="font-mono text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>📦</span> <span>Defer (Safe to Shift)</span>
+              </span>
+              <div class="text-amber-200/90 font-medium leading-relaxed">Andrew Ng DL (Course 3: Structuring ML Projects) → weekend; Andrew Ng DL Course 4 (Convolutional Neural Networks) → Week 19</div>
+            </div>
+          </div>
+        </section>
 
         <!-- Reflection & Technical Notes Journal -->
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 p-5 sm:p-6 flex flex-col gap-4" id="journal">
@@ -494,7 +796,7 @@
             <h3 class="text-sm font-semibold text-on-surface tracking-tight">Week 18 Technical Notes &amp; Journal</h3>
           </div>
           <div class="relative rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 focus-within:border-primary/60 focus-within:ring-1 focus-within:ring-primary/20 transition-all p-3.5">
-            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 border-0 outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none overflow-hidden block" style="outline: none !important; box-shadow: none !important; border: none !important;" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores..." rows="5"></textarea>
+            <textarea class="w-full bg-transparent font-mono text-xs text-on-surface leading-relaxed placeholder:text-outline/50 border-0 outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none overflow-hidden block" style="outline: none !important; box-shadow: none !important; border: none !important;" id="week-notes" placeholder="Type Markdown notes, LeetCode edge-cases, Kaggle validation scores, OA post-mortems..." rows="5"></textarea>
           </div>
           <div class="flex items-center gap-1.5 pt-1">
             <span class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/20 font-mono text-[10px] text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">#LeetCode</span>
@@ -508,8 +810,8 @@
     </div>
   </main>
 
-  <script src="../js/dashboard-summary.js?v=20260914_quote_v2"></script>
-  <script src="../js/app.js?v=20260914_quote_v2"></script>
+  <script src="../js/dashboard-summary.js?v=20261005_v6_2"></script>
+  <script src="../js/app.js?v=20261005_v6_2"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initWeekPage(18);

@@ -25,7 +25,7 @@ Built with a **local-first, zero-runtime-hydration** philosophy, अभ्या
 
 ### 🔍 Minimal Global Roadmap Search
 - **Browser-Find Native Widget**: Floating dark pill widget (`#1c1c1f`, `rounded-xl`) engineered with zero visual clutter. Hidden until shortcut keys are pressed.
-- **Sub-Millisecond Indexing**: Scans all 800+ tasks, deliverables, and titles across 50 weeks in under 1ms entirely in-memory.
+- **Sub-Millisecond Indexing**: Scans all 680+ tasks, gate criteria, and titles across 50 weeks in under 1ms entirely in-memory.
 - **Horizontal Arrow Iteration**: Navigate search results forward (`>`) and backward (`<`) across weeks using on-screen chevrons or keyboard arrows (`ArrowRight` / `ArrowLeft`, `Enter` / `Shift+Enter`).
 - **Cross-Week Auto-Routing**: When advancing to a match in another week, अभ्यास automatically routes to that page (`week-XX.html?q=...&m=...#taskId`), highlights the card with a pulsing violet outline (`.task-search-highlight`), and smoothly centers it in the viewport.
 - **Clickable Week Badges**: Interactive pill tags (e.g. `W08 Sun`) display match location and jump immediately to that week when clicked.
