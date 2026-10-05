@@ -50,7 +50,7 @@
   --success: #c0c1ff;
   --success-bg: rgba(192, 193, 255, 0.14);
   --success-border: rgba(192, 193, 255, 0.3);
-  --streak-flame: #a78bfa;
+  --streak-flame: #c0c1ff;
   
   --warning: #8083ff;
   --warning-bg: rgba(128, 131, 255, 0.14);
@@ -58,14 +58,14 @@
   /* Track Badges (Dark) - Minimal purple family harmonious palette */
   --tag-dsa-bg: rgba(192, 193, 255, 0.14);
   --tag-dsa-text: #c0c1ff;
-  --tag-aiml-bg: rgba(167, 139, 250, 0.14);
-  --tag-aiml-text: #c4b5fd;
-  --tag-corecs-bg: rgba(128, 131, 255, 0.14);
+  --tag-aiml-bg: rgba(128, 131, 255, 0.14);
+  --tag-aiml-text: #c0c1ff;
+  --tag-corecs-bg: rgba(192, 193, 255, 0.10);
   --tag-corecs-text: #c0c1ff;
-  --tag-backend-bg: rgba(139, 92, 246, 0.14);
-  --tag-backend-text: #ddd6fe;
-  --tag-aptitude-bg: rgba(168, 85, 247, 0.14);
-  --tag-aptitude-text: #e9d5ff;
+  --tag-backend-bg: rgba(128, 131, 255, 0.18);
+  --tag-backend-text: #c0c1ff;
+  --tag-aptitude-bg: rgba(192, 193, 255, 0.12);
+  --tag-aptitude-text: #c0c1ff;
 
   /* Heatmap Levels (Dark) */
   --heat-lvl-0: #1f1f23;
@@ -1615,7 +1615,7 @@ body.page-leaving {
 }
 
 .auth-status-msg.error {
-  color: #c4b5fd;
+  color: var(--accent-primary);
 }
 
 .auth-status-msg.info {

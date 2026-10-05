@@ -592,13 +592,13 @@ def generate_week_page(week, total_weeks, all_weeks):
 
     cap_pct = min(100, int((must_hours / cap_hours * 100))) if cap_hours > 0 else 0
 
-    # Label styling (Purple family)
+    # Label styling (Primary theme palette)
     if "Golden" in cap_label:
-        badge_style = "bg-primary/20 text-primary border-primary/40"
+        badge_style = "bg-primary/20 text-primary border-primary/40 font-semibold"
     elif "Reduced" in cap_label:
-        badge_style = "bg-purple-500/15 text-purple-300 border-purple-500/30"
+        badge_style = "bg-primary/10 text-primary/80 border-primary/20"
     elif "Buffer" in cap_label or cap_hours == 0:
-        badge_style = "bg-violet-500/15 text-violet-300 border-violet-500/30"
+        badge_style = "bg-surface-container-high text-on-surface-variant border-outline-variant/30"
     else:
         badge_style = "bg-primary/10 text-primary/80 border-primary/20"
 
@@ -674,19 +674,19 @@ def generate_week_page(week, total_weeks, all_weeks):
         should_cards.append(f'''
         <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="{t['hours']}" data-task-id="{task_id}" data-track="{track_class}">
           <div class="flex items-start gap-3.5 min-w-0 flex-1">
-            <button role="checkbox" aria-checked="false" aria-label="Toggle task: {clean_title}" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-purple-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: {clean_title}" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
               <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
             </button>
             <div class="flex flex-col gap-1 min-w-0 flex-1">
               <div class="flex flex-wrap items-center gap-2 min-w-0">
-                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20 font-label-caps text-[10px] font-semibold uppercase">{track_tag}</span>
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 font-label-caps text-[10px] font-semibold uppercase">{track_tag}</span>
                 <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="{clean_title}">{t['title_html']}</span>
               </div>
               {desc_html}
             </div>
           </div>
           <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-            <span class="text-xs text-purple-300/70 font-mono-metric-md">{t['hours']}h</span>
+            <span class="text-xs text-on-surface-variant/70 font-mono-metric-md">{t['hours']}h</span>
           </div>
         </div>''')
 
@@ -704,19 +704,19 @@ def generate_week_page(week, total_weeks, all_weeks):
         stretch_cards.append(f'''
         <div class="task-card group flex items-start justify-between px-4 sm:px-5 py-3 hover:bg-surface-container-highest/30 transition-colors duration-150 cursor-pointer" data-completed="false" data-hours="{t['hours']}" data-task-id="{task_id}" data-track="{track_class}">
           <div class="flex items-start gap-3.5 min-w-0 flex-1">
-            <button role="checkbox" aria-checked="false" aria-label="Toggle task: {clean_title}" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-violet-400 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
+            <button role="checkbox" aria-checked="false" aria-label="Toggle task: {clean_title}" class="task-toggle-btn task-checkbox checkbox-spring shrink-0 mt-0.5 w-4 h-4 rounded-[3px] bg-surface-container-lowest border border-outline-variant/50 group-hover:border-primary/60 flex items-center justify-center shadow-sm cursor-pointer" data-task-id="{task_id}" type="button">
               <span class="material-symbols-outlined text-[13px] text-on-primary font-bold opacity-0 transition-opacity">check</span>
             </button>
             <div class="flex flex-col gap-1 min-w-0 flex-1">
               <div class="flex flex-wrap items-center gap-2 min-w-0">
-                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-violet-500/10 text-violet-300 border border-violet-500/20 font-label-caps text-[10px] font-semibold uppercase">{track_tag}</span>
+                <span class="task-tag shrink-0 px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-on-surface-variant font-label-caps text-[10px] font-semibold uppercase">{track_tag}</span>
                 <span class="task-title font-body-md text-xs sm:text-[13px] text-on-surface font-semibold leading-snug break-words transition-all duration-150" title="{clean_title}">{t['title_html']}</span>
               </div>
               {desc_html}
             </div>
           </div>
           <div class="flex items-center gap-2.5 shrink-0 pl-3 pt-0.5">
-            <span class="text-xs text-violet-300/70 font-mono-metric-md">{t['hours']}h</span>
+            <span class="text-xs text-on-surface-variant/60 font-mono-metric-md">{t['hours']}h</span>
           </div>
         </div>''')
 
@@ -788,7 +788,7 @@ def generate_week_page(week, total_weeks, all_weeks):
               <div class="text-on-surface font-medium leading-relaxed">{format_cell_html(protect_content)}</div>
             </div>
             <div class="p-3.5 rounded-lg bg-surface-container/60 border border-outline-variant/20 text-xs flex flex-col gap-1">
-              <span class="font-mono text-[10px] font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
+              <span class="font-mono text-[10px] font-bold text-on-surface-variant uppercase tracking-wider flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[14px]">schedule</span> <span>Defer (Safe to Shift)</span>
               </span>
               <div class="text-on-surface-variant font-medium leading-relaxed">{format_cell_html(defer_content)}</div>
@@ -926,9 +926,9 @@ def generate_week_page(week, total_weeks, all_weeks):
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-should">
           <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-2.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-primary/70"></span>
               <h3 class="font-headline text-sm font-semibold text-on-surface">SHOULD &mdash; Depth &amp; Mastery</h3>
-              <span class="font-mono text-xs text-purple-300/80">({len(week['should_tasks'])} Tasks)</span>
+              <span class="font-mono text-xs text-primary/70">({len(week['should_tasks'])} Tasks)</span>
             </div>
             <span class="font-mono text-[11px] text-on-surface-variant/70">Execute when MUST pace is on track</span>
           </div>
@@ -941,9 +941,9 @@ def generate_week_page(week, total_weeks, all_weeks):
         <section class="rounded-xl cockpit-glass overflow-hidden shadow-xl border border-white/5 flex flex-col" id="section-stretch">
           <div class="px-5 py-3.5 border-b border-outline-variant/15 flex items-center justify-between gap-3 bg-surface-container-lowest/50">
             <div class="flex items-center gap-2.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-violet-400/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-primary/40"></span>
               <h3 class="font-headline text-sm font-semibold text-on-surface">STRETCH &mdash; If Ahead</h3>
-              <span class="font-mono text-xs text-violet-300/80">({len(week['stretch_tasks'])} Tasks)</span>
+              <span class="font-mono text-xs text-on-surface-variant/70">({len(week['stretch_tasks'])} Tasks)</span>
             </div>
             <span class="font-mono text-[11px] text-on-surface-variant/70">Bonus reps &amp; competitive advantage</span>
           </div>

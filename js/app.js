@@ -203,7 +203,7 @@ const AuthManager = {
 
     if (!cleanPass) {
       if (statusEl) {
-        statusEl.className = 'auth-status-msg error text-xs text-purple-300 font-mono mb-3';
+        statusEl.className = 'auth-status-msg error text-xs text-primary font-mono mb-3';
         statusEl.textContent = 'Please enter your password.';
       }
       const passInput = document.getElementById('auth-password-input');
@@ -249,7 +249,7 @@ const AuthManager = {
     }
 
     if (statusEl) {
-      statusEl.className = 'auth-status-msg error text-xs text-purple-300 font-mono mb-3';
+      statusEl.className = 'auth-status-msg error text-xs text-primary font-mono mb-3';
       statusEl.textContent = 'Incorrect password. Access Denied.';
     }
     if (unlockBtn) {
@@ -1901,11 +1901,11 @@ function initHourCalibration(weekNum) {
       slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; On Track`;
       slippageBadge.title = 'Slippage ratio ≤ 1.10: Solid pace within healthy velocity.';
     } else if (ratio <= 1.25) {
-      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/35 flex items-center gap-1 font-semibold';
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-primary/25 text-primary border border-primary/40 flex items-center gap-1 font-semibold';
       slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; Watch Slippage`;
       slippageBadge.title = 'Slippage ratio 1.11–1.25: Velocity warning. Watch for hidden time sinks.';
     } else {
-      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-violet-900/40 text-violet-200 border border-violet-500/40 flex items-center gap-1 font-bold animate-pulse';
+      slippageBadge.className = 'font-mono text-[11px] px-2.5 py-0.5 rounded bg-primary-container/30 text-primary border border-primary-container/60 flex items-center gap-1 font-bold animate-pulse';
       slippageBadge.innerHTML = `${ratio.toFixed(2)}x &bull; Trigger Rung 2 Scope-Cut!`;
       slippageBadge.title = 'Slippage ratio > 1.25: Scope-Cut Ladder Rung 2 applies (drop SHOULD tasks, protect MUST).';
     }
@@ -2956,7 +2956,7 @@ const GlobalSearch = {
     if (this.matches.length === 0) {
       if (countEl) {
         countEl.textContent = '0/0';
-        countEl.className = 'text-xs font-mono text-purple-300 min-w-[34px] text-right shrink-0';
+        countEl.className = 'text-xs font-mono text-on-surface-variant/60 min-w-[34px] text-right shrink-0';
       }
       if (weekPill) weekPill.style.display = 'none';
       if (prevBtn) prevBtn.disabled = true;
