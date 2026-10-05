@@ -599,7 +599,7 @@ const AppState = {
       if (stored) {
         const parsed = JSON.parse(stored);
         if (parsed && typeof parsed === 'object') {
-          const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+          const validPattern = /^w\d+(_[a-z0-9]+)+$/;
           const cleanTasks = {};
           const cleanMeta = {};
           Object.keys(parsed.tasks || {}).forEach(k => {
@@ -696,7 +696,7 @@ const AppState = {
     }
 
     // 3. Conflict resolution (only if local edits happened while offline): Last-Write-Wins per task
-    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+    const validPattern = /^w\d+(_[a-z0-9]+)+$/;
     const localTasks = this.data.tasks || {};
     const cloudTasks = cloudData.tasks || {};
     const localMeta = this.data.taskMeta || {};
@@ -977,7 +977,7 @@ window.AuthManager = AuthManager;
 // ==========================================================================
 const StreakEngine = {
   getStats(activityLog = {}) {
-    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+    const validPattern = /^w\d+(_[a-z0-9]+)+$/;
     const completedCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k] && validPattern.test(k)).length;
     if (completedCount === 0) {
       return { current: 0, longest: 0, totalDays: 0, todayDone: false };
@@ -2304,7 +2304,7 @@ function initDashboard(roadmapData = window.DASHBOARD_DATA || window.ROADMAP_DAT
     const todayStr = new Date(todayUtc).toISOString().slice(0, 10);
 
     // Synchronize tasks completed in AppState.data.tasks to activityLog for today if needed
-    const validPattern = /^w\d+_[a-z]+_[a-z0-9]+$/;
+    const validPattern = /^w\d+(_[a-z0-9]+)+$/;
     const tasksDoneCount = Object.keys(AppState.data.tasks || {}).filter(k => AppState.data.tasks[k] && validPattern.test(k)).length;
     if (tasksDoneCount === 0) {
       AppState.data.activityLog = {};
